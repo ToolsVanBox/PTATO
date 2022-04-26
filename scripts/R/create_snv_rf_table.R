@@ -33,9 +33,18 @@ get_ab_table <- function( fname ) {
 
 get_feature_table <- function( fname ) {
   df <- read.table(fname)
+  
+  if (!file.size(fname)){
+    df <- data.frame("CHROM" = NA, "START" = NA, "END" = NA, "CONTEXT" = NA, "SCORE" = NA, "STRAND" = NA, "DONOR_ID" = NA)[-1,]
+    return( df )
+  }  
 
   # Select only snvs
   df <- df[grepl(">",df$V4),]
+  if ( nrow(df) == 0 ) {
+    df <- data.frame("CHROM" = NA, "START" = NA, "END" = NA, "CONTEXT" = NA, "SCORE" = NA, "STRAND" = NA, "DONOR_ID" = NA)[-1,]
+    return( df )
+  }
 
   # Create test data matrix
   feature.data <- matrix(unlist(strsplit(as.character(df$V8),";")),ncol=4,byrow = T)

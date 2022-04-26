@@ -12,23 +12,6 @@ muttype_levels <- c(
   "2bp_insertion","3bp_insertion","4bp_insertion","5+bp_insertion",
   "2bp_deletion_with_microhomology","3bp_deletion_with_microhomology","4bp_deletion_with_microhomology","5+bp_deletion_with_microhomology"
 )
-#   "C_deletion_0","C_deletion_1","C_deletion_2","C_deletion_3","C_deletion_4","C_deletion_5","C_deletion_6+",
-#   "T_deletion_0","T_deletion_1","T_deletion_2","T_deletion_3","T_deletion_4","T_deletion_5","T_deletion_6+",
-#   "C_insertion_0","C_insertion_1","C_insertion_2","C_insertion_3","C_insertion_4","C_insertion_5+",
-#   "T_insertion_0","T_insertion_1","T_insertion_2","T_insertion_3","T_insertion_4","T_insertion_5+",
-#   "2bp_deletion_0","2bp_deletion_1","2bp_deletion_2","2bp_deletion_3","2bp_deletion_4","2bp_deletion_5","2bp_deletion_6+",
-#   "3bp_deletion_0","3bp_deletion_1","3bp_deletion_2","3bp_deletion_3","3bp_deletion_4","3bp_deletion_5","3bp_deletion_6+",
-#   "4bp_deletion_0","4bp_deletion_1","4bp_deletion_2","4bp_deletion_3","4bp_deletion_4","4bp_deletion_5","4bp_deletion_6+",
-#   "5+bp_deletion_0","5+bp_deletion_1","5+bp_deletion_2","5+bp_deletion_3","5+bp_deletion_4","5+bp_deletion_5","5+bp_deletion_6+",
-#   "2bp_insertion_0","2bp_insertion_1","2bp_insertion_2","2bp_insertion_3","2bp_insertion_4","2bp_insertion_5+",
-#   "3bp_insertion_0","3bp_insertion_1","3bp_insertion_2","3bp_insertion_3","3bp_insertion_4","3bp_insertion_5+",
-#   "4bp_insertion_0","4bp_insertion_1","4bp_insertion_2","4bp_insertion_3","4bp_insertion_4","4bp_insertion_5+",
-#   "5+bp_insertion_0","5+bp_insertion_1","5+bp_insertion_2","5+bp_insertion_3","5+bp_insertion_4","5+bp_insertion_5+",
-#   "2bp_deletion_with_microhomology_0","2bp_deletion_with_microhomology_1","2bp_deletion_with_microhomology_2","2bp_deletion_with_microhomology_3","2bp_deletion_with_microhomology_4","2bp_deletion_with_microhomology_5+",
-#   "3bp_deletion_with_microhomology_0","3bp_deletion_with_microhomology_1","3bp_deletion_with_microhomology_2","3bp_deletion_with_microhomology_3","3bp_deletion_with_microhomology_4","3bp_deletion_with_microhomology_5+",
-#   "4bp_deletion_with_microhomology_0","4bp_deletion_with_microhomology_1","4bp_deletion_with_microhomology_2","4bp_deletion_with_microhomology_3","4bp_deletion_with_microhomology_4","4bp_deletion_with_microhomology_5+",
-#   "5bp_deletion_with_microhomology_0","5+bp_deletion_with_microhomology_1","5+bp_deletion_with_microhomology_2","5+bp_deletion_with_microhomology_3","5+bp_deletion_with_microhomology_4","5+bp_deletion_with_microhomology_5+"
-# )
 
 get_ab_table <- function( fname ) {
   df <- read.table(fname,header=T)
@@ -54,9 +37,18 @@ get_ab_table <- function( fname ) {
 
 get_feature_table <- function( fname ) {
   df <- read.table(fname)
-
-  # Select only snvs
+    
+  if (!file.size(fname)){
+      df <- data.frame("CHROM" = NA, "START" = NA, "END" = NA, "CONTEXT" = NA, "SCORE" = NA, "STRAND" = NA, "DONOR_ID" = NA)[-1,]
+      return( df )
+  }  
+        
+  # Select only indels
   df <- df[!grepl(">",df$V4),]
+  if ( nrow(df) == 0 ) {
+      df <- data.frame("CHROM" = NA, "START" = NA, "END" = NA, "CONTEXT" = NA, "SCORE" = NA, "STRAND" = NA, "DONOR_ID" = NA)[-1,]
+      return( df )
+  }
 
   # Create test data matrix
   feature.data <- matrix(unlist(strsplit(as.character(df$V8),";")),ncol=4,byrow = T)
