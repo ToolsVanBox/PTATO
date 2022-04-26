@@ -1,2 +1,2 @@
 # PTATO
-PTa Analysis Toolkit
+PTa Analysis TOolkit
