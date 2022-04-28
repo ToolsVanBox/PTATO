@@ -20,7 +20,7 @@ workflow closest_feature {
     features_beds = merge.out
       .map{ donor_id, sample_id, bed ->
         bed_name = bed.getName()
-        bed = bed.copyTo("${params.out_dir}/intermediate/features/${donor_id}/${sample_id}/${bed_name}")
+        bed = bed.copyTo("${params.out_dir}/intermediate/short_variants/features/${donor_id}/${sample_id}/${bed_name}")
         [ donor_id, sample_id, bed ]
       }
 

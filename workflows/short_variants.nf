@@ -9,7 +9,7 @@ include {
   extractFeaturesBedFromDir;
   extractPtaVcfGzFromDir;
   extractNoptaVcfGzFromDir;
-} from '../NextflowModules/Utils/getFilesFromDir.nf'
+} from '../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
 include { get_ab_tables } from './short_variants/get_ab_tables.nf' params(params)
 include { get_walker_vcfs } from './short_variants/get_walker_vcfs.nf' params(params)
@@ -19,7 +19,7 @@ include { closest_feature } from './short_variants/get_features_beds.nf' params(
 include { intersect_feature } from './short_variants/get_features_beds.nf' params(params)
 include { merge_features } from './short_variants/get_features_beds.nf' params(params)
 
-include { SplitVcfs } from '../NextflowModules/GATK/4.1.3.0/SplitVcfs.nf'
+include { SplitVcfs } from '../NextflowModules/GATK/4.1.3.0/SplitVcfs.nf' params(params)
 include { bgzip } from '../NextflowModules/htslib/1.15/bgzip.nf' params(params)
 include { tabix } from '../NextflowModules/htslib/1.15/tabix.nf' params(params)
 

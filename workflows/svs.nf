@@ -4,7 +4,7 @@ nextflow.enable.dsl=2
 include {
   extractGridssUnfilteredVcfGzFromDir;
   extractGripssSomaticFilteredVcfGzFromDir
-} from '../NextflowModules/Utils/getFilesFromDir.nf'
+} from '../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
 include { get_gridss_vcfs } from './svs/get_gridss_vcfs.nf' params(params)
 include { get_gripss_vcfs } from './svs/get_gripss_vcfs.nf' params(params)
