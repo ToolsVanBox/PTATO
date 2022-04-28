@@ -1,6 +1,7 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2
 
+include { GetSampleName } from './NextflowModules/GATK/4.1.3.0/GetSampleName.nf' params(params)
 include { get_germline_vcfs } from './workflows/germline.nf' params(params)
 include { short_variants_train } from './workflows/short_variants.nf' params(params)
 include {
@@ -25,14 +26,4 @@ workflow {
         short_variants_train( input_vcfs, bams, germline_vcfs )
       }
     }
-
-    // if ( params.QC ) {
-    //   qc()
-    // }
-    // if ( params.snvs ) {
-      // snvs( germline_vcfs )
-    // }
-    // if ( params.svs ) {
-    //   svs()
-    // }
 }

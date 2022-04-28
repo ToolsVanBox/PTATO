@@ -13,7 +13,6 @@ out_file <- args[4]
 if (!nrow(test.data) & !length(myvcf)){
 
     meta(header(myvcf))$PTArandomforest <- DataFrame("Value" = paste0('"', args[1], ' ', '"'), row.names = "PTArandomforest")
-    # meta(header(myvcf))$contig <- contig_header
 
     infoheader <- rbind(info(header(myvcf)), "PTAprob" = DataFrame("Number" = "1", "Type" = "Float", "Description" = "PTA probability value"))
     rownames(infoheader) <- c(rownames(info(header(myvcf))),"PTAprob")

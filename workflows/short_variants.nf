@@ -152,7 +152,7 @@ workflow short_variants_train {
       features_beds = merge_features.out
     }
 
-    if( params.snvs || params.indels ) {
+    if( params.run.snvs || params.run.indels ) {
       label_info = pta_vcfs.map{
         donor_id, sample_id, vcf_files, tbi_files ->
         [ donor_id, sample_id ]
@@ -165,10 +165,10 @@ workflow short_variants_train {
         }
         .combine( Channel.from('noPTA') )
       )
-      if ( params.snvs ) {
+      if ( params.run.snvs ) {
         snvs_train( ab_tables, features_beds, label_info )
       }
-      if ( params.indels ) {
+      if ( params.run.indels ) {
         indels_train( ab_tables, features_beds, label_info )
       }
     }

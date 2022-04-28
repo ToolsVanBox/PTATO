@@ -14,6 +14,6 @@ process getContext {
     host=\$(hostname)
     echo \${host}
 
-    cat ${baseDir}/scripts/R/get_context.R | R --slave --args ${vcf} ${sample_id}.context.bed
+    cat ${baseDir}/scripts/R/get_context.R | R --slave --args ${vcf} ${sample_id}.context.bed ${params.ref_genome}
     """
 }

@@ -1,6 +1,5 @@
-library(BSgenome.Hsapiens.UCSC.hg38)
-ref_genome <- "BSgenome.Hsapiens.UCSC.hg38"
 library(VariantAnnotation)
+
 args = commandArgs(trailingOnly=TRUE)
 
 # test if there is an argument: if not, return an error
@@ -9,7 +8,11 @@ if (length(args)==0) {
 } else {
   vcf_file = args[1]
   out_file = args[2]
+  ref_genome = args[3]
 }
+
+library( ref_genome, character.only = TRUE )
+
 #' Get indel contexts
 #'
 #' @details
@@ -165,10 +168,6 @@ get_indel_context <- function(vcf_list, ref_genome) {
 
   # Get the deleted bases
   changed_bases <- unlist(lapply(as.character(gr$REF),function(x) { substring(x,2,2) }))
-  # changed_bases <- gr %>%
-  #   .get_ref() %>%
-  #   as.character() %>%
-  #   substring(2)
 
   # Remove any potential names from the ALT column so str_replace_all will work
   names(changed_bases) <- NULL
@@ -650,8 +649,8 @@ select_context_snv = function(gr) {
   start2 = end(gr)+1
   end2 = as.integer( end(gr) + 10 )
   strand = as.character( strand(gr) )
-  context1 = getSeq(Hsapiens, names = chr, start =start1 , end = end1 ,strand = strand, as.character = T )
-  context2 = getSeq(Hsapiens, names = chr, start =start2 , end = end2 ,strand = strand, as.character = T )
+  context1 = Biostrings::getSeq(BSgenome::getBSgenome(ref_genome), names = chr, start =start1 , end = end1 ,strand = strand, as.character = T )
+  context2 = Biostrings::getSeq(BSgenome::getBSgenome(ref_genome), names = chr, start =start2 , end = end2 ,strand = strand, as.character = T )
 
   context_tmp <- context1[which(strand == '-')]
   context1[which(strand == '-')] <- context2[which(strand == '-')]
@@ -684,8 +683,8 @@ select_context_indel = function(gr) {
   start2 = end(gr)+1
   end2 = as.integer( end(gr) + 10 )
   strand = as.character( strand(gr) )
-  context1 = getSeq(Hsapiens, names = chr, start =start1 , end = end1 ,strand = strand, as.character = T )
-  context2 = getSeq(Hsapiens, names = chr, start =start2 , end = end2 ,strand = strand, as.character = T )
+  context1 = Biostrings::getSeq(BSgenome::getBSgenome(ref_genome), names = chr, start =start1 , end = end1 ,strand = strand, as.character = T )
+  context2 = Biostrings::getSeq(BSgenome::getBSgenome(ref_genome), names = chr, start =start2 , end = end2 ,strand = strand, as.character = T )
 
   gr$context = paste(context1,"(",gr$indeltype,")",context2,sep="")
 
@@ -710,8 +709,6 @@ rename_indel_types = function( gr ) {
   if ( length(which(grepl("deletion", gr$muttype) & as.numeric(gr$muttype_sub) >= 6)) ) {
     gr[which(grepl("deletion", gr$muttype) & as.numeric(gr$muttype_sub) >= 6),]$muttype_sub <- "6+"
   }
-  # gr[which(grepl("insertion|microhomology", gr$muttype) & gr$muttype_sub >= 5),]$muttype_sub <- "5+"
-  # gr[which(grepl("deletion", gr$muttype) & gr$muttype_sub >= 6),]$muttype_sub <- "6+"
 
   gr$indeltype <- paste(gr$muttype,gr$muttype_sub,sep="-")
 
@@ -756,56 +753,19 @@ get_context = function(gr_in, output_file){
   write.table(df, file=output_file, quote=F, sep="\t", row.names=F, col.names=F)
 }
 
-# get_context = function(grl, output_file, n_cores = 1){
-#
-#   grl_snvs = mclapply(grl, FUN = select_snvs, mc.cores = n_cores)
-#   grl_snvs_context = mclapply(grl_snvs, FUN= select_context_snv, mc.cores = n_cores)
-#
-#   grl_indels = mclapply(grl, FUN = select_indels, mc.cores = n_cores)
-#
-#   grl_indels_muttypes = get_indel_context( grl_indels, ref_genome )
-#   grl_indels_muttypes = mclapply(grl_indels_muttypes, FUN= rename_indel_types, mc.cores = n_cores)
-#   grl_indels_context = mclapply(grl_indels_muttypes, FUN= select_context_indel, mc.cores = n_cores)
-#
-#   for (name in names(grl)) {
-#     gr_snvs = grl_snvs_context[[name]]
-#     if (!is.null(gr_snvs) ) {
-#       df_snvs <- data.frame(seqnames=gsub("chr","",seqnames(gr_snvs)),
-#                      starts=start(gr_snvs)-1,
-#                      ends=end(gr_snvs),
-#                      names=gr_snvs$context,
-#                      scores=c(rep(".", length(gr_snvs))),
-#                      strands=strand(gr_snvs)
-#       )
-#     } else {
-#       df_snvs <- data.frame()
-#     }
-#     gr_indels = grl_indels_context[[name]]
-#     if (!is.null(gr_indels) ) {
-#       df_indels <- data.frame(seqnames=gsub("chr","",seqnames(gr_indels)),
-#                        starts=start(gr_indels)-1,
-#                        ends=end(gr_indels),
-#                        names=gr_indels$context,
-#                        scores=c(rep(".", length(gr_indels))),
-#                        strands=strand(gr_indels)
-#       )
-#     } else {
-#       df_indels <- data.frame()
-#     }
-#     df <- rbind(df_snvs, df_indels)
-#     write.table(df, file=output_file, quote=F, sep="\t", row.names=F, col.names=F)
-#   }
-# }
-
 vcf_name <- gsub(".+/(.+).vcf","\\1",vcf_file)
 
-chroms <- c(1:22,"X","Y")
-
+chroms <- seqlevels(SeqinfoForBSGenome(genome = ref_genome))
 vcf = readVcf(vcf_file)
+
+if ( grepl('chr', chroms[1], ignore.case = T) & !grepl('chr', as.character(seqnames(vcf)[1]), ignore.case = T) ) {
+  seqlevels(vcf) <- paste0("chr", seqlevels(vcf))
+}
+if ( !grepl('chr', chroms[1], ignore.case = T) & grepl('chr', as.character(seqnames(vcf)[1]), ignore.case = T) ) {
+  seqlevels(vcf) <- gsub("chr", "", seqlevels(vcf))
+}
+
 vcf <- vcf[which(seqnames(vcf) %in% chroms),]
 gr = granges(vcf)
-
-#seqlevelsStyle(gr) = "UCSC"
-seqlevels(gr) = paste0("chr", seqlevels(gr))
 
 get_context(gr, out_file)

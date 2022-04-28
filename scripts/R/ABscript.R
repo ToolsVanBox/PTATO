@@ -1,6 +1,4 @@
 library(VariantAnnotation)
-# library(ggplot2)
-# library(gridExtra)
 
 # Get arguments
 args = commandArgs(trailingOnly=TRUE)
@@ -10,6 +8,7 @@ phased_germline_vcf_fname <- args[3]
 chrom <- args[4]
 bulkname <- args[5]
 output_file <- args[6]
+ref_genome <- args[7]
 flank <- 200000
 
 somatic_vcf <- readVcf(somatic_vcf_fname)
@@ -19,8 +18,8 @@ AB_somatic <- function( somatic_mut ) {
   rngs <- GRanges(as.character(seqnames(somatic_mut)), IRanges(start(somatic_mut)-flank,start(somatic_mut)+flank))
   param <- ScanVcfParam( which = rngs )
 
-  germline_vcf <- readVcf(germline_vcf_fname, "hg38", param)
-  phased_germline_vcf <- readVcf( phased_germline_vcf_fname, "hg38", param)
+  germline_vcf <- readVcf(germline_vcf_fname, ref_genome, param)
+  phased_germline_vcf <- readVcf( phased_germline_vcf_fname, ref_genome, param)
 
   germline_vcf_phased_pos <- germline_vcf[which(start(germline_vcf) %in% start(phased_germline_vcf)),]
   phased_germline_vcf <- phased_germline_vcf[which(start(phased_germline_vcf) %in% start(germline_vcf_phased_pos)),]

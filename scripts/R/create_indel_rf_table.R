@@ -1,5 +1,4 @@
 library(randomForest)
-# library(dplyr)
 
 args <- commandArgs(trailingOnly = TRUE)
 ab <- args[1]
@@ -37,12 +36,12 @@ get_ab_table <- function( fname ) {
 
 get_feature_table <- function( fname ) {
   df <- read.table(fname)
-    
+
   if (!file.size(fname)){
       df <- data.frame("CHROM" = NA, "START" = NA, "END" = NA, "CONTEXT" = NA, "SCORE" = NA, "STRAND" = NA, "DONOR_ID" = NA)[-1,]
       return( df )
-  }  
-        
+  }
+
   # Select only indels
   df <- df[!grepl(">",df$V4),]
   if ( nrow(df) == 0 ) {
