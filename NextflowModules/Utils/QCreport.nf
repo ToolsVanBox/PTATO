@@ -17,6 +17,6 @@ process QCreport {
     host=\$(hostname)
     echo \${host}
 
-    cat ${baseDir}/scripts/R/PTA_QC_report.R | R --slave --args ${input_args_1} ${input_args_2} ${input_args_3} ${donor_id}.qcreport.pdf
+    R --slave --file=${baseDir}/scripts/R/PTA_QC_report.R --args ${input_args_1} ${input_args_2} ${input_args_3} ${donor_id}.qcreport.pdf
     """
 }

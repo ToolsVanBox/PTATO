@@ -253,7 +253,7 @@ def extractGridssDriverVcfGzFromDir( gridss_driver_vcfs_dir ) {
 
 def extractGridssUnfilteredVcfGzFromDir( gridss_unfiltered_vcfs_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  gridss_unfiltered_vcfs_dir = gridss_unfiltered_vcfs_dir.tokenize().collect{"$it/*/*.gridss.unfiltered.vcf.gz"}
+  gridss_unfiltered_vcfs_dir = gridss_unfiltered_vcfs_dir.tokenize().collect{"$it/*/*/*.gridss.unfiltered.vcf.gz"}
   Channel
     .fromPath(gridss_unfiltered_vcfs_dir, type:'file')
     .ifEmpty { error "No .gridss.unfiltered.vcf.gz files found in ${gridss_unfiltered_vcfs_dir}." }
@@ -269,7 +269,7 @@ def extractGridssUnfilteredVcfGzFromDir( gridss_unfiltered_vcfs_dir ) {
 
 def extractGripssSomaticFilteredVcfGzFromDir( gripss_somatic_filtered_vcfs_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  gripss_somatic_filtered_vcfs_dir = gripss_somatic_filtered_vcfs_dir.tokenize().collect{"$it/*/*.gripss.somatic.filtered.vcf.gz"}
+  gripss_somatic_filtered_vcfs_dir = gripss_somatic_filtered_vcfs_dir.tokenize().collect{"$it/*/*/*.gripss.somatic.filtered.vcf.gz"}
   Channel
     .fromPath(gripss_somatic_filtered_vcfs_dir, type:'file')
     .ifEmpty { error "No .gripss.somatic.filtered.vcf.gz files found in ${gripss_somatic_filtered_vcfs_dir}." }
@@ -285,7 +285,7 @@ def extractGripssSomaticFilteredVcfGzFromDir( gripss_somatic_filtered_vcfs_dir )
 
 def extractCobaltRatioTsvFromDir( cobalt_ratio_tsv_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  cobalt_ratio_tsv_dir = cobalt_ratio_tsv_dir.tokenize().collect{"$it/*/*.cobalt.ratio.tsv"}
+  cobalt_ratio_tsv_dir = cobalt_ratio_tsv_dir.tokenize().collect{"$it/*/*/*.cobalt.ratio.tsv"}
   Channel
     .fromPath(cobalt_ratio_tsv_dir, type:'file')
     .ifEmpty { error "No .cobalt.ratio.tsv files found in ${cobalt_ratio_tsv_dir}." }
@@ -295,5 +295,110 @@ def extractCobaltRatioTsvFromDir( cobalt_ratio_tsv_dir ) {
         cobalt_ratio_normal_sample_id =  cobalt_ratio_tsv_path.getParent().getName()
         cobalt_ratio_donor_id =  cobalt_ratio_tsv_path.getParent().getParent().getName()
         [cobalt_ratio_donor_id, cobalt_ratio_normal_sample_id, cobalt_ratio_tumor_sample_id, cobalt_ratio_tsv_file]
+    }
+}
+
+def extractCobaltFilteredReadCounts( cobalt_filtered_readcounts_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  cobalt_filtered_readcounts_dir = cobalt_filtered_readcounts_dir.tokenize().collect{"$it/*/*/*.readcounts.filtered*.txt"}
+  Channel
+    .fromPath(cobalt_filtered_readcounts_dir, type:'file')
+    .ifEmpty { error "No .readcounts.filtered.*txt files found in ${cobalt_filtered_readcounts_dir}." }
+    .map { cobalt_filtered_readcounts_path ->
+        cobalt_filtered_readcounts_file = cobalt_filtered_readcounts_path
+        cobalt_filtered_readcounts_tumor_sample_id = cobalt_filtered_readcounts_path.getName().toString().replaceAll(/.readcounts.filtered(.*).txt$/, '')
+        cobalt_filtered_readcounts_normal_sample_id =  cobalt_filtered_readcounts_path.getParent().getName()
+        cobalt_filtered_readcounts_donor_id =  cobalt_filtered_readcounts_path.getParent().getParent().getName()
+        [cobalt_filtered_readcounts_donor_id, cobalt_filtered_readcounts_normal_sample_id, cobalt_filtered_readcounts_tumor_sample_id, cobalt_filtered_readcounts_file]
+    }
+}
+
+def extractCobaltFilteredReadCountsSegments( cobalt_filtered_readcounts_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  cobalt_filtered_readcounts_dir = cobalt_filtered_readcounts_dir.tokenize().collect{"$it/*/*/*.readcounts.segments.*"}
+  Channel
+    .fromPath(cobalt_filtered_readcounts_dir, type:'file')
+    .ifEmpty { error "No .readcounts.segments.* files found in ${cobalt_filtered_readcounts_dir}." }
+    .map { cobalt_filtered_readcounts_bedpe_path ->
+        cobalt_filtered_readcounts_bedpe = cobalt_filtered_readcounts_bedpe_path
+        cobalt_filtered_readcounts_bedpe_tumor_sample_id = cobalt_filtered_readcounts_bedpe_path.getName().toString().replaceAll(/.readcounts.segments.*$/, '')
+        cobalt_filtered_readcounts_bedpe_normal_sample_id =  cobalt_filtered_readcounts_bedpe_path.getParent().getName()
+        cobalt_filtered_readcounts_bedpe_donor_id =  cobalt_filtered_readcounts_bedpe_path.getParent().getParent().getName()
+        [cobalt_filtered_readcounts_bedpe_donor_id, cobalt_filtered_readcounts_bedpe_normal_sample_id, cobalt_filtered_readcounts_bedpe_tumor_sample_id, cobalt_filtered_readcounts_bedpe]
+    }
+}
+
+def extractBafFilteredFiles( baf_filtered_files_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  baf_filtered_files_dir = baf_filtered_files_dir.tokenize().collect{"$it/*/*/*.baf.filtered.txt"}
+  Channel
+    .fromPath(baf_filtered_files_dir, type:'file')
+    .ifEmpty { error "No .baf.filtered.txt files found in ${baf_filtered_files_dir}." }
+    .map { baf_filtered_file_path ->
+        baf_filtered_file = baf_filtered_file_path
+        baf_filtered_tumor_sample_id = baf_filtered_file_path.getName().toString().replaceAll(/.baf.filtered.txt$/, '')
+        baf_filtered_normal_sample_id =  baf_filtered_file_path.getParent().getName()
+        baf_filtered_donor_id =  baf_filtered_file_path.getParent().getParent().getName()
+        [baf_filtered_donor_id, baf_filtered_normal_sample_id, baf_filtered_tumor_sample_id, baf_filtered_file]
+    }
+}
+
+def extractBafBinnedFiles( baf_binned_files_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  baf_binned_files_dir = baf_binned_files_dir.tokenize().collect{"$it/*/*/*.baf.binned*.txt"}
+  Channel
+    .fromPath(baf_binned_files_dir, type:'file')
+    .ifEmpty { error "No .baf.filtered*.txt files found in ${baf_binned_files_dir}." }
+    .map { baf_binned_file_path ->
+        baf_binned_file = baf_binned_file_path
+        baf_binned_tumor_sample_id = baf_binned_file_path.getName().toString().replaceAll(/.baf.binned(.*).txt$/, '')
+        baf_binned_normal_sample_id =  baf_binned_file_path.getParent().getName()
+        baf_binned_donor_id =  baf_binned_file_path.getParent().getParent().getName()
+        [baf_binned_donor_id, baf_binned_normal_sample_id, baf_binned_tumor_sample_id, baf_binned_file]
+    }
+}
+
+def extractBafFilteredSegments( baf_filtered_files_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  baf_filtered_files_dir = baf_filtered_files_dir.tokenize().collect{"$it/*/*/*.baf.segments.*"}
+  Channel
+    .fromPath(baf_filtered_files_dir, type:'file')
+    .ifEmpty { error "No .baf.segments.* files found in ${baf_filtered_files_dir}." }
+    .map { baf_filtered_bedpe_path ->
+        baf_filtered_bedpe = baf_filtered_bedpe_path
+        baf_filtered_bedpe_tumor_sample_id = baf_filtered_bedpe_path.getName().toString().replaceAll(/.baf.segments.*$/, '')
+        baf_filtered_bedpe_normal_sample_id =  baf_filtered_bedpe_path.getParent().getName()
+        baf_filtered_bedpe_donor_id =  baf_filtered_bedpe_path.getParent().getParent().getName()
+        [baf_filtered_bedpe_donor_id, baf_filtered_bedpe_normal_sample_id, baf_filtered_bedpe_tumor_sample_id, baf_filtered_bedpe]
+    }
+}
+
+def extractGripssFilteredFiles( gripss_filtered_files_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  gripss_filtered_files_dir = gripss_filtered_files_dir.tokenize().collect{"$it/*/*/*.vcf"}
+  Channel
+    .fromPath(gripss_filtered_files_dir, type:'file')
+    .ifEmpty { error "No .vcf files found in ${gripss_filtered_files_dir}." }
+    .map { gripss_filtered_file_path ->
+        gripss_filtered_file = gripss_filtered_file_path
+        gripss_filtered_tumor_sample_id = gripss_filtered_file_path.getName().toString().replaceAll(/(.svs.postfilter)*.vcf$/, '')
+        gripss_filtered_normal_sample_id =  gripss_filtered_file_path.getParent().getName()
+        gripss_filtered_donor_id =  gripss_filtered_file_path.getParent().getParent().getName()
+        [gripss_filtered_donor_id, gripss_filtered_normal_sample_id, gripss_filtered_tumor_sample_id, gripss_filtered_file]
+    }
+}
+
+def extractIntegratedSvFiles( integrated_sv_files_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  integrated_sv_files_dir = integrated_sv_files_dir.tokenize().collect{"$it/*/*/*.integrated.*"}
+  Channel
+    .fromPath(integrated_sv_files_dir, type:'file')
+    .ifEmpty { error "No .integrated. files found in ${integrated_sv_files_dir}." }
+    .map { integrated_sv_file_path ->
+        integrated_sv_file = integrated_sv_file_path
+        integrated_sv_tumor_sample_id = integrated_sv_file_path.getName().toString().replaceAll(/(.svs.postfilter)*.vcf$/, '')
+        integrated_sv_normal_sample_id =  integrated_sv_file_path.getParent().getName()
+        integrated_sv_donor_id =  integrated_sv_file_path.getParent().getParent().getName()
+        [integrated_sv_donor_id, integrated_sv_normal_sample_id, integrated_sv_tumor_sample_id, integrated_sv_file]
     }
 }

@@ -30,7 +30,7 @@ workflow {
       }
 
       if ( params.run.svs ) {
-        svs( bams )
+        svs( bams, germline_vcfs )
       }
     }
     if ( params.run.QC ) {

@@ -15,7 +15,7 @@ process GripssApplicationKt {
 
   script:
     """
-    java -Xmx${task.memory.toGiga()-4}g -cp /opt/hmftools/gripss-1.9.jar com.hartwig.hmftools.gripss.GripssApplicationKt \
+    java -Xmx${task.memory.toGiga()-8}g -cp /opt/hmftools/gripss-1.9.jar com.hartwig.hmftools.gripss.GripssApplicationKt \
     -ref_genome ${params.genome_fasta} \
     -input_vcf ${gridss_unfiltered_vcf} \
     -output_vcf ${tumor_sample_id}.gripss.somatic.vcf.gz \

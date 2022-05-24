@@ -11,8 +11,8 @@ workflow get_gripss_vcfs {
       donor_id, normal_sample_id, tumor_sample_id, gripss_somatic_vcf, gripss_somatic_tbi->
       vcf_name = gripss_somatic_vcf.getName()
       tbi_name = gripss_somatic_tbi.getName()
-      gridss_driver_vcf = gripss_somatic_vcf.copyTo("${params.out_dir}/svs/intermediate/gripss/${donor_id}/${normal_sample_id}/${vcf_name}")
-      gripss_somatic_tbi = gripss_somatic_tbi.copyTo("${params.out_dir}/svs/intermediate/gripss/${donor_id}/${normal_sample_id}/${tbi_name}")
+      gridss_driver_vcf = gripss_somatic_vcf.copyTo("${params.out_dir}/intermediate/svs/gripss/${donor_id}/${normal_sample_id}/${vcf_name}")
+      gripss_somatic_tbi = gripss_somatic_tbi.copyTo("${params.out_dir}/intermediate/svs/gripss/${donor_id}/${normal_sample_id}/${tbi_name}")
       [ donor_id, normal_sample_id, tumor_sample_id, gripss_somatic_vcf, gripss_somatic_tbi ]
     }
     GripssHardFilterApplicationKt( gripss_somatic_vcfs )
@@ -21,8 +21,8 @@ workflow get_gripss_vcfs {
       donor_id, normal_sample_id, tumor_sample_id, gripss_somatic_filtered_vcf, gripss_somatic_filtered_tbi->
       vcf_name = gripss_somatic_filtered_vcf.getName()
       tbi_name = gripss_somatic_filtered_tbi.getName()
-      gripss_somatic_filtered_vcf = gripss_somatic_filtered_vcf.copyTo("${params.out_dir}/svs/intermediate/gripss/${donor_id}/${normal_sample_id}/${vcf_name}")
-      gripss_somatic_filtered_tbi = gripss_somatic_filtered_tbi.copyTo("${params.out_dir}/svs/intermediate/gripss/${donor_id}/${normal_sample_id}/${tbi_name}")
+      gripss_somatic_filtered_vcf = gripss_somatic_filtered_vcf.copyTo("${params.out_dir}/intermediate/svs/gripss/${donor_id}/${normal_sample_id}/${vcf_name}")
+      gripss_somatic_filtered_tbi = gripss_somatic_filtered_tbi.copyTo("${params.out_dir}/intermediate/svs/gripss/${donor_id}/${normal_sample_id}/${tbi_name}")
       [ donor_id, normal_sample_id, tumor_sample_id, gripss_somatic_filtered_vcf, gripss_somatic_filtered_tbi ]
     }
   emit:

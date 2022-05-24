@@ -14,6 +14,6 @@ process ptatoFilter {
     host=\$(hostname)
     echo \${host}
 
-    cat ${baseDir}/scripts/R/ptatoFilter.R | R --slave --args ${ptato_vcf} ${walker_vcf} ${sample_id}.ptato.filtered.vcf ${sample_id}.ptatotable.txt
+    R --slave --file=${baseDir}/scripts/R/ptatoFilter.R --args ${ptato_vcf} ${walker_vcf} ${sample_id}.ptato.filtered.vcf ${sample_id}.ptatotable.txt
     """
 }

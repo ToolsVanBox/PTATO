@@ -14,7 +14,7 @@ workflow get_snvs_rf_tables {
         .map{
           donor_id, sample_id, rf_table_rds ->
           rds_name = rf_table_rds.getName()
-          rf_table_rds = rf_table_rds.copyTo("${params.out_dir}/snvs/intermediate/rf/${donor_id}/${rds_name}")
+          rf_table_rds = rf_table_rds.copyTo("${params.out_dir}/intermediate/snvs/rf/${donor_id}/${rds_name}")
           [ donor_id, sample_id, rf_table_rds ]
         }
     }

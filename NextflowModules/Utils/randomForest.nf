@@ -16,7 +16,7 @@ process train_snv_rf {
     host=\$(hostname)
     echo \${host}
 
-    cat ${baseDir}/scripts/R/train_randomforest.R | R --slave --args ${label_1} ${input_args_1} ${label_2} ${input_args_2}
+    R --slave --file=${baseDir}/scripts/R/train_randomforest.R --args ${label_1} ${input_args_1} ${label_2} ${input_args_2}
     """
 }
 
@@ -38,7 +38,7 @@ process train_indel_rf {
     host=\$(hostname)
     echo \${host}
 
-    cat ${baseDir}/scripts/R/train_randomforest.R | R --slave --args ${label_1} ${input_args_1} ${label_2} ${input_args_2}
+    R --slave --file=${baseDir}/scripts/R/train_randomforest.R --args ${label_1} ${input_args_1} ${label_2} ${input_args_2}
     """
 }
 
@@ -58,7 +58,7 @@ process test_snv_rf {
     host=\$(hostname)
     echo \${host}
 
-    cat ${baseDir}/scripts/R/test_randomforest.R | R --slave --args ${params.snvs.rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.ptato.vcf
+    R --slave --file=${baseDir}/scripts/R/test_randomforest.R --args ${params.snvs.rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.ptato.vcf
     """
 }
 
@@ -78,6 +78,6 @@ process test_indel_rf {
     host=\$(hostname)
     echo \${host}
 
-    cat ${baseDir}/scripts/R/test_randomforest.R | R --slave --args ${params.indels.rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.ptato.vcf
+    R --slave --file=${baseDir}/scripts/R/test_randomforest.R --args ${params.indels.rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.ptato.vcf
     """
 }

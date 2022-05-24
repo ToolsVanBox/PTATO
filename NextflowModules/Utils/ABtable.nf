@@ -14,7 +14,7 @@ process createABtable {
     host=\$(hostname)
     echo \${host}
 
-    cat ${baseDir}/scripts/R/ABscript.R | R --slave --args ${somatic_vcf} ${germline_vcf} ${phased_vcf} ${chrom} ${bulk_name} ${sample_id}_${chrom}.abtable.txt ${params.ref_genome}
+    R --slave --file=${baseDir}/scripts/R/ABscript.R --args ${somatic_vcf} ${germline_vcf} ${phased_vcf} ${chrom} ${bulk_name} ${sample_id}_${chrom}.abtable.txt ${params.ref_genome}
     """
 }
 

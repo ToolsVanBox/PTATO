@@ -21,9 +21,9 @@ workflow get_gridss_vcfs {
           vcf_name = gridss_driver_vcf.getName()
           tbi_name = gridss_driver_tbi.getName()
           bam_name = gridss_driver_bam.getName()
-          gridss_driver_vcf = gridss_driver_vcf.copyTo("${params.out_dir}/svs/intermediate/gridss/${donor_id}/${normal_sample_id}/${vcf_name}")
-          gridss_driver_tbi = gridss_driver_tbi.copyTo("${params.out_dir}/svs/intermediate/gridss/${donor_id}/${normal_sample_id}/${tbi_name}")
-          gridss_driver_bam.copyTo("${params.out_dir}/svs/intermediate/gridss/${donor_id}/${normal_sample_id}/${bam_name}")
+          gridss_driver_vcf = gridss_driver_vcf.copyTo("${params.out_dir}/intermediate/svs/gridss/${donor_id}/${normal_sample_id}/${vcf_name}")
+          gridss_driver_tbi = gridss_driver_tbi.copyTo("${params.out_dir}/intermediate/svs/gridss/${donor_id}/${normal_sample_id}/${tbi_name}")
+          gridss_driver_bam.copyTo("${params.out_dir}/intermediate/svs/gridss/${donor_id}/${normal_sample_id}/${bam_name}")
           [ donor_id, normal_sample_id, tumor_sample_id, gridss_driver_vcf, gridss_driver_tbi ]
         }
     }
@@ -33,8 +33,8 @@ workflow get_gridss_vcfs {
         donor_id, normal_sample_id, tumor_sample_id, gridss_unfiltered_vcf, gridss_unfiltered_tbi ->
         vcf_name = gridss_unfiltered_vcf.getName()
         tbi_name = gridss_unfiltered_tbi.getName()
-        gridss_unfiltered_vcf = gridss_unfiltered_vcf.copyTo("${params.out_dir}/svs/intermediate/gridss/${donor_id}/${normal_sample_id}/${vcf_name}")
-        gridss_unfiltered_tbi = gridss_unfiltered_tbi.copyTo("${params.out_dir}/svs/intermediate/gridss/${donor_id}/${normal_sample_id}/${tbi_name}")
+        gridss_unfiltered_vcf = gridss_unfiltered_vcf.copyTo("${params.out_dir}/intermediate/svs/gridss/${donor_id}/${normal_sample_id}/${vcf_name}")
+        gridss_unfiltered_tbi = gridss_unfiltered_tbi.copyTo("${params.out_dir}/intermediate/svs/gridss/${donor_id}/${normal_sample_id}/${tbi_name}")
         [ donor_id, normal_sample_id, tumor_sample_id, gridss_unfiltered_vcf, gridss_unfiltered_tbi ]
       }
   emit:

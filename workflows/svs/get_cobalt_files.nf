@@ -15,8 +15,8 @@ workflow get_cobalt_files {
         donor_id, normal_sample_id, tumor_sample_id, cobalt_file, cobalt_ratio_tsv ->
         file_name = cobalt_file.getName()
         tsv_name = cobalt_ratio_tsv.getName()
-        cobalt_file.copyTo("${params.out_dir}/svs/intermediate/cobalt/${donor_id}/${normal_sample_id}/${tumor_sample_id}/${file_name}")
-        cobalt_ratio_tsv = cobalt_ratio_tsv.copyTo("${params.out_dir}/svs/cobalt/${donor_id}/${normal_sample_id}/${tsv_name}")
+        cobalt_file.copyTo("${params.out_dir}/intermediate/svs/cobalt/${donor_id}/${normal_sample_id}/${tumor_sample_id}/${file_name}")
+        cobalt_ratio_tsv = cobalt_ratio_tsv.copyTo("${params.out_dir}/intermediate/svs/cobalt/${donor_id}/${normal_sample_id}/${tsv_name}")
         [ donor_id, normal_sample_id, tumor_sample_id, cobalt_ratio_tsv ]
       }
       .unique()

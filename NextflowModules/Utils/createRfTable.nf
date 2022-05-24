@@ -14,7 +14,7 @@ process createSnvRfTable {
     host=\$(hostname)
     echo \${host}
 
-    cat ${baseDir}/scripts/R/create_snv_rf_table.R | R --slave --args ${ab_table} ${bed} ${donor_id} ${sample_id}.rftable.rds
+    R --slave --file=${baseDir}/scripts/R/create_snv_rf_table.R --args ${ab_table} ${bed} ${donor_id} ${sample_id}.rftable.rds
     """
 }
 
@@ -34,6 +34,6 @@ process createIndelRfTable {
     host=\$(hostname)
     echo \${host}
 
-    cat ${baseDir}/scripts/R/create_indel_rf_table.R | R --slave --args ${ab_table} ${bed} ${donor_id} ${sample_id}.rftable.rds
+    R --slave --file=${baseDir}/scripts/R/create_indel_rf_table.R --args ${ab_table} ${bed} ${donor_id} ${sample_id}.rftable.rds
     """
 }
