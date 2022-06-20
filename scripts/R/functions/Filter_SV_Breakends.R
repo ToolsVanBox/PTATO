@@ -25,19 +25,38 @@ Filter_Breakends <- function(GRIPSS_PON,
 
   print(paste("# Reading SV VCF: ", SV_VCF_file, sep = ""))
   SV_VCF <- readVcf(SV_VCF_file, "hg38")
+  
+  
   VariantAnnotation::fixed(SV_VCF)$FILTER[VariantAnnotation::fixed(SV_VCF)$FILTER == "PASS"] <- ""
-  SVGR <- breakpointRanges(SV_VCF) # Some SVs are not included here, because they don't have a partner breakend
+  SV_VCF <- SV_VCF[as.vector(seqnames(rowRanges(SV_VCF))) %in% c(1:22, "X", "Y")]
+  
+  SVGR_raw <- breakpointRanges(SV_VCF) # Some SVs are not included here, because they don't have a partner breakend
 
   # Remove the breakends without a partner breakend
-  SV_VCF <- SV_VCF[which(names(SV_VCF) %in% names(SVGR)),]
+  #SV_VCF <- SV_VCF[which(names(SV_VCF) %in% names(SVGR_raw)),]
+  SV_VCF <- SV_VCF[names(SVGR_raw),]
+  
+  # Rescue translocations with one filtered breakend from the unfiltered GRIPSS vcf
+  GRIPSS_raw_file <- gsub(x = SV_VCF_file, pattern = ".filtered", replacement = "")
+  ## Doesnt work at the moment in nextflow, needs to be added
+  #SV_VCF_CTX <- .Rescue_Translocation_Breakends(SV_VCF, Unfiltered_Datafile = GRIPSS_raw_file)
+  
+  SV_VCF_CTX <- SV_VCF
+  
+  SVGR <- breakpointRanges(SV_VCF_CTX)
+  
+  # Add the SVTYPE to the VCF
+  info(SV_VCF_CTX)$SVTYPE <- simpleEventType(SVGR[names(SV_VCF_CTX)])
 
   # Add the SVLEN to the VCF
-  info(SV_VCF)$SVLEN <- SVGR[names(SV_VCF)]$svLen
+  # header line needs to be added to the VCF:
+  header_lines_SVLEN <- data.frame(Number = 1, Type = "Float", Description = "Size of the rearrangement (bp)")
+  row.names(header_lines_SVLEN) <- "SVLEN"
+  info(header(SV_VCF_CTX)) <- rbind(info(header(SV_VCF_CTX)), header_lines_SVLEN)
+  
+  info(SV_VCF_CTX)$SVLEN <- SVGR[names(SV_VCF_CTX)]$svLen
 
-  # Add the SVTYPE to the VCF
-  info(SV_VCF)$SVTYPE <- simpleEventType(SVGR[names(SV_VCF)])
-
-  SV_VCF_PON <- .Filter_PON(SV_VCF = SV_VCF, GRIPSS_PON = GRIPSS_PON, max_dist = max_dist)
+  SV_VCF_PON <- .Filter_PON(SV_VCF = SV_VCF_CTX, GRIPSS_PON = GRIPSS_PON, max_dist = max_dist)
 
   ### 2. Calculate the B-allele frequency of SNPs overlapping the candidate SVs
   simplegr <- SVGR[simpleEventType(SVGR) %in% c("INS", "INV", "DEL", "DUP")]
@@ -69,16 +88,17 @@ Filter_Breakends <- function(GRIPSS_PON,
                                                  ReadCounts = ReadCounts[,c(1,2,2,6)])
 
   SV_VCF_PostFilter <- .Postfilter_Breakends(SV_VCF = SV_VCF_BAF_RD, SV_BED = simplebed_g, MaxBreakendCov = MaxBreakendCov)
+  
   #
   VariantAnnotation::fixed(SV_VCF_PostFilter)$FILTER[VariantAnnotation::fixed(SV_VCF_PostFilter)$FILTER == ""] <- "PASS"
-  SV_VCF_Filtered <- SV_VCF_PostFilter[which(rowRanges(SV_VCF_PostFilter)$FILTER == "PASS"),]
+  SV_VCF_Filtered <- SV_VCF_PostFilter[which(rowRanges(SV_VCF_PostFilter)$FILTER %in% c("PASS", "RESCUE")),]
   SV_VCF_Filtered <- SV_VCF_Filtered[as.vector(seqnames(rowRanges(SV_VCF_Filtered))) %in% c(1:22, "X", "Y")]
 
   print(summary(factor(rowRanges(SV_VCF_PostFilter)$FILTER)))
   print(summary(factor(info(SV_VCF_Filtered)$SVTYPE)))
 
-  info(SV_VCF_Filtered)$SVLEN
-  info(SV_VCF_Filtered)$SVTYPE
+  # info(SV_VCF_Filtered)$SVLEN
+  # info(SV_VCF_Filtered)$SVTYPE
 
   if(Output_dir != ""){
     print("# Writing output files")
@@ -90,6 +110,46 @@ Filter_Breakends <- function(GRIPSS_PON,
   print("# Done")
 
   return(SV_VCF_PostFilter)
+}
+
+
+.Rescue_Translocation_Breakends <- function(Breakends, Unfiltered_Datafile, SearchWindow = 1e5){
+  
+  Breakends_output <- Breakends
+  
+  # Select the translocations (CTX)
+  BreakendsGR <- breakpointRanges(Breakends) # Some SVs are not included here, because they don't have a partner breakend
+  info(Breakends)$SVTYPE <- simpleEventType(BreakendsGR[names(Breakends)])
+  Breakends_CTX <- Breakends[info(Breakends)$SVTYPE == "CTX"]
+  if(length(Breakends_CTX) > 0){
+    Breakends_CTX <- Breakends_CTX[rowRanges(Breakends_CTX)$FILTER != "PON"]
+    
+    # Read part of the VCF at locations surrounding the translocations:
+    Translocs <- GRanges(seqnames = seqnames(rowRanges(Breakends_CTX)), IRanges(start = start(rowRanges(Breakends_CTX)), end = end(rowRanges(Breakends_CTX))))
+    start(Translocs) <- start(Translocs) - SearchWindow
+    end(Translocs) <- end(Translocs) + SearchWindow
+    GRIPSS_raw_data <- readVcf(Unfiltered_Datafile, "hg38", param=Translocs)
+    GRIPSS_GR <- breakpointRanges(GRIPSS_raw_data)
+    GRIPSS_GR$svtype <- simpleEventType(GRIPSS_GR)
+    GRIPSS_CTX <- GRIPSS_GR[GRIPSS_GR$svtype == "CTX",]
+    
+    # Select the translocation breakends not present in the GRIPSS vcf:
+    GRIPSS_CTX2 <- GRIPSS_CTX[-which(names(GRIPSS_CTX) %in% names(Breakends_CTX))]
+    GRIPSS_CTX2 <- GRIPSS_CTX2[seqnames(GRIPSS_CTX2) %in% c(1:22, "X", "Y")]
+    
+    if(length(GRIPSS_CTX2) > 0){
+      print(paste("Rescued ", length(GRIPSS_CTX2)/2, " translocation breakpoint junctions", sep = ""))
+      # print(GRIPSS_CTX2)
+      rescued <- GRIPSS_raw_data[names(GRIPSS_CTX2),]
+      VariantAnnotation::fixed(GRIPSS_raw_data[names(GRIPSS_CTX2),])$FILTER <- "RESCUE"
+      
+      Breakends_output <- rbind(Breakends_output, GRIPSS_raw_data[names(GRIPSS_CTX2),])
+    }
+    
+  }
+  print(paste("# ", length(Breakends_output) - length(Breakends), " rescued translocation breakends",sep = ""))
+  #Breakends_output <- Breakends_output[order(seqnames(rowRanges(Breakends_output)), start(rowRanges(Breakends_output))),]
+  return(Breakends_output)
 }
 
 .Filter_PON <- function(SV_VCF, GRIPSS_PON, max_dist = 100){
@@ -257,14 +317,19 @@ Filter_Breakends <- function(GRIPSS_PON,
 
   # Many seeming inversions are called in PTA data. True inversions should have both ++ and -- reads. However, in the PTA data these candidates usually often only have ++ or -- and not both. Possible small circular amplifications that are formed during the PTA amplification.
   Inversions <- SV_BED[SV_BED$name == "INV",]
-  Inversions$Dist <- 1e6
-  NearestNeighbour <- distanceToNearest(Inversions)
-  Inversions$Dist[queryHits(NearestNeighbour)] <- mcols(NearestNeighbour)$distance
-  # Assume that co-breakends are within 100bp of eachother
-  Filtered_Inversions <- info(SV_VCF)[names(Inversions)[which(Inversions$Dist > 100)], "EVENT"]
-
-  VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Inversions & rowRanges(SV_VCF)$FILTER != "")] <- paste(VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Inversions & rowRanges(SV_VCF)$FILTER != "")], "INV_NO_MATE", sep = ";")
-  VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Inversions & rowRanges(SV_VCF)$FILTER == "")] <- "INV_NO_MATE"
+  if(length(Inversions) > 0){
+    Inversions$Dist <- 1e6
+    NearestNeighbour <- distanceToNearest(Inversions)
+    Inversions$Dist[queryHits(NearestNeighbour)] <- mcols(NearestNeighbour)$distance
+    # Assume that co-breakends are within 100bp of eachother
+    Filtered_Inversions <- info(SV_VCF)[names(Inversions)[which(Inversions$Dist > 100)], "EVENT"]
+    
+    VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Inversions & rowRanges(SV_VCF)$FILTER != "")] <- paste(VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Inversions & rowRanges(SV_VCF)$FILTER != "")], "INV_NO_MATE", sep = ";")
+    VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Inversions & rowRanges(SV_VCF)$FILTER == "")] <- "INV_NO_MATE"
+  } else {
+    
+  }
+  
 
   # Filter all INV smaller than 1kb (most appear to be PTA artefacts)
   Filtered_Inversions_Size <- info(SV_VCF)[which(info(SV_VCF)$SVLEN < 1000 & info(SV_VCF)$SVTYPE == "INV"), "EVENT"]

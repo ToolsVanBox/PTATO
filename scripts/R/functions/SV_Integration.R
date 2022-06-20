@@ -25,6 +25,13 @@ Integrate_RD_BAF <- function(BAF, RD,
       # LOH regions only have "loss" at the BAF-level, but not at the ReadDepth (eg no overlap between LOH and loss regions)
       merged_CNVs <- BAF_seg[-subjectHits(overlap_RD_BAF),"QUAL"]
     }
+    
+    # If merged_CNVs is empty, then return an empty GRanges object.
+    if (!length(merged_CNVs)){
+      merged_CNVs2 <- GRanges()
+      return(merged_CNVs2)
+    }
+
     # Merge the losses if there's a gap of max 1e6 bp between two events
     merged_CNVs2 <- reduce(merged_CNVs, min.gapwidth = 1e6)
     merged_CNVs2$CopyNumber <- Type
@@ -80,9 +87,14 @@ Merge_CNVs <- function(BAF, RD,
   SVs_CTX <- Filter_Unbalanced_Translocations(CNVs = CNVs, SVs = SVs)
   SVs_CTX_Filtered <- SVs_CTX[which(rowRanges(SVs_CTX)$FILTER == "PASS"),]
   SVs_CTX_Filtered <- SVs_CTX_Filtered[as.vector(seqnames(rowRanges(SVs_CTX_Filtered))) %in% c(1:22, "X", "Y")]
-  print(summary(factor( VariantAnnotation::fixed(SVs_CTX)$FILTER)))
-  print(summary(factor(info(SVs_CTX_Filtered)$SVTYPE)))
-
+  
+  # Filter breakends of large CNVs if they do not overlap with the readcounts/BAF determined CNVs 
+  SVs_Filtered <- Filter_Breakends_LargeCNVs(SVs = SVs_CTX_Filtered, CNVs = CNV_output)
+  SVs_Filtered <- SVs_Filtered[which(rowRanges(SVs_Filtered)$FILTER == "PASS"),]
+  
+  print(summary(factor( VariantAnnotation::fixed(SVs_Filtered)$FILTER)))
+  print(summary(factor(info(SVs_Filtered)$SVTYPE)))
+  
   if(Output_dir != ""){
     print("# Writing output files")
     writeVcf(SVs_CTX_Filtered, filename = paste(Output_dir, ".integrated.svs.filtered.vcf", sep = ""))
@@ -106,8 +118,8 @@ Filter_Unbalanced_Translocations <- function(CNVs, SVs){
   NearestNeighbour <- distanceToNearest(Translocations)
   Translocations$Dist <- NA
   Translocations$Dist[queryHits(NearestNeighbour)] <- mcols(NearestNeighbour)$distance
-  # Assume that co-breakends of balanced translocations are within 1000bp of eachother
-  Unbalanced_Translocations <- SVs[names(Translocations)[which(Translocations$Dist > 1000)], ]
+  # Assume that co-breakends of balanced translocations are within 1000000bp of eachother
+  Unbalanced_Translocations <- SVs[names(Translocations)[which(Translocations$Dist > 1000000)], ]
 
   Breakends_CTX <- rowRanges(Unbalanced_Translocations)
   CNV_Starts <- GRanges(seqnames = seqnames(CNVs), IRanges(start(CNVs), start(CNVs)))
@@ -133,18 +145,28 @@ Filter_Unbalanced_Translocations <- function(CNVs, SVs){
   return(SVs)
 }
 
+Filter_Breakends_LargeCNVs <- function(CNVs, SVs){
+  
+  
+  CNV_Breakends <- SVs[info(SVs)$SVTYPE %in% c("DEL", "DUP")]
+  CNV_Breakends_10mb <- CNV_Breakends[which(info(CNV_Breakends)$SVLEN > 10e6)]
+  CNVs_g <- GRanges(seqnames = CNVs[,1], IRanges(start = CNVs[,2], end = CNVs[,3]))
+  if(length(CNV_Breakends_10mb) > 0){
+    olap_CNVs <- findOverlaps(rowRanges(CNV_Breakends_10mb), CNVs_g)
+    if(length(olap_CNVs) > 0){
+      Breakends_overlapping_CNVs <- names(CNV_Breakends_10mb[queryHits(olap_CNVs)])
+      Filtered_Breakends <- CNV_Breakends_10mb[-Breakends_overlapping_CNVs,]
+    } 
+    else {
+      Filtered_Breakends <- CNV_Breakends_10mb
+    }
+    Filtered_Events <- unique(info(SVs)[names(Filtered_Breakends), "EVENT"])
+    
+    VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER != "" & rowRanges(SVs)$FILTER != "PASS")] <- paste(VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER != "" & rowRanges(SVs)$FILTER != "PASS")], "NO_RD_SUPPORT", sep = ";")
+    VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER == "PASS")] <- "NO_RD_SUPPORT"
+    VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER == "")] <- "NO_RD_SUPPORT"
+    
+  } 
 
-Integrate_Breakends_CNVs <- function(CNVs, SVs){
-
-  Breakends_SVs <- rowRanges(SVs)
-  CNV_Starts <- GRanges(seqnames = seqnames(CNVs), IRanges(start(CNVs), start(CNVs)))
-  CNV_Ends <- GRanges(seqnames = seqnames(CNVs), IRanges(end(CNVs), end(CNVs)))
-
-  CNV_Breaks <- c(CNV_Starts, CNV_Ends)
-
-  olap_Breakends_CNV <- findOverlaps(CNV_Breaks, Breakends, maxgap = 1e5)
-  CNV_Breaks[queryHits(olap_Breakends_CNV),]
-
-  Breakends[subjectHits(olap_Breakends_CNV),]
-
+  return(SVs)
 }

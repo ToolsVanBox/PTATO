@@ -1,14 +1,17 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2
 
+include { get_gzipped_vcfs } from './get_gzipped_vcfs.nf' params(params)
+include { get_gzipped_vcfs as get_gzipped_vcfs2 } from './get_gzipped_vcfs.nf' params(params)
+
 include {
-  extractSomaticVcfGzFromDir;
-  extractWalkerVcfGzFromDir;
+  extractSomaticVcfFromDir;
+  extractWalkerVcfFromDir;
   extractAbTableFromDir;
   extractContextBedFromDir;
   extractFeaturesBedFromDir;
-  extractPtaVcfGzFromDir;
-  extractNoptaVcfGzFromDir;
+  extractPtaVcfFromDir;
+  extractNoptaVcfFromDir;
 } from '../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
 include { get_ab_tables } from './short_variants/get_ab_tables.nf' params(params)
@@ -41,7 +44,9 @@ workflow short_variants {
     germline_vcfs
   main:
     if ( params.optional.short_variants.somatic_vcfs_dir ) {
-      somatic_vcfs = extractSomaticVcfGzFromDir( params.optional.short_variants.somatic_vcfs_dir )
+      raw_somatic_vcfs = extractSomaticVcfFromDir( params.optional.short_variants.somatic_vcfs_dir )
+      get_gzipped_vcfs( raw_somatic_vcfs )
+      somatic_vcfs = get_gzipped_vcfs.out
     } else {
       get_somatic_vcfs( input_vcfs, bams )
       somatic_vcfs = get_somatic_vcfs.out
@@ -55,7 +60,10 @@ workflow short_variants {
     }
 
     if ( params.optional.short_variants.walker_vcfs_dir ) {
-      walker_vcfs = extractWalkerVcfGzFromDir( params.optional.short_variants.walker_vcfs_dir )
+      raw_walker_vcfs = extractWalkerVcfFromDir( params.optional.short_variants.walker_vcfs_dir )
+      get_gzipped_vcfs2( raw_walker_vcfs )
+      walker_vcfs = get_gzipped_vcfs.out
+      // walker_vcfs = raw_walker_vcfs
     } else {
       get_walker_vcfs( somatic_vcfs, germline_vcfs, bams )
       walker_vcfs = get_walker_vcfs.out
@@ -112,13 +120,22 @@ workflow short_variants {
 workflow short_variants_train {
   take:
     input_vcfs
-    bams
     germline_vcfs
   main:
-    pta_vcfs = extractPtaVcfGzFromDir( params.pta_vcfs_dir )
-    nopta_vcfs = extractNoptaVcfGzFromDir( params.nopta_vcfs_dir )
+    raw_pta_vcfs = extractPtaVcfFromDir( params.pta_vcfs_dir )
+    raw_nopta_vcfs = extractNoptaVcfFromDir( params.nopta_vcfs_dir )
+    raw_input_vcfs = raw_pta_vcfs.concat( raw_nopta_vcfs )
 
-    somatic_vcfs = pta_vcfs.concat( nopta_vcfs )
+    get_gzipped_vcfs( raw_input_vcfs )
+    somatic_vcfs = get_gzipped_vcfs.out
+
+    pta_vcfs = raw_pta_vcfs
+      .map{ [it[0], it[1]] }
+      .combine( somatic_vcfs, by: [0,1] )
+
+    nopta_vcfs = raw_nopta_vcfs
+      .map{ [it[0], it[1]] }
+      .combine( somatic_vcfs, by: [0,1] )
 
     if ( params.optional.short_variants.ab_tables_dir ) {
       ab_tables = extractAbTableFromDir( params.optional.short_variants.ab_tables_dir )

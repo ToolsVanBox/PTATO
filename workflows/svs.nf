@@ -2,8 +2,8 @@
 nextflow.enable.dsl=2
 
 include {
-  extractGridssUnfilteredVcfGzFromDir;
-  extractGripssSomaticFilteredVcfGzFromDir;
+  extractGridssUnfilteredVcfFromDir;
+  extractGripssSomaticFilteredVcfFromDir;
   extractCobaltRatioTsvFromDir;
 } from '../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
@@ -11,10 +11,6 @@ include { get_gridss_vcfs } from './svs/get_gridss_vcfs.nf' params(params)
 include { get_gripss_vcfs } from './svs/get_gripss_vcfs.nf' params(params)
 include { get_cobalt_files } from './svs/get_cobalt_files.nf' params(params)
 include { filter_sv_files } from './svs/filter_sv_files.nf' params(params)
-// include { filter_cobalt_files } from './svs/filter_cobalt_files.nf' params(params)
-// include { filter_baf_files } from './svs/filter_baf_files.nf' params(params)
-// include { filter_gripss_vcfs } from './svs/filter_gripss_vcfs.nf' params(params)
-// include { integrate_files } from './svs/integrate_files.nf' params(params)
 
 workflow svs {
   take:
@@ -40,10 +36,14 @@ workflow svs {
         }
 
     if ( params.optional.svs.gripss_somatic_filtered_vcfs_dir ) {
-      gripss_somatic_filtered_vcfs = extractGripssSomaticFilteredVcfGzFromDir( params.optional.svs.gripss_somatic_filtered_vcfs_dir )
+      raw_gripss_somatic_filtered_vcfs = extractGripssSomaticFilteredVcfFromDir( params.optional.svs.gripss_somatic_filtered_vcfs_dir )
+      get_gzipped_vcfs( raw_gripss_somatic_filtered_vcfs )
+      gripss_somatic_filtered_vcfs = get_gzipped_vcfs.out
     } else {
       if ( params.optional.svs.gridss_unfiltered_vcfs_dir ) {
-        gridss_unfiltered_vcfs = extractGridssUnfilteredVcfGzFromDir( params.optional.svs.gridss_unfiltered_vcfs_dir )
+        raw_gridss_unfiltered_vcfs = extractGridssUnfilteredVcfFromDir( params.optional.svs.gridss_unfiltered_vcfs_dir )
+        get_gzipped_vcfs( raw_gridss_unfiltered_vcfs )
+        gridss_unfiltered_vcfs = get_gzipped_vcfs.out
       } else {
         get_gridss_vcfs( normal_bams, tumor_bams )
         gridss_unfiltered_vcfs = get_gridss_vcfs.out

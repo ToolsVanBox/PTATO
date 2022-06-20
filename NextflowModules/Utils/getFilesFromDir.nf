@@ -1,76 +1,97 @@
-def extractNoptaVcfGzFromDir( nopta_dir ) {
+def extractNoptaVcfFromDir( nopta_dir ) {
     // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-    nopta_dir = nopta_dir.tokenize().collect{"$it/*/*.vcf.gz"}
+    nopta_dir = nopta_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
     Channel
       .fromPath(nopta_dir, type:'file')
-      .ifEmpty { error "No .vcf.gz files found in ${nopta_dir}." }
+      .ifEmpty { error "No .vcf(.gz) files found in ${nopta_dir}." }
       .map { nopta_vcf_path ->
           nopta_vcf_file = nopta_vcf_path
           nopta_tbi_file = nopta_vcf_path+".tbi"
-          nopta_sample_id = nopta_vcf_path.getName().toString().replaceAll(/.vcf.gz$/, '')
+          nopta_sample_id = nopta_vcf_path.getName().toString().replaceAll(/.vcf(.gz)*$/, '')
           file(nopta_vcf_path.getBaseName()).getBaseName()
           nopta_donor_id = nopta_vcf_path.getParent().getName()
-          [nopta_donor_id, nopta_sample_id, nopta_vcf_file, nopta_tbi_file]
+          if ( file(nopta_tbi_file).exists() ) {
+            [nopta_donor_id, nopta_sample_id, nopta_vcf_file, nopta_tbi_file]
+          } else {
+            [nopta_donor_id, nopta_sample_id, nopta_vcf_file]
+          }
       }
 }
 
-def extractPtaVcfGzFromDir( pta_dir ) {
+def extractPtaVcfFromDir( pta_dir ) {
     // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-    pta_dir = pta_dir.tokenize().collect{"$it/*/*.vcf.gz"}
+    pta_dir = pta_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
     Channel
       .fromPath(pta_dir, type:'file')
-      .ifEmpty { error "No .vcf.gz files found in ${pta_dir}." }
+      .ifEmpty { error "No .vcf(.gz) files found in ${pta_dir}." }
       .map { pta_vcf_path ->
           pta_vcf_file = pta_vcf_path
           pta_tbi_file = pta_vcf_path+".tbi"
-          pta_sample_id = pta_vcf_path.getName().toString().replaceAll(/.vcf.gz$/, '')
+          pta_sample_id = pta_vcf_path.getName().toString().replaceAll(/.vcf(.gz)*$/, '')
           pta_donor_id =  pta_vcf_path.getParent().getName()
-          [pta_donor_id, pta_sample_id, pta_vcf_file, pta_tbi_file]
+          if ( file(pta_tbi_file).exists() ) {
+            [pta_donor_id, pta_sample_id, pta_vcf_file, pta_tbi_file]
+          } else {
+            [pta_donor_id, pta_sample_id, pta_vcf_file]
+          }
+
       }
 }
 
-def extractInputVcfGzFromDir( input_dir ) {
+def extractInputVcfFromDir( input_dir ) {
     // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-    input_dir = input_dir.tokenize().collect{"$it/*/*.vcf.gz"}
+    input_dir = input_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
     Channel
       .fromPath(input_dir, type:'file')
-      .ifEmpty { error "No .vcf.gz files found in ${input_dir}." }
+      .ifEmpty { error "No .vcf(.gz) files found in ${input_dir}." }
       .map { input_vcf_path ->
           input_vcf_file = input_vcf_path
           input_tbi_file = input_vcf_path+".tbi"
-          input_sample_id = input_vcf_path.getName().toString().replaceAll(/.vcf.gz$/, '')
+          input_sample_id = input_vcf_path.getName().toString().replaceAll(/.vcf(.gz)*$/, '')
           input_donor_id =  input_vcf_path.getParent().getName()
-          [input_donor_id, input_sample_id, input_vcf_file, input_tbi_file]
+          if ( file(input_tbi_file).exists() ) {
+            [input_donor_id, input_sample_id, input_vcf_file, input_tbi_file]
+          } else {
+            [input_donor_id, input_sample_id, input_vcf_file]
+          }
       }
 }
 
-def extractGermlineVcfGzFromDir( germline_vcfs_dir ) {
+def extractGermlineVcfFromDir( germline_vcfs_dir ) {
     // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-    germline_vcfs_dir = germline_vcfs_dir.tokenize().collect{"$it/*/*vcf.gz"}
+    germline_vcfs_dir = germline_vcfs_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
     Channel
       .fromPath(germline_vcfs_dir, type:'file')
-      .ifEmpty { error "No .vcf.gz files found in ${germline_vcfs_dir}." }
+      .ifEmpty { error "No .vcf(.gz) files found in ${germline_vcfs_dir}." }
       .map { germline_vcf_path ->
           germline_vcf_file = germline_vcf_path
           germline_tbi_file = germline_vcf_path+".tbi"
-          germline_sample_id = germline_vcf_path.getName().toString().replaceAll(/(.germline)*.vcf.gz$/, '')
+          germline_sample_id = germline_vcf_path.getName().toString().replaceAll(/(.germline)*.vcf(.gz)*$/, '')
           germline_donor_id =  germline_vcf_path.getParent().getName()
-          [germline_donor_id, germline_sample_id, germline_vcf_file, germline_tbi_file]
+          if ( file(germline_tbi_file).exists() ) {
+            [germline_donor_id, germline_sample_id, germline_vcf_file, germline_tbi_file]
+          } else {
+            [germline_donor_id, germline_sample_id, germline_vcf_file]
+          }
       }
 }
 
-def extractSomaticVcfGzFromDir( somatic_dir ) {
+def extractSomaticVcfFromDir( somatic_dir ) {
     // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-    somatic_dir = somatic_dir.tokenize().collect{"$it/*/*.vcf.gz"}
+    somatic_dir = somatic_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
     Channel
       .fromPath(somatic_dir, type:'file')
-      .ifEmpty { error "No .vcf.gz files found in ${somatic_dir}." }
+      .ifEmpty { error "No .vcf(.gz) files found in ${somatic_dir}." }
       .map { somatic_vcf_path ->
           somatic_vcf_file = somatic_vcf_path
           somatic_tbi_file = somatic_vcf_path+".tbi"
-          somatic_sample_id = somatic_vcf_path.getName().toString().replaceAll(/(.SMuRF.filtered)*.vcf.gz$/, '')
+          somatic_sample_id = somatic_vcf_path.getName().toString().replaceAll(/(.SMuRF.filtered)*.vcf(.gz)*$/, '')
           somatic_donor_id =  somatic_vcf_path.getParent().getName()
-          [somatic_donor_id, somatic_sample_id, somatic_vcf_file, somatic_tbi_file]
+          if ( file(somatic_tbi_file).exists() ) {
+            [somatic_donor_id, somatic_sample_id, somatic_vcf_file, somatic_tbi_file]
+          } else {
+            [somatic_donor_id, somatic_sample_id, somatic_vcf_file]
+          }
       }
 }
 
@@ -85,22 +106,35 @@ def extractBamsFromDir( bams_dir ) {
           bai_file = bam_path.toString().replace('.bam','.bai')
           bam_sample_id = bam_path.getName().toString().replaceAll(/(_dedup)*.bam$/, '')
           bam_donor_id =  bam_path.getParent().getName()
-          [bam_donor_id, bam_sample_id, bam_file, bai_file]
+          if ( file(bai_file).exists() ) {
+            [bam_donor_id, bam_sample_id, bam_file, bai_file]
+          } else {
+            bai_file = bam_path+".bai"
+            if ( file(bai_file).exists() ) {
+              [bam_donor_id, bam_sample_id, bam_file, bai_file]
+            } else {
+              [bam_donor_id, bam_sample_id, bam_file]
+            }
+          }
       }
 }
 
-def extractWalkerVcfGzFromDir( walker_dir ) {
+def extractWalkerVcfFromDir( walker_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  walker_dir = walker_dir.tokenize().collect{"$it/*/*.walker.vcf.gz"}
+  walker_dir = walker_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
   Channel
     .fromPath(walker_dir, type:'file')
-    .ifEmpty { error "No .walker.vcf.gz files found in ${walker_dir}." }
+    .ifEmpty { error "No .vcf(.gz) files found in ${walker_dir}." }
     .map { walker_vcf_path ->
         walker_vcf_file = walker_vcf_path
         walker_tbi_file = walker_vcf_path+".tbi"
-        walker_sample_id = walker_vcf_path.getName().toString().replaceAll(/.walker.vcf.gz$/, '')
+        walker_sample_id = walker_vcf_path.getName().toString().replaceAll(/(.walker)*.vcf(.gz)*$/, '')
         walker_donor_id =  walker_vcf_path.getParent().getName()
-        [walker_donor_id, walker_sample_id, walker_vcf_file, walker_tbi_file]
+        if ( file(walker_tbi_file).exists() ) {
+          [walker_donor_id, walker_sample_id, walker_vcf_file, walker_tbi_file]
+        } else {
+          [walker_donor_id, walker_sample_id, walker_vcf_file]
+        }
     }
 }
 
@@ -163,6 +197,25 @@ def extractPhasedVcfGzFromDir( phased_dir ) {
     }
 }
 
+def extractPonFilteredVcfFromDir( pon_filtered_vcfs_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  pon_filtered_vcfs_dir = pon_filtered_vcfs_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
+  Channel
+    .fromPath(pon_filtered_vcfs_dir, type:'file')
+    .ifEmpty { error "No .vcf(.gz) files found in ${pon_filtered_vcfs_dir}." }
+    .map { pon_filtered_vcf_path ->
+        pon_filtered_vcf_file = pon_filtered_vcf_path
+        pon_filtered_tbi_file = pon_filtered_vcf_path+".tbi"
+        pon_filtered_sample_id = pon_filtered_vcf_path.getName().toString().replaceAll(/(.pon.filtered)*.vcf(.gz)*$/, '')
+        pon_filtered_donor_id =  pon_filtered_vcf_path.getParent().getName()
+        if ( file(pon_filtered_tbi_file).exists() ) {
+          [pon_filtered_donor_id, pon_filtered_sample_id, pon_filtered_vcf_file, pon_filtered_tbi_file]
+        } else {
+          [pon_filtered_donor_id, pon_filtered_sample_id, pon_filtered_vcf_file]
+        }
+    }
+}
+
 def extractSnvRfTableRdsFromDir( snv_rf_tables_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
   snv_rf_tables_dir = snv_rf_tables_dir.tokenize().collect{"$it/*/*.rftable.rds"}
@@ -191,18 +244,22 @@ def extractIndelRfTableRdsFromDir( indel_rf_tables_dir ) {
     }
 }
 
-def extractPtatoVcfGzFromDir( ptato_vcfs_dir ) {
+def extractPtatoVcfFromDir( ptato_vcfs_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  ptato_vcfs_dir = ptato_vcfs_dir.tokenize().collect{"$it/*/*.ptato.vcf.gz"}
+  ptato_vcfs_dir = ptato_vcfs_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
   Channel
     .fromPath(ptato_vcfs_dir, type:'file')
-    .ifEmpty { error "No .ptato.vcf.gz files found in ${ptato_vcfs_dir}." }
+    .ifEmpty { error "No .vcf(.gz) files found in ${ptato_vcfs_dir}." }
     .map { ptato_vcf_path ->
         ptato_vcf_file = ptato_vcf_path
         ptato_tbi_file = ptato_vcf_path+".tbi"
-        ptato_sample_id = ptato_vcf_path.getName().toString().replaceAll(/.ptato.vcf.gz$/, '')
+        ptato_sample_id = ptato_vcf_path.getName().toString().replaceAll(/(.ptato)*.vcf(.gz)*$/, '')
         ptato_donor_id =  ptato_vcf_path.getParent().getName()
-        [ptato_donor_id, ptato_sample_id, ptato_vcf_file, ptato_tbi_file]
+        if ( file(ptato_tbi_file).exists() ) {
+          [ptato_donor_id, ptato_sample_id, ptato_vcf_file, ptato_tbi_file]
+        } else {
+          [ptato_donor_id, ptato_sample_id, ptato_vcf_file]
+        }
     }
 }
 
@@ -234,52 +291,64 @@ def extractAlignmentSummaryMetricsFromDir( alignment_summary_metrics_dir ) {
     }
 }
 
-def extractGridssDriverVcfGzFromDir( gridss_driver_vcfs_dir ) {
+def extractGridssDriverVcfFromDir( gridss_driver_vcfs_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  gridss_driver_vcfs_dir = gridss_driver_vcfs_dir.tokenize().collect{"$it/*/*.gridss.driver.vcf.gz"}
+  gridss_driver_vcfs_dir = gridss_driver_vcfs_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
   Channel
     .fromPath(gridss_driver_vcfs_dir, type:'file')
-    .ifEmpty { error "No .gridss.driver.vcf.gz files found in ${gridss_driver_vcfs_dir}." }
+    .ifEmpty { error "No .vcf(.gz) files found in ${gridss_driver_vcfs_dir}." }
     .map { gridss_driver_vcf_path ->
         gridss_driver_vcf_file = gridss_driver_vcf_path
         gridss_driver_tbi_file = gridss_driver_vcf_path+".tbi"
-        gridss_driver_tumor_sample_id = gridss_driver_vcf_path.getName().toString().replaceAll(/.gridss.driver.vcf.gz$/, '')
+        gridss_driver_tumor_sample_id = gridss_driver_vcf_path.getName().toString().replaceAll(/(.gridss.driver)*.vcf(.gz)*$/, '')
         gridss_driver_normal_sample_id =  gridss_driver_vcf_path.getParent().getName()
         gridss_driver_donor_id =  gridss_driver_vcf_path.getParent().getParent().getName()
-        [gridss_driver_donor_id, gridss_driver_normal_sample_id, gridss_driver_tumor_sample_id, gridss_driver_vcf_file, gridss_driver_tbi_file]
+        if ( file(gridss_driver_tbi_file).exists() ) {
+          [gridss_driver_donor_id, gridss_driver_normal_sample_id, gridss_driver_tumor_sample_id, gridss_driver_vcf_file, gridss_driver_tbi_file]
+        } else {
+          [gridss_driver_donor_id, gridss_driver_normal_sample_id, gridss_driver_tumor_sample_id, gridss_driver_vcf_file]
+        }
     }
 }
 
 
-def extractGridssUnfilteredVcfGzFromDir( gridss_unfiltered_vcfs_dir ) {
+def extractGridssUnfilteredVcfFromDir( gridss_unfiltered_vcfs_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  gridss_unfiltered_vcfs_dir = gridss_unfiltered_vcfs_dir.tokenize().collect{"$it/*/*/*.gridss.unfiltered.vcf.gz"}
+  gridss_unfiltered_vcfs_dir = gridss_unfiltered_vcfs_dir.tokenize().collect{"$it/*/*/*.{vcf,vcf.gz}"}
   Channel
     .fromPath(gridss_unfiltered_vcfs_dir, type:'file')
-    .ifEmpty { error "No .gridss.unfiltered.vcf.gz files found in ${gridss_unfiltered_vcfs_dir}." }
+    .ifEmpty { error "No .vcf(.gz) files found in ${gridss_unfiltered_vcfs_dir}." }
     .map { gridss_unfiltered_vcf_path ->
         gridss_unfiltered_vcf_file = gridss_unfiltered_vcf_path
         gridss_unfiltered_tbi_file = gridss_unfiltered_vcf_path+".tbi"
-        gridss_unfiltered_tumor_sample_id = gridss_unfiltered_vcf_path.getName().toString().replaceAll(/.gridss.unfiltered.vcf.gz$/, '')
+        gridss_unfiltered_tumor_sample_id = gridss_unfiltered_vcf_path.getName().toString().replaceAll(/(.gridss.unfiltered)*.vcf(.gz)*$/, '')
         gridss_unfiltered_normal_sample_id =  gridss_unfiltered_vcf_path.getParent().getName()
         gridss_unfiltered_donor_id =  gridss_unfiltered_vcf_path.getParent().getParent().getName()
-        [gridss_unfiltered_donor_id, gridss_unfiltered_normal_sample_id, gridss_unfiltered_tumor_sample_id, gridss_unfiltered_vcf_file, gridss_unfiltered_tbi_file]
+        if ( file(gridss_unfiltered_tbi_file).exists() ) {
+          [gridss_unfiltered_donor_id, gridss_unfiltered_normal_sample_id, gridss_unfiltered_tumor_sample_id, gridss_unfiltered_vcf_file, gridss_unfiltered_tbi_file]
+        } else {
+          [gridss_unfiltered_donor_id, gridss_unfiltered_normal_sample_id, gridss_unfiltered_tumor_sample_id, gridss_unfiltered_vcf_file]
+        }
     }
 }
 
-def extractGripssSomaticFilteredVcfGzFromDir( gripss_somatic_filtered_vcfs_dir ) {
+def extractGripssSomaticFilteredVcfFromDir( gripss_somatic_filtered_vcfs_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  gripss_somatic_filtered_vcfs_dir = gripss_somatic_filtered_vcfs_dir.tokenize().collect{"$it/*/*/*.gripss.somatic.filtered.vcf.gz"}
+  gripss_somatic_filtered_vcfs_dir = gripss_somatic_filtered_vcfs_dir.tokenize().collect{"$it/*/*/*.{vcf,vcf.gz}"}
   Channel
     .fromPath(gripss_somatic_filtered_vcfs_dir, type:'file')
-    .ifEmpty { error "No .gripss.somatic.filtered.vcf.gz files found in ${gripss_somatic_filtered_vcfs_dir}." }
+    .ifEmpty { error "No .vcf(.gz) files found in ${gripss_somatic_filtered_vcfs_dir}." }
     .map { gripss_somatic_filtered_vcf_path ->
         gripss_somatic_filtered_vcf_file = gripss_somatic_filtered_vcf_path
         gripss_somatic_filtered_tbi_file = gripss_somatic_filtered_vcf_path+".tbi"
-        gripss_somatic_filtered_tumor_sample_id = gripss_somatic_filtered_vcf_path.getName().toString().replaceAll(/.gripss.somatic.filtered.vcf.gz$/, '')
+        gripss_somatic_filtered_tumor_sample_id = gripss_somatic_filtered_vcf_path.getName().toString().replaceAll(/(.gripss.somatic.filtered)*.vcf(.gz)*$/, '')
         gripss_somatic_filtered_normal_sample_id =  gripss_somatic_filtered_vcf_path.getParent().getName()
         gripss_somatic_filtered_donor_id =  gripss_somatic_filtered_vcf_path.getParent().getParent().getName()
-        [gripss_somatic_filtered_donor_id, gripss_somatic_filtered_normal_sample_id, gripss_somatic_filtered_tumor_sample_id, gripss_somatic_filtered_vcf_file, gripss_somatic_filtered_tbi_file]
+        if ( file(gripss_somatic_filtered_tbi_file).exists() ) {
+          [gripss_somatic_filtered_donor_id, gripss_somatic_filtered_normal_sample_id, gripss_somatic_filtered_tumor_sample_id, gripss_somatic_filtered_vcf_file, gripss_somatic_filtered_tbi_file]
+        } else {
+          [gripss_somatic_filtered_donor_id, gripss_somatic_filtered_normal_sample_id, gripss_somatic_filtered_tumor_sample_id, gripss_somatic_filtered_vcf_file]
+        }
     }
 }
 

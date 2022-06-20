@@ -1,11 +1,11 @@
 library(randomForest)
 
-version = '_v1.0.0'
 args <- commandArgs(trailingOnly = TRUE)
 label_1 <- args[1]
 files_1 <- args[2]
 label_2 <- args[3]
 files_2 <- args[4]
+version <- args[5]
 
 for (fname in strsplit(files_1,",")[[1]]) {
   # df <- read.table(fname,header=T)

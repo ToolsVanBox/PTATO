@@ -17,6 +17,7 @@ workflow get_indel_rf_files {
     train_indel_rf( input_train_indel_rf )
 
     randomforest_files = train_indel_rf.out
+      .transpose()
       .map{
         confusion_file, importance_file, rdata_file, rds_file ->
         confusion_name = confusion_file.getName()

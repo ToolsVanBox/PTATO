@@ -2,7 +2,7 @@ include { test_snv_rf } from '../../NextflowModules/Utils/randomForest.nf' param
 include { bgzip } from '../../NextflowModules/htslib/1.15/bgzip.nf' params(params)
 include { tabix } from '../../NextflowModules/htslib/1.15/tabix.nf' params(params)
 
-include { extractPtatoVcfGzFromDir } from '../../NextflowModules/Utils/getFilesFromDir.nf' params(params)
+include { extractPtatoVcfFromDir } from '../../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
 workflow get_ptato_vcfs {
   take:
@@ -10,7 +10,9 @@ workflow get_ptato_vcfs {
     rf_tables
   main:
     if ( params.optional.snvs.ptato_vcfs_dir ) {
-      ptato_vcfs = extractPtatoVcfGzFromDir( params.optional.snvs.ptato_vcfs_dir )
+      raw_ptato_vcfs = extractPtatoVcfFromDir( params.optional.indels.ptato_vcfs_dir )
+      get_gzipped_vcfs( raw_ptato_vcfs )
+      ptato_vcfs = get_gzipped_vcfs.out
     } else {
       input_test_snv_rf = somatic_vcfs.combine( rf_tables, by: [0,1] )
 

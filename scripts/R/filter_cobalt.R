@@ -21,11 +21,11 @@ COBALT_file <- args[1]
 CENTROMERE_file <- args[2]
 CYTOBAND_file <- args[3]
 COBALT_PON_FILE <- args[4]
-ref_genome <- args[5]
+ref_genome <- args[5] # Name of BSgenome package (eg "BSgenome.Hsapiens.UCSC.hg38")
 OUTPUT_dir <- args[6]
-Centromere_extension <- as.numeric(args[7])
-COBALT_MIN_COV <- as.numeric(args[8])
-COBALT_MAX_COV <- as.numeric(args[9])
+Centromere_extension <- as.numeric(args[7]) # region around the centromeres that should be excluded (in bp)
+COBALT_MIN_COV <- as.numeric(args[8]) # the lower percentile of readcount bins that should be excluded
+COBALT_MAX_COV <- as.numeric(args[9]) # the upper percentile of readcount bins that should be excluded
 
 library( ref_genome, character.only = TRUE )
 
@@ -60,8 +60,6 @@ COBALT_PON <- read.delim(COBALT_PON_FILE, check.names = F)
 print(paste("# Reading: ", COBALT_file, sep = ""))
 COBALT_raw <- read.delim(COBALT_file, check.names = F)
 
-OUTPUT_dir_ReadCount <- paste(OUTPUT_dir, "ReadCounts/", sep = "")
-dir.create(OUTPUT_dir_ReadCount)
 ReadCounts <- FilterCobalt(COBALT_input = COBALT_raw, COBALT_PON = COBALT_PON,
                                       OUTPUT_dir = OUTPUT_dir,
                      CENTROMERES = CENTROMERES_g,

@@ -18,14 +18,8 @@ Generate_Plots <- function(ReadCounts_100kb_file,
   ReadCounts_1mb <- read.delim(ReadCounts_1mb_file)
   ReadCounts_1mb$type <- "ReadDepth"
 
-  # Temporary fix for the chrX
-  ReadCounts_100kb$CopyNumber[ReadCounts_100kb$Chromosome == "X"] <- ReadCounts_100kb$CopyNumber[ReadCounts_100kb$Chromosome == "X"]/2
-  ReadCounts_1mb$CopyNumber[ReadCounts_1mb$Chromosome == "X"] <- ReadCounts_1mb$CopyNumber[ReadCounts_1mb$Chromosome == "X"] / 2
-
   ReadCounts_segments <- read.delim(ReadCounts_segments_file)
   ReadCounts_segments$type <- "ReadDepth"
-  # Temp fix for chrX
-  ReadCounts_segments[ReadCounts_segments$chrom == "X",4] <-   ReadCounts_segments[ReadCounts_segments$chrom == "X",4] / 2
 
    # BAF
   BAF_binned <- read.delim(BAF_binned_file)
@@ -51,41 +45,41 @@ Generate_Plots <- function(ReadCounts_100kb_file,
     CNVs_plot <- NULL
   }
 
-  plot_karyogram(CNV_data = CNVs, ReadCounts = ReadCounts_100kb, SAMPLE = SAMPLE)
-  ggsave(paste(OUTPUT_dir, ".karyogram.100kb.pdf", sep = ""), width = 10, height = 2.5, dpi = 300)
-  ggsave(paste(OUTPUT_dir, ".karyogram.100kb.png", sep = ""), width = 10, height = 2.5, dpi = 300)
+  karyo_100kb_fig <- plot_karyogram(CNV_data = CNVs_plot, ReadCounts = ReadCounts_100kb, SAMPLE = SAMPLE)
+  ggsave(paste(OUTPUT_dir, ".karyogram.100kb.pdf", sep = ""), karyo_100kb_fig, width = 10, height = 2.5)
+  ggsave(paste(OUTPUT_dir, ".karyogram.100kb.png", sep = ""), karyo_100kb_fig, width = 10, height = 2.5, dpi = 300)
 
-  plot_karyogram(CNV_data = CNVs, ReadCounts = ReadCounts_1mb, SAMPLE = SAMPLE, point_size = 0.7)
-  ggsave(paste(OUTPUT_dir, ".karyogram.1mb.pdf", sep = ""), width = 10, height = 2.5, dpi = 300)
-  ggsave(paste(OUTPUT_dir, ".karyogram.1mb.png", sep = ""), width = 10, height = 2.5, dpi = 300)
+  karyo_1mb_fig <- plot_karyogram(CNV_data = CNVs_plot, ReadCounts = ReadCounts_1mb, SAMPLE = SAMPLE, point_size = 0.7)
+  ggsave(paste(OUTPUT_dir, ".karyogram.1mb.pdf", sep = ""), karyo_1mb_fig, width = 10, height = 2.5)
+  ggsave(paste(OUTPUT_dir, ".karyogram.1mb.png", sep = ""), karyo_1mb_fig, width = 10, height = 2.5, dpi = 300)
 
 
 
-  plot_BAF(segment_data = ReadCounts_segments, segment_data2 = BAF_segments,
+  baf_fig <- plot_BAF(segment_data = ReadCounts_segments, segment_data2 = BAF_segments,
            point_data = ReadCounts_plot, point_data2 = BAF_plot, CNV_data = CNVs_plot)
-  ggsave(paste(OUTPUT_dir, ".copynumber.baf.pdf", sep = ""), width = 11, height = 5, dpi = 300)
-  ggsave(paste(OUTPUT_dir, ".copynumber.baf.png", sep = ""), width = 11, height = 5, dpi = 300)
+  ggsave(paste(OUTPUT_dir, ".copynumber.baf.pdf", sep = ""), baf_fig, width = 11, height = 5)
+  ggsave(paste(OUTPUT_dir, ".copynumber.baf.png", sep = ""), baf_fig, width = 11, height = 5, dpi = 300)
 
 
-  plot_CN(segment_data = ReadCounts_segments,
+  cn_depth_fig <- plot_CN(segment_data = ReadCounts_segments,
           point_data = ReadCounts_plot, title = "Read depth",
           CNV_data = CNVs_plot)
 
-  ggsave(paste(OUTPUT_dir, ".copynumber.pdf", sep = ""), width = 10, height = 9, dpi = 300)
-  ggsave(paste(OUTPUT_dir, ".copynumber.png", sep = ""), width = 10, height = 9, dpi = 300)
+  ggsave(paste(OUTPUT_dir, ".copynumber.pdf", sep = ""), cn_depth_fig, width = 10, height = 9)
+  ggsave(paste(OUTPUT_dir, ".copynumber.png", sep = ""), cn_depth_fig, width = 10, height = 9, dpi = 300)
 
 
-  plot_CN(segment_data = BAF_segments,
+  cn_baf_fig <- plot_CN(segment_data = BAF_segments,
           point_data = BAF_plot, title = "B-allele frequency",
           CNV_data = CNVs_plot)
 
-  ggsave(paste(OUTPUT_dir, ".baf.pdf", sep = ""), width = 10, height = 9, dpi = 300)
-  ggsave(paste(OUTPUT_dir, ".baf.png", sep = ""), width = 10, height = 9, dpi = 300)
+  ggsave(paste(OUTPUT_dir, ".baf.pdf", sep = ""), cn_baf_fig, width = 10, height = 9)
+  ggsave(paste(OUTPUT_dir, ".baf.png", sep = ""), cn_baf_fig, width = 10, height = 9, dpi = 300)
 }
 
 
 plot_karyogram <- function(CNV_data = NULL, ReadCounts, SAMPLE = "",
-                           max_level_to_plot = 4, SVtype_column = 6,
+                           max_level_to_plot = 4, SVtype_column = 4,
                            point_size = 0.3){
   print(SAMPLE)
   ReadCounts$Type <- "Normal"
@@ -183,10 +177,12 @@ plot_BAF <- function(segment_data, segment_data2 = NULL,
   if(!is.null(CNV_data)){
     CNV_data$chrom <- factor(CNV_data$chrom, levels = c(1:22, "X", "Y"))
     CNV_data <- CNV_data[order(CNV_data$chrom),]
+  } else{
+    CNV_data <- data.frame("start.pos" = numeric(), "end.pos" = numeric(), value = numeric())
   }
 
   plot <- ggplot(data = segment_plot_data) +
-    geom_rect(data = CNV_data, mapping = aes(xmin = start.pos, xmax = end.pos, ymin = -Inf, ymax = Inf, fill = value), alpha = 0.2) +
+    geom_rect(data = CNV_data, mapping = aes(xmin = start.pos, xmax = end.pos, fill = value), ymin = -Inf, ymax = Inf, alpha = 0.2) +
 
     geom_point(data = merged_data, aes(x = start.pos, y = value), color = "darkgray", alpha = 0.8, size = 0.3) +
 
@@ -195,8 +191,8 @@ plot_BAF <- function(segment_data, segment_data2 = NULL,
 
     #geom_rect(data=d, mapping=aes(xmin=x1, xmax=x2, ymin=y1, ymax=y2, fill=t), color="black", alpha=0.5) +
     facet_grid(type~chrom, space = "free_x", scales = "free", switch="y") +
-    scale_fill_manual(values = CNV_cols) +
     labs(x = "Genomic Position (bp)", y = "") +
+    scale_fill_manual(values = CNV_cols) +
     theme_grey(base_size = 8) +
     theme(
       axis.line.x=element_blank(),
@@ -275,10 +271,12 @@ plot_CN <- function(segment_data, segment_data2 = NULL,
   if(!is.null(CNV_data)){
     CNV_data$chrom <- factor(CNV_data$chrom, levels = c(1:22, "X", "Y"))
     CNV_data <- CNV_data[order(CNV_data$chrom),]
+  } else{
+    CNV_data <- data.frame("start.pos" = numeric(), "end.pos" = numeric(), value = numeric())
   }
 
   plot <- ggplot(data = segment_plot_data) +
-    geom_rect(data = CNV_data, mapping = aes(xmin = start.pos, xmax = end.pos, ymin = -Inf, ymax = Inf, fill = value), alpha = 0.2) +
+    geom_rect(data = CNV_data, mapping = aes(xmin = start.pos, xmax = end.pos, fill = value), ymin = -Inf, ymax = Inf, alpha = 0.2) +
 
     geom_point(data = merged_data, aes(x = start.pos, y = value), color = "darkgray", alpha = 0.8, size = 0.3) +
 
@@ -287,9 +285,9 @@ plot_CN <- function(segment_data, segment_data2 = NULL,
 
     #geom_rect(data=d, mapping=aes(xmin=x1, xmax=x2, ymin=y1, ymax=y2, fill=t), color="black", alpha=0.5) +
     facet_wrap(~chrom,  scales = "free_x", ncol = nrow) +
-    scale_fill_manual(values = CNV_cols) +
     labs(x = "Genomic Position (bp)", y = "") +
     ggtitle(title) +
+    scale_fill_manual(values = CNV_cols) +
     theme_grey(base_size = 8) +
     theme(
       axis.line.x=element_blank(),
@@ -305,5 +303,6 @@ plot_CN <- function(segment_data, segment_data2 = NULL,
       panel.background=element_blank(),
       panel.border=element_blank(),
       strip.placement = "outside", plot.title = element_text(hjust = 0.5))
+  
   return(plot)
 }

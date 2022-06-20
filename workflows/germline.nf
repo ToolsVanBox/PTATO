@@ -1,7 +1,9 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2
 
-include { extractGermlineVcfGzFromDir } from '../NextflowModules/Utils/getFilesFromDir.nf' params(params)
+include { get_gzipped_vcfs } from './get_gzipped_vcfs.nf' params(params)
+
+include { extractGermlineVcfFromDir } from '../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 include { SnpSift } from '../NextflowModules/SnpSift/4.3.1t--1/SnpSift.nf' params(params)
 include { bgzip } from '../NextflowModules/htslib/1.15/bgzip.nf' params(params)
 include { tabix } from '../NextflowModules/htslib/1.15/tabix.nf' params(params)
@@ -13,7 +15,9 @@ workflow get_germline_vcfs {
     bulk_names = Channel.from( params.bulk_names ).groupTuple( by: [0] )
 
     if ( params.optional.germline_vcfs_dir ) {
-      germline_vcfs = extractGermlineVcfGzFromDir( params.optional.germline_vcfs_dir )
+      raw_germline_vcfs = extractGermlineVcfFromDir( params.optional.germline_vcfs_dir )
+      get_gzipped_vcfs( raw_germline_vcfs )
+      germline_vcfs = get_gzipped_vcfs.out
     } else {
       input_snpsift = input_vcfs.join( bulk_names, by: [0] )
 

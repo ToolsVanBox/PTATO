@@ -12,9 +12,9 @@ walker_vcf <- readVcf( walker_vcf_fname )
 
 ptato_gr <- granges(ptato_vcf)
 ptato_gr_df <- as.data.frame(ptato_gr)
-PTAprob1 <- unlist(lapply(info(ptato_vcf)$PTAprob, `[[` ,1))
-PTAprob2 <- unlist(lapply(info(ptato_vcf)$PTAprob, `[[` ,2))
-PTAprob3 <- unlist(lapply(info(ptato_vcf)$PTAprob, `[[` ,3))
+PTAprob1 <- geno(ptato_vcf)$PTAprob[,,1]
+PTAprob2 <- geno(ptato_vcf)$PTAprob[,,2]
+PTAprob3 <- geno(ptato_vcf)$PTAprob[,,3]
 PTAprob <- PTAprob1
 PTAprob[which(PTAprob == 0)] <- PTAprob2[which(PTAprob == 0)]
 PTAprob[which(PTAprob == 0)] <- PTAprob3[which(PTAprob == 0)]
@@ -51,6 +51,9 @@ write.table( myresult, out_table_fname, quote=F, col.names=T, row.names=F)
 maxf1 <- myresult[which(myresult$p == min(myresult[which(myresult$F1 == max(na.omit(myresult$F1))),]$p)),]
 myresult2 <- myresult[which( abs(myresult$recall-myresult$precision) > 0 ),]
 pred_rec <- myresult2[which(abs(myresult2$recall-myresult2$precision) == min(na.omit(abs(myresult2$recall-myresult2$precision)))),]
+
+# myresult2 <- myresult[which( abs(myresult$specificity-myresult$accuracy) > 0 ),]
+# pred_rec <- myresult2[which(abs(myresult2$specificity-myresult2$accuracy) == min(na.omit(abs(myresult2$specificity-myresult2$accuracy)))),]
 
 low_ws_rownames <- rownames(walker_gr_df[which(walker_gr_df$WS < 1),])
 myfilteredrows <- which(ptato_gr_df$PTAprob <= mean(pred_rec$PTAprob_cutoff))

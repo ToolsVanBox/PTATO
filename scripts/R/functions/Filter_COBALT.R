@@ -1,19 +1,31 @@
-### This script normalizes PTA COBALT data against a consensus / PON COBALT list
+### The functions in this script are used to normalize PTA COBALT readcounts against a consensus / PON COBALT readcounts list
+### In addition, the normalized read counts (in 1kb bins) are binned in larger bins
+### ReadCounts are also segmented (eg bins with similar readcounts are grouped together)
 
-
-
-.NormalizeCobalt <- function(COBALT_sample, COBALT_PON, sample_colum = 4, PON_mean_column = 15){
-  # First normalize to the same total number of counts as the pon file
-  normalization_factor <- sum(COBALT_sample[,sample_colum]) / sum(COBALT_PON[,PON_mean_column])
+.NormalizeCobalt <- function(COBALT_sample, COBALT_PON, Chromosomes, sample_colum = 4, PON_mean_column = 15){
+  
+  Autosomes <- as.numeric(names(Chromosomes))[!is.na( as.numeric(names(Chromosomes)))]
+  
+  # First normalize to the same total number of counts as the pon file (autosomes only)
+  normalization_factor <- sum(COBALT_sample[which(COBALT_sample$chromosome %in% Autosomes),sample_colum]) / sum(COBALT_PON[which(COBALT_PON$chromosome %in% Autosomes),PON_mean_column])
+  
   COBALT_normalized <- COBALT_sample[,c(1,2, sample_colum)] # assume column 1 and 2 are chromosome and position
 
   COBALT_normalized[,"normReadCount"] <- COBALT_normalized[,3] / normalization_factor
 
-  # Next normalize the nor
+  # Next the normReadCount are divided by the PON_meanReadCount to normalize the ReadCounts for recurrent PTA coverage deviations
   COBALT_output <- merge(COBALT_normalized, COBALT_PON[,c(1,2, PON_mean_column)], by = c(1,2))
   names(COBALT_output)[ncol(COBALT_output)] <- "PON_meanReadCount"
   COBALT_output$filteredReadCount <- COBALT_output[,"normReadCount"] / COBALT_output[,ncol(COBALT_output)]
+  
+  # Sex chromosomes
+  # The ReadCount PON only contains XY samples. 
+  COBALT_output$filteredReadCount[which(COBALT_output$chromosome %in% c("X", "Y"))] <- COBALT_output$filteredReadCount[which(COBALT_output$chromosome %in% c("X", "Y"))]/2
+  
+  # Chromosomes are ordered based on the order in the chromosome/CHR_SIZES input
+  COBALT_output$chromosome <- factor(COBALT_output$chromosome, levels = names(Chromosomes))
   COBALT_output <- COBALT_output[order(COBALT_output$chromosome, COBALT_output$position),]
+  
   return(COBALT_output)
 }
 
@@ -165,7 +177,7 @@
 
 FilterCobalt <- function(COBALT_input, COBALT_PON, OUTPUT_dir, CENTROMERES, CYTOBAND, COBALT_MIN_COV, COBALT_MAX_COV, CHR_SIZES){
   print("# Normalizing COBALT ReadCounts")
-  NormalizedReadCount <- .NormalizeCobalt(COBALT_sample = COBALT_input, COBALT_PON = COBALT_PON)
+  NormalizedReadCount <- .NormalizeCobalt(COBALT_sample = COBALT_input, COBALT_PON = COBALT_PON, Chromosomes = CHR_SIZES)
   print("# Filtering COBALT ReadCounts")
   FilteredReadCount <- .RemoveCobaltOutliers(COBALT_input = NormalizedReadCount,
                                             COBALT_MIN_COV = COBALT_MIN_COV,

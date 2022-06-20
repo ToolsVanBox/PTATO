@@ -42,11 +42,14 @@ if (!nrow(test.data) & !length(myvcf)){
     gr$PTAprob <- paste(gr.df.merged$PTAprob,gr.df.merged$PTAprob2,gr.df.merged$PTAprob3,sep=",")
 
     meta(header(myvcf))$PTArandomforest <- DataFrame("Value" = paste0('"', args[1], ' ', '"'), row.names = "PTArandomforest")
-
-    infoheader <- rbind(info(header(myvcf)), "PTAprob" = DataFrame("Number" = "3", "Type" = "Float", "Description" = "PTA probability value"))
-    rownames(infoheader) <- c(rownames(info(header(myvcf))),"PTAprob")
-    info(header(myvcf)) <- infoheader
-    info(myvcf)$PTAprob <- gr$PTAprob
+    #
+    # infoheader <- rbind(info(header(myvcf)), "PTAprob" = DataFrame("Number" = "3", "Type" = "Float", "Description" = "PTA probability value"))
+    # rownames(infoheader) <- c(rownames(info(header(myvcf))),"PTAprob")
+    # info(header(myvcf)) <- infoheader
+    # info(myvcf)$PTAprob <- gr$PTAprob
+    
+    geno(myvcf)$PTAprob <- matrix(gr$PTAprob,ncol=1)
+    geno(header(myvcf))["PTAprob",] = list("3","Float","PTA probability values")
 
     outvcf <- file(out_file, open="a")
     writeVcf(myvcf, outvcf)

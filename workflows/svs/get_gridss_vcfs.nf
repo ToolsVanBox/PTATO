@@ -1,7 +1,7 @@
 include { gridss } from '../../NextflowModules/gridss/2.13.2/gridss.nf' params(params)
 include { AnnotateInsertedSequence } from '../../NextflowModules/gridss/2.13.2/AnnotateInsertedSequence.nf' params(params)
 include {
-    extractGridssDriverVcfGzFromDir
+    extractGridssDriverVcfFromDir
 } from '../../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
 workflow get_gridss_vcfs {
@@ -12,7 +12,9 @@ workflow get_gridss_vcfs {
     input_gridss = normal_bams
       .combine( tumor_bams, by: [0] )
     if ( params.optional.svs.gridss_driver_vcfs_dir ) {
-      gridss_driver_vcfs = extractGridssDriverVcfGzFromDir( params.optional.svs.gridss_driver_vcfs_dir )
+      raw_gridss_driver_vcfs = extractGridssDriverVcfFromDir( params.optional.svs.gridss_driver_vcfs_dir )
+      get_gzipped_vcfs( raw_gridss_driver_vcfs )
+      gridss_driver_vcfs = get_gzipped_vcfs.out
     } else {
       gridss( input_gridss )
       gridss_driver_vcfs = gridss.out

@@ -14,14 +14,24 @@ Make_SV_Circos <- function(CNVs_file, ReadCounts_1mb_file, BAF_1mb_file, ReadCou
 
   # ReadCounts (scatter)
   ReadCounts_Circos <- Dataframe_to_Circos(ReadCounts_1mb, Value_column = 5)
-  ReadCounts_Circos_a <- Overlap_CNVs(Data = ReadCounts_Circos, CNVs =  CNVs[,c(1,2,3,6)])
+  if(nrow(CNVs) > 0){
+    ReadCounts_Circos_a <- Overlap_CNVs(Data = ReadCounts_Circos, CNVs = CNVs[,c(1,2,3,6)])
+  } else {
+    ReadCounts_Circos_a <- Overlap_CNVs(Data = ReadCounts_Circos, CNVs = CNVs)
+  }
   print(paste("# Writing: ", OUTPUT_dir, ".circos.readcounts.1mb.txt", sep = ""))
   write.table(ReadCounts_Circos_a,
               file = paste(OUTPUT_dir, ".circos.readcounts.1mb.txt", sep = ""), quote = F, row.names = F, col.names = F,  sep = "\t")
 
   # BAF (scatter)
   BAF_Circos <- Dataframe_to_Circos(BAF_1mb, Chrom_column = 1, Start_column = 2,End_column = 3, Value_column = 4)
-  BAF_Circos_a <- Overlap_CNVs(Data = BAF_Circos, CNVs = CNVs[,c(1,2,3,6)])
+  if(nrow(CNVs) > 0){
+    BAF_Circos_a <- Overlap_CNVs(Data = BAF_Circos, CNVs = CNVs[,c(1,2,3,6)])
+  } else {
+    BAF_Circos_a <- Overlap_CNVs(Data = BAF_Circos, CNVs = CNVs)
+    
+  }
+  
   print(paste("# Writing: ", OUTPUT_dir, ".circos.baf.txt", sep = ""))
   write.table(BAF_Circos_a,
               file = paste(OUTPUT_dir, ".circos.baf.txt", sep = ""), quote = F, row.names = F, col.names = F, sep = "\t")
@@ -77,19 +87,21 @@ Dataframe_to_Circos <- function(Input, Chrom_column = 1, Start_column = 2, End_c
   return(Output)
 }
 
+# Each dot in the scatterplot gets a color if it overlaps with a CNV. 
 Overlap_CNVs <- function(CNVs, Data, Gain = "dblue", Loss = "dred", LOH = "dorange", Normal = "dgrey_a3"){
   Output <- Data
   Data_g <- GRanges(seqnames = Data[,1], IRanges(Data[,2], Data[,3]))
   Output$Param <- paste("color=", Normal, sep = "")
-  CNVs_g <- GRanges(seqnames = paste("hs", CNVs[,1], sep = ""), IRanges(CNVs[,2], CNVs[,3]), State = CNVs[,4])
-
-  Olap_Gains<- findOverlaps(Data_g, CNVs_g[CNVs_g$State == "Gain",])
-  Output$Param[queryHits(Olap_Gains)] <- paste("color=", Gain, sep = "")
-  Olap_Losses <- findOverlaps(Data_g, CNVs_g[CNVs_g$State == "Loss",])
-  Output$Param[queryHits(Olap_Losses)] <- paste("color=", Loss, sep = "")
-  Olap_LOH <- findOverlaps(Data_g, CNVs_g[CNVs_g$State == "LOH",])
-  Output$Param[queryHits(Olap_LOH)] <- paste("color=", LOH, sep = "")
-
+  if(nrow(CNVs) > 0){
+    CNVs_g <- GRanges(seqnames = paste("hs", CNVs[,1], sep = ""), IRanges(CNVs[,2], CNVs[,3]), State = CNVs[,4])
+    
+    Olap_Gains <- findOverlaps(Data_g, CNVs_g[CNVs_g$State == "Gain",])
+    Output$Param[queryHits(Olap_Gains)] <- paste("color=", Gain, sep = "")
+    Olap_Losses <- findOverlaps(Data_g, CNVs_g[CNVs_g$State == "Loss",])
+    Output$Param[queryHits(Olap_Losses)] <- paste("color=", Loss, sep = "")
+    Olap_LOH <- findOverlaps(Data_g, CNVs_g[CNVs_g$State == "LOH",])
+    Output$Param[queryHits(Olap_LOH)] <- paste("color=", LOH, sep = "")
+  }
   return(Output)
 }
 
@@ -112,8 +124,8 @@ SV_VCF_to_Links <- function(SVs){
       Link$param <- ifelse(unique(info(SV)$SVTYPE) == "DEL", "color=dred", "color=dblue")
       Link$param <- ifelse(unique(info(SV)$SVTYPE) == "CTX", "color=dpurple", Link$param)
       Link$param <- ifelse(unique(info(SV)$SVTYPE) == "INV", "color=dgreen", Link$param)
+      Links <- rbind(Links, Link)
     }
-    Links <- rbind(Links, Link)
   }
 
   return(Links)

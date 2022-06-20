@@ -63,3 +63,30 @@ process intersectAll {
     > ${sample_id}.features.bed
     """
 }
+
+process intersectPON {
+  tag {"bedtoolsIntersectPON ${sample_id}"}
+  label 'bedtoolsIntersectPON'
+  label 'bedtools_2_30_0_intersectPON'
+  shell = ['/bin/bash', '-euo', 'pipefail']
+  container = 'quay.io/biocontainers/bedtools:2.30.0--h468198e_3'
+
+  input:
+    tuple( val(donor_id), val(sample_id), path(vcf), path(tbi), path(pon) )
+
+  output:
+    tuple( val(donor_id), val(sample_id), path("${sample_id}.pon.filtered.vcf"), emit: pon_filtered_vcf)
+
+  script:
+    """
+    host=\$(hostname)
+    echo \${host}
+
+    bedtools \
+    intersect \
+    -a ${vcf} \
+    -b ${pon} \
+    ${params.bedtoolsintersectpon.optional} \
+    > ${sample_id}.pon.filtered.vcf
+    """
+}

@@ -32,8 +32,8 @@ workflow get_somatic_vcfs {
       .map{ donor_id, sample_id, vcf_gz, vcf_tbi ->
         vcf_name = vcf_gz.getName()
         tbi_name = vcf_tbi.getName()
-        vcf_gz = vcf_gz.copyTo("${params.out_dir}/intermediate/short_variants/SMuRF/${donor_id}/${vcf_name}")
-        vcf_tbi = vcf_tbi.copyTo("${params.out_dir}/intermediate/short_variants/SMuRF/${donor_id}/${tbi_name}")
+        vcf_gz = vcf_gz.copyTo("${params.out_dir}/intermediate/short_variants/somatic_vcfs/${donor_id}/${vcf_name}")
+        vcf_tbi = vcf_tbi.copyTo("${params.out_dir}/intermediate/short_variants/somatic_vcfs/${donor_id}/${tbi_name}")
         [ donor_id, sample_id, vcf_gz, vcf_tbi ]
       }
 

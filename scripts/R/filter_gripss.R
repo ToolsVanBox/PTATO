@@ -22,7 +22,7 @@ ReadCounts_file <- args[3]
 GRIPSS_PON_FILE <- args[4]
 OUTPUT_dir <- args[5]
 max_dist <- as.numeric(args[6])
-MaxBreakendCov <- as.numeric(args[7])
+MaxBreakendCov <- as.numeric(args[7]) # breakends with more coverage ("REF") than "MaxBreakendCov" are filtered
 
 GRIPSS_PON <- read.delim(GRIPSS_PON_FILE)
 BAFs <- read.delim(BAFs_file,header=T)
@@ -34,5 +34,5 @@ Breakends <- Filter_Breakends(GRIPSS_PON = GRIPSS_PON,
                  ReadCounts = ReadCounts,
                  Output_dir = OUTPUT_dir,
                  max_dist = max_dist,
-                 MaxBreakendCov = MaxBreakendCov,
+                 MaxBreakendCov = MaxBreakendCov, 
                  max_SV_size_annotation = 10e6)

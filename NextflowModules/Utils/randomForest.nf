@@ -7,7 +7,7 @@ process train_snv_rf {
     tuple( val(label_1), path(rf_table_1), val(label_2), path(rf_table_2) )
 
   output:
-    tuple( path("randomforest_v1.0.0_confusion.txt"), path("randomforest_v1.0.0_importance.txt"), path("randomforest_v1.0.0.Rdata"), path("randomforest_v1.0.0.rds"), emit: random_forest_file )
+    tuple( path("randomforest*confusion.txt"), path("randomforest*importance.txt"), path("randomforest*.Rdata"), path("randomforest*.rds"), emit: random_forest_file )
 
   script:
     input_args_1 = rf_table_1.join(',')
@@ -16,7 +16,7 @@ process train_snv_rf {
     host=\$(hostname)
     echo \${host}
 
-    R --slave --file=${baseDir}/scripts/R/train_randomforest.R --args ${label_1} ${input_args_1} ${label_2} ${input_args_2}
+    R --slave --file=${baseDir}/scripts/R/train_randomforest.R --args ${label_1} ${input_args_1} ${label_2} ${input_args_2} ${params.train.version}
     """
 }
 
@@ -29,7 +29,7 @@ process train_indel_rf {
     tuple( val(label_1), path(rf_table_1), val(label_2), path(rf_table_2) )
 
   output:
-    tuple( path("randomforest_v1.0.0_confusion.txt"), path("randomforest_v1.0.0_importance.txt"), path("randomforest_v1.0.0.Rdata"), path("randomforest_v1.0.0.rds"), emit: random_forest_file )
+    tuple( path("randomforest*confusion.txt"), path("randomforest*importance.txt"), path("randomforest*.Rdata"), path("randomforest*.rds"), emit: random_forest_file )
 
   script:
     input_args_1 = rf_table_1.join(',')
@@ -38,7 +38,7 @@ process train_indel_rf {
     host=\$(hostname)
     echo \${host}
 
-    R --slave --file=${baseDir}/scripts/R/train_randomforest.R --args ${label_1} ${input_args_1} ${label_2} ${input_args_2}
+    R --slave --file=${baseDir}/scripts/R/train_randomforest.R --args ${label_1} ${input_args_1} ${label_2} ${input_args_2} ${params.train.version}
     """
 }
 
