@@ -119,7 +119,7 @@ muttype_levels <- c("C>A","C>G","C>T","T>A","T>C","T>G")
 
 ft <- get_feature_table( bed )
 at <- get_ab_table( ab )
-rf_table <- merge(ft, at, by = c("DONOR_ID", "CHROM", "START", "END"), all.x = TRUE)
+rf_table <- merge(ft, at, by = c("DONOR_ID", "CHROM", "START", "END"), all.x = TRUE, sort = FALSE)
 
 if ("p_binom" %in% colnames(rf_table)) {
   rf_table$p_binom <- log(as.numeric(as.vector(rf_table$p_binom)))

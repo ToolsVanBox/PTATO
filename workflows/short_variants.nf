@@ -26,6 +26,9 @@ include { SplitVcfs } from '../NextflowModules/GATK/4.1.3.0/SplitVcfs.nf' params
 include { bgzip } from '../NextflowModules/htslib/1.15/bgzip.nf' params(params)
 include { tabix } from '../NextflowModules/htslib/1.15/tabix.nf' params(params)
 
+include { intersect_ptato_vcfs } from './short_variants/intersect_ptato_vcfs.nf' params(params)
+include { merge_ptato_vcfs } from './short_variants/merge_ptato_vcfs.nf' params(params)
+
 include {
   snvs;
   snvs_train;
@@ -62,8 +65,7 @@ workflow short_variants {
     if ( params.optional.short_variants.walker_vcfs_dir ) {
       raw_walker_vcfs = extractWalkerVcfFromDir( params.optional.short_variants.walker_vcfs_dir )
       get_gzipped_vcfs2( raw_walker_vcfs )
-      walker_vcfs = get_gzipped_vcfs.out
-      // walker_vcfs = raw_walker_vcfs
+      walker_vcfs = get_gzipped_vcfs2.out
     } else {
       get_walker_vcfs( somatic_vcfs, germline_vcfs, bams )
       walker_vcfs = get_walker_vcfs.out
@@ -110,11 +112,23 @@ workflow short_variants {
 
     if( params.run.snvs ) {
       snvs( ab_tables, features_beds, somatic_snv_vcfs, walker_vcfs )
+      snvs_ptato_vcfs = snvs.out
+    } else {
+      snvs_ptato_vcfs = Channel.empty()
     }
 
     if ( params.run.indels ) {
       indels( ab_tables, features_beds, somatic_indel_vcfs, walker_vcfs )
+      indels_ptato_vcfs = indels.out
+    } else {
+      indels_ptato_vcfs = Channel.empty()
     }
+
+    intersect_ptato_vcfs( input_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
+    ptato_intersect_vcfs = intersect_ptato_vcfs.out
+
+    merge_ptato_vcfs( ptato_intersect_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
+
 }
 
 workflow short_variants_train {

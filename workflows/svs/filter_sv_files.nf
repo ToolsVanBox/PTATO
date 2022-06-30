@@ -89,6 +89,10 @@ workflow filter_sv_files {
     if ( params.optional.svs.gripss_filtered_files_dir ) {
       gripss_filtered_files = extractGripssFilteredFiles( params.optional.svs.gripss_filtered_files_dir )
     } else {
+      gripss_somatic_filtered_vcfs.view()
+      // baf_filtered_files.view()
+      // cobalt_filtered_readcounts_1kb_files.view()
+
       input_gripss_filter_files = gripss_somatic_filtered_vcfs
         .combine( baf_filtered_files, by: [0,1,2] )
         .combine( cobalt_filtered_readcounts_1kb_files, by: [0,1,2] )

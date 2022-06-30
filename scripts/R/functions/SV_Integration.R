@@ -145,9 +145,8 @@ Filter_Unbalanced_Translocations <- function(CNVs, SVs){
   return(SVs)
 }
 
+# Filter CNV-breakends that do not overlap with ReadCounts/BAF-determined CNVs
 Filter_Breakends_LargeCNVs <- function(CNVs, SVs){
-  
-  
   CNV_Breakends <- SVs[info(SVs)$SVTYPE %in% c("DEL", "DUP")]
   CNV_Breakends_10mb <- CNV_Breakends[which(info(CNV_Breakends)$SVLEN > 10e6)]
   CNVs_g <- GRanges(seqnames = CNVs[,1], IRanges(start = CNVs[,2], end = CNVs[,3]))
@@ -155,18 +154,17 @@ Filter_Breakends_LargeCNVs <- function(CNVs, SVs){
     olap_CNVs <- findOverlaps(rowRanges(CNV_Breakends_10mb), CNVs_g)
     if(length(olap_CNVs) > 0){
       Breakends_overlapping_CNVs <- names(CNV_Breakends_10mb[queryHits(olap_CNVs)])
-      Filtered_Breakends <- CNV_Breakends_10mb[-Breakends_overlapping_CNVs,]
+      # Breakends overlapping with CNVs will not be filtered
+      Filtered_Breakends <- CNV_Breakends_10mb[-which(names(CNV_Breakends_10mb) %in% Breakends_overlapping_CNVs),]
     } 
     else {
+      # If there are no CNV-breakends overlapping with CNVs, all CNV-breakends will be filtered
       Filtered_Breakends <- CNV_Breakends_10mb
     }
     Filtered_Events <- unique(info(SVs)[names(Filtered_Breakends), "EVENT"])
-    
     VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER != "" & rowRanges(SVs)$FILTER != "PASS")] <- paste(VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER != "" & rowRanges(SVs)$FILTER != "PASS")], "NO_RD_SUPPORT", sep = ";")
     VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER == "PASS")] <- "NO_RD_SUPPORT"
     VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER == "")] <- "NO_RD_SUPPORT"
-    
   } 
-
   return(SVs)
 }

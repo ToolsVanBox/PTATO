@@ -62,7 +62,7 @@ wgsmetrics_merged_l <- lapply(seq(length(wgsmetrics_files)), function(n_samp) {
 })
 wgsmetrics_merged = do.call(rbind, wgsmetrics_merged_l)
 wgsmetrics_merged$sample <- factor(wgsmetrics_merged$sample, levels = samples)
-wgsmetrics_merged = merge(wgsmetrics_merged, sample_nr_df, by = "sample")
+wgsmetrics_merged = merge(wgsmetrics_merged, sample_nr_df, by = "sample", sort = FALSE)
 
 # Next look at how many mapped reads are discarded for example because they're PCR duplicates
 wgsmetrics_merged2_l <- lapply(seq(length(wgsmetrics_files)), function(n_samp) {
@@ -74,7 +74,7 @@ wgsmetrics_merged2 = do.call(rbind, wgsmetrics_merged2_l)
 wgsmetrics_merged2$sample <- factor(wgsmetrics_merged2$sample, levels = samples)
 wgsmetrics_merged2$PCT_1X_2 = wgsmetrics_merged2$PCT_1X * 100
 wgsmetrics_merged2$PCT_5X_2 = wgsmetrics_merged2$PCT_5X * 100
-wgsmetrics_merged2 = merge(wgsmetrics_merged2, sample_nr_df, by = "sample")
+wgsmetrics_merged2 = merge(wgsmetrics_merged2, sample_nr_df, by = "sample", sort = FALSE)
 
 # Check how many sequenced and mapped bases are discarded due to quality control
 select_columns = c("sample","PCT_EXC_MAPQ", "PCT_EXC_DUPE","PCT_EXC_TOTAL")
@@ -86,7 +86,7 @@ wgsmetrics_merged3_m = reshape(wgsmetrics_merged3, direction = "long", idvar = "
         timevar = "variable", varying = list(names(wgsmetrics_merged3)), times = names(wgsmetrics_merged3), ids = row.names(wgsmetrics_merged3))
 colnames(wgsmetrics_merged3_m)[2] = "value"
 wgsmetrics_merged3_m$sample <- factor(wgsmetrics_merged3_m$sample, levels = rev(samples))
-wgsmetrics_merged3_m = merge(wgsmetrics_merged3_m, sample_nr_df, by = "sample")
+wgsmetrics_merged3_m = merge(wgsmetrics_merged3_m, sample_nr_df, by = "sample", sort = FALSE)
 wgsmetrics_merged3_m$sample_nr = factor(wgsmetrics_merged3_m$sample_nr, levels = rev(levels(wgsmetrics_merged3_m$sample_nr)))
 
 # Read alignment file for nr of reads and mismatch rate
@@ -107,7 +107,7 @@ read_counts_df_long = reshape(read_counts_df, direction = "long", idvar = "sampl
         timevar = "Reads", varying = list(names(read_counts_df)), times = names(read_counts_df), ids = row.names(read_counts_df))
 colnames(read_counts_df_long)[2] = "Count"
 read_counts_df_long$Reads = factor(read_counts_df_long$Reads, levels = c("Filtered", "PF_Unaligned", "PF_Aligned"))
-read_counts_df_long = merge(read_counts_df_long, sample_nr_df, by = "sample")
+read_counts_df_long = merge(read_counts_df_long, sample_nr_df, by = "sample", sort = FALSE)
 
 
 # Check how many (indel) mismatches and HQ errors there are
@@ -118,17 +118,17 @@ error_rate_df_long = reshape(error_rate_df, direction = "long", idvar = "sample"
                               timevar = "Error", varying = list(names(error_rate_df)), times = names(error_rate_df), ids = row.names(error_rate_df))
 colnames(error_rate_df_long)[2] = "Rate"
 error_rate_df_long$Error = factor(error_rate_df_long$Error, levels = c("PF_Mismatch", "PF_HQ_ERROR", "PF_INDEL"))
-error_rate_df_long = merge(error_rate_df_long, sample_nr_df, by = "sample")
+error_rate_df_long = merge(error_rate_df_long, sample_nr_df, by = "sample", sort = FALSE)
 
 
 # Combine all qc data to write out
 all_merged_metrics = wgsmetrics_merged2[,c("sample", "PCT_1X", "PCT_5X", "MEAN_COVERAGE", "HET_SNP_Q", "PCT_EXC_DUPE", "PCT_EXC_MAPQ")]
 all_merged_metrics$PCT_EXC_OTHER <- wgsmetrics_merged2$PCT_EXC_TOTAL - wgsmetrics_merged2$PCT_EXC_DUPE - wgsmetrics_merged2$PCT_EXC_MAPQ
 read_counts_df$sample = rownames(read_counts_df)
-all_merged_metrics = merge(all_merged_metrics, read_counts_df, by = "sample")
+all_merged_metrics = merge(all_merged_metrics, read_counts_df, by = "sample", sort = FALSE)
 error_rate_df$sample = rownames(error_rate_df)
-all_merged_metrics = merge(all_merged_metrics, error_rate_df, by = "sample")
-all_merged_metrics = merge(all_merged_metrics, sample_nr_df, by = "sample")
+all_merged_metrics = merge(all_merged_metrics, error_rate_df, by = "sample", sort = FALSE)
+all_merged_metrics = merge(all_merged_metrics, sample_nr_df, by = "sample", sort = FALSE)
 
 outfile_txt = gsub(".pdf", ".txt", outfile)
 write.table(all_merged_metrics, outfile_txt, quote = FALSE, sep = "\t", row.names = FALSE)

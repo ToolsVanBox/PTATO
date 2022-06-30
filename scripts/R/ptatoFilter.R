@@ -12,9 +12,9 @@ walker_vcf <- readVcf( walker_vcf_fname )
 
 ptato_gr <- granges(ptato_vcf)
 ptato_gr_df <- as.data.frame(ptato_gr)
-PTAprob1 <- geno(ptato_vcf)$PTAprob[,,1]
-PTAprob2 <- geno(ptato_vcf)$PTAprob[,,2]
-PTAprob3 <- geno(ptato_vcf)$PTAprob[,,3]
+PTAprob1 <- as.numeric(geno(ptato_vcf)$PTAprob[,,1])
+PTAprob2 <- as.numeric(geno(ptato_vcf)$PTAprob[,,2])
+PTAprob3 <- as.numeric(geno(ptato_vcf)$PTAprob[,,3])
 PTAprob <- PTAprob1
 PTAprob[which(PTAprob == 0)] <- PTAprob2[which(PTAprob == 0)]
 PTAprob[which(PTAprob == 0)] <- PTAprob3[which(PTAprob == 0)]
@@ -25,7 +25,7 @@ walker_gr <- granges(walker_vcf)
 walker_gr_df <- as.data.frame(walker_gr)
 walker_gr_df$WS <- as.numeric(geno(walker_vcf)$WS)
 
-merged_df <- merge(ptato_gr_df, walker_gr_df, by=c("seqnames","start"))
+merged_df <- merge(ptato_gr_df, walker_gr_df, by=c("seqnames","start"), sort = FALSE)
 merged_df_scores <- na.omit(merged_df[,c("seqnames","start","PTAprob","WS")])
 
 true_ws <- 1000

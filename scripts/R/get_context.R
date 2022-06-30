@@ -28,6 +28,12 @@ library( ref_genome, character.only = TRUE )
 chroms <- seqlevels(SeqinfoForBSGenome(genome = ref_genome))
 vcf = readVcf(vcf_file)
 
+if ( length(vcf) == 0 ) {
+  df <- data.frame()
+  write.table(df, file=out_file, quote=F, sep="\t", row.names=F, col.names=F)
+  quit()
+}
+
 if ( grepl('chr', chroms[1], ignore.case = T) & !grepl('chr', as.character(seqnames(vcf)[1]), ignore.case = T) ) {
   seqlevels(vcf) <- paste0("chr", seqlevels(vcf))
 }

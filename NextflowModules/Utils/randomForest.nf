@@ -51,14 +51,14 @@ process test_snv_rf {
     tuple( val(donor_id), val(sample_id), path(somatic_vcf), path(somatic_tbi), path(rf_table) )
 
   output:
-    tuple( val(donor_id), val(sample_id), path("${sample_id}.ptato.vcf"), emit: pap_vcf )
+    tuple( val(donor_id), val(sample_id), path("${sample_id}.snvs.ptato.vcf"), emit: pap_vcf )
 
   script:
     """
     host=\$(hostname)
     echo \${host}
 
-    R --slave --file=${baseDir}/scripts/R/test_randomforest.R --args ${params.snvs.rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.ptato.vcf
+    R --slave --file=${baseDir}/scripts/R/test_randomforest.R --args ${params.snvs.rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.snvs.ptato.vcf
     """
 }
 
@@ -71,13 +71,13 @@ process test_indel_rf {
     tuple( val(donor_id), val(sample_id), path(somatic_vcf), path(somatic_tbi), path(rf_table) )
 
   output:
-    tuple( val(donor_id), val(sample_id), path("${sample_id}.ptato.vcf"), emit: pap_vcf )
+    tuple( val(donor_id), val(sample_id), path("${sample_id}.indels.ptato.vcf"), emit: pap_vcf )
 
   script:
     """
     host=\$(hostname)
     echo \${host}
 
-    R --slave --file=${baseDir}/scripts/R/test_randomforest.R --args ${params.indels.rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.ptato.vcf
+    R --slave --file=${baseDir}/scripts/R/test_randomforest.R --args ${params.indels.rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.indels.ptato.vcf
     """
 }

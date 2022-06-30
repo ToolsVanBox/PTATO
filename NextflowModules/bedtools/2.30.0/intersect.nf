@@ -90,3 +90,33 @@ process intersectPON {
     > ${sample_id}.pon.filtered.vcf
     """
 }
+
+process intersectPTATO {
+  tag {"bedtoolsIntersectPTATO ${donor_id}"}
+  label 'bedtoolsIntersectPTATO'
+  label 'bedtools_2_30_0_intersectPTATO'
+  shell = ['/bin/bash', '-euo', 'pipefail']
+  container = 'quay.io/biocontainers/bedtools:2.30.0--h468198e_3'
+
+  input:
+    tuple( val(donor_id), val(sample_id), path(input_vcf), path(input_tbi), val(ptato_snvs_sample_ids), path(ptato_snvs_vcfs), path(ptato_snvs_tbis), val(ptato_indels_sample_ids), path(ptato_indels_vcfs), path(ptato_indels_tbis) )
+
+  output:
+    tuple( val(donor_id), val(donor_id), path("${donor_id}.ptato.intersect.vcf"), emit: ptato_intersect_vcf)
+
+  script:
+    b1 = ptato_snvs_vcfs ? ' -b ' + ptato_snvs_vcfs.join(' -b ') : ''
+    b2 = ptato_indels_vcfs ? ' -b ' + ptato_indels_vcfs.join(' -b ') : ''
+    """
+    host=\$(hostname)
+    echo \${host}
+
+    bedtools \
+    intersect \
+    -a ${input_vcf} \
+    ${b1}\
+    ${b2}\
+    ${params.bedtoolsintersectptato.optional} \
+    > ${donor_id}.ptato.intersect.vcf
+    """
+}

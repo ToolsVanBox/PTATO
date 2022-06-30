@@ -27,6 +27,8 @@ workflow indels {
 
     filter_ptato_vcfs( ptato_vcfs, walker_vcfs )
     ptato_filtered_vcfs = filter_ptato_vcfs.out
+  emit:
+    ptato_vcfs
 }
 
 workflow indels_train {

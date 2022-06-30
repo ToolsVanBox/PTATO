@@ -7,6 +7,7 @@ include {
   extractCobaltRatioTsvFromDir;
 } from '../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
+include { get_gzipped_vcfs } from './get_gzipped_vcfs.nf' params(params)
 include { get_gridss_vcfs } from './svs/get_gridss_vcfs.nf' params(params)
 include { get_gripss_vcfs } from './svs/get_gripss_vcfs.nf' params(params)
 include { get_cobalt_files } from './svs/get_cobalt_files.nf' params(params)
@@ -39,6 +40,14 @@ workflow svs {
       raw_gripss_somatic_filtered_vcfs = extractGripssSomaticFilteredVcfFromDir( params.optional.svs.gripss_somatic_filtered_vcfs_dir )
       get_gzipped_vcfs( raw_gripss_somatic_filtered_vcfs )
       gripss_somatic_filtered_vcfs = get_gzipped_vcfs.out
+        .map{
+          donor_id, sample_id, vcf, tbi ->
+          m = sample_id =~ /(.+);(.+)/
+          normal_sample_id = m[0][1]
+          tumor_sample_id = m[0][2]
+          [ donor_id, normal_sample_id, tumor_sample_id, vcf, tbi]
+        }
+
     } else {
       if ( params.optional.svs.gridss_unfiltered_vcfs_dir ) {
         raw_gridss_unfiltered_vcfs = extractGridssUnfilteredVcfFromDir( params.optional.svs.gridss_unfiltered_vcfs_dir )

@@ -36,10 +36,12 @@ if (!nrow(test.data) & !length(myvcf)){
     gr <- granges(myvcf)
     gr.df <- as.data.frame(gr)
     colnames(gr.df)[c(1,3)] <- c("CHROM","END")
-    gr.df.merged <- merge(gr.df, test.data, by = c("CHROM", "END"), all.x = TRUE)
+    gr.df.merged <- merge(gr.df, test.data, by = c("CHROM", "END"), all.x = TRUE, sort = FALSE)
 
     # gr$PTAprob <- gr.df.merged$PTAprob
-    gr$PTAprob <- paste(gr.df.merged$PTAprob,gr.df.merged$PTAprob2,gr.df.merged$PTAprob3,sep=",")
+    # gr$PTAprob <- paste(gr.df.merged$PTAprob,gr.df.merged$PTAprob2,gr.df.merged$PTAprob3,sep=",")
+    # gr$PTAprob <- gsub("NA",".",gr$PTA)
+    PTAprob <- as.list(as.data.frame(mapply(c,gr.df.merged$PTAprob,gr.df.merged$PTAprob2,gr.df.merged$PTAprob3)))
 
     meta(header(myvcf))$PTArandomforest <- DataFrame("Value" = paste0('"', args[1], ' ', '"'), row.names = "PTArandomforest")
     #
@@ -47,9 +49,8 @@ if (!nrow(test.data) & !length(myvcf)){
     # rownames(infoheader) <- c(rownames(info(header(myvcf))),"PTAprob")
     # info(header(myvcf)) <- infoheader
     # info(myvcf)$PTAprob <- gr$PTAprob
-    
-    geno(myvcf)$PTAprob <- matrix(gr$PTAprob,ncol=1)
     geno(header(myvcf))["PTAprob",] = list("3","Float","PTA probability values")
+    geno(myvcf)$PTAprob <- matrix(PTAprob,ncol=1)
 
     outvcf <- file(out_file, open="a")
     writeVcf(myvcf, outvcf)

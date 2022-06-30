@@ -13,7 +13,9 @@ workflow get_ab_tables {
     input_somatic_vcfs
 
   main:
-    input_germline_vcfs_chroms = input_germline_vcfs.combine( params.shapeit.chroms )
+    chroms_file = file(params.shapeit.chroms)
+    chroms = chroms_file.readLines()
+    input_germline_vcfs_chroms = input_germline_vcfs.combine( chroms )
     bulk_names = Channel.from( params.bulk_names )
 
     if ( params.optional.short_variants.phased_vcfs_dir ) {

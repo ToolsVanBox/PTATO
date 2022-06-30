@@ -33,8 +33,6 @@ workflow {
     get_indexed_bams( input_raw_bams )
     input_bams = get_indexed_bams.out.groupTuple( by: [0] )
 
-    input_bams.view()
-
     if ( params.run.snvs || params.run.indels || params.run.svs ) {
       get_germline_vcfs( input_vcfs )
       germline_vcfs = get_germline_vcfs.out
@@ -44,10 +42,10 @@ workflow {
       }
 
       if ( params.run.svs ) {
-        svs( bams, germline_vcfs )
+        svs( input_bams, germline_vcfs )
       }
     }
     if ( params.run.QC ) {
-      qc( bams )
+      qc( input_bams )
     }
 }
