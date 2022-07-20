@@ -41,15 +41,15 @@ workflow qc {
     input_qc_report = alignment_summary_metrics_files
         .combine( wgs_metrics_files, by: [0,1] )
         .groupTuple( by: [0] )
-        .collect()
-
 
     QCreport( input_qc_report )
 
     qc_reports = QCreport.out
-      .map{ donor_id, qc_report_pdf ->
+      .map{ donor_id, qc_report_pdf, qc_report_txt ->
         pdf_name = qc_report_pdf.getName()
+        txt_name = qc_report_txt.getName()
         qc_report_pdf = qc_report_pdf.copyTo("${params.out_dir}/QC/${pdf_name}")
-        [ donor_id, qc_report_pdf ]
+        qc_report_txt = qc_report_txt.copyTo("${params.out_dir}/QC/${txt_name}")
+        [ donor_id, qc_report_pdf, qc_report_txt ]
       }
 }

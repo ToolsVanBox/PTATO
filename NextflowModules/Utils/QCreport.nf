@@ -7,7 +7,7 @@ process QCreport {
     tuple( val(donor_id), val(sample_ids), path(insert_size_metrics_files), path(wgs_metrics_files) )
 
   output:
-    tuple( val(donor_id), path("${donor_id}.qcreport.pdf"), emit: qc_report_pdf )
+    tuple( val(donor_id), path("${donor_id}.qcreport.pdf"), path("${donor_id}.qcreport.txt"), emit: qc_report_pdf )
 
   script:
     input_args_1 = sample_ids.join(',')
