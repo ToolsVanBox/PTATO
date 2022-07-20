@@ -15,6 +15,13 @@ workflow get_gridss_vcfs {
       raw_gridss_driver_vcfs = extractGridssDriverVcfFromDir( params.optional.svs.gridss_driver_vcfs_dir )
       get_gzipped_vcfs( raw_gridss_driver_vcfs )
       gridss_driver_vcfs = get_gzipped_vcfs.out
+        .map{
+          donor_id, sample_id, vcf, tbi ->
+          m = sample_id =~ /(.+);(.+)/
+          normal_sample_id = m[0][1]
+          tumor_sample_id = m[0][2]
+          [ donor_id, normal_sample_id, tumor_sample_id, vcf, tbi]
+        }
     } else {
       gridss( input_gridss )
       gridss_driver_vcfs = gridss.out

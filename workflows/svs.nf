@@ -53,6 +53,13 @@ workflow svs {
         raw_gridss_unfiltered_vcfs = extractGridssUnfilteredVcfFromDir( params.optional.svs.gridss_unfiltered_vcfs_dir )
         get_gzipped_vcfs( raw_gridss_unfiltered_vcfs )
         gridss_unfiltered_vcfs = get_gzipped_vcfs.out
+          .map{
+            donor_id, sample_id, vcf, tbi ->
+            m = sample_id =~ /(.+);(.+)/
+            normal_sample_id = m[0][1]
+            tumor_sample_id = m[0][2]
+            [ donor_id, normal_sample_id, tumor_sample_id, vcf, tbi]
+          }
       } else {
         get_gridss_vcfs( normal_bams, tumor_bams )
         gridss_unfiltered_vcfs = get_gridss_vcfs.out
