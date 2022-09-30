@@ -22,6 +22,7 @@ out_vcf_fname <- args[3]
 
 # Read multi-sample smurf vcf.
 input_vcf <- readVcf(input_vcf_fname)
+rownames(input_vcf) <- paste(as.character(seqnames(input_vcf)),start(input_vcf),sep=":")
 
 # Create empty list for one sample
 empty_pta = c(".", ".", ".")

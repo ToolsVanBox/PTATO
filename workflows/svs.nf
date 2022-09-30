@@ -10,13 +10,14 @@ include {
 include { get_gzipped_vcfs } from './get_gzipped_vcfs.nf' params(params)
 include { get_gridss_vcfs } from './svs/get_gridss_vcfs.nf' params(params)
 include { get_gripss_vcfs } from './svs/get_gripss_vcfs.nf' params(params)
-include { get_cobalt_files } from './svs/get_cobalt_files.nf' params(params)
-include { filter_sv_files } from './svs/filter_sv_files.nf' params(params)
+include { combine_cnvs_svs } from './svs/combine_cnvs_svs.nf' params(params)
+
 
 workflow svs {
   take:
     bams
     germline_vcfs
+    filtered_cnv_files
   main:
     bulk_names = Channel.from( params.bulk_names ).combine(Channel.from("Normal"))
 
@@ -68,13 +69,5 @@ workflow svs {
       gripss_somatic_filtered_vcfs = get_gripss_vcfs.out
     }
 
-    if ( params.optional.svs.cobalt_ratio_tsv_dir ) {
-      cobalt_ratio_tsv_files = extractCobaltRatioTsvFromDir( params.optional.svs.cobalt_ratio_tsv_dir )
-    } else {
-      get_cobalt_files( normal_bams, tumor_bams )
-      cobalt_ratio_tsv_files = get_cobalt_files.out
-    }
-
-    filter_sv_files( cobalt_ratio_tsv_files, germline_vcfs, normal_bams, tumor_bams, gripss_somatic_filtered_vcfs )
-
+    combine_cnvs_svs( filtered_cnv_files, gripss_somatic_filtered_vcfs )
 }

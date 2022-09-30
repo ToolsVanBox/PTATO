@@ -19,9 +19,8 @@ somatic_vcf_fname <- args[1]
 germline_vcf_fname <- args[2]
 phased_germline_vcf_fname <- args[3]
 chrom <- args[4]
-bulkname <- args[5]
-output_file <- args[6]
-ref_genome <- args[7]
+output_file <- args[5]
+ref_genome <- args[6]
 flank <- 200000
 
 somatic_vcf <- readVcf(somatic_vcf_fname)

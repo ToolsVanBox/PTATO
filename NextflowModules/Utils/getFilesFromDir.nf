@@ -291,6 +291,23 @@ def extractAlignmentSummaryMetricsFromDir( alignment_summary_metrics_dir ) {
     }
 }
 
+def extractCallableLociBedFromDir( callableloci_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  callableloci_dir = callableloci_dir.tokenize().collect{"$it/*/*.callableloci.bed"}
+  Channel
+    .fromPath(callableloci_dir, type:'file')
+    .ifEmpty { error "No .callableloci.bed files found in ${callableloci_dir}." }
+    .map { callableloci_path ->
+        callableloci_bed = callableloci_path
+        callableloci_txt = callableloci_bed.toString().replace('.bed','.txt')
+        callableloci_sample_id = callableloci_path.getName().toString().replaceAll(/.callableloci.bed$/, '')
+        callableloci_donor_id =  callableloci_path.getParent().getName()
+        if ( file(callableloci_txt).exists() ) {
+          [callableloci_donor_id, callableloci_sample_id, callableloci_bed, callableloci_txt]
+        }
+    }
+}
+
 def extractGridssDriverVcfFromDir( gridss_driver_vcfs_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
   gridss_driver_vcfs_dir = gridss_driver_vcfs_dir.tokenize().collect{"$it/*/*.gridss.driver.{vcf,vcf.gz}"}
@@ -369,10 +386,10 @@ def extractCobaltRatioTsvFromDir( cobalt_ratio_tsv_dir ) {
 
 def extractCobaltFilteredReadCounts( cobalt_filtered_readcounts_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  cobalt_filtered_readcounts_dir = cobalt_filtered_readcounts_dir.tokenize().collect{"$it/*/*/*.readcounts.filtered*.txt"}
+  cobalt_filtered_readcounts_dir = cobalt_filtered_readcounts_dir.tokenize().collect{"$it/*/*/*.readcounts.*.txt"}
   Channel
     .fromPath(cobalt_filtered_readcounts_dir, type:'file')
-    .ifEmpty { error "No .readcounts.filtered.*txt files found in ${cobalt_filtered_readcounts_dir}." }
+    .ifEmpty { error "No .readcounts.*.txt files found in ${cobalt_filtered_readcounts_dir}." }
     .map { cobalt_filtered_readcounts_path ->
         cobalt_filtered_readcounts_file = cobalt_filtered_readcounts_path
         cobalt_filtered_readcounts_tumor_sample_id = cobalt_filtered_readcounts_path.getName().toString().replaceAll(/.readcounts.filtered(.*).txt$/, '')
@@ -402,7 +419,7 @@ def extractBafFilteredFiles( baf_filtered_files_dir ) {
   baf_filtered_files_dir = baf_filtered_files_dir.tokenize().collect{"$it/*/*/*.baf.filtered.txt"}
   Channel
     .fromPath(baf_filtered_files_dir, type:'file')
-    .ifEmpty { error "No .baf.filtered.txt files found in ${baf_filtered_files_dir}." }
+    .ifEmpty { error "No .baf.* files found in ${baf_filtered_files_dir}." }
     .map { baf_filtered_file_path ->
         baf_filtered_file = baf_filtered_file_path
         baf_filtered_tumor_sample_id = baf_filtered_file_path.getName().toString().replaceAll(/.baf.filtered.txt$/, '')
@@ -417,7 +434,7 @@ def extractBafBinnedFiles( baf_binned_files_dir ) {
   baf_binned_files_dir = baf_binned_files_dir.tokenize().collect{"$it/*/*/*.baf.binned*.txt"}
   Channel
     .fromPath(baf_binned_files_dir, type:'file')
-    .ifEmpty { error "No .baf.filtered*.txt files found in ${baf_binned_files_dir}." }
+    .ifEmpty { error "No .baf.binned*.txt files found in ${baf_binned_files_dir}." }
     .map { baf_binned_file_path ->
         baf_binned_file = baf_binned_file_path
         baf_binned_tumor_sample_id = baf_binned_file_path.getName().toString().replaceAll(/.baf.binned(.*).txt$/, '')
@@ -427,18 +444,18 @@ def extractBafBinnedFiles( baf_binned_files_dir ) {
     }
 }
 
-def extractBafFilteredSegments( baf_filtered_files_dir ) {
+def extractBafSegmentsFiles( baf_segments_files_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  baf_filtered_files_dir = baf_filtered_files_dir.tokenize().collect{"$it/*/*/*.baf.segments.*"}
+  baf_segments_files_dir = baf_segments_files_dir.tokenize().collect{"$it/*/*/*.baf.segments.*"}
   Channel
-    .fromPath(baf_filtered_files_dir, type:'file')
-    .ifEmpty { error "No .baf.segments.* files found in ${baf_filtered_files_dir}." }
-    .map { baf_filtered_bedpe_path ->
-        baf_filtered_bedpe = baf_filtered_bedpe_path
-        baf_filtered_bedpe_tumor_sample_id = baf_filtered_bedpe_path.getName().toString().replaceAll(/.baf.segments.*$/, '')
-        baf_filtered_bedpe_normal_sample_id =  baf_filtered_bedpe_path.getParent().getName()
-        baf_filtered_bedpe_donor_id =  baf_filtered_bedpe_path.getParent().getParent().getName()
-        [baf_filtered_bedpe_donor_id, baf_filtered_bedpe_normal_sample_id, baf_filtered_bedpe_tumor_sample_id, baf_filtered_bedpe]
+    .fromPath(baf_segments_files_dir, type:'file')
+    .ifEmpty { error "No .baf.segments.* files found in ${baf_segments_files_dir}." }
+    .map { baf_segments_files_path ->
+        baf_segments_file = baf_segments_files_path
+        baf_segments_tumor_sample_id = baf_segments_files_path.getName().toString().replaceAll(/.baf.segments.*$/, '')
+        baf_segments_normal_sample_id =  baf_segments_files_path.getParent().getName()
+        baf_segments_donor_id =  baf_segments_files_path.getParent().getParent().getName()
+        [baf_segments_donor_id, baf_segments_normal_sample_id, baf_segments_tumor_sample_id, baf_segments_file]
     }
 }
 

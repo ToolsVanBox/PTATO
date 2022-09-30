@@ -4,7 +4,7 @@ process createABtable {
   shell = ['/bin/bash', '-euo', 'pipefail']
 
   input:
-    tuple( val(donor_id), val(sample_id), val(chrom), path(phased_vcf), path(phased_tbi), path(germline_vcf), path(germline_tbi), path(somatic_vcf), path(somatic_tbi), val(bulk_name) )
+    tuple( val(donor_id), val(sample_id), val(chrom), path(phased_vcf), path(phased_tbi), path(germline_vcf), path(germline_tbi), path(somatic_vcf), path(somatic_tbi) )
 
   output:
     tuple( val(donor_id), val(sample_id), path("${sample_id}_${chrom}.abtable.txt"), emit: ab_table)
@@ -14,7 +14,7 @@ process createABtable {
     host=\$(hostname)
     echo \${host}
 
-    R --slave --file=${baseDir}/scripts/R/ABscript.R --args ${somatic_vcf} ${germline_vcf} ${phased_vcf} ${chrom} ${bulk_name} ${sample_id}_${chrom}.abtable.txt ${params.ref_genome}
+    R --slave --file=${baseDir}/scripts/R/ABscript.R --args ${somatic_vcf} ${germline_vcf} ${phased_vcf} ${chrom} ${sample_id}_${chrom}.abtable.txt ${params.ref_genome}
     """
 }
 

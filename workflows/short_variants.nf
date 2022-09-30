@@ -22,7 +22,7 @@ include { closest_feature } from './short_variants/get_features_beds.nf' params(
 include { intersect_feature } from './short_variants/get_features_beds.nf' params(params)
 include { merge_features } from './short_variants/get_features_beds.nf' params(params)
 
-include { SplitVcfs } from '../NextflowModules/GATK/4.1.3.0/SplitVcfs.nf' params(params)
+include { SplitVcfs } from '../NextflowModules/GATK/4.2.6.1/SplitVcfs.nf' params(params)
 include { bgzip } from '../NextflowModules/htslib/1.15/bgzip.nf' params(params)
 include { tabix } from '../NextflowModules/htslib/1.15/tabix.nf' params(params)
 
@@ -112,22 +112,22 @@ workflow short_variants {
 
     if( params.run.snvs ) {
       snvs( ab_tables, features_beds, somatic_snv_vcfs, walker_vcfs )
-      snvs_ptato_vcfs = snvs.out
+      // snvs_ptato_vcfs = snvs.out
     } else {
       snvs_ptato_vcfs = Channel.empty()
     }
 
-    if ( params.run.indels ) {
-      indels( ab_tables, features_beds, somatic_indel_vcfs, walker_vcfs )
-      indels_ptato_vcfs = indels.out
-    } else {
-      indels_ptato_vcfs = Channel.empty()
-    }
-
-    intersect_ptato_vcfs( input_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
-    ptato_intersect_vcfs = intersect_ptato_vcfs.out
-
-    merge_ptato_vcfs( ptato_intersect_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
+    // if ( params.run.indels ) {
+    //   indels( ab_tables, features_beds, somatic_indel_vcfs, walker_vcfs )
+    //   indels_ptato_vcfs = indels.out
+    // } else {
+    //   indels_ptato_vcfs = Channel.empty()
+    // }
+    //
+    // intersect_ptato_vcfs( input_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
+    // ptato_intersect_vcfs = intersect_ptato_vcfs.out
+    //
+    // merge_ptato_vcfs( ptato_intersect_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
 
 }
 

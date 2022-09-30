@@ -22,7 +22,6 @@ process CreateCircosConfig {
     ${baf_segments_txt_file} \
     ${sv_vcf} \
     ${tumor_sample_id} \
-    /opt/circos/circos-0.69-9/
     ${params.createcircosconfig.optional}
     """
 }

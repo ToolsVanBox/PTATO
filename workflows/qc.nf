@@ -6,14 +6,29 @@ include {
   extractAlignmentSummaryMetricsFromDir
 } from '../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
-include { CollectWGSMetrics } from '../NextflowModules/GATK/4.1.3.0/CollectWGSMetrics.nf' params(params)
-include { CollectAlignmentSummaryMetrics } from '../NextflowModules/GATK/4.1.3.0/CollectAlignmentSummaryMetrics.nf' params(params)
+include { CollectWGSMetrics } from '../NextflowModules/GATK/4.2.6.1/CollectWGSMetrics.nf' params(params)
+include { CollectAlignmentSummaryMetrics } from '../NextflowModules/GATK/4.2.6.1/CollectAlignmentSummaryMetrics.nf' params(params)
+include { CallableLoci } from '../NextflowModules/GATK/3.8.1/CallableLoci.nf' params(params)
 include { QCreport } from '../NextflowModules/Utils/QCreport.nf' params(params)
 
 workflow qc {
   take:
     bams
   main :
+    if ( params.optional.qc.callableloci_dir ) {
+      callableloci_files = extractCallableLociBedFromDir( params.optional.qc.callableloci_dir )
+    } else {
+      CallableLoci( bams.transpose() )
+      callableloci_files = CallableLoci.out
+        .map{ donor_id, sample_id, callableloci_bed, callableloci_txt ->
+          bed_filename = callableloci_bed.getName()
+          txt_filename = callableloci_txt.getName()
+          callableloci_bed = callableloci_bed.copyTo("${params.out_dir}/QC/CallableLoci/${donor_id}/${bed_filename}")
+          callableloci_txt = callableloci_txt.copyTo("${params.out_dir}/QC/CallableLoci/${donor_id}/${txt_filename}")
+          [ donor_id, sample_id, callableloci_bed, callableloci_txt ]
+        }
+    }
+
     if ( params.optional.qc.alignment_summary_metrics_dir ) {
       alignment_summary_metrics_files = extractAlignmentSummaryMetricsFromDir( params.optional.qc.alignment_summary_metrics_dir )
     } else {
@@ -48,8 +63,8 @@ workflow qc {
       .map{ donor_id, qc_report_pdf, qc_report_txt ->
         pdf_name = qc_report_pdf.getName()
         txt_name = qc_report_txt.getName()
-        qc_report_pdf = qc_report_pdf.copyTo("${params.out_dir}/QC/${pdf_name}")
-        qc_report_txt = qc_report_txt.copyTo("${params.out_dir}/QC/${txt_name}")
+        qc_report_pdf = qc_report_pdf.copyTo("${params.out_dir}/QC/reports/${donor_id}/${pdf_name}")
+        qc_report_txt = qc_report_txt.copyTo("${params.out_dir}/QC/reports/${donor_id}/${txt_name}")
         [ donor_id, qc_report_pdf, qc_report_txt ]
       }
 }

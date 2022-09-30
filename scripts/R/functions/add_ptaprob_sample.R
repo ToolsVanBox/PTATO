@@ -2,6 +2,8 @@ add_ptaprob_sample = function(filt_vcf_fname){
 
     # Read vcf with pta probabilities
     filt_vcf <- readVcf(filt_vcf_fname)
+    rownames(filt_vcf) <- paste(as.character(seqnames(filt_vcf)),start(filt_vcf),sep=":")
+
     sample_name = samples(header(filt_vcf))
 
     # Get pta probabilities

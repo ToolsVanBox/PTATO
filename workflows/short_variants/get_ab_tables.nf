@@ -16,7 +16,6 @@ workflow get_ab_tables {
     chroms_file = file(params.shapeit.chroms)
     chroms = chroms_file.readLines()
     input_germline_vcfs_chroms = input_germline_vcfs.combine( chroms )
-    bulk_names = Channel.from( params.bulk_names )
 
     if ( params.optional.short_variants.phased_vcfs_dir ) {
       phased_vcfs = extractPhasedVcfGzFromDir( params.optional.short_variants.phased_vcfs_dir )
@@ -44,10 +43,9 @@ workflow get_ab_tables {
       phased_vcfs
         .combine( input_germline_vcfs, by: 0 )
         .combine( input_somatic_vcfs, by: 0 )
-        .combine( bulk_names, by: 0 )
         .map{
-          donor_id, phased_sample_id, chrom, phased_vcf_gz, phased_tbi, germline_sample_id, germline_vcf_gz, germline_tbi, somatic_sample_id, somatic_vcf_gz, somatic_tbi, bulk_name ->
-          [ donor_id, somatic_sample_id, chrom, phased_vcf_gz, phased_tbi, germline_vcf_gz, germline_tbi, somatic_vcf_gz, somatic_tbi, bulk_name ]
+          donor_id, phased_sample_id, chrom, phased_vcf_gz, phased_tbi, germline_sample_id, germline_vcf_gz, germline_tbi, somatic_sample_id, somatic_vcf_gz, somatic_tbi ->
+          [ donor_id, somatic_sample_id, chrom, phased_vcf_gz, phased_tbi, germline_vcf_gz, germline_tbi, somatic_vcf_gz, somatic_tbi ]
         }
     )
 

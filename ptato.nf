@@ -9,6 +9,7 @@ include { get_indexed_bams } from './workflows/get_indexed_bams.nf' params(param
 include { get_germline_vcfs } from './workflows/germline.nf' params(params)
 include { short_variants } from './workflows/short_variants.nf' params(params)
 include { svs } from './workflows/svs.nf' params(params)
+include { cnvs } from './workflows/cnvs.nf' params(params)
 include { qc } from './workflows/qc.nf' params(params)
 
 include {
@@ -23,6 +24,7 @@ workflow {
         donor_id, bulk_name ->
         [donor_id]
       }
+      .unique()
 
     input_raw_vcfs = run_donor_ids.combine( extractInputVcfFromDir( params.input_vcfs_dir ), by: [0] )
     input_raw_bams = run_donor_ids.combine( extractBamsFromDir( params.bams_dir ), by: [0] )
@@ -33,7 +35,8 @@ workflow {
     get_indexed_bams( input_raw_bams )
     input_bams = get_indexed_bams.out.groupTuple( by: [0] )
 
-    if ( params.run.snvs || params.run.indels || params.run.svs ) {
+    if ( params.run.snvs || params.run.indels || params.run.svs || params.run.cnvs ) {
+
       get_germline_vcfs( input_vcfs )
       germline_vcfs = get_germline_vcfs.out
 
@@ -41,8 +44,14 @@ workflow {
         short_variants( input_vcfs, input_bams, germline_vcfs )
       }
 
-      if ( params.run.svs ) {
-        svs( input_bams, germline_vcfs )
+      if ( params.run.svs || params.run.cnvs ) {
+        cnvs( input_bams, germline_vcfs )
+        filtered_cnv_files = cnvs.out
+
+
+        if ( params.run.svs ) {
+          svs( input_bams, germline_vcfs, filtered_cnv_files )
+        }
       }
     }
     if ( params.run.QC ) {
