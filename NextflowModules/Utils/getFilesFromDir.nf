@@ -197,21 +197,21 @@ def extractPhasedVcfGzFromDir( phased_dir ) {
     }
 }
 
-def extractPonFilteredVcfFromDir( pon_filtered_vcfs_dir ) {
+def extractExcludeIndelListFilteredVcfFromDir( excludeindellist_filtered_vcfs_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
-  pon_filtered_vcfs_dir = pon_filtered_vcfs_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
+  excludeindellist_filtered_vcfs_dir = excludeindellist_filtered_vcfs_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
   Channel
-    .fromPath(pon_filtered_vcfs_dir, type:'file')
-    .ifEmpty { error "No .vcf(.gz) files found in ${pon_filtered_vcfs_dir}." }
-    .map { pon_filtered_vcf_path ->
-        pon_filtered_vcf_file = pon_filtered_vcf_path
-        pon_filtered_tbi_file = pon_filtered_vcf_path+".tbi"
-        pon_filtered_sample_id = pon_filtered_vcf_path.getName().toString().replaceAll(/(.pon.filtered)*.vcf(.gz)*$/, '')
-        pon_filtered_donor_id =  pon_filtered_vcf_path.getParent().getName()
-        if ( file(pon_filtered_tbi_file).exists() ) {
-          [pon_filtered_donor_id, pon_filtered_sample_id, pon_filtered_vcf_file, pon_filtered_tbi_file]
+    .fromPath(excludeindellist_filtered_vcfs_dir, type:'file')
+    .ifEmpty { error "No .vcf(.gz) files found in ${excludeindellist_filtered_vcfs_dir}." }
+    .map { excludeindellist_filtered_vcf_path ->
+        excludeindellist_filtered_vcf_file = excludeindellist_filtered_vcf_path
+        excludeindellist_filtered_tbi_file = excludeindellist_filtered_vcf_path+".tbi"
+        excludeindellist_filtered_sample_id = excludeindellist_filtered_vcf_path.getName().toString().replaceAll(/(.excludeindellist.filtered)*.vcf(.gz)*$/, '')
+        excludeindellist_filtered_donor_id =  excludeindellist_filtered_vcf_path.getParent().getName()
+        if ( file(excludeindellist_filtered_tbi_file).exists() ) {
+          [excludeindellist_filtered_donor_id, excludeindellist_filtered_sample_id, excludeindellist_filtered_vcf_file, excludeindellist_filtered_tbi_file]
         } else {
-          [pon_filtered_donor_id, pon_filtered_sample_id, pon_filtered_vcf_file]
+          [excludeindellist_filtered_donor_id, excludeindellist_filtered_sample_id, excludeindellist_filtered_vcf_file]
         }
     }
 }

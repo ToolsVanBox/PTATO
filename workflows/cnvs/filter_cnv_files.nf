@@ -39,7 +39,7 @@ workflow filter_cnv_files {
       // baf_filtered_segments_files.view()
       baf_binned_files = extractBafBinnedFiles( params.optional.cnvs.baf_filtered_files_dir )
       baf_filtered_files = baf_filtered_files.concat( baf_filtered_segments_files ).concat( baf_binned_files)
-      baf_filtered_files.view()
+      // baf_filtered_files.view()
     } else {
       input_baf_filter_files = normal_bams
         .combine( tumor_bams, by: [0] )

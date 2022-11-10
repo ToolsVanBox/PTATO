@@ -57,7 +57,7 @@ workflow combine_cnvs_svs {
 
       // baf_filtered_files.view()
       // cobalt_filtered_readcounts_1kb_files.view()
-      baf_filtered_segments_bedpe_files.view()
+      // baf_filtered_segments_bedpe_files.view()
       // cobalt_filtered_readcounts_segments_bedpe_files.view()
       // gripss_filtered_files.view()
 

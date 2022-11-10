@@ -1,10 +1,10 @@
-### This script can be used to filter a GRIPSS VCF against a blacklist, determine the BAF in the SV regions and determine the relative read depth in SV regions.
+### This script can be used to filter a GRIPSS VCF against a excludesvlist, determine the BAF in the SV regions and determine the relative read depth in SV regions.
 
 ### Requirements
 # StructuralVariantAnnotation R-package (can be installed in guix)
 
 ### Steps:
-# 1. Filter SV VCF against blacklist
+# 1. Filter SV VCF against excludesvlist
 # 2. Overlap SV candidates with SNVs to determine BAF
 # 3. Overlap SV candidates with Cobalt read depth data to determine coverage
 
@@ -25,26 +25,26 @@ Filter_Breakends <- function(GRIPSS_PON,
 
   print(paste("# Reading SV VCF: ", SV_VCF_file, sep = ""))
   SV_VCF <- readVcf(SV_VCF_file, "hg38")
-  
-  
+
+
   VariantAnnotation::fixed(SV_VCF)$FILTER[VariantAnnotation::fixed(SV_VCF)$FILTER == "PASS"] <- ""
   SV_VCF <- SV_VCF[as.vector(seqnames(rowRanges(SV_VCF))) %in% c(1:22, "X", "Y")]
-  
+
   SVGR_raw <- breakpointRanges(SV_VCF) # Some SVs are not included here, because they don't have a partner breakend
 
   # Remove the breakends without a partner breakend
   #SV_VCF <- SV_VCF[which(names(SV_VCF) %in% names(SVGR_raw)),]
   SV_VCF <- SV_VCF[names(SVGR_raw),]
-  
+
   # Rescue translocations with one filtered breakend from the unfiltered GRIPSS vcf
   GRIPSS_raw_file <- gsub(x = SV_VCF_file, pattern = ".filtered", replacement = "")
   ## Doesnt work at the moment in nextflow, needs to be added
   #SV_VCF_CTX <- .Rescue_Translocation_Breakends(SV_VCF, Unfiltered_Datafile = GRIPSS_raw_file)
-  
+
   SV_VCF_CTX <- SV_VCF
-  
+
   SVGR <- breakpointRanges(SV_VCF_CTX)
-  
+
   # Add the SVTYPE to the VCF
   info(SV_VCF_CTX)$SVTYPE <- simpleEventType(SVGR[names(SV_VCF_CTX)])
 
@@ -53,7 +53,7 @@ Filter_Breakends <- function(GRIPSS_PON,
   header_lines_SVLEN <- data.frame(Number = 1, Type = "Float", Description = "Size of the rearrangement (bp)")
   row.names(header_lines_SVLEN) <- "SVLEN"
   info(header(SV_VCF_CTX)) <- rbind(info(header(SV_VCF_CTX)), header_lines_SVLEN)
-  
+
   info(SV_VCF_CTX)$SVLEN <- SVGR[names(SV_VCF_CTX)]$svLen
 
   SV_VCF_PON <- .Filter_PON(SV_VCF = SV_VCF_CTX, GRIPSS_PON = GRIPSS_PON, max_dist = max_dist)
@@ -88,7 +88,7 @@ Filter_Breakends <- function(GRIPSS_PON,
                                                  ReadCounts = ReadCounts[,c(1,2,2,6)])
 
   SV_VCF_PostFilter <- .Postfilter_Breakends(SV_VCF = SV_VCF_BAF_RD, SV_BED = simplebed_g, MaxBreakendCov = MaxBreakendCov)
-  
+
   #
   VariantAnnotation::fixed(SV_VCF_PostFilter)$FILTER[VariantAnnotation::fixed(SV_VCF_PostFilter)$FILTER == ""] <- "PASS"
   SV_VCF_Filtered <- SV_VCF_PostFilter[which(rowRanges(SV_VCF_PostFilter)$FILTER %in% c("PASS", "RESCUE")),]
@@ -114,16 +114,16 @@ Filter_Breakends <- function(GRIPSS_PON,
 
 
 .Rescue_Translocation_Breakends <- function(Breakends, Unfiltered_Datafile, SearchWindow = 1e5){
-  
+
   Breakends_output <- Breakends
-  
+
   # Select the translocations (CTX)
   BreakendsGR <- breakpointRanges(Breakends) # Some SVs are not included here, because they don't have a partner breakend
   info(Breakends)$SVTYPE <- simpleEventType(BreakendsGR[names(Breakends)])
   Breakends_CTX <- Breakends[info(Breakends)$SVTYPE == "CTX"]
   if(length(Breakends_CTX) > 0){
     Breakends_CTX <- Breakends_CTX[rowRanges(Breakends_CTX)$FILTER != "PON"]
-    
+
     # Read part of the VCF at locations surrounding the translocations:
     Translocs <- GRanges(seqnames = seqnames(rowRanges(Breakends_CTX)), IRanges(start = start(rowRanges(Breakends_CTX)), end = end(rowRanges(Breakends_CTX))))
     start(Translocs) <- start(Translocs) - SearchWindow
@@ -132,20 +132,20 @@ Filter_Breakends <- function(GRIPSS_PON,
     GRIPSS_GR <- breakpointRanges(GRIPSS_raw_data)
     GRIPSS_GR$svtype <- simpleEventType(GRIPSS_GR)
     GRIPSS_CTX <- GRIPSS_GR[GRIPSS_GR$svtype == "CTX",]
-    
+
     # Select the translocation breakends not present in the GRIPSS vcf:
     GRIPSS_CTX2 <- GRIPSS_CTX[-which(names(GRIPSS_CTX) %in% names(Breakends_CTX))]
     GRIPSS_CTX2 <- GRIPSS_CTX2[seqnames(GRIPSS_CTX2) %in% c(1:22, "X", "Y")]
-    
+
     if(length(GRIPSS_CTX2) > 0){
       print(paste("Rescued ", length(GRIPSS_CTX2)/2, " translocation breakpoint junctions", sep = ""))
       # print(GRIPSS_CTX2)
       rescued <- GRIPSS_raw_data[names(GRIPSS_CTX2),]
       VariantAnnotation::fixed(GRIPSS_raw_data[names(GRIPSS_CTX2),])$FILTER <- "RESCUE"
-      
+
       Breakends_output <- rbind(Breakends_output, GRIPSS_raw_data[names(GRIPSS_CTX2),])
     }
-    
+
   }
   print(paste("# ", length(Breakends_output) - length(Breakends), " rescued translocation breakends",sep = ""))
   #Breakends_output <- Breakends_output[order(seqnames(rowRanges(Breakends_output)), start(rowRanges(Breakends_output))),]
@@ -160,16 +160,16 @@ Filter_Breakends <- function(GRIPSS_PON,
   print(paste("# Number of raw breakends: ", length(SV_VCF), sep = ""))
   olap_Breakends_PON <- findOverlaps(SV_VCF, PON_g, maxgap = max_dist)
 
-  print(paste("# Number of variants overlapping with blacklist: ", length(olap_Breakends_PON), sep = ""))
+  print(paste("# Number of variants overlapping with excludesvlist: ", length(olap_Breakends_PON), sep = ""))
 
   Filtered_Breakends <- names(SV_VCF)[queryHits(olap_Breakends_PON)]
   Filtered_Events <- info(SV_VCF)[Filtered_Breakends, "EVENT"]
 
-  VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Events & rowRanges(SV_VCF)$FILTER != "")] <- paste(VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Events & rowRanges(SV_VCF)$FILTER != "")], "BLACKLIST_PARTNER", sep = ";")
-  VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Events & rowRanges(SV_VCF)$FILTER == "")] <- "BLACKLIST_PARTNER"
+  VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Events & rowRanges(SV_VCF)$FILTER != "")] <- paste(VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Events & rowRanges(SV_VCF)$FILTER != "")], "EXCLUDESVLIST_PARTNER", sep = ";")
+  VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Events & rowRanges(SV_VCF)$FILTER == "")] <- "EXCLUDESVLIST_PARTNER"
 
-  VariantAnnotation::fixed(SV_VCF)$FILTER[which(names(SV_VCF) %in% Filtered_Breakends & rowRanges(SV_VCF)$FILTER != "")] <- paste(VariantAnnotation::fixed(SV_VCF)$FILTER[which(names(SV_VCF) %in% Filtered_Breakends & rowRanges(SV_VCF)$FILTER != "")], "BLACKLIST", sep = ";")
-  VariantAnnotation::fixed(SV_VCF)$FILTER[which(names(SV_VCF) %in% Filtered_Breakends & rowRanges(SV_VCF)$FILTER == "")] <- "BLACKLIST"
+  VariantAnnotation::fixed(SV_VCF)$FILTER[which(names(SV_VCF) %in% Filtered_Breakends & rowRanges(SV_VCF)$FILTER != "")] <- paste(VariantAnnotation::fixed(SV_VCF)$FILTER[which(names(SV_VCF) %in% Filtered_Breakends & rowRanges(SV_VCF)$FILTER != "")], "EXCLUDESVLIST", sep = ";")
+  VariantAnnotation::fixed(SV_VCF)$FILTER[which(names(SV_VCF) %in% Filtered_Breakends & rowRanges(SV_VCF)$FILTER == "")] <- "EXCLUDESVLIST"
 
   print(summary(factor(rowRanges(SV_VCF)$FILTER)))
   return(SV_VCF)
@@ -323,13 +323,13 @@ Filter_Breakends <- function(GRIPSS_PON,
     Inversions$Dist[queryHits(NearestNeighbour)] <- mcols(NearestNeighbour)$distance
     # Assume that co-breakends are within 100bp of eachother
     Filtered_Inversions <- info(SV_VCF)[names(Inversions)[which(Inversions$Dist > 100)], "EVENT"]
-    
+
     VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Inversions & rowRanges(SV_VCF)$FILTER != "")] <- paste(VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Inversions & rowRanges(SV_VCF)$FILTER != "")], "INV_NO_MATE", sep = ";")
     VariantAnnotation::fixed(SV_VCF)$FILTER[which(unlist(info(SV_VCF)$EVENT) %in% Filtered_Inversions & rowRanges(SV_VCF)$FILTER == "")] <- "INV_NO_MATE"
   } else {
-    
+
   }
-  
+
 
   # Filter all INV smaller than 1kb (most appear to be PTA artefacts)
   Filtered_Inversions_Size <- info(SV_VCF)[which(info(SV_VCF)$SVLEN < 1000 & info(SV_VCF)$SVTYPE == "INV"), "EVENT"]

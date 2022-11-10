@@ -55,6 +55,27 @@ workflow short_variants {
       somatic_vcfs = get_somatic_vcfs.out
     }
 
+    somatic_vcfs_bams = somatic_vcfs
+      .map{ donor_id, sample_id, somatic_vcf, somatic_tbi ->
+          m = sample_id =~ /.+_(.+)$/
+          sample_id = m[0][1]
+          [donor_id, sample_id, somatic_vcf, somatic_tbi]
+        }
+
+    somatic_vcfs_bams = somatic_vcfs_bams
+      .combine(bams.transpose(), by:[0,1] )
+      .map{
+        donor_id, sample_id, somatic_vcf, somatic_tbi, bam, bai ->
+        [donor_id, sample_id, somatic_vcf, somatic_tbi ]
+      }
+
+    somatic_vcfs = somatic_vcfs_bams
+      .combine(somatic_vcfs, by: [0,2,3])
+      .map{
+        donor_id, somatic_vcf, somatic_tbi, bam_sample_id, sample_id ->
+        [donor_id, sample_id, somatic_vcf, somatic_tbi ]
+      }
+
     if ( params.optional.short_variants.ab_tables_dir ) {
       ab_tables = extractAbTableFromDir( params.optional.short_variants.ab_tables_dir )
     } else {
@@ -112,22 +133,22 @@ workflow short_variants {
 
     if( params.run.snvs ) {
       snvs( ab_tables, features_beds, somatic_snv_vcfs, walker_vcfs )
-      // snvs_ptato_vcfs = snvs.out
+      snvs_ptato_vcfs = snvs.out
     } else {
       snvs_ptato_vcfs = Channel.empty()
     }
 
-    // if ( params.run.indels ) {
-    //   indels( ab_tables, features_beds, somatic_indel_vcfs, walker_vcfs )
-    //   indels_ptato_vcfs = indels.out
-    // } else {
-    //   indels_ptato_vcfs = Channel.empty()
-    // }
-    //
-    // intersect_ptato_vcfs( input_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
-    // ptato_intersect_vcfs = intersect_ptato_vcfs.out
-    //
-    // merge_ptato_vcfs( ptato_intersect_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
+    if ( params.run.indels ) {
+      indels( somatic_indel_vcfs, context_beds )
+      indels_ptato_vcfs = indels.out
+    } else {
+      indels_ptato_vcfs = Channel.empty()
+    }
+
+    intersect_ptato_vcfs( input_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
+    ptato_intersect_vcfs = intersect_ptato_vcfs.out
+
+    merge_ptato_vcfs( ptato_intersect_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
 
 }
 

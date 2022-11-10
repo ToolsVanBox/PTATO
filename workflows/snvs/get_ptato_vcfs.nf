@@ -14,6 +14,7 @@ workflow get_ptato_vcfs {
       get_gzipped_vcfs( raw_ptato_vcfs )
       ptato_vcfs = get_gzipped_vcfs.out
     } else {
+
       input_test_snv_rf = somatic_vcfs.combine( rf_tables, by: [0,1] )
 
       test_snv_rf( input_test_snv_rf )

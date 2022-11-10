@@ -64,18 +64,18 @@ process intersectAll {
     """
 }
 
-process intersectPON {
-  tag {"bedtoolsIntersectPON ${sample_id}"}
-  label 'bedtoolsIntersectPON'
-  label 'bedtools_2_30_0_intersectPON'
+process intersectExcludeIndelList {
+  tag {"bedtoolsIntersectExcludeIndelList ${sample_id}"}
+  label 'bedtoolsIntersectExcludeIndelList'
+  label 'bedtools_2_30_0_intersectExcludeIndelList'
   shell = ['/bin/bash', '-euo', 'pipefail']
   container = 'quay.io/biocontainers/bedtools:2.30.0--h468198e_3'
 
   input:
-    tuple( val(donor_id), val(sample_id), path(vcf), path(tbi), path(pon) )
+    tuple( val(donor_id), val(sample_id), path(vcf), path(tbi), path(excludeindellist) )
 
   output:
-    tuple( val(donor_id), val(sample_id), path("${sample_id}.pon.filtered.vcf"), emit: pon_filtered_vcf)
+    tuple( val(donor_id), val(sample_id), path("${sample_id}.excludeindellist.filtered.vcf"), emit: excludeindellist_filtered_vcf)
 
   script:
     """
@@ -85,9 +85,9 @@ process intersectPON {
     bedtools \
     intersect \
     -a ${vcf} \
-    -b ${pon} \
-    ${params.bedtoolsintersectpon.optional} \
-    > ${sample_id}.pon.filtered.vcf
+    -b ${excludeindellist} \
+    ${params.bedtoolsintersectexcludeindellist.optional} \
+    > ${sample_id}.excludeindellist.filtered.vcf
     """
 }
 

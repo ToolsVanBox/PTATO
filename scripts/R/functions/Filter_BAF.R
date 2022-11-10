@@ -1,6 +1,6 @@
 ### TO DO
-## Make a BAF-blacklist, like the copynumber / COBALT blacklist
-# Or, overlap the BAF with the COBALT blacklist
+## Make a excludebaflist, like the copynumber / COBALT excludelist
+# Or, overlap the BAF with the COBALT excludelist
 ## Fine-map the CNVs. First run it at 100k, then finemap the edges by running it at 1-10kb
 ## Filter SNPs next to centromeres
 

@@ -51,7 +51,7 @@ process test_snv_rf {
     tuple( val(donor_id), val(sample_id), path(somatic_vcf), path(somatic_tbi), path(rf_table) )
 
   output:
-    tuple( val(donor_id), val(sample_id), path("${sample_id}.snvs.ptato.vcf"), emit: pap_vcf )
+    tuple( val(donor_id), val(sample_id), path("${sample_id}.snvs.ptato.vcf"), emit: ptato_vcf )
 
   script:
     """
@@ -71,7 +71,7 @@ process test_indel_rf {
     tuple( val(donor_id), val(sample_id), path(somatic_vcf), path(somatic_tbi), path(rf_table) )
 
   output:
-    tuple( val(donor_id), val(sample_id), path("${sample_id}.indels.ptato.vcf"), emit: pap_vcf )
+    tuple( val(donor_id), val(sample_id), path("${sample_id}.indels.ptato.vcf"), emit: ptato_vcf )
 
   script:
     """
