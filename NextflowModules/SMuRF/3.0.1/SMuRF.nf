@@ -1,8 +1,9 @@
 process smurf {
   tag {"SMuRF ${germline_sample_id}"}
   label 'SMuRF'
-  label 'SMuRF_3_0_0'
+  label 'SMuRF_3_0_1'
   shell = ['/bin/bash', '-euo', 'pipefail']
+  container = 'docker://vanboxtelbioinformatics/smurf:3.0.1'
 
   input:
     tuple( val(donor_id), val(germline_sample_id), path(germline_vcf), path( germline_tbi), val(bam_sample_ids), val(bam_files), val(bai_files), val(bulk_names) )
@@ -18,16 +19,16 @@ process smurf {
     host=\$(hostname)
     echo \${host}
 
-    . /hpc/pmc_vanboxtel/tools/ToolsVanBox/SMuRF-3.0.0/venv_3.6/bin/activate
+    export projectDir=${projectDir}
 
-    python /hpc/pmc_vanboxtel/tools/ToolsVanBox/SMuRF-3.0.0/SMuRF.py \
+    python /smurf/SMuRF.py \
     -i ${germline_vcf} \
     ${b} \
     ${n} \
     -t ${task.cpus} \
     -c ${params.smurf.config}
 
-    bash /hpc/pmc_vanboxtel/tools/ToolsVanBox/SMuRF-3.0.0/scripts/split_in_single_sample_vcfs.sh ${germline_sample_id}.SMuRF.filtered.vcf
+    bash /smurf/scripts/split_in_single_sample_vcfs.sh ${germline_sample_id}.SMuRF.filtered.vcf
 
     for BULK in ${n}; do
       if [[ "\${BULK}" != "-n" ]]; then

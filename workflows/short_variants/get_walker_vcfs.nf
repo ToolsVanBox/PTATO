@@ -1,4 +1,4 @@
-include { walker } from '../../NextflowModules/walker/2.1.2/walker.nf' params(params)
+include { walker } from '../../NextflowModules/walker/2.2.0/walker.nf' params(params)
 include { bgzip } from '../../NextflowModules/htslib/1.15/bgzip.nf' params(params)
 include { tabix } from '../../NextflowModules/htslib/1.15/tabix.nf' params(params)
 

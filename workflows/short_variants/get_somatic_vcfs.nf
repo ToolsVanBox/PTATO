@@ -1,4 +1,4 @@
-include { smurf } from '../../NextflowModules/SMuRF/3.0.0/SMuRF.nf' params(params)
+include { smurf } from '../../NextflowModules/SMuRF/3.0.1/SMuRF.nf' params(params)
 include { bgzip } from '../../NextflowModules/htslib/1.15/bgzip.nf' params(params)
 include { tabix } from '../../NextflowModules/htslib/1.15/tabix.nf' params(params)
 

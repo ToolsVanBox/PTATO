@@ -24,8 +24,6 @@ wgsmetrics_files = wgsmetrics_files[order_i]
 n_wgsm_files = length(wgsmetrics_files)
 outfile = args[4]
 
-# setwd("~/hpc/pmc_vanboxtel/projects/PTA_manuscript/2_Code/work/01/b9b7fd18a81106cd5d8553e1ba5378/")
-
 # set labels size based on the number of samples
 if (n_wgsm_files <= 10){
     label_size = 3.5
