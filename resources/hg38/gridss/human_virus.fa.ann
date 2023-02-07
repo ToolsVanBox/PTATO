@@ -1,0 +1,3155 @@
+18446210 1577 11
+0 AB027020 [AB027020] Human papillomavirus type 69 DNA, complete genome.
+0 7700 3
+0 AB027021 [AB027021] Human papillomavirus type 82 DNA, complete genome.
+7700 7871 2
+0 AB032553 [AB032553] Sagiyama virus genomic RNA, complete genome.
+15571 11698 0
+0 AB042808 [AB042808] Chiba virus genomic RNA, complete genome.
+27269 7697 0
+0 AB050936 [AB050936] Reston ebolavirus - Reston genomic RNA, complete genome.
+34966 18890 3
+0 AB084071 [AB084071] Norwalk-like virus genomic RNA, complete genome, strain: GIFU'99.
+53856 7562 2
+0 AB176642 [AB176642] Hepatitis B virus subtype ADR DNA, complete genome, isolate:HBV-115.
+61418 3215 11
+0 AB187514 [AB187514] Norovirus Hu/GI/Otofuke/1979/JP genomic RNA, complete genome.
+64633 7746 1
+0 AB205396 [AB205396] Human coxsackievirus A18 genomic RNA, complete genome, strain: CAM1972.
+72379 7460 1
+0 AB211993 [AB211993] Human papillomavirus type 27b DNA, complete genome.
+79839 7831 1
+0 AB220921 [AB220921] Norovirus Hu/Chiba/04-1050/2005/JP genomic RNA, complete genome.
+87670 7559 0
+0 AB236321 [AB236321] Honeysuckle yellow vein virus-[Japan:Fukui:2001] DNA, complete genome.
+95229 2761 0
+0 AB236323 [AB236323] Honeysuckle yellow vein mosaic virus-[Japan:Miyazaki:2001] DNA, complete genome.
+97990 2759 0
+0 AB236325 [AB236325] Honeysuckle yellow vein virus-[Japan:Masuda:2003] DNA, complete genome.
+100749 2764 0
+0 AB252582 [AB252582] Human parechovirus 6 genomic RNA, complete genome, strain: NII561-2000.
+103513 7347 0
+0 AB361563 [AB361563] Human papillomavirus type 57c DNA, complete genome.
+110860 7848 2
+0 AB365435 [AB365435] Norovirus Hu/Texas/TCH04-577/2004/US genomic RNA, complete genome.
+118708 7627 1
+0 AB426611 [AB426611] Human enterovirus 97 genomic RNA, complete genome, strain: DT94-0227.
+126335 7413 0
+0 AB447427 [AB447427] Norovirus Hu/GII-4/Hokkaido1/2006/JP genomic RNA, complete genome.
+133748 7511 1
+0 AB447428 [AB447428] Norovirus Hu/GII-4/Hokkaido2/2006/JP genomic RNA, complete genome.
+141259 7511 0
+0 AB447429 [AB447429] Norovirus Hu/GII-4/Hokkaido3/2006/JP genomic RNA, complete genome.
+148770 7511 0
+0 AB447430 [AB447430] Norovirus Hu/GII-4/Hokkaido4/2006/JP genomic RNA, complete genome.
+156281 7511 0
+0 AB447431 [AB447431] Norovirus Hu/GII-4/Hokkaido5/2006/JP genomic RNA, complete genome.
+163792 7511 0
+0 AB447432 [AB447432] Norovirus Hu/GII-4/Aomori1/2006/JP genomic RNA, complete genome.
+171303 7502 0
+0 AB447433 [AB447433] Norovirus Hu/GII-4/Aomori2/2006/JP genomic RNA, complete genome.
+178805 7502 0
+0 AB447434 [AB447434] Norovirus Hu/GII-4/Aomori4/2006/JP genomic RNA, complete genome.
+186307 7511 0
+0 AB447435 [AB447435] Norovirus Hu/GII-4/Aomori5/2006/JP genomic RNA, complete genome.
+193818 7511 0
+0 AB447436 [AB447436] Norovirus Hu/GII-4/Akita1/2006/JP genomic RNA, complete genome.
+201329 7511 0
+0 AB447437 [AB447437] Norovirus Hu/GII-4/Akita2/2006/JP genomic RNA, complete genome.
+208840 7511 0
+0 AB447438 [AB447438] Norovirus Hu/GII-4/Akita4/2006/JP genomic RNA, complete genome.
+216351 7511 0
+0 AB447439 [AB447439] Norovirus Hu/GII-4/Akita5/2006/JP genomic RNA, complete genome.
+223862 7511 0
+0 AB447440 [AB447440] Norovirus Hu/GII-4/Miyagi2/2006/JP genomic RNA, complete genome.
+231373 7511 0
+0 AB447441 [AB447441] Norovirus Hu/GII-4/Miyagi4/2006/JP genomic RNA, complete genome.
+238884 7511 1
+0 AB447442 [AB447442] Norovirus Hu/GII-4/Miyagi5/2006/JP genomic RNA, complete genome.
+246395 7511 0
+0 AB447443 [AB447443] Norovirus Hu/GII-4/Toyama1/2006/JP genomic RNA, complete genome.
+253906 7511 1
+0 AB447444 [AB447444] Norovirus Hu/GII-4/Toyama4/2006/JP genomic RNA, complete genome.
+261417 7511 0
+0 AB447445 [AB447445] Norovirus Hu/GII-4/Toyama5/2006/JP genomic RNA, complete genome.
+268928 7511 0
+0 AB447446 [AB447446] Norovirus Hu/GII-4/Aichi3/2006/JP genomic RNA, complete genome.
+276439 7511 0
+0 AB447447 [AB447447] Norovirus Hu/GII-4/Aichi4/2006/JP genomic RNA, complete genome.
+283950 7511 0
+0 AB447448 [AB447448] Norovirus Hu/GII-4/Sakai2/2006/JP genomic RNA, complete genome.
+291461 7511 0
+0 AB447449 [AB447449] Norovirus Hu/GII-4/Sakai3/2006/JP genomic RNA, complete genome.
+298972 7511 0
+0 AB447450 [AB447450] Norovirus Hu/GII-4/Sakai4/2006/JP genomic RNA, complete genome.
+306483 7511 0
+0 AB447451 [AB447451] Norovirus Hu/GII-4/Hiroshima1/2006/JP genomic RNA, complete genome.
+313994 7511 1
+0 AB447452 [AB447452] Norovirus Hu/GII-4/Hiroshima2/2006/JP genomic RNA, complete genome.
+321505 7511 0
+0 AB447453 [AB447453] Norovirus Hu/GII-4/Ehime1/2006/JP genomic RNA, complete genome.
+329016 7511 0
+0 AB447454 [AB447454] Norovirus Hu/GII-4/Ehime2/2006/JP genomic RNA, complete genome.
+336527 7511 0
+0 AB447455 [AB447455] Norovirus Hu/GII-4/Ehime5/2006/JP genomic RNA, complete genome.
+344038 7511 0
+0 AB447456 [AB447456] Norovirus Hu/GII-4/Saga1/2006/JP genomic RNA, complete genome.
+351549 7559 1
+0 AB447457 [AB447457] Norovirus Hu/GII-4/Saga4/2006/JP genomic RNA, complete genome.
+359108 7511 0
+0 AB447458 [AB447458] Norovirus Hu/GII-4/Saga5/2006/JP genomic RNA, complete genome.
+366619 7511 0
+0 AB447459 [AB447459] Norovirus Hu/GII-4/Kumamoto1/2006/JP genomic RNA, complete genome.
+374130 7511 1
+0 AB447460 [AB447460] Norovirus Hu/GII-4/Kumamoto2/2006/JP genomic RNA, complete genome.
+381641 7511 1
+0 AB447461 [AB447461] Norovirus Hu/GII-4/Kumamoto3/2006/JP genomic RNA, complete genome.
+389152 7511 1
+0 AB447462 [AB447462] Norovirus Hu/GII-4/Kumamoto4/2006/JP genomic RNA, complete genome.
+396663 7511 1
+0 AB447463 [AB447463] Norovirus Hu/GII-4/Kumamoto5/2006/JP genomic RNA, complete genome.
+404174 7511 1
+0 AB448767 [AB448767] Human adenovirus 8 genomic DNA, complete genome, isolate: Trim.
+411685 34980 6
+0 AB516393 [AB516393] HBV genotype H DNA, complete genome, isolate: 904MEXM.
+446665 3215 1
+0 AB540582 [AB540582] HBV genotype B DNA, complete genome, strain: B0901189(NT15).
+449880 3215 0
+0 AB540583 [AB540583] HBV genotype C DNA, complete genome, strain: C0901177(NT3).
+453095 3215 9
+0 AB541201 [AB541201] Norovirus Hu/GII-4/Aichi1/2007/JP genomic RNA, complete genome.
+456310 7509 1
+0 AB541202 [AB541202] Norovirus Hu/GII-4/Aichi1/2008/JP genomic RNA, complete genome.
+463819 7509 0
+0 AB541203 [AB541203] Norovirus Hu/GII-4/Aichi2/2007/JP genomic RNA, complete genome.
+471328 7509 0
+0 AB541204 [AB541204] Norovirus Hu/GII-4/Aichi2/2008/JP genomic RNA, complete genome.
+478837 7509 0
+0 AB541205 [AB541205] Norovirus Hu/GII-4/Aichi3/2007/JP genomic RNA, complete genome.
+486346 7509 0
+0 AB543808 [AB543808] Norovirus Hu/GII-4/FUMI/2010/JP genomic RNA, complete genome.
+493855 7509 0
+0 AB554014 [AB554014] HBV genotype C DNA, complete genome, isolate: TRF08029.
+501364 3215 0
+0 AB554015 [AB554015] HBV genotype C DNA, complete genome, isolate: TRF08111.
+504579 3215 0
+0 AB554016 [AB554016] HBV genotype D DNA, complete genome, isolate: TRF08226.
+507794 3179 0
+0 AB554018 [AB554018] HBV genotype C DNA, complete genome, isolate: NMB09075.
+510973 3215 0
+0 AB554019 [AB554019] HBV genotype C DNA, complete genome, isolate: NMB09122.
+514188 3215 1
+0 AB554020 [AB554020] HBV genotype C DNA, complete genome, isolate: NMB09124.
+517403 3215 1
+0 AB554021 [AB554021] HBV genotype C DNA, complete genome, isolate: GRS08298.
+520618 3215 9
+0 AB554023 [AB554023] HBV genotype D DNA, complete genome, isolate: GRS08457.
+523833 3179 0
+0 AB554024 [AB554024] HBV genotype D DNA, complete genome, isolate: GRS08538.
+527012 3179 0
+0 AB554025 [AB554025] HBV genotype C DNA, complete genome, isolate: MRK89073.
+530191 3215 3
+0 AB560661 [AB560661] HBV genotype C DNA, complete genome, isolate: 58PU.
+533406 3215 0
+0 AB560662 [AB560662] HBV genotype C DNA, complete genome, isolate: 60PU.
+536621 3215 0
+0 AB614356 [AB614356] Sapovirus Hu/GI.2/BR-DF01/BRA/2009 RNA, complete genome.
+539836 7476 0
+0 AB644281 [AB644281] HBV genotype C DNA, complete genome, isolate: NAB9.
+547312 3215 3
+0 AB644282 [AB644282] HBV recombinant B/C DNA, complete genome, isolate: NAB20.
+550527 3203 2
+0 AB644283 [AB644283] HBV genotype C DNA, complete genome, isolate: NAB28.
+553730 3215 5
+0 AB644284 [AB644284] HBV genotype C DNA, complete genome, isolate: NAB32.
+556945 3215 0
+0 AB644285 [AB644285] HBV recombinant C/G DNA, complete genome, isolate: NAB46.
+560160 3164 3
+0 AB644286 [AB644286] HBV genotype C DNA, complete genome, isolate: NAB47.
+563324 3215 0
+0 AB644287 [AB644287] HBV genotype C DNA, complete genome, isolate: NAB52.
+566539 3215 0
+0 AB678778 [AB678778] Human coxsackievirus A6 genomic RNA, complete genome, strain: Shizuoka 18.
+569754 7434 0
+0 AB690461 [AB690461] Hepatitis C virus subtype 2a genomic RNA, complete genome, strain: J6CF/JFH2.1.
+577188 9683 1
+0 AB724351 [AB724351] Human adenovirus 10 DNA, complete genome, strain: J.J.; ATCC VR-1504.
+586871 35105 8
+0 AB765926 [AB765926] Human adenovirus 81 DNA, complete genome, strain: Chiba_E086/2012.
+621976 35198 8
+0 AB793779 [AB793779] Human papillomavirus type 78 DNA, complete genome, isolate: z008.
+657174 7805 2
+0 AB795432 [AB795432] Hepatitis C virus subtype 4a genomic RNA, complete genome, isolate: HCVgenotype4a-KM.
+664979 9617 2
+0 AB819611 [AB819611] HBV genotype B DNA, complete genome, isolate: pBS-HBVB1_1005425-1.3G_mu-mu.
+674596 4224 0
+0 AB819612 [AB819612] HBV genotype B DNA, complete genome, isolate: pBS-HBVB1_1005425-1.3G_mu-wt.
+678820 4224 0
+0 AB819613 [AB819613] HBV genotype B DNA, complete genome, isolate: pBS-HBVB1_1005425-1.3G_wt-mu.
+683044 4224 0
+0 AB819614 [AB819614] HBV genotype B DNA, complete genome, isolate: pBS-HBVB1_1005425-1.3G_wt-wt.
+687268 4224 0
+0 AB819615 [AB819615] HBV genotype C DNA, complete genome, isolate: pBS-HBVC2_0500005-1.3G_mu-mu.
+691492 4224 0
+0 AB819616 [AB819616] HBV genotype C DNA, complete genome, isolate: pBS-HBVC2_0500005-1.3G_mu-wt.
+695716 4224 0
+0 AB819617 [AB819617] HBV genotype C DNA, complete genome, isolate: pBS-HBVC2_0500005-1.3G_wt-mu.
+699940 4224 0
+0 AB819618 [AB819618] HBV genotype C DNA, complete genome, isolate: pBS-HBVC2_0500005-1.3G_wt-wt.
+704164 4224 0
+0 AB981580 [AB981580] HBV genotype C DNA, complete genome, isolate: P1-090725.
+708388 3215 0
+0 AB981581 [AB981581] HBV genotype B DNA, complete genome, isolate: P2-120831.
+711603 3215 31
+0 AB981582 [AB981582] HBV genotype B DNA, complete genome, isolate: P2-121210.
+714818 3215 35
+0 AB981583 [AB981583] HBV genotype B DNA, complete genome, isolate: P2-121214.
+718033 3215 34
+0 AC_000005 [AC_000005] Human mastadenovirus A, complete genome.
+721248 34125 5
+0 AC_000006 [AC_000006] Human adenovirus D, complete genome.
+755373 35100 13
+0 AC_000007 [AC_000007] Human adenovirus 2, complete genome.
+790473 35937 9
+0 AC_000008 [AC_000008] Human adenovirus 5, complete genome.
+826410 35938 9
+0 AC_000010 [AC_000010] Simian adenovirus 21, complete genome.
+862348 35524 6
+0 AC_000011 [AC_000011] Simian adenovirus 25, complete genome.
+897872 36519 7
+0 AC_000017 [AC_000017] Human adenovirus type 1, complete genome.
+934391 36001 9
+0 AC_000018 [AC_000018] Human adenovirus type 7, complete genome.
+970392 35514 6
+0 AC_000019 [AC_000019] Human adenovirus type 35, complete genome.
+1005906 34794 5
+0 AF028704 [AF028704] Adeno-associated virus 6, complete genome.
+1040700 4683 3
+0 AF028705 [AF028705] Adeno-associated virus 3B, complete genome.
+1045383 4722 1
+0 AF039205 [AF039205] Coxsackievirus B6 strain Schmitt, complete genome.
+1050105 7398 1
+0 AF079457 [AF079457] Igbo Ora virus strain IBH10964, complete genome.
+1057503 11821 1
+0 AF081485 [AF081485] Coxsackievirus B2 strain Ohio, complete genome.
+1069324 7403 0
+0 AF083069 [AF083069] Echovirus 5, complete genome.
+1076727 7433 0
+0 AF086833 [AF086833] Ebola virus - Mayinga, Zaire, 1976, complete genome.
+1084160 18959 1
+0 AF092932 [AF092932] Human papillomavirus type 6, complete genome.
+1103119 8012 2
+0 AF103734 [AF103734] Sindbis-like virus YN87448, complete genome.
+1111131 11717 1
+0 AF108105 [AF108105] Human adenovirus type 17 complete genome.
+1122848 35100 13
+0 AF145896 [AF145896] Camberwell virus polyprotein and capsid genes, complete cds; and unknown gene.
+1157948 7555 0
+0 AF151983 [AF151983] Human papillomavirus type 83, complete genome.
+1165503 8104 5
+0 AF162711 [AF162711] Echovirus 30 strain Bastianni, complete genome.
+1173607 7440 0
+0 AF221065 [AF221065] DG-75 Murine leukemia virus, complete genome.
+1181047 8207 5
+0 AF230973 [AF230973] Enterovirus Yanbian 96-83csf, complete genome.
+1189254 7456 1
+0 AF241359 [AF241359] Enterovirus CA55-1988, complete genome.
+1196710 7411 0
+0 AF260508 [AF260508] Human astrovirus type 8, complete genome.
+1204121 6759 1
+0 AF293960 [AF293960] Human papillomavirus type 84, complete genome.
+1210880 7948 2
+0 AF311938 [AF311938] Human echovirus 30 strain Bastianni, complete genome.
+1218828 7445 0
+0 AF311939 [AF311939] Human coxsackievirus B4 strain E2 variant, complete genome.
+1226273 7397 0
+0 AF316321 [AF316321] Enterovirus 5865/sin/000009, complete genome.
+1233670 7411 0
+0 AF327921 [AF327921] Ljungan virus strain 174F polyprotein gene, complete cds.
+1241081 7591 1
+0 AF327922 [AF327922] Ljungan virus strain 145SL polyprotein gene, complete cds.
+1248672 7592 1
+0 AF338106 [AF338106] Mumps virus (STRAIN JERYL-LYNN) live vaccine major component, complete genome.
+1256264 15384 1
+0 AF349909 [AF349909] Human papillomavirus type 86 candidate, complete genome.
+1271648 7983 4
+0 AF352027 [AF352027] Enterovirus 5666/sin/002209, complete genome.
+1279631 7411 0
+0 AF389115 [AF389115] Influenza A virus (A/Puerto Rico/8/34/Mount Sinai(H1N1)) segment 1, complete sequence.
+1287042 2341 0
+0 AF389116 [AF389116] Influenza A virus (A/Puerto Rico/8/34/Mount Sinai(H1N1)) segment 2, complete sequence.
+1289383 2341 0
+0 AF389117 [AF389117] Influenza A virus (A/Puerto Rico/8/34/Mount Sinai(H1N1)) segment 3, complete sequence.
+1291724 2233 0
+0 AF389118 [AF389118] Influenza A virus (A/Puerto Rico/8/34/Mount Sinai(H1N1)) segment 4, complete sequence.
+1293957 1775 1
+0 AF389119 [AF389119] Influenza A virus (A/Puerto Rico/8/34/Mount Sinai(H1N1)) segment 5, complete sequence.
+1295732 1565 0
+0 AF389120 [AF389120] Influenza A virus (A/Puerto Rico/8/34/Mount Sinai(H1N1)) segment 6, complete sequence.
+1297297 1413 0
+0 AF389121 [AF389121] Influenza A virus (A/Puerto Rico/8/34/Mount Sinai(H1N1)) segment 7, complete sequence.
+1298710 1027 0
+0 AF389122 [AF389122] Influenza A virus (A/Puerto Rico/8/34/Mount Sinai(H1N1)) segment 8, complete sequence.
+1299737 890 0
+0 AF457102 [AF457102] HPIV-1 strain Washington/1964, complete genome.
+1300627 15600 4
+0 AF524867 [AF524867] Human echovirus 9 isolate DM, complete genome.
+1316227 7453 0
+0 AJ005695 [AJ005695] Human parechovirus 2 complete genome.
+1323680 7348 1
+0 AJ132961 [AJ132961] Human poliovirus 1, complete genome. Isolated from an immunodeficient patient 66 months after onset of paresis.
+1331028 7441 0
+0 AJ132997 [AJ132997] Hepatitis C virus, complete genome, isolate HCV-AD78P1.
+1338469 9533 1
+0 AJ400628 [AJ400628] Human papillomavirus type 87 (candidate) complete genome.
+1348002 7998 2
+0 AJ577589 [AJ577589] Human echovirus 11, isolate HUN-1108, complete virion genome.
+1356000 7433 0
+0 AJ620205 [AJ620205] Human papillomavirus type 43 complete genome.
+1363433 7975 2
+0 AJ620209 [AJ620209] Human papillomavirus type 81 complete genome.
+1371408 8070 5
+0 AJ620211 [AJ620211] Human papillomavirus type 94 complete genome.
+1379478 7881 4
+0 AJ889918 [AJ889918] Human parechovirus 3 genomic RNA, complete genome, isolate Can82853-01.
+1387359 7322 0
+0 AM235750 [AM235750] Human parechovirus 4 complete genome, genomic RNA, strain T75-4077.
+1394681 7350 0
+0 AM501482 [AM501482] Vaccinia virus Ankara strain chorioallantois vaccinia virus Ankara (CVA), complete coding genome.
+1402031 192353 24
+0 AM749299 [AM749299] Human adenovirus type 31 complete genome, serotype 31.
+1594384 33763 3
+0 AM910652 [AM910652] Hepatitis C virus subtype 1g complete genome.
+1628147 9490 1
+0 AP012285 [AP012285] Human adenovirus 65 DNA, complete genome, strain: BGD/2004/B172/[P58/H10/F9].
+1637637 35172 7
+0 AP012302 [AP012302] Human adenovirus 67 DNA, complete genome, strain: BGD/2005/B109/[P67/H9/F67].
+1672809 35075 6
+0 AY032605 [AY032605] Human calicivirus Hu/NLV/GII/MD145-12/1987/US, complete genome.
+1707884 7556 0
+0 AY134748 [AY134748] Snow Mountain virus, complete genome.
+1715440 7537 0
+0 AY260941 [AY260941] Influenza B virus (B/Memphis/12/97) segment 7, complete sequence.
+1722977 1180 0
+0 AY260942 [AY260942] Influenza B virus (B/Memphis/12/97) segment 1, complete sequence.
+1724157 2281 1
+0 AY260943 [AY260943] Influenza B virus (B/Memphis/12/97) segment 2, complete sequence.
+1726438 2369 0
+0 AY260944 [AY260944] Influenza B virus (B/Memphis/12/97) segment 3, complete sequence.
+1728807 2245 0
+0 AY260945 [AY260945] Influenza B virus (B/Memphis/12/97) segment 4, complete sequence.
+1731052 1808 0
+0 AY260946 [AY260946] Influenza B virus (B/Memphis/12/97) segment 5, complete sequence.
+1732860 1730 0
+0 AY260947 [AY260947] Influenza B virus (B/Memphis/12/97) segment 6, complete sequence.
+1734590 1482 0
+0 AY260948 [AY260948] Influenza B virus (B/Memphis/12/97) segment 8, complete sequence.
+1736072 1044 0
+0 AY274119 [AY274119] Severe acute respiratory syndrome-related coronavirus isolate Tor2, complete genome.
+1737116 29751 1
+0 AY278488 [AY278488] SARS coronavirus BJ01, complete genome.
+1766867 29725 1
+0 AY278491 [AY278491] SARS coronavirus HKU-39849, complete genome.
+1796592 29742 0
+0 AY278554 [AY278554] SARS coronavirus CUHK-W1, complete genome.
+1826334 29736 1
+0 AY278741 [AY278741] SARS coronavirus Urbani, complete genome.
+1856070 29727 0
+0 AY302539 [AY302539] Human echovirus 13 strain Del Carmen complete genome.
+1885797 7410 0
+0 AY302540 [AY302540] Human echovirus 14 strain Tow complete genome.
+1893207 7450 0
+0 AY302541 [AY302541] Human echovirus 15 strain CH 96-51 complete genome.
+1900657 7437 1
+0 AY302542 [AY302542] Human echovirus 16 strain Harrington complete genome.
+1908094 7437 0
+0 AY302543 [AY302543] Human echovirus 17 strain CHHE-29 complete genome.
+1915531 7416 0
+0 AY302544 [AY302544] Human echovirus 19 strain Burke complete genome.
+1922947 7433 0
+0 AY302545 [AY302545] Human echovirus 2 strain Cornelis complete genome.
+1930380 7435 0
+0 AY302546 [AY302546] Human echovirus 20 strain JV-1 complete genome.
+1937815 7394 0
+0 AY302547 [AY302547] Human echovirus 21 strain Farina complete genome.
+1945209 7426 0
+0 AY302548 [AY302548] Human echovirus 24 strain DeCamp complete genome.
+1952635 7433 0
+0 AY302549 [AY302549] Human echovirus 25 strain JV-4 complete genome.
+1960068 7426 0
+0 AY302550 [AY302550] Human echovirus 26 strain Coronel complete genome.
+1967494 7424 0
+0 AY302551 [AY302551] Human echovirus 27 strain Bacon complete genome.
+1974918 7412 0
+0 AY302552 [AY302552] Human echovirus 29 strain JV-10 complete genome.
+1982330 7427 1
+0 AY302553 [AY302553] Human echovirus 3 strain Morrisey complete genome.
+1989757 7428 1
+0 AY302554 [AY302554] Human echovirus 31 strain Caldwell complete genome.
+1997185 7432 0
+0 AY302555 [AY302555] Human echovirus 32 strain PR-10 complete genome.
+2004617 7420 0
+0 AY302556 [AY302556] Human echovirus 33 strain Toluca-3 complete genome.
+2012037 7394 0
+0 AY302557 [AY302557] Human echovirus 4 strain Pesacek complete genome.
+2019431 7394 0
+0 AY302559 [AY302559] Human echovirus 7 strain Wallace complete genome.
+2026825 7427 0
+0 AY302560 [AY302560] Enterovirus 69 strain Toluca-1 complete genome.
+2034252 7411 1
+0 AY350750 [AY350750] SARS coronavirus PUMC01, complete genome.
+2041663 29738 1
+0 AY353550 [AY353550] Human Respiratory syncytial virus 9320, complete genome.
+2071401 15225 1
+0 AY357075 [AY357075] SARS coronavirus PUMC02, complete genome.
+2086626 29738 1
+0 AY357076 [AY357076] SARS coronavirus PUMC03, complete genome.
+2116364 29745 1
+0 AY394850 [AY394850] SARS coronavirus WHU, complete genome.
+2146109 29728 0
+0 AY395706 [AY395706] Human papillomavirus type 62 isolate Qv18091, complete genome.
+2175837 8092 4
+0 AY458656 [AY458656] Human adenovirus 4 strain CL68578, complete genome.
+2183929 35994 6
+0 AY485642 [AY485642] Human calicivirus NLV/GII/Langen1061/2002/DE, complete genome.
+2219923 7558 2
+0 AY486084 [AY486084] Measles virus strain Edmonston-Zagreb working seed, complete genome.
+2227481 15894 0
+0 AY518894 [AY518894] Human group 1 coronavirus associated with pneumonia, complete genome.
+2243375 27555 6
+0 AY556057 [AY556057] Enterovirus 74 strain USA/CA75-10213, complete genome.
+2270930 7410 0
+0 AY556070 [AY556070] Enterovirus 75 strain USA/OK85-10362, complete genome.
+2278340 7429 0
+0 AY585229 [AY585229] Human coronavirus OC43 serotype OC43-Paris, complete genome.
+2285769 30744 3
+0 AY685920 [AY685920] Mumps virus strain L-Zagreb vaccine strain, complete genome.
+2316513 15384 1
+0 AY685921 [AY685921] Mumps virus strain L-Zagreb master seed, complete genome.
+2331897 15384 1
+0 AY737797 [AY737797] Human adenovirus type 34 strain Compton, complete genome.
+2347281 34775 5
+0 AY737798 [AY737798] Human adenovirus type 50 strain Wan, complete genome.
+2382056 35385 3
+0 AY741811 [AY741811] Norovirus Hu/NLV/Dresden174/pUS-NorII/1997/GE, complete genome.
+2417441 7555 0
+0 AY751783 [AY751783] Human rhinovirus 39, complete genome.
+2424996 7137 0
+0 AY772730 [AY772730] Norovirus Hu/NLV/GII/Neustrelitz260/2000/DE from Germany, complete genome.
+2432133 7579 7
+0 AY803294 [AY803294] Human adenovirus type 14 strain de Wit, complete genome.
+2439712 34764 3
+0 AY843297 [AY843297] Human enterovirus 79 strain USA/CA79-10384, complete genome.
+2474476 7430 0
+0 AY843298 [AY843298] Human enterovirus 80 strain USA/CA67-10387, complete genome.
+2481906 7428 1
+0 AY843299 [AY843299] Human enterovirus 81 strain USA/CA68-10389, complete genome.
+2489334 7415 0
+0 AY843300 [AY843300] Human enterovirus 82 strain USA/CA64-10390, complete genome.
+2496749 7427 0
+0 AY843301 [AY843301] Human enterovirus 83 strain USA/CA76-10392, complete genome.
+2504176 7394 0
+0 AY843303 [AY843303] Human enterovirus 85 strain BAN00-10353, complete genome.
+2511570 7418 0
+0 AY843304 [AY843304] Human enterovirus 86 strain BAN00-10354, complete genome.
+2518988 7400 0
+0 AY843305 [AY843305] Human enterovirus 87 strain BAN01-10396, complete genome.
+2526388 7422 0
+0 AY843306 [AY843306] Human enterovirus 88 strain BAN01-10398, complete genome.
+2533810 7433 0
+0 AY843307 [AY843307] Human enterovirus 97 strain BAN99-10355, complete genome.
+2541243 7413 0
+0 AY843308 [AY843308] Human enterovirus 101 strain CIV03-10361, complete genome.
+2548656 7445 3
+0 AY859526 [AY859526] Hepatitis C virus (isolate 6a33), complete genome.
+2556101 9355 1
+0 AY864805 [AY864805] SARS coronavirus BJ162, complete genome.
+2565456 29751 1
+0 AY864806 [AY864806] SARS coronavirus BJ202, complete genome.
+2595207 29751 1
+0 AY875648 [AY875648] Human adenovirus type 46, complete genome.
+2624958 35178 7
+0 AY876912 [AY876912] Human enterovirus Ningbo3-02, complete genome.
+2660136 7456 0
+0 AY876913 [AY876913] Human enterovirus Hangzhou13-02, complete genome.
+2667592 7456 0
+0 CY011120 [CY011120] Influenza A virus (A/Northern Territory/60/1968(H3N2)) segment 4, complete sequence.
+2675048 1729 0
+0 CY011121 [CY011121] Influenza A virus (A/Northern Territory/60/1968(H3N2)) segment 7, complete sequence.
+2676777 994 0
+0 CY011122 [CY011122] Influenza A virus (A/Northern Territory/60/1968(H3N2)) segment 6, complete sequence.
+2677771 1425 0
+0 CY011123 [CY011123] Influenza A virus (A/Northern Territory/60/1968(H3N2)) segment 5, complete sequence.
+2679196 1521 1
+0 CY011124 [CY011124] Influenza A virus (A/Northern Territory/60/1968(H3N2)) segment 8, complete sequence.
+2680717 867 0
+0 CY011125 [CY011125] Influenza A virus (A/Northern Territory/60/1968(H3N2)) segment 3, complete sequence.
+2681584 2194 0
+0 CY011126 [CY011126] Influenza A virus (A/Northern Territory/60/1968(H3N2)) segment 2, complete sequence.
+2683778 2297 0
+0 CY011127 [CY011127] Influenza A virus (A/Northern Territory/60/1968(H3N2)) segment 1, complete sequence.
+2686075 2306 0
+0 CY011128 [CY011128] Influenza A virus (A/New York/599/1996(H3N2)) segment 4, complete sequence.
+2688381 1721 0
+0 CY011129 [CY011129] Influenza A virus (A/New York/599/1996(H3N2)) segment 7, complete sequence.
+2690102 995 0
+0 CY011130 [CY011130] Influenza A virus (A/New York/599/1996(H3N2)) segment 6, complete sequence.
+2691097 1435 0
+0 CY011131 [CY011131] Influenza A virus (A/New York/599/1996(H3N2)) segment 5, complete sequence.
+2692532 1522 0
+0 CY011132 [CY011132] Influenza A virus (A/New York/599/1996(H3N2)) segment 8, complete sequence.
+2694054 856 0
+0 CY011133 [CY011133] Influenza A virus (A/New York/599/1996(H3N2)) segment 3, complete sequence.
+2694910 2199 0
+0 CY011134 [CY011134] Influenza A virus (A/New York/599/1996(H3N2)) segment 2, complete sequence.
+2697109 2309 1
+0 CY011135 [CY011135] Influenza A virus (A/New York/599/1996(H3N2)) segment 1, complete sequence.
+2699418 2306 0
+0 CY011136 [CY011136] Influenza A virus (A/New York/602/1996(H3N2)) segment 4, complete sequence.
+2701724 1722 0
+0 CY011137 [CY011137] Influenza A virus (A/New York/602/1996(H3N2)) segment 7, complete sequence.
+2703446 989 0
+0 CY011138 [CY011138] Influenza A virus (A/New York/602/1996(H3N2)) segment 6, complete sequence.
+2704435 1435 0
+0 CY011139 [CY011139] Influenza A virus (A/New York/602/1996(H3N2)) segment 5, complete sequence.
+2705870 1522 0
+0 CY011140 [CY011140] Influenza A virus (A/New York/602/1996(H3N2)) segment 8, complete sequence.
+2707392 856 0
+0 CY011141 [CY011141] Influenza A virus (A/New York/602/1996(H3N2)) segment 3, complete sequence.
+2708248 2199 0
+0 CY011142 [CY011142] Influenza A virus (A/New York/602/1996(H3N2)) segment 2, complete sequence.
+2710447 2309 0
+0 CY011143 [CY011143] Influenza A virus (A/New York/602/1996(H3N2)) segment 1, complete sequence.
+2712756 2306 0
+0 D21208 [D21208] Human papillomavirus type 67 complete genome.
+2715062 7801 4
+0 DQ028633 [DQ028633] Human astrovirus 5 isolate Goiania/GO/12/94/Brazil, complete genome.
+2722863 6762 1
+0 DQ058829 [DQ058829] Sapovirus Ehime1107/2002/JP, complete genome.
+2729625 7427 0
+0 DQ070852 [DQ070852] Human astrovirus 4 isolate Goiania/GO/12/95/Brazil, complete genome.
+2737052 6723 1
+0 DQ080079 [DQ080079] Human papillomavirus type 68a, complete genome.
+2743775 7822 4
+0 DQ080080 [DQ080080] Human papillomavirus type 97, complete genome.
+2751597 7843 4
+0 DQ080082 [DQ080082] Human papillomavirus type 106, complete genome.
+2759440 8035 4
+0 DQ080083 [DQ080083] Human papillomavirus type 102, complete genome.
+2767475 8078 2
+0 DQ086466 [DQ086466] Human adenovirus type 3, complete genome.
+2775553 35343 4
+0 DQ090005 [DQ090005] Human papillomavirus type 38b subtype FA125, complete genome.
+2810896 7400 1
+0 DQ093792 [DQ093792] Human T-lymphotropic virus 3 strain 2026ND, complete genome.
+2818296 8917 0
+0 DQ217792 [DQ217792] Lake Victoria marburgvirus - Musoke from Kenya, complete genome.
+2827213 19111 0
+0 DQ241301 [DQ241301] Xenotropic MuLV-related virus VP35, complete genome.
+2846324 8185 2
+0 DQ241302 [DQ241302] Xenotropic MuLV-related virus VP42, complete genome.
+2854509 8185 2
+0 DQ294633 [DQ294633] Mengo virus isolate Rz-pMwt, complete genome.
+2862694 7765 1
+0 DQ315364 [DQ315364] Human adenovirus 41 isolate Tak, complete genome.
+2870459 34188 5
+0 DQ315670 [DQ315670] Human parechovirus 4 isolate K251176-02, complete genome.
+2904647 7366 1
+0 DQ344807 [DQ344807] Human papillomavirus type 13, complete genome.
+2912013 7880 3
+0 DQ358078 [DQ358078] Human coxsackievirus A20 serotype CAV20a, complete genome.
+2919893 7444 1
+0 DQ369797 [DQ369797] Norovirus Hu/Guangzhou/NVgz01/CHN, complete genome.
+2927337 7558 0
+0 DQ393829 [DQ393829] Human adenovirus type 49, complete genome.
+2934895 35215 8
+0 DQ399707 [DQ399707] Xenotropic MuLV-related virus VP62, complete genome.
+2970110 8185 2
+0 DQ447649 [DQ447649] Lake Victoria marburgvirus - Ravn, complete genome.
+2978295 19114 1
+0 DQ447652 [DQ447652] Lake Victoria marburgvirus - DRC1999 strain 09DRC99, complete genome.
+2997409 19114 1
+0 DQ447657 [DQ447657] Lake Victoria marburgvirus - Angola2005 strain Ang0214, complete genome.
+3016523 19114 0
+0 DQ456824 [DQ456824] Norovirus Hu/MK04/2004/JP, complete genome.
+3035637 7536 0
+0 DQ473486 [DQ473486] Human rhinovirus 6, complete genome.
+3043173 7216 0
+0 DQ473488 [DQ473488] Human rhinovirus 48, complete genome.
+3050389 7214 1
+0 DQ473489 [DQ473489] Human rhinovirus 70, complete genome.
+3057603 7223 0
+0 DQ473490 [DQ473490] Human rhinovirus 4, complete genome.
+3064826 7212 0
+0 DQ473491 [DQ473491] Human rhinovirus 41, complete genome.
+3072038 7145 1
+0 DQ473492 [DQ473492] Human rhinovirus 73, complete genome.
+3079183 7140 0
+0 DQ473493 [DQ473493] Human rhinovirus 15, complete genome.
+3086323 7134 0
+0 DQ473494 [DQ473494] Human rhinovirus 74, complete genome.
+3093457 7120 0
+0 DQ473497 [DQ473497] Human rhinovirus 23, complete genome.
+3100577 7025 0
+0 DQ473499 [DQ473499] Human rhinovirus 44, complete genome.
+3107602 7123 0
+0 DQ473500 [DQ473500] Human rhinovirus 59, complete genome.
+3114725 7135 0
+0 DQ473504 [DQ473504] Human rhinovirus 88, complete genome.
+3121860 7143 2
+0 DQ473505 [DQ473505] Human rhinovirus 36, complete genome.
+3129003 7141 0
+0 DQ473506 [DQ473506] Human rhinovirus 46, complete genome.
+3136144 7149 2
+0 DQ473507 [DQ473507] Human rhinovirus 53, complete genome.
+3143293 7143 0
+0 DQ473508 [DQ473508] Human rhinovirus 28, complete genome.
+3150436 7148 0
+0 DQ473510 [DQ473510] Human rhinovirus 75, complete genome.
+3157584 7137 0
+0 DQ473511 [DQ473511] Human rhinovirus 55, complete genome.
+3164721 7036 0
+0 DQ480514 [DQ480514] Hepatitis C virus subtype 6a strain 6a63, complete genome.
+3171757 9358 0
+0 DQ640652 [DQ640652] SARS coronavirus GDH-BJH01, complete genome.
+3181115 29746 0
+0 DQ658413 [DQ658413] Norovirus Hu/GII.4/MD-2004/2004/US, complete genome.
+3210861 7558 0
+0 DQ778300 [DQ778300] Human bocavirus WLL-1, complete genome.
+3218419 5297 0
+0 DQ792504 [DQ792504] Horsepox virus isolate MNR-76, complete genome.
+3223716 212633 35
+0 DQ900900 [DQ900900] Human adenovirus type 37 isolate GW [76-19026], complete genome.
+3436349 35213 7
+0 DQ902712 [DQ902712] Human enterovirus 84 isolate CIV2003-10603, complete genome.
+3471562 7423 0
+0 DQ902713 [DQ902713] Human enterovirus 100 isolate BAN2000-10500, complete genome.
+3478985 7421 0
+0 DQ923122 [DQ923122] Human adenovirus 52 isolate T03-2244, complete genome.
+3486406 34250 7
+0 DQ995634 [DQ995634] Human coxsackievirus A11 strain BAN01-10589, complete genome.
+3520656 7454 0
+0 DQ995640 [DQ995640] Human coxsackievirus A13 strain BAN99-10419, complete genome.
+3528110 7457 0
+0 DQ995647 [DQ995647] Human coxsackievirus A22 strain ban99-10427, complete genome.
+3535567 7401 0
+0 EF015886 [EF015886] Human enterovirus 96 strain BAN00-10488, complete genome.
+3542968 7478 0
+0 EF107097 [EF107097] Human enterovirus 94 isolate 19/04 from Democratic Republic of the Congo, complete genome.
+3550446 7331 0
+0 EF117891 [EF117891] Human papillomavirus type 2 isolate CN-HB1, complete genome.
+3557777 7859 3
+0 EF121005 [EF121005] Human adenovirus 64 strain human/USA/C/1993/64[P22H19F37], complete genome.
+3565636 35231 7
+0 EF127906 [EF127906] KI polyomavirus Stockholm 60, complete genome.
+3600867 5040 0
+0 EF127907 [EF127907] KI polyomavirus Stockholm 350, complete genome.
+3605907 5040 0
+0 EF127908 [EF127908] KI polyomavirus Stockholm 380, complete genome.
+3610947 5040 0
+0 EF173414 [EF173414] Human rhinovirus 11, complete genome.
+3615987 7125 1
+0 EF173415 [EF173415] Human rhinovirus 12, complete genome.
+3623112 7124 0
+0 EF173420 [EF173420] Human rhinovirus 17, complete genome.
+3630236 7219 0
+0 EF173423 [EF173423] Human rhinovirus 37, complete genome.
+3637455 7216 0
+0 EF173425 [EF173425] Human rhinovirus 93, complete genome.
+3644671 7215 1
+0 EF420157 [EF420157] Tanapox virus isolate TPV-RoC, complete genome.
+3651886 144553 29
+0 EF422221 [EF422221] Human papillomavirus type 107, complete genome.
+3796439 7562 2
+0 EF429197 [EF429197] West Nile virus SPU116/89, complete genome.
+3804001 11052 10
+0 EF429198 [EF429198] West Nile virus SA93/01, complete genome.
+3815053 11052 6
+0 EF429199 [EF429199] West Nile virus SA381/00, complete genome.
+3826105 11052 6
+0 EF429200 [EF429200] West Nile virus H442, complete genome.
+3837157 11051 6
+0 EF441262 [EF441262] Human bocavirus WLL-2, complete genome.
+3848208 5297 0
+0 EF555644 [EF555644] Human enterovirus 99, complete genome.
+3853505 7447 1
+0 EF555645 [EF555645] Human enterovirus 102, complete genome.
+3860952 7438 0
+0 EF564601 [EF564601] Human adenovirus 3+11p strain OvAd2, complete genome.
+3868390 35355 5
+0 EF584447 [EF584447] Human bocavirus WLL-3, complete genome.
+3903745 5297 0
+0 EU037962 [EU037962] Chikungunya virus Wuerzburg 1, complete genome.
+3909042 11805 11
+0 EU155216 [EU155216] Hepatitis C virus subtype 1a isolate HCV-1a/US/BID-V115/2001, complete genome.
+3920847 9298 0
+0 EU155260 [EU155260] Hepatitis C virus subtype 1b isolate HCV-1b/US/BID-V375/2006, complete genome.
+3930145 9329 0
+0 EU371559 [EU371559] SARS coronavirus ZJ02, complete genome.
+3939474 29731 0
+0 EU371560 [EU371560] SARS coronavirus BJ182a, complete genome.
+3969205 29731 0
+0 EU371561 [EU371561] SARS coronavirus BJ182b, complete genome.
+3998936 29602 0
+0 EU371562 [EU371562] SARS coronavirus BJ182-4, complete genome.
+4028538 29602 0
+0 EU371563 [EU371563] SARS coronavirus BJ182-8, complete genome.
+4058140 29602 0
+0 EU371564 [EU371564] SARS coronavirus BJ182-12, complete genome.
+4087742 29512 0
+0 EU410347 [EU410347] Human papillomavirus FA75/KI88-03, complete genome.
+4117254 7401 1
+0 EU410348 [EU410348] Human papillomavirus type 110, complete genome.
+4124655 7423 2
+0 EU410349 [EU410349] Human papillomavirus type 111, complete genome.
+4132078 7384 2
+0 EU523109 [EU523109] Porcine endogenous retrovirus clone 465D1, complete genome.
+4139462 8801 1
+0 EU627591 [EU627591] Human parainfluenza virus 4b isolate SKPIV4, complete genome.
+4148263 17361 3
+0 EU716175 [EU716175] Human parechovirus 8 isolate BR/217/2006, complete genome.
+4165624 7353 1
+0 EU918769 [EU918769] Human papillomavirus type 68 isolate LZod68-68, complete genome.
+4172977 7834 3
+0 FJ025899 [FJ025899] Simian adenovirus 44, complete genome.
+4180811 37711 25
+0 FJ025900 [FJ025900] Simian adenovirus 43, complete genome.
+4218522 37188 15
+0 FJ025901 [FJ025901] Simian adenovirus 45, complete genome.
+4255710 37152 16
+0 FJ025902 [FJ025902] Simian adenovirus 42.2, complete genome.
+4292862 37820 24
+0 FJ025903 [FJ025903] Simian adenovirus 42.1, complete genome.
+4330682 37786 29
+0 FJ025904 [FJ025904] Simian adenovirus 31.2, complete genome.
+4368468 37860 30
+0 FJ025905 [FJ025905] Simian adenovirus 34, complete genome.
+4406328 37799 27
+0 FJ025906 [FJ025906] Simian adenovirus 31.1, complete genome.
+4444127 37828 31
+0 FJ025907 [FJ025907] Simian adenovirus 40.1, complete genome.
+4481955 37718 29
+0 FJ025908 [FJ025908] Simian adenovirus 33, complete genome.
+4519673 35694 7
+0 FJ025909 [FJ025909] Simian adenovirus 27.1, complete genome.
+4555367 35592 10
+0 FJ025910 [FJ025910] Simian adenovirus 35.2, complete genome.
+4590959 35620 6
+0 FJ025911 [FJ025911] Simian adenovirus 32, complete genome.
+4626579 35588 10
+0 FJ025912 [FJ025912] Simian adenovirus 35.1, complete genome.
+4662167 35606 7
+0 FJ025913 [FJ025913] Simian adenovirus 41.1, complete genome.
+4697773 35100 9
+0 FJ025914 [FJ025914] Simian adenovirus 28.1, complete genome.
+4732873 35610 9
+0 FJ025915 [FJ025915] Simian adenovirus 28.2, complete genome.
+4768483 35612 9
+0 FJ025916 [FJ025916] Simian adenovirus 29, complete genome.
+4804095 35646 10
+0 FJ025917 [FJ025917] Simian adenovirus 36, complete genome.
+4839741 36556 15
+0 FJ025918 [FJ025918] Simian adenovirus 25.2, complete genome.
+4876297 36629 13
+0 FJ025919 [FJ025919] Simian adenovirus 37.2, complete genome.
+4912926 36632 13
+0 FJ025920 [FJ025920] Simian adenovirus 30, complete genome.
+4949558 36621 12
+0 FJ025921 [FJ025921] Simian adenovirus 37.1, complete genome.
+4986179 36635 13
+0 FJ025922 [FJ025922] Simian adenovirus 38, complete genome.
+5022814 36494 14
+0 FJ025923 [FJ025923] Simian adenovirus 26, complete genome.
+5059308 36628 8
+0 FJ025924 [FJ025924] Simian adenovirus 39, complete genome.
+5095936 36553 7
+0 FJ025925 [FJ025925] Simian adenovirus 42.3, complete genome.
+5132489 37820 24
+0 FJ025926 [FJ025926] Simian adenovirus 40.2, complete genome.
+5170309 37729 32
+0 FJ025927 [FJ025927] Simian adenovirus 41.2, complete genome.
+5208038 35767 9
+0 FJ025928 [FJ025928] Simian adenovirus 27.2, complete genome.
+5243805 35672 9
+0 FJ025929 [FJ025929] Simian adenovirus 47, complete genome.
+5279477 35563 10
+0 FJ025930 [FJ025930] Simian adenovirus 46, complete genome.
+5315040 35608 6
+0 FJ349096 [FJ349096] Human adenovirus 6 strain Tonsil 99 prototype, complete genome.
+5350648 35758 8
+0 FJ375127 [FJ375127] Human bocavirus isolate SH1, complete genome.
+5386406 5276 0
+0 FJ375128 [FJ375128] Human bocavirus isolate SH2, complete genome.
+5391682 5277 0
+0 FJ375129 [FJ375129] Human bocavirus isolate SH3, complete genome.
+5396959 5238 1
+0 FJ404771 [FJ404771] Human adenovirus 22 isolate AV-2711, complete genome.
+5402197 35166 8
+0 FJ415324 [FJ415324] Human enteric coronavirus 4408, complete genome.
+5437363 31029 1
+0 FJ445112 [FJ445112] Human rhinovirus 5 strain ATCC VR-485, complete genome.
+5468392 7212 0
+0 FJ445113 [FJ445113] Human rhinovirus 8 strain ATCC VR-1118, complete genome.
+5475604 7108 0
+0 FJ445114 [FJ445114] Human rhinovirus 9 isolate F01, complete genome.
+5482712 7134 0
+0 FJ445116 [FJ445116] Human rhinovirus 13 strain ATCC VR-1123, complete genome.
+5489846 7140 0
+0 FJ445118 [FJ445118] Human rhinovirus 18 strain ATCC VR-1128, complete genome.
+5496986 7119 0
+0 FJ445119 [FJ445119] Human rhinovirus 19 strain ATCC VR-1129, complete genome.
+5504105 7135 2
+0 FJ445120 [FJ445120] Human rhinovirus 20 strain ATCC VR-1130, complete genome.
+5511240 7163 0
+0 FJ445121 [FJ445121] Human rhinovirus 21 strain ATCC VR-1131, complete genome.
+5518403 7134 1
+0 FJ445122 [FJ445122] Human rhinovirus 22 strain ATCC VR-1132, complete genome.
+5525537 7129 17
+0 FJ445123 [FJ445123] Human rhinovirus 25 strain ATCC VR-1135, complete genome.
+5532666 7126 2
+0 FJ445124 [FJ445124] Human rhinovirus 26 strain ATCC VR-1136, complete genome.
+5539792 7211 2
+0 FJ445125 [FJ445125] Human rhinovirus 29 strain ATCC VR-1139, complete genome.
+5547003 7123 1
+0 FJ445126 [FJ445126] Human rhinovirus 31 strain ATCC VR-506, complete genome.
+5554126 7131 2
+0 FJ445127 [FJ445127] Human rhinovirus 32 strain ATCC VR-1142, complete genome.
+5561257 7133 2
+0 FJ445128 [FJ445128] Human rhinovirus 33 strain ATCC VR-330, complete genome.
+5568390 7133 2
+0 FJ445129 [FJ445129] Human rhinovirus 40 strain ATCC VR-341, complete genome.
+5575523 7138 0
+0 FJ445130 [FJ445130] Human rhinovirus 42 strain ATCC VR-338, complete genome.
+5582661 7223 2
+0 FJ445131 [FJ445131] Human rhinovirus 43 strain ATCC VR-1153, complete genome.
+5589884 7129 2
+0 FJ445132 [FJ445132] Human rhinovirus 45 strain ATCC VR-1155, complete genome.
+5597013 7114 0
+0 FJ445133 [FJ445133] Human rhinovirus 47 strain ATCC VR-1157, complete genome.
+5604127 7132 3
+0 FJ445134 [FJ445134] Human rhinovirus 49 isolate F04, complete genome.
+5611259 7109 1
+0 FJ445135 [FJ445135] Human rhinovirus 50 strain ATCC VR-517, complete genome.
+5618368 7118 2
+0 FJ445136 [FJ445136] Human rhinovirus 51 strain ATCC VR-1161, complete genome.
+5625486 7152 4
+0 FJ445138 [FJ445138] Human rhinovirus 54 strain ATCC VR-1164, complete genome.
+5632638 7134 1
+0 FJ445140 [FJ445140] Human rhinovirus 56 strain ATCC VR-1166, complete genome.
+5639772 7136 3
+0 FJ445141 [FJ445141] Human rhinovirus 57 isolate fs ship#1-hrv-57, complete genome.
+5646908 7134 1
+0 FJ445142 [FJ445142] Human rhinovirus 58 strain ATCC VR-1168, complete genome.
+5654042 7140 1
+0 FJ445143 [FJ445143] Human rhinovirus 60 strain ATCC VR-1473, complete genome.
+5661182 7139 1
+0 FJ445144 [FJ445144] Human rhinovirus 61 strain ATCC VR-1171, complete genome.
+5668321 7139 0
+0 FJ445145 [FJ445145] Human rhinovirus 62 strain ATCC VR-1172, complete genome.
+5675460 7131 5
+0 FJ445146 [FJ445146] Human rhinovirus 63 strain ATCC VR-1173, complete genome.
+5682591 7141 0
+0 FJ445147 [FJ445147] Human rhinovirus 65 strain ATCC VR-1175, complete genome.
+5689732 7162 0
+0 FJ445148 [FJ445148] Human rhinovirus 66 strain ATCC VR-1176, complete genome.
+5696894 7139 1
+0 FJ445149 [FJ445149] Human rhinovirus 67 strain ATCC VR-1177, complete genome.
+5704033 7135 1
+0 FJ445150 [FJ445150] Human rhinovirus 68 strain ATCC VR-1178, complete genome.
+5711168 7164 1
+0 FJ445151 [FJ445151] Human rhinovirus 69 strain ATCC VR-1179, complete genome.
+5718332 7211 2
+0 FJ445152 [FJ445152] Human rhinovirus 71 strain ATCC VR-1181, complete genome.
+5725543 7161 0
+0 FJ445153 [FJ445153] Human rhinovirus 72 strain ATCC VR-1182, complete genome.
+5732704 7216 0
+0 FJ445154 [FJ445154] Human rhinovirus 77 strain ATCC VR-1187, complete genome.
+5739920 7136 4
+0 FJ445155 [FJ445155] Human rhinovirus 79 strain ATCC VR-1189, complete genome.
+5747056 7224 0
+0 FJ445156 [FJ445156] Human rhinovirus 80 strain ATCC VR-1190, complete genome.
+5754280 7138 4
+0 FJ445157 [FJ445157] Human rhinovirus 81 strain ATCC VR-1191, complete genome.
+5761418 7116 4
+0 FJ445160 [FJ445160] Human rhinovirus 82 strain ATCC VR-1192, complete genome.
+5768534 7123 0
+0 FJ445161 [FJ445161] Human rhinovirus 83 strain ATCC VR-1193, complete genome.
+5775657 7230 1
+0 FJ445162 [FJ445162] Human rhinovirus 84 strain ATCC VR-1194, complete genome.
+5782887 7201 3
+0 FJ445163 [FJ445163] Human rhinovirus 85 strain ATCC VR-1195, complete genome.
+5790088 7140 0
+0 FJ445164 [FJ445164] Human rhinovirus 86 strain ATCC VR-1196, complete genome.
+5797228 7213 3
+0 FJ445165 [FJ445165] Human rhinovirus 89 isolate F09, complete genome.
+5804441 7150 1
+0 FJ445167 [FJ445167] Human rhinovirus 90 strain ATCC VR-1291, complete genome.
+5811591 7124 2
+0 FJ445168 [FJ445168] Human rhinovirus 91 strain ATCC VR-1292, complete genome.
+5818715 7221 2
+0 FJ445169 [FJ445169] Human rhinovirus 92 strain ATCC VR-1293, complete genome.
+5825936 7233 0
+0 FJ445170 [FJ445170] Human rhinovirus 95 strain ATCC VR-1301, complete genome.
+5833169 7110 0
+0 FJ445171 [FJ445171] Human rhinovirus 96 strain ATCC VR-1296, complete genome.
+5840279 7134 2
+0 FJ445172 [FJ445172] Human rhinovirus 97 strain ATCC VR-1297, complete genome.
+5847413 7207 1
+0 FJ445173 [FJ445173] Human rhinovirus 98 strain ATCC VR-1298, complete genome.
+5854620 7133 0
+0 FJ445174 [FJ445174] Human rhinovirus 99 strain ATCC VR-1299, complete genome.
+5861753 7208 2
+0 FJ445175 [FJ445175] Human rhinovirus 100 strain ATCC VR-1300, complete genome.
+5868961 7140 0
+0 FJ445176 [FJ445176] Human rhinovirus 7 strain ATCC VR-1117, complete genome.
+5876101 7146 1
+0 FJ445178 [FJ445178] Human rhinovirus 10 strain ATCC VR-1120, complete genome.
+5883247 7137 1
+0 FJ445179 [FJ445179] Human rhinovirus 30 strain ATCC VR-1140, complete genome.
+5890384 7093 0
+0 FJ445180 [FJ445180] Human rhinovirus 38 strain ATCC VR-1148, complete genome.
+5897477 7136 0
+0 FJ445181 [FJ445181] Human rhinovirus 64 strain ATCC VR-1174, complete genome.
+5904613 7129 4
+0 FJ445182 [FJ445182] Human rhinovirus 76 strain ATCC VR-1186, complete genome.
+5911742 7128 0
+0 FJ445183 [FJ445183] Human rhinovirus 78 strain ATCC VR-1188, complete genome.
+5918870 7145 0
+0 FJ445185 [FJ445185] Human rhinovirus 94 strain ATCC VR-1295, complete genome.
+5926015 7132 3
+0 FJ445186 [FJ445186] Human rhinovirus 27 strain ATCC VR-1137, complete genome.
+5933147 7217 0
+0 FJ445187 [FJ445187] Human rhinovirus 35 strain ATCC VR-1145, complete genome.
+5940364 7224 4
+0 FJ445188 [FJ445188] Human rhinovirus 52 strain ATCC VR-1162, complete genome.
+5947588 7216 0
+0 FJ445189 [FJ445189] Human rhinovirus 34 strain ATCC VR-1144, complete genome.
+5954804 7119 2
+0 FJ445190 [FJ445190] Human rhinovirus 24 strain ATCC VR-1134, complete genome.
+5961923 7132 0
+0 FJ514242 [FJ514242] Norovirus Hu/GII-4/CUK-3/2008/KR, complete genome.
+5969055 7559 0
+0 FJ515294 [FJ515294] Norovirus Hu/GI.2/Leuven/2003/BEL, complete genome.
+5976614 7699 0
+0 FJ537135 [FJ537135] Norovirus Hu/GII.4/CHDC2094/1974/US, complete genome.
+5984313 7576 1
+0 FJ537136 [FJ537136] Norovirus Hu/GII.4/CHDC3967/1988/US, complete genome.
+5991889 7580 1
+0 FJ537137 [FJ537137] Norovirus Hu/GII.4/CHDC4108/1987/US, complete genome.
+5999469 7580 1
+0 FJ537138 [FJ537138] Norovirus Hu/GII.4/CHDC4871/1977/US, complete genome.
+6007049 7580 1
+0 FJ597732 [FJ597732] Human adenovirus 11a strain SGN1222, complete genome.
+6014629 34773 4
+0 FJ643676 [FJ643676] Human adenovirus 55 strain QS-DLL, complete genome.
+6049402 34755 3
+0 FJ654700 [FJ654700] Yellow fever virus 17D/Tiantan, complete genome.
+6084157 10862 1
+0 FJ755402 [FJ755402] Human astrovirus 1 Beijing/128/2005/CHN, complete genome.
+6095019 6771 2
+0 FJ755403 [FJ755403] Human astrovirus 1 Beijing/176/2006/CHN, complete genome.
+6101790 6771 1
+0 FJ755404 [FJ755404] Human astrovirus 1 Beijing/291/2007/CHN, complete genome.
+6108561 6771 1
+0 FJ755405 [FJ755405] Human astrovirus 1 Beijing/293/2007/CHN, complete genome.
+6115332 6771 2
+0 FJ824826 [FJ824826] Human adenovirus 28 strain BP-5, complete genome.
+6122103 35130 6
+0 FJ882963 [FJ882963] SARS coronavirus P2, complete genome.
+6157233 29682 1
+0 FJ938067 [FJ938067] Human enteric coronavirus strain 4408, complete genome.
+6186915 30953 72
+0 FJ947080 [FJ947080] Human papillomavirus type 115 isolate GC02, complete genome.
+6217868 7476 2
+0 FJ966079 [FJ966079] Influenza A virus (A/California/04/2009(H1N1)) segment 1 polymerase PB2 (PB2) gene, complete cds.
+6225344 2280 0
+0 FJ966080 [FJ966080] Influenza A virus (A/California/04/2009(H1N1)) segment 2 polymerase PB1 (PB1) gene, complete cds.
+6227624 2274 0
+0 FJ966081 [FJ966081] Influenza A virus (A/California/04/2009(H1N1)) segment 3 polymerase PA (PA) gene, complete cds.
+6229898 2151 0
+0 FJ966082 [FJ966082] Influenza A virus (A/California/04/2009(H1N1)) segment 4 hemagglutinin (HA) gene, complete cds.
+6232049 1701 0
+0 FJ966083 [FJ966083] Influenza A virus (A/California/04/2009(H1N1)) segment 5 nucleocapsid protein (NP) gene, complete cds.
+6233750 1497 0
+0 FJ966084 [FJ966084] Influenza A virus (A/California/04/2009(H1N1)) segment 6 neuraminidase (NA) gene, complete cds.
+6235247 1410 0
+0 FJ966085 [FJ966085] Influenza A virus (A/California/04/2009(H1N1)) segment 7 matrix protein 2 (M2) and matrix protein 1 (M1) genes, partial cds.
+6236657 972 0
+0 FJ966086 [FJ966086] Influenza A virus (A/California/04/2009(H1N1)) segment 8 nuclear export protein (NEP) and nonstructural protein 1 (NS1) genes, complete cds.
+6237629 838 0
+0 FM955278 [FM955278] Human coxsackievirus A17, complete genome, genomic RNA, isolate cCA17.67591.
+6238467 7457 0
+0 FM955837 [FM955837] Human papillomavirus type 98, complete genome.
+6245924 7466 2
+0 FM955838 [FM955838] Human papillomavirus type 99, complete genome.
+6253390 7698 1
+0 FM955839 [FM955839] Human papillomavirus type 100, complete genome.
+6261088 7380 0
+0 FM955840 [FM955840] Human papillomavirus type 104, complete genome.
+6268468 7386 1
+0 FM955841 [FM955841] Human papillomavirus type 105, complete genome.
+6275854 7667 2
+0 FM955842 [FM955842] Human papillomavirus type 113, complete genome.
+6283521 7412 2
+0 FN547152 [FN547152] Human papillomavirus type 125 complete genome, strain SIBX9.
+6290933 7809 3
+0 FN598907 [FN598907] Human papillomavirus type 120 complete genome, isolate SIBX-3a.
+6298742 7304 0
+0 FN677755 [FN677755] Human papillomavirus type 150, complete genome, isolate SIBX1.
+6306046 7436 1
+0 FN677756 [FN677756] Human papillomavirus type 151, complete genome, isolate SIBX2.
+6313482 7386 1
+0 FN692043 [FN692043] Xenotropic MuLV-related virus 22Rv1/CWR-R1 complete proviral genome.
+6320868 8185 2
+0 FR751039 [FR751039] Human papillomavirus type 68b, complete genome.
+6329053 7836 3
+0 FR751515 [FR751515] Micro Torque teno virus complete genome, isolate microTTV-HD14.2 (zpr4.B6.125).
+6336889 1224 5
+0 FR823283 [FR823283] Human gyrovirus type 1 complete genome, isolate 915 F 06 007 FD.
+6338113 2315 0
+0 FR823284 [FR823284] Human polyomavirus IPPyV complete genome, isolate 915 F 06 001 PJ.
+6340428 5028 0
+0 GQ244463 [GQ244463] Human papillomavirus type 114, complete genome.
+6345456 8069 5
+0 GQ246950 [GQ246950] Human papillomavirus type 117 clone K6, complete genome.
+6353525 7895 2
+0 GQ246951 [GQ246951] Human papillomavirus type 118 clone K2, complete genome.
+6361420 7597 3
+0 GQ275355 [GQ275355] Hepatitis C virus subtype 3a, complete genome.
+6369017 9442 0
+0 GQ323774 [GQ323774] Human rhinovirus C strain QCE, complete genome.
+6378459 7010 0
+0 GQ384080 [GQ384080] Human adenovirus 36 from USA, complete genome.
+6385469 35152 7
+0 GQ404848 [GQ404848] Cyclovirus PK6197, complete genome.
+6420621 1741 1
+0 GQ404858 [GQ404858] Cyclovirus TN18, complete genome.
+6422362 1867 0
+0 GQ495608 [GQ495608] Human astrovirus 6 isolate 192-BJ07-CHN, complete genome.
+6424229 6757 1
+0 GQ845441 [GQ845441] Human papillomavirus type 119, complete genome.
+6430986 7251 0
+0 GQ845442 [GQ845442] Human papillomavirus type 120, complete genome.
+6438237 7304 0
+0 GQ845444 [GQ845444] Human papillomavirus type 122, complete genome.
+6445541 7397 2
+0 GQ845445 [GQ845445] Human papillomavirus type 123, complete genome.
+6452938 7329 1
+0 GQ845446 [GQ845446] Human papillomavirus type 124, complete genome.
+6460267 7489 3
+0 GQ865517 [GQ865517] Human enterovirus 109 isolate NICA08-4327, complete genome.
+6467756 7354 0
+0 GQ891990 [GQ891990] Astrovirus SG, complete genome.
+6475110 6584 0
+0 GU117629 [GU117629] Human papillomavirus type 149, complete genome.
+6481694 7333 0
+0 GU117630 [GU117630] Human papillomavirus type 130, complete genome.
+6489027 7388 1
+0 GU117633 [GU117633] Human papillomavirus type 133, complete genome.
+6496415 7358 0
+0 GU129016 [GU129016] Human papillomavirus type 148, complete genome.
+6503773 7164 0
+0 GU191019 [GU191019] Human adenovirus 18 isolate D.C., complete genome.
+6510937 34177 2
+0 GU594162 [GU594162] Norovirus Hu/GII.14/8610/Saga/2008/JPN, complete genome.
+6545114 7529 1
+0 GU980585 [GU980585] Norovirus Hu/GII.3/CBNU1/2006/KOR, complete genome.
+6552643 7577 1
+0 GU991353 [GU991353] Norovirus Hu/GII/Shanghai/SH2/2008/CHN, complete genome.
+6560220 7555 0
+0 GU991354 [GU991354] Norovirus Hu/Shanghai/SH5/2009/CHN, complete genome.
+6567775 7511 9
+0 GU991355 [GU991355] Norovirus Hu/Shanghai/SH312/2009/CHN, complete genome.
+6575286 7544 0
+0 HE963025 [HE963025] Human papillomavirus type 159 complete genome, isolate SIBX8.
+6582830 7443 5
+0 HF952119 [HF952119] Norovirus Hu/GII.4/C00006631/2011/UK complete genome.
+6590273 7559 1
+0 HF952120 [HF952120] Norovirus Hu/GII.4/C00007876/2011/UK complete genome.
+6597832 7559 1
+0 HF952121 [HF952121] Norovirus Hu/GII.4/C00007879/2011/UK complete genome.
+6605391 7559 3
+0 HF952122 [HF952122] Norovirus Hu/GII.4/C00007880/2011/UK complete genome.
+6612950 7559 0
+0 HF952123 [HF952123] Norovirus Hu/GII.4/C00007881/2011/UK complete genome.
+6620509 7559 1
+0 HF952124 [HF952124] Norovirus Hu/GII.4/C00007892/2011/UK complete genome.
+6628068 7559 0
+0 HF952125 [HF952125] Norovirus Hu/GII.4/C00007893/2011/UK complete genome.
+6635627 7559 0
+0 HF952126 [HF952126] Norovirus Hu/GII.4/C00007904/2011/UK complete genome.
+6643186 7559 1
+0 HF952127 [HF952127] Norovirus Hu/GII.4/C00007905/2011/UK complete genome.
+6650745 7559 1
+0 HF952128 [HF952128] Norovirus Hu/GII.4/C00007915/2010/UK complete genome.
+6658304 7559 0
+0 HF952129 [HF952129] Norovirus Hu/GII.4/C00007916/2011/UK complete genome.
+6665863 7548 0
+0 HF952130 [HF952130] Norovirus Hu/GII.4/C00007918/2011/UK complete genome.
+6673411 7559 0
+0 HF952131 [HF952131] Norovirus Hu/GII.4/C00007927/2010/UK complete genome.
+6680970 7559 1
+0 HF952132 [HF952132] Norovirus Hu/GII.4/C00007928/2011/UK complete genome.
+6688529 7559 0
+0 HF952133 [HF952133] Norovirus Hu/GII.4/C00007934/2010/UK complete genome.
+6696088 7559 0
+0 HF952134 [HF952134] Norovirus Hu/GII.4/C00007941/2011/UK complete genome.
+6703647 7559 1
+0 HF952135 [HF952135] Norovirus Hu/GII.4/C00007952/2011/UK complete genome.
+6711206 7559 0
+0 HG513046 [HG513046] Human rotavirus A segment 2, VP2 gene for VP2, strain RVA/Human_wt/VNM/30378/2009/G26P[19].
+6718765 2716 0
+0 HG764413 [HG764413] JC polyomavirus type 3A complete genome, isolate QLD-01.
+6721481 5121 0
+0 HM002617 [HM002617] Sapovirus Hu/GI/Sapporo/MT-2010/1982, complete genome.
+6726602 7433 0
+0 HM172544 [HM172544] Monkeypox virus strain Zaire 1979-005, complete genome.
+6734035 196959 34
+0 HM185056 [HM185056] Human echovirus 6 strain Echo6/Henan/127/2008, complete genome.
+6930994 7385 0
+0 HM450380 [HM450380] Astrovirus MLB1 HK05, complete genome.
+6938379 6171 1
+0 HM770721 [HM770721] Human adenovirus 56, complete genome.
+6944550 35066 7
+0 HM777023 [HM777023] Human echovirus 18 isolate Kor05-ECV18-054cn, complete genome.
+6979616 7413 0
+0 HM999990 [HM999990] Human papillomavirus type 138 isolate GH13, complete genome.
+6987029 7353 2
+0 HM999991 [HM999991] Human papillomavirus type 139 isolate GH1646, complete genome.
+6994382 7360 1
+0 HM999993 [HM999993] Human papillomavirus type 141 isolate NJ2801Cn, complete genome.
+7001742 7384 1
+0 HM999994 [HM999994] Human papillomavirus type 142 isolate GH1302, complete genome.
+7009126 7374 1
+0 HM999995 [HM999995] Human papillomavirus type 143 isolate CL3220, complete genome.
+7016500 7715 1
+0 HM999997 [HM999997] Human papillomavirus type 145 isolate CL4112, complete genome.
+7024215 7375 0
+0 HM999998 [HM999998] Human papillomavirus type 146 isolate GH1677, complete genome.
+7031590 7265 1
+0 HM999999 [HM999999] Human papillomavirus type 147 isolate GH659, complete genome.
+7038855 7224 0
+0 HQ009513 [HQ009513] Norovirus Hu/GII.4/JB-15/KOR/2008, complete genome.
+7046079 7558 0
+0 HQ246218 [HQ246218] Murine leukemia virus N417, complete genome.
+7053637 8189 4
+0 HQ400942 [HQ400942] Human enterovirus 71 HZ08/Hangzhou/2008, complete genome.
+7061826 7405 0
+0 HQ449728 [HQ449728] Norovirus Hu/GII.12/HS210/2010/USA, complete genome.
+7069231 7523 0
+0 HQ664990 [HQ664990] Norovirus Hu/GII.12/HS206/2010/USA, complete genome.
+7076754 7523 0
+0 HQ728260 [HQ728260] Human coxsackievirus A4 strain CVA4/SZ/CHN/09, complete genome.
+7084277 7434 0
+0 HQ728261 [HQ728261] Human coxsackievirus A5 strain CVA5/SD/CHN/09, complete genome.
+7091711 7406 0
+0 HQ728262 [HQ728262] Human coxsackievirus A10 strain CVA10/SD/CHN/09, complete genome.
+7099117 7412 0
+0 HQ883276 [HQ883276] Human adenovirus 58 strain human/ARG/AdCor-96-487/1996/58[P58H58F29], complete genome.
+7106529 35217 7
+0 JF274252 [JF274252] Xenotropic MuLV-related virus RKO, complete genome.
+7141746 8172 2
+0 JF304768 [JF304768] Human papillomavirus type 152 isolate Muc17.1, complete genome.
+7149918 7480 3
+0 JF905564 [JF905564] Human enterovirus 76 strain 04360/SD/CHN/2004/EV76, complete genome.
+7157398 7441 0
+0 JF906559 [JF906559] Human papillomavirus 155 isolate SE42, complete genome.
+7164839 7352 0
+0 JF908815 [JF908815] Xenotropic murine leukemia virus isolate VCaP, complete genome.
+7172191 8657 2
+0 JF964962 [JF964962] Human adenovirus 61 strain JPN/2004/5082/[P31/H-NEW/F31], complete genome.
+7180848 33776 3
+0 JN171845 [JN171845] Human Papillomavirus type 153, complete genome.
+7214624 7240 0
+0 JN400599 [JN400599] Norovirus Hu/GII-4/CGMH01/2006/TW, complete genome.
+7221864 7509 0
+0 JN400600 [JN400600] Norovirus Hu/GII-4/CGMH02/2006/TW, complete genome.
+7229373 7509 0
+0 JN400601 [JN400601] Norovirus Hu/GII-4/CGMH03/2006/TW, complete genome.
+7236882 7509 0
+0 JN400602 [JN400602] Norovirus Hu/GII-4/CGMH04/2006/TW, complete genome.
+7244391 7509 0
+0 JN400603 [JN400603] Norovirus Hu/GII-4/CGMH05/2006/TW, complete genome.
+7251900 7509 0
+0 JN400604 [JN400604] Norovirus Hu/GII-4/CGMH06/2006/TW, complete genome.
+7259409 7509 0
+0 JN400605 [JN400605] Norovirus Hu/GII-4/CGMH07/2006/TW, complete genome.
+7266918 7509 0
+0 JN400606 [JN400606] Norovirus Hu/GII-4/CGMH08/2006/TW, complete genome.
+7274427 7509 0
+0 JN400607 [JN400607] Norovirus Hu/GII-4/CGMH09/2006/TW, complete genome.
+7281936 7509 0
+0 JN400608 [JN400608] Norovirus Hu/GII-4/CGMH10/2006/TW, complete genome.
+7289445 7509 0
+0 JN400609 [JN400609] Norovirus Hu/GII-4/CGMH11/2006/TW, complete genome.
+7296954 7509 0
+0 JN400610 [JN400610] Norovirus Hu/GII-4/CGMH12/2007/TW, complete genome.
+7304463 7509 0
+0 JN400611 [JN400611] Norovirus Hu/GII-4/CGMH13/2007/TW, complete genome.
+7311972 7509 0
+0 JN400612 [JN400612] Norovirus Hu/GII-4/CGMH14/2007/TW, complete genome.
+7319481 7509 0
+0 JN400613 [JN400613] Norovirus Hu/GII-4/CGMH15/2007/TW, complete genome.
+7326990 7509 0
+0 JN400614 [JN400614] Norovirus Hu/GII-4/CGMH16/2007/TW, complete genome.
+7334499 7509 0
+0 JN400615 [JN400615] Norovirus Hu/GII-4/CGMH17/2007/TW, complete genome.
+7342008 7509 0
+0 JN400616 [JN400616] Norovirus Hu/GII-4/CGMH18/2008/TW, complete genome.
+7349517 7509 0
+0 JN400617 [JN400617] Norovirus Hu/GII-4/CGMH19/2009/TW, complete genome.
+7357026 7509 0
+0 JN400618 [JN400618] Norovirus Hu/GII-4/CGMH20/2009/TW, complete genome.
+7364535 7479 0
+0 JN400619 [JN400619] Norovirus Hu/GII-4/CGMH21/2010/TW, complete genome.
+7372014 7509 0
+0 JN400620 [JN400620] Norovirus Hu/GII-4/CGMH22/2010/TW, complete genome.
+7379523 7509 0
+0 JN400621 [JN400621] Norovirus Hu/GII-4/CGMH23/2010/TW, complete genome.
+7387032 7509 0
+0 JN400622 [JN400622] Norovirus Hu/GII-4/CGMH24/2010/TW, complete genome.
+7394541 7509 0
+0 JN400623 [JN400623] Norovirus Hu/GII-4/CGMH25/2010/TW, complete genome.
+7402050 7509 0
+0 JN400624 [JN400624] Norovirus Hu/GII-4/CGMH26/2010/TW, complete genome.
+7409559 7509 0
+0 JN400625 [JN400625] Norovirus Hu/GII-4/CGMH27/2010/TW, complete genome.
+7417068 7509 0
+0 JN400626 [JN400626] Norovirus Hu/GII-4/CGMH28/2010/TW, complete genome.
+7424577 7509 0
+0 JN408064 [JN408064] Lake Victoria marburgvirus - Leiden, complete genome.
+7432086 19113 0
+0 JN595867 [JN595867] Norovirus Hu/GII.4/New Orleans/2010/USA, complete genome.
+7451199 7559 0
+0 JN635402 [JN635402] Measles virus strain MVi/New York.USA/26.09/3, complete genome.
+7458758 15900 1
+0 JN635403 [JN635403] Measles virus strain MVi/Florida.USA/19.09, complete genome.
+7474658 15900 1
+0 JN635404 [JN635404] Measles virus strain MVi/Virginia.USA/15.09, complete genome.
+7490558 15894 0
+0 JN635405 [JN635405] Measles virus strain MVi/Washington.USA/18.08/1, complete genome.
+7506452 15894 0
+0 JN635406 [JN635406] Measles virus strain MVi/Arizona.USA/11.08/2, complete genome.
+7522346 15894 0
+0 JN635407 [JN635407] Measles virus strain MVi/Texas.USA/4.07, complete genome.
+7538240 15894 0
+0 JN635408 [JN635408] Measles virus strain MVi/New Jersey.USA/45.05, complete genome.
+7554134 15894 1
+0 JN635409 [JN635409] Measles virus strain MVi/California.USA/8.04, complete genome.
+7570028 15894 1
+0 JN635410 [JN635410] Measles virus strain MVi/California.USA/16.03, complete genome.
+7585922 15894 0
+0 JN635411 [JN635411] Measles virus strain MVi/Pennsylvania.USA/20.09, complete genome.
+7601816 15894 1
+0 JN638998 [JN638998] Sudan ebolavirus - Nakisamata, complete genome.
+7617710 18875 1
+0 JN860200 [JN860200] Alkhumra hemorrhagic fever virus strain SCVHF001, complete genome.
+7636585 10546 1
+0 JN860676 [JN860676] Human adenovirus 66 strain 87-922, complete genome.
+7647131 35080 3
+0 JN860677 [JN860677] Human adenovirus 7d2 strain FS2154, complete genome.
+7682211 35242 3
+0 JN860678 [JN860678] Human adenovirus 68 strain Arg 827/04, complete genome.
+7717453 35538 2
+0 JN860679 [JN860679] Human adenovirus 3+7 strain Takeuchi, complete genome.
+7752991 35228 4
+0 JN860680 [JN860680] Human adenovirus 16 strain E26, complete genome.
+7788219 35384 3
+0 JN935766 [JN935766] Human adenovirus 63 strain human/USA/BP-7-2/1959/63[P30H30F29], complete genome.
+7823603 35168 6
+0 JQ326209 [JQ326209] Human adenovirus 19, complete genome.
+7858771 35153 7
+0 JQ388274 [JQ388274] Norovirus Hu/GI.6/Kingston/ACT160D/2010/AU, complete genome.
+7893924 7691 0
+0 JQ410350 [JQ410350] Ectromelia virus ERPV culture-collection ATCC:VR-1431, complete genome.
+7901615 206527 34
+0 JQ613567 [JQ613567] Norovirus Hu/GIV.1/LakeMacquarie/NSW268O/2010/AU, complete genome.
+8108142 7527 0
+0 JQ613568 [JQ613568] Norovirus Hu/GII.g-GII.12/Wahroonga/NSW004P/2009/AU, complete genome.
+8115669 7523 0
+0 JQ613569 [JQ613569] Norovirus Hu/GII.g-GII.12/Gunnedah/NSW895P/2010/AU, complete genome.
+8123192 7523 1
+0 JQ613570 [JQ613570] Norovirus Hu/GII.4/Rockdale/NSW006D/2009/AU, complete genome.
+8130715 7559 1
+0 JQ622197 [JQ622197] Norovirus Hu/GII-4/CBNU2/2007/KR, complete genome.
+8138274 7583 1
+0 JQ798158 [JQ798158] Norovirus Hu/GII.4/5M/USA/2004, complete genome.
+8145857 7558 0
+0 JQ898342 [JQ898342] Kobuvirus sewage Kathmandu isolate KoV-SewKTM, complete genome.
+8153415 6939 9
+0 JQ911594 [JQ911594] Norovirus Hu/GI/10360/2010/VNM, complete genome.
+8160354 7696 0
+0 JQ911595 [JQ911595] Norovirus Hu/GII/10002/2009/VNM, complete genome.
+8168050 7511 0
+0 JQ911596 [JQ911596] Norovirus Hu/GII/10003/2009/VNM, complete genome.
+8175561 7511 1
+0 JQ911597 [JQ911597] Norovirus Hu/GII/10012/2009/VNM, complete genome.
+8183072 7510 0
+0 JQ911598 [JQ911598] Norovirus Hu/GII/10037/2009/VNM, complete genome.
+8190582 7511 0
+0 JX023285 [JX023285] Norovirus Hu/GI.1/8FIIa/1968/USA, complete genome.
+8198093 7633 2
+0 JX023286 [JX023286] Norovirus Hu/GII.4/CHDC5191/1974/USA, complete genome.
+8205726 7549 0
+0 JX050181 [JX050181] Human parechovirus 5 strain CH-ZJ1, complete genome.
+8213275 7298 0
+0 JX126912 [JX126912] Norovirus Hu/GII.4/Ohio/7I/2012/USA, complete genome.
+8220573 7558 0
+0 JX126913 [JX126913] Norovirus Hu/GII.4/Ohio/7G/2012/USA, complete genome.
+8228131 7559 1
+0 JX174177 [JX174177] Human coxsackievirus A1 isolate KS-ZPH01F/XJ/CHN/2011, complete genome.
+8235690 7398 0
+0 JX227952 [JX227952] Hepatitis C virus subtype 2k/1b isolate HCV-2k1b/GB/BID-G1241, complete genome.
+8243088 9302 1
+0 JX227953 [JX227953] Hepatitis C virus subtype 2k isolate HCV-2k/GB/BID-G1242, complete genome.
+8252390 9380 0
+0 JX227954 [JX227954] Hepatitis C virus subtype 3g isolate HCV-3g/GB/BID-G1243, complete genome.
+8261770 9353 0
+0 JX227955 [JX227955] Hepatitis C virus subtype 3i isolate HCV-3i/GB/BID-G1244, complete genome.
+8271123 9352 1
+0 JX227958 [JX227958] Hepatitis C virus subtype 4L isolate HCV-4l/GB/BID-G1247, complete genome.
+8280475 9322 0
+0 JX227960 [JX227960] Hepatitis C virus subtype 4v isolate HCV-4v/GB/BID-G1249, complete genome.
+8289797 9270 0
+0 JX227962 [JX227962] Hepatitis C virus subtype 4r isolate HCV-4r/GB/BID-G1251, complete genome.
+8299067 9328 1
+0 JX227963 [JX227963] Hepatitis C virus subtype 4g isolate HCV-4g/GB/BID-G1252, complete genome.
+8308395 9314 1
+0 JX227965 [JX227965] Hepatitis C virus subtype 2c isolate HCV-2c/GB/BID-G1293, complete genome.
+8317709 9385 0
+0 JX227967 [JX227967] Hepatitis C virus subtype 2m isolate HCV-2m/CA/BID-G1314, complete genome.
+8327094 9383 0
+0 JX227970 [JX227970] Hepatitis C virus subtype 4n isolate HCV-4n/GB/BID-G1655, complete genome.
+8336477 9301 1
+0 JX227972 [JX227972] Hepatitis C virus subtype 4m isolate HCV-4m/GB/BID-G1657, complete genome.
+8345778 9305 0
+0 JX227979 [JX227979] Hepatitis C virus subtype 4o isolate HCV-4o/GB/BID-G2039, complete genome.
+8355083 9255 0
+0 JX245014 [JX245014] Human immunodeficiency virus isolate 10Gab1190, complete genome.
+8364338 9157 2
+0 JX259273 [JX259273] MX polyomavirus isolate UC-MXPyV-1, complete genome.
+8373495 4939 0
+0 JX262162 [JX262162] Human polyomavirus 10 isolate 10ww, complete genome.
+8378434 4939 0
+0 JX262382 [JX262382] Human enterovirus C117 strain LIT22, complete genome.
+8383373 7363 0
+0 JX439815 [JX439815] Norovirus Hu/GII/Seoul1055/KOR/2010, complete genome.
+8390736 7538 0
+0 JX439816 [JX439816] Norovirus Hu/GII/Seoul1072/KOR/2010, complete genome.
+8398274 7537 0
+0 JX439817 [JX439817] Norovirus Hu/GII/Seoul1282/KOR/2010, complete genome.
+8405811 7538 0
+0 JX439818 [JX439818] Norovirus Hu/GII/Seoul1367/KOR/2010, complete genome.
+8413349 7537 0
+0 JX439819 [JX439819] Norovirus Hu/GII/Seoul1488/KOR/2011, complete genome.
+8420886 7538 0
+0 JX448566 [JX448566] Norovirus Hu/GII.4/Seoul/1071/2010/KOR, complete genome.
+8428424 7538 0
+0 JX459900 [JX459900] Norovirus Hu/GII.4/Randwick/NSW882J/2011/AU, complete genome.
+8435962 7558 0
+0 JX459901 [JX459901] Norovirus Hu/GII.4/Caringbah/NSW409G/2011/AU, complete genome.
+8443520 7559 0
+0 JX459902 [JX459902] Norovirus Hu/GII.4/Berowra/NSW767L/2012/AU, complete genome.
+8451079 7559 0
+0 JX459903 [JX459903] Norovirus Hu/GII.4/Jannali/NSW774M/2011/AU, complete genome.
+8458638 7559 0
+0 JX459904 [JX459904] Norovirus Hu/GII.4/Doonside/NSW536I/2011/AU, complete genome.
+8466197 7559 0
+0 JX459905 [JX459905] Norovirus Hu/GII.4/Randwick/NSW938K/2011/AU, complete genome.
+8473756 7560 0
+0 JX459906 [JX459906] Norovirus Hu/GII.4/Miranda/NSW850K/2011/AU, complete genome.
+8481316 7560 0
+0 JX459907 [JX459907] Norovirus Hu/GII.4/Woonona/NSW3309/2012/AU, complete genome.
+8488876 7560 0
+0 JX459908 [JX459908] Norovirus Hu/GII.4/Sydney/NSW0514/2012/AU, complete genome.
+8496436 7564 0
+0 JX491648 [JX491648] Parechovirus-like virus PLV-CHN, complete genome.
+8504000 6858 1
+0 JX559622 [JX559622] Circo-like virus-Brazil hs2, complete genome.
+8510858 2533 2
+0 JX846924 [JX846924] Norovirus Hu/GII.3/HK71/1978/CHN, complete genome.
+8513391 7527 0
+0 JX846927 [JX846927] Norovirus Hu/GII.6/CHDC4073/1984/USA, complete genome.
+8520918 7534 1
+0 JX869059 [JX869059] Human betacoronavirus 2c EMC/2012, complete genome.
+8528452 30119 1
+0 JX961709 [JX961709] Human enterovirus C118 strain ISR38, complete genome.
+8558571 7357 0
+0 JX982257 [JX982257] Human enterovirus C104 strain Pavia261-9570, complete genome.
+8565928 7409 0
+0 JX989073 [JX989073] Norovirus Hu/GII.4/GZ2010-L26/Guangzhou/CHN/2010, complete genome.
+8573337 7557 0
+0 JX989074 [JX989074] Norovirus Hu/GII.4/GZ2010-L87/Guangzhou/CHN/2011, complete genome.
+8580894 7559 0
+0 JX989075 [JX989075] Norovirus Hu/GII.6/GZ2010-L96/Guangzhou/CHN/2011, complete genome.
+8588453 7550 1
+0 JX993277 [JX993277] Sapovirus Hu/G1/BE-HPI01/DE/2012, complete genome.
+8596003 7476 1
+0 KC013592 [KC013592] Norovirus Hu/GII.4/HS191/2004/USA, complete genome.
+8603479 7556 0
+0 KC138720 [KC138720] Human Papillomavirus type XS2, complete genome.
+8611035 7830 2
+0 KC164757 [KC164757] Measles virus genotype D4 strain MVi/Treviso.ITA/03.10/1[D4], complete genome.
+8618865 15900 1
+0 KC164758 [KC164758] Measles virus genotype G3 strain MVi/Venice.ITA/06.11/1[G3], complete genome.
+8634765 15894 1
+0 KC175323 [KC175323] Norovirus Hu/GII.4/Hong Kong/CUHK3630/2012/CHN, complete genome.
+8650659 7559 0
+0 KC175342 [KC175342] Norovirus Hu/Norwalk/10034/2009/VNM, complete genome.
+8658218 7511 0
+0 KC175343 [KC175343] Norovirus Hu/Norwalk/10051/2009/VNM, complete genome.
+8665729 7511 0
+0 KC175344 [KC175344] Norovirus Hu/Norwalk/10054/2009/VNM, complete genome.
+8673240 7511 1
+0 KC175345 [KC175345] Norovirus Hu/Norwalk/10062/2009/VNM, complete genome.
+8680751 7511 1
+0 KC175346 [KC175346] Norovirus Hu/Norwalk/10074/2009/VNM, complete genome.
+8688262 7511 0
+0 KC175347 [KC175347] Norovirus Hu/Norwalk/10075/2009/VNM, complete genome.
+8695773 7511 1
+0 KC175348 [KC175348] Norovirus Hu/Norwalk/10078/2009/VNM, complete genome.
+8703284 7511 0
+0 KC175349 [KC175349] Norovirus Hu/Norwalk/10079/2009/VNM, complete genome.
+8710795 7511 0
+0 KC175350 [KC175350] Norovirus Hu/Norwalk/10110/2009/VNM, complete genome.
+8718306 7511 0
+0 KC175351 [KC175351] Norovirus Hu/Norwalk/10114/2009/VNM, complete genome.
+8725817 7511 1
+0 KC175352 [KC175352] Norovirus Hu/Norwalk/10116/2009/VNM, complete genome.
+8733328 7511 0
+0 KC175353 [KC175353] Norovirus Hu/Norwalk/10129/2009/VNM, complete genome.
+8740839 7511 1
+0 KC175354 [KC175354] Norovirus Hu/Norwalk/10136/2009/VNM, complete genome.
+8748350 7511 1
+0 KC175355 [KC175355] Norovirus Hu/Norwalk/10137/2009/VNM, complete genome.
+8755861 7511 0
+0 KC175356 [KC175356] Norovirus Hu/Norwalk/10145/2009/VNM, complete genome.
+8763372 7511 0
+0 KC175357 [KC175357] Norovirus Hu/Norwalk/10148/2009/VNM, complete genome.
+8770883 7511 0
+0 KC175358 [KC175358] Norovirus Hu/Norwalk/10158/2009/VNM, complete genome.
+8778394 7511 0
+0 KC175359 [KC175359] Norovirus Hu/Norwalk/10160/2009/VNM, complete genome.
+8785905 7511 0
+0 KC175360 [KC175360] Norovirus Hu/Norwalk/10162/2009/VNM, complete genome.
+8793416 7511 0
+0 KC175361 [KC175361] Norovirus Hu/Norwalk/10163/2009/VNM, complete genome.
+8800927 7511 0
+0 KC175362 [KC175362] Norovirus Hu/Norwalk/10169/2009/VNM, complete genome.
+8808438 7511 0
+0 KC175363 [KC175363] Norovirus Hu/Norwalk/10173/2009/VNM, complete genome.
+8815949 7511 0
+0 KC175364 [KC175364] Norovirus Hu/Norwalk/10176/2009/VNM, complete genome.
+8823460 7511 0
+0 KC175365 [KC175365] Norovirus Hu/Norwalk/10177/2009/VNM, complete genome.
+8830971 7511 1
+0 KC175366 [KC175366] Norovirus Hu/Norwalk/10179/2009/VNM, complete genome.
+8838482 7511 0
+0 KC175367 [KC175367] Norovirus Hu/Norwalk/10182/2009/VNM, complete genome.
+8845993 7511 0
+0 KC175368 [KC175368] Norovirus Hu/Norwalk/10183/2009/VNM, complete genome.
+8853504 7511 0
+0 KC175369 [KC175369] Norovirus Hu/Norwalk/10194/2009/VNM, complete genome.
+8861015 7511 0
+0 KC175370 [KC175370] Norovirus Hu/Norwalk/10199/2009/VNM, complete genome.
+8868526 7511 0
+0 KC175371 [KC175371] Norovirus Hu/Norwalk/10203/2009/VNM, complete genome.
+8876037 7511 0
+0 KC175372 [KC175372] Norovirus Hu/Norwalk/10204/2009/VNM, complete genome.
+8883548 7511 0
+0 KC175373 [KC175373] Norovirus Hu/Norwalk/10222/2009/VNM, complete genome.
+8891059 7511 0
+0 KC175374 [KC175374] Norovirus Hu/Norwalk/10223/2009/VNM, complete genome.
+8898570 7511 0
+0 KC175375 [KC175375] Norovirus Hu/Norwalk/10235/2009/VNM, complete genome.
+8906081 7511 0
+0 KC175376 [KC175376] Norovirus Hu/Norwalk/10236/2009/VNM, complete genome.
+8913592 7511 0
+0 KC175377 [KC175377] Norovirus Hu/Norwalk/10238/2009/VNM, complete genome.
+8921103 7511 0
+0 KC175378 [KC175378] Norovirus Hu/Norwalk/10247/2009/VNM, complete genome.
+8928614 7511 0
+0 KC175379 [KC175379] Norovirus Hu/Norwalk/10255/2009/VNM, complete genome.
+8936125 7511 0
+0 KC175380 [KC175380] Norovirus Hu/Norwalk/10285/2010/VNM, complete genome.
+8943636 7511 0
+0 KC175381 [KC175381] Norovirus Hu/Norwalk/10296/2010/VNM, complete genome.
+8951147 7511 0
+0 KC175382 [KC175382] Norovirus Hu/Norwalk/10313/2010/VNM, complete genome.
+8958658 7511 0
+0 KC175383 [KC175383] Norovirus Hu/Norwalk/10325/2010/VNM, complete genome.
+8966169 7511 0
+0 KC175384 [KC175384] Norovirus Hu/Norwalk/10328/2010/VNM, complete genome.
+8973680 7511 0
+0 KC175385 [KC175385] Norovirus Hu/Norwalk/10368/2010/VNM, complete genome.
+8981191 7511 0
+0 KC175386 [KC175386] Norovirus Hu/Norwalk/10378/2010/VNM, complete genome.
+8988702 7511 0
+0 KC175387 [KC175387] Norovirus Hu/Norwalk/10386/2010/VNM, complete genome.
+8996213 7511 0
+0 KC175388 [KC175388] Norovirus Hu/Norwalk/20008/2009/VNM, complete genome.
+9003724 7511 0
+0 KC175389 [KC175389] Norovirus Hu/Norwalk/20010/2009/VNM, complete genome.
+9011235 7511 0
+0 KC175390 [KC175390] Norovirus Hu/Norwalk/20014/2009/VNM, complete genome.
+9018746 7511 0
+0 KC175391 [KC175391] Norovirus Hu/Norwalk/20016/2009/VNM, complete genome.
+9026257 7511 0
+0 KC175392 [KC175392] Norovirus Hu/Norwalk/20019/2009/VNM, complete genome.
+9033768 7511 1
+0 KC175393 [KC175393] Norovirus Hu/Norwalk/20033/2009/VNM, complete genome.
+9041279 7511 0
+0 KC175394 [KC175394] Norovirus Hu/Norwalk/20035/2009/VNM, complete genome.
+9048790 7511 0
+0 KC175395 [KC175395] Norovirus Hu/Norwalk/20044/2009/VNM, complete genome.
+9056301 7511 0
+0 KC175396 [KC175396] Norovirus Hu/Norwalk/20047/2009/VNM, complete genome.
+9063812 7511 0
+0 KC175397 [KC175397] Norovirus Hu/Norwalk/20066/2009/VNM, complete genome.
+9071323 7511 0
+0 KC175398 [KC175398] Norovirus Hu/Norwalk/20067/2009/VNM, complete genome.
+9078834 7511 0
+0 KC175399 [KC175399] Norovirus Hu/Norwalk/20069/2009/VNM, complete genome.
+9086345 7511 1
+0 KC175400 [KC175400] Norovirus Hu/Norwalk/20092/2009/VNM, complete genome.
+9093856 7511 0
+0 KC175401 [KC175401] Norovirus Hu/Norwalk/20093/2009/VNM, complete genome.
+9101367 7511 1
+0 KC175402 [KC175402] Norovirus Hu/Norwalk/20094/2009/VNM, complete genome.
+9108878 7511 0
+0 KC175403 [KC175403] Norovirus Hu/Norwalk/20118/2009/VNM, complete genome.
+9116389 7511 0
+0 KC175404 [KC175404] Norovirus Hu/Norwalk/20122/2009/VNM, complete genome.
+9123900 7511 0
+0 KC175405 [KC175405] Norovirus Hu/Norwalk/20123/2009/VNM, complete genome.
+9131411 7511 0
+0 KC175406 [KC175406] Norovirus Hu/Norwalk/20128/2009/VNM, complete genome.
+9138922 7511 0
+0 KC175407 [KC175407] Norovirus Hu/Norwalk/20135/2009/VNM, complete genome.
+9146433 7511 0
+0 KC175408 [KC175408] Norovirus Hu/Norwalk/20139/2009/VNM, complete genome.
+9153944 7511 0
+0 KC175409 [KC175409] Norovirus Hu/Norwalk/20140/2009/VNM, complete genome.
+9161455 7511 0
+0 KC175410 [KC175410] Norovirus Hu/Norwalk/20142/2009/VNM, complete genome.
+9168966 7511 0
+0 KC409301 [KC409301] Norovirus Hu/GII/20469/2010/VNM, complete genome.
+9176477 7535 0
+0 KC409302 [KC409302] Norovirus Hu/GII/20477/2010/VNM, complete genome.
+9184012 7533 0
+0 KC463910 [KC463910] Norovirus Hu/GII.4/Ohio/684/USA, complete genome.
+9191545 7559 0
+0 KC464496 [KC464496] Norovirus Hu/GII.12/CGMH38/2010/TW, complete genome.
+9199104 7519 0
+0 KC464497 [KC464497] Norovirus Hu/GII.12/CGMH39/2010/TW, complete genome.
+9206623 7505 0
+0 KC464498 [KC464498] Norovirus Hu/GII.12/CGMH40/2010/TW, complete genome.
+9214128 7522 0
+0 KC464499 [KC464499] Norovirus Hu/GII.12/CGMH41/2010/TW, complete genome.
+9221650 7514 0
+0 KC464500 [KC464500] Norovirus Hu/GII.12/CGMH42/2010/TW, complete genome.
+9229164 7519 0
+0 KC470240 [KC470240] Human papillomavirus type 39 isolate Qv25959, complete genome.
+9236683 7860 4
+0 KC529648 [KC529648] Human adenovirus 43 strain 1309 from USA, complete genome.
+9244543 35073 6
+0 KC577174 [KC577174] Norovirus Hu/GII.4/Jiangsu1/2011/CHN, complete genome.
+9279616 7548 0
+0 KC577175 [KC577175] Norovirus Hu/GII.4/Jiangsu2/2012/CHN, complete genome.
+9287164 7547 1
+0 KC631827 [KC631827] Norovirus Hu/GII.4/Hong Kong/CUHK6080/2012/CHN, complete genome.
+9294711 7559 0
+0 KC667074 [KC667074] Human betacoronavirus 2c England-Qatar/2012, complete genome.
+9302270 30112 1
+0 KC776174 [KC776174] Human betacoronavirus 2c Jordan-N3/2012, complete genome.
+9332382 30030 2
+0 KC894731 [KC894731] Norovirus Hu/GIV.1/CCDC GR1113-59/CHN/2011, complete genome.
+9362412 7525 0
+0 KC894942 [KC894942] Norovirus Hu/GII.4/Guangzhou/GZ2010-L88/CHN/2011, complete genome.
+9369937 7556 0
+0 KC894943 [KC894943] Norovirus Hu/GII.4/Guangzhou/GZ2010-L91/CHN/2011, complete genome.
+9377493 7556 0
+0 KC960615 [KC960615] Norovirus Hu/GII.4/20199/2009/VNM, complete genome.
+9385049 7511 0
+0 KF006398 [KF006398] Human papillomavirus type 171, complete genome.
+9392560 7261 3
+0 KF006400 [KF006400] Human papillomavirus type 173, complete genome.
+9399821 7297 0
+0 KF039911 [KF039911] Human astrovirus 2 isolate Rus-Nsc06-1029, complete genome.
+9407118 6778 2
+0 KF170373 [KF170373] Parvo-like hybrid virus UC1, complete genome.
+9413896 3638 0
+0 KF214638 [KF214638] Parvo-like hybrid virus UC11, complete genome.
+9417534 3637 0
+0 KF214640 [KF214640] Parvo-like hybrid virus UC9, complete genome.
+9421171 3638 1
+0 KF214645 [KF214645] Parvo-like hybrid virus UC4, complete genome.
+9424809 3638 0
+0 KF268207 [KF268207] Human adenovirus 71 strain human/DEU/HEIM_00085/1987/71[P9H20F71], complete genome.
+9428447 35192 7
+0 KF279629 [KF279629] Human adenovirus 23 isolate Aids32/Manchester/1993, complete genome.
+9463639 35029 8
+0 KF306212 [KF306212] Norovirus Hu/GI.2/Jingzhou/2013401/CHN, complete genome.
+9498668 7740 1
+0 KF306213 [KF306213] Norovirus Hu/GII.3/Jingzhou/2013402/CHN, complete genome.
+9506408 7578 1
+0 KF306214 [KF306214] Norovirus Hu/GII.4/Jingzhou/2013403/CHN, complete genome.
+9513986 7605 1
+0 KF312882 [KF312882] Enterovirus B111 strain Q0011/XZ/CHN/2000, complete genome.
+9521591 7428 0
+0 KF422142 [KF422142] Coxsackievirus A12 strain QD-LXH535/SD/CHN/2009, complete genome.
+9529019 7396 0
+0 KF429760 [KF429760] Norovirus Hu/GII.4/NIHIC28.4/2012/USA, complete sequence.
+9536415 7506 0
+0 KF429761 [KF429761] Norovirus Hu/GI.1/8MoIIIL/1972/USA, complete genome.
+9543921 7623 1
+0 KF429765 [KF429765] Norovirus Hu/GI.1/8W/1968/USA, complete sequence.
+9551544 7617 1
+0 KF429766 [KF429766] Norovirus Hu/GII.4/NIHIC13/2011/USA, complete sequence.
+9559161 7509 0
+0 KF429768 [KF429768] Norovirus Hu/GII.4/NIHIC1.13/2012/USA, complete sequence.
+9566670 7503 0
+0 KF429770 [KF429770] Norovirus Hu/GI.1/8McIII/1973/USA, complete genome.
+9574173 7626 1
+0 KF429773 [KF429773] Norovirus Hu/GI.1/8CKIIIc/1974/USA, complete genome.
+9581799 7626 1
+0 KF429774 [KF429774] Norovirus Hu/GI.1/8UIIIf/1973/USA, complete genome.
+9589425 7623 1
+0 KF429776 [KF429776] Norovirus Hu/GII.4/NIHIC17.1/2012/USA, complete sequence.
+9597048 7509 0
+0 KF429777 [KF429777] Norovirus Hu/GII.4/NIHIC27.1/2012/USA, complete sequence.
+9604557 7509 0
+0 KF429778 [KF429778] Norovirus Hu/GII.4/NIHIC18.1/2012/USA, complete sequence.
+9612066 7509 0
+0 KF429783 [KF429783] Norovirus Hu/GI.1/8K/1979/USA, complete genome.
+9619575 7617 1
+0 KF429787 [KF429787] Norovirus Hu/GII.4/NIHIC28.5/2012/USA, complete sequence.
+9627192 7506 0
+0 KF429789 [KF429789] Norovirus Hu/GI.1/8MC/1978/USA, complete genome.
+9634698 7623 1
+0 KF429790 [KF429790] Norovirus Hu/GII.4/NIHIC17.5/2012/USA, complete sequence.
+9642321 7509 0
+0 KF528688 [KF528688] Human adenovirus 21, complete genome.
+9649830 35415 4
+0 KF712491 [KF712491] Norovirus Hu/GII.4/NIHIC17.8/2013/USA, complete genome.
+9685245 7509 9
+0 KF712496 [KF712496] Norovirus Hu/GII.4/NIHIC2.3/2010/USA, complete genome.
+9692754 7509 17
+0 KF712497 [KF712497] Norovirus Hu/GII.4/NIHIC27.2/2012/USA, complete genome.
+9700263 7509 0
+0 KF712498 [KF712498] Norovirus Hu/GII.4/NIHIC17.9/2013/USA, complete genome.
+9707772 7509 26
+0 KF712499 [KF712499] Norovirus Hu/GII.4/NIHIC1.16/2012/USA, complete genome.
+9715281 7503 0
+0 KF712501 [KF712501] Norovirus Hu/GII.4/NIHIC17.6/2012/USA, complete genome.
+9722784 7509 0
+0 KF712502 [KF712502] Norovirus Hu/GII.4/NIHIC35/2013/USA, complete genome.
+9730293 7509 7
+0 KF712504 [KF712504] Norovirus Hu/GII.4/NIHIC11.3/2013/USA, complete genome.
+9737802 7509 39
+0 KF712510 [KF712510] Norovirus Hu/GII.4/NIHIC2.2/2010/USA, complete genome.
+9745311 7509 15
+0 KF802426 [KF802426] Human adenovirus 21a isolate LRTI-2, complete genome.
+9752820 35327 3
+0 KF874626 [KF874626] Enterovirus B73 isolate 088/SD/CHN/04, complete genome.
+9788147 7412 0
+0 KF906413 [KF906413] Human adenovirus 11+34 strain IC763, complete genome.
+9795559 34780 3
+0 KF907503 [KF907503] Dengue virus strain Dakar HD 34460, complete genome.
+9830339 10648 0
+0 KF958308 [KF958308] Rhinovirus B isolate 3039, complete genome.
+9840987 7216 1
+0 KF990476 [KF990476] Human enterovirus 106 isolate 148/YN/CHN/12, complete genome.
+9848203 7420 0
+0 KJ003983 [KJ003983] IAS virus, complete genome.
+9855623 99915 303
+0 KJ018970 [KJ018970] Measles virus genotype H1 strain MVi/BritishColumbia.CAN/12.10/1[H1], complete genome.
+9955538 15894 5
+0 KJ145795 [KJ145795] Human papillomavirus type 72b, complete genome.
+9971432 8098 3
+0 KJ196276 [KJ196276] Norovirus GII/Hu/JP/2002/GII.P12_GII.13/Saitama/T80, complete genome.
+9979530 7491 0
+0 KJ196277 [KJ196277] Norovirus GII/Hu/JP/2001/GII.P22_GII.5/Saitama/T49, complete genome.
+9987021 7554 0
+0 KJ196278 [KJ196278] Norovirus GII/Hu/JP/2007/GII.P7_GII.14/Sendai/YG99, complete genome.
+9994575 7529 0
+0 KJ196279 [KJ196279] Norovirus GII/Hu/JP/2012/GII.Pe_GII.4_Sydney2012/Fukuyama/3, complete genome.
+10002104 7559 0
+0 KJ196280 [KJ196280] Norovirus GII/Hu/JP/2012/GII.Pe_GII.4_Sydney2012/Fukuyama/2, complete genome.
+10009663 7559 0
+0 KJ196281 [KJ196281] Norovirus GII/Hu/JP/2012/GII.Pe_GII.4_Sydney2012/Fukuyama/5, complete genome.
+10017222 7559 0
+0 KJ196282 [KJ196282] Norovirus GII/Hu/JP/2001/GII.P12_GII.12/Saitama/T15, complete genome.
+10024781 7517 0
+0 KJ196283 [KJ196283] Norovirus GII/Hu/TW/2012/GII.Pe_GII.4_Sydney2012/Taipei/106, complete genome.
+10032298 7560 0
+0 KJ196284 [KJ196284] Norovirus GII/Hu/JP/2007/GII.P21_GII.21/Kawasaki/YO284, complete genome.
+10039858 7491 0
+0 KJ196285 [KJ196285] Norovirus GII/Hu/TW/2012/GII.Pe_GII.4_Sydney2012/Taipei/108, complete genome.
+10047349 7559 0
+0 KJ196286 [KJ196286] Norovirus GII/Hu/JP/2002/GII.P16_GII.17/Saitama/T87, complete genome.
+10054908 7535 0
+0 KJ196287 [KJ196287] Norovirus GII/Hu/JP/2010/GII.P4_GII.4/Shimada/ASC96, complete genome.
+10062443 7568 0
+0 KJ196288 [KJ196288] Norovirus GII/Hu/JP/2002/GII.P5_GII.5/Saitama/T52, complete genome.
+10070011 7512 0
+0 KJ196289 [KJ196289] Norovirus GII/Hu/TW/2012/GII.Pe_GII.4_Sydney2012/Taipei/109, complete genome.
+10077523 7559 0
+0 KJ196290 [KJ196290] Norovirus GII/Hu/JP/2007/GII.P15_GII.15/Sapporo/HK299, complete genome.
+10085082 7551 0
+0 KJ196291 [KJ196291] Norovirus GII/Hu/JP/2011/GII/Yuzawa/Gira2HS, complete genome.
+10092633 7543 0
+0 KJ196292 [KJ196292] Norovirus GI/Hu/JP/2007/GI.P3_GI.3/Shimizu/KK2866, complete genome.
+10100176 7745 2
+0 KJ196293 [KJ196293] Norovirus GII/Hu/JP/2012/GII.Pe_GII.4_Sydney2012/Fukuyama/1, complete genome.
+10107921 7559 0
+0 KJ196294 [KJ196294] Norovirus GII/Hu/JP/2000/GII.P12_GII.12/Saitama/KU16, complete genome.
+10115480 7521 0
+0 KJ196295 [KJ196295] Norovirus GII/Hu/JP/2010/GII.P7_GII.7/Musashimurayama/TAKAsanKimchi, complete genome.
+10123001 7543 0
+0 KJ196296 [KJ196296] Norovirus GII/Hu/TW/2012/GII.Pe_GII.4_Sydney2012/Taipei/105, complete genome.
+10130544 7560 0
+0 KJ196297 [KJ196297] Norovirus GII/Hu/JP/2007/GII.P7_GII.14/Fukuoka/KK282, complete genome.
+10138104 7529 0
+0 KJ196298 [KJ196298] Norovirus GI/Hu/JP/2007/GI.P8_GI.8/Nagoya/KY531, complete genome.
+10145633 7745 0
+0 KJ196299 [KJ196299] Norovirus GII/Hu/JP/2001/GII.P12_GII.12/Saitama/T18, complete genome.
+10153378 7517 0
+0 KJ407072 [KJ407072] Norovirus Hu/GII.6/HS245/2010/USA, complete genome.
+10160895 7526 0
+0 KJ407073 [KJ407073] Norovirus Hu/GII.4/HS292/2012/USA, complete genome.
+10168421 7509 0
+0 KJ407074 [KJ407074] Norovirus Hu/GII.2/HS255/2011/USA, complete genome.
+10175930 7496 0
+0 KJ407075 [KJ407075] Norovirus Hu/GII.4/HS288/2012/USA, complete genome.
+10183426 7509 0
+0 KJ407076 [KJ407076] Norovirus Hu/GII.4/HS66/2001/USA, complete genome.
+10190935 7506 0
+0 KJ410048 [KJ410048] Measles virus genotype D8 strain MVi/Muenchen.DEU/19.13[D8], complete genome.
+10198441 15894 0
+0 KJ541743 [KJ541743] Norovirus Hu/GII.4/SGU-110421/KOR/2011, complete genome.
+10214335 7559 0
+0 KJ627652 [KJ627652] Respiratory syncytial virus type A isolate RSV-A/US/BID-V8320/2002, complete genome.
+10221894 15136 1
+0 KJ634207 [KJ634207] Human bocavirus 1 isolate 307AR09, complete genome.
+10237030 5099 0
+0 KJ649705 [KJ649705] Norovirus GII/Hu/HKG/2013/GII.4/CUHK-NS-141, complete genome.
+10242129 7564 0
+0 KJ685403 [KJ685403] Norovirus Hu/GII/BG1C0204/2011/BGD, complete genome.
+10249693 7509 0
+0 KJ685405 [KJ685405] Norovirus Hu/GII/BG1C0282/2011/BGD, complete genome.
+10257202 7509 0
+0 KJ685408 [KJ685408] Norovirus Hu/GII/BG1C0066/2011/BGD, complete genome.
+10264711 7509 0
+0 KJ685412 [KJ685412] Norovirus Hu/GII/BG1C0405/2012/BGD, complete genome.
+10272220 7509 0
+0 KJ685413 [KJ685413] Norovirus Hu/GII/BG1C0317/2011/BGD, complete genome.
+10279729 7509 0
+0 KJ685414 [KJ685414] Norovirus Hu/GII/BG1C0004/2010/BGD, complete genome.
+10287238 7509 0
+0 KJ685415 [KJ685415] Norovirus Hu/GII/BG1C0241-33/2011/BGD, complete genome.
+10294747 7509 0
+0 KJ685417 [KJ685417] Norovirus Hu/GII/BG1C0270/2011/BGD, complete genome.
+10302256 7509 0
+0 KJ857508 [KJ857508] Enterovirus C99 isolate YT31/SD/CHN/11, complete genome.
+10309765 7456 0
+0 KM085343 [KM085343] Human papillomavirus type 197 isolate SE46, complete genome.
+10317221 7278 1
+0 KM105951 [KM105951] Parvovirus NIH-CQV-Co, complete genome.
+10324499 3361 0
+0 KM225263 [KM225263] Stratford virus strain C338, complete genome.
+10327860 10560 0
+0 KM272334 [KM272334] Norovirus Hu/GII.4/gg-12-08-04/2012/KR, complete genome.
+10338420 7558 0
+0 KM390024 [KM390024] Human parvovirus 4 isolate T609, complete genome.
+10345978 5268 0
+0 KM597072 [KM597072] Mumps virus genotype G strain MuV/Gabon/13/2[G], complete genome.
+10351246 15263 0
+0 KM609480 [KM609480] Coxsackievirus A8 isolate CVA8/SZ39/CHN/2013, complete genome.
+10366509 7396 0
+0 KP036483 [KP036483] Coxsackievirus A14 isolate PZ15G/JS/2012, complete genome.
+10373905 7400 1
+0 KP133076 [KP133076] Gemycircularvirus SL2, complete genome.
+10381305 2199 1
+0 KP133077 [KP133077] Gemycircularvirus SL3, complete genome.
+10383504 2199 1
+0 KP133078 [KP133078] Gemycircularvirus BZ1, complete genome.
+10385703 2199 1
+0 KP133079 [KP133079] Gemycircularvirus BZ2, complete genome.
+10387902 2199 1
+0 KP998539 [KP998539] Norovirus GII.17 isolate GII/Hu/HKG/2014/GII.17/CUHK-NS-463, complete genome.
+10390101 7570 0
+0 LK021688 [LK021688] Enterovirus A120 complete genome, strain MAD-2741-11.
+10397671 7407 0
+0 NC_000883 [NC_000883] Human parvovirus B19, complete genome.
+10405078 5596 0
+0 NC_000898 [NC_000898] Human herpesvirus 6B, complete genome.
+10410674 162114 23
+0 NC_000943 [NC_000943] Murray Valley encephalitis virus, complete genome.
+10572788 11014 0
+0 NC_001348 [NC_001348] Human herpesvirus 3, complete genome.
+10583802 124884 11
+0 NC_001352 [NC_001352] Human papillomavirus - 2, complete genome.
+10708686 7860 2
+0 NC_001354 [NC_001354] Human papillomavirus type 41, complete genome.
+10716546 7614 1
+0 NC_001355 [NC_001355] Human papillomavirus type 6b, complete genome.
+10724160 7902 1
+0 NC_001356 [NC_001356] Human papillomavirus - 1, complete genome.
+10732062 7815 1
+0 NC_001357 [NC_001357] Human papillomavirus - 18, complete genome.
+10739877 7857 1
+0 NC_001364 [NC_001364] Simian foamy virus, complete genome.
+10747734 13246 2
+0 NC_001401 [NC_001401] Adeno-associated virus - 2, complete genome.
+10760980 4679 5
+0 NC_001405 [NC_001405] Human adenovirus C, complete genome.
+10765659 35937 9
+0 NC_001430 [NC_001430] Human enterovirus D, complete genome.
+10801596 7390 3
+0 NC_001434 [NC_001434] Hepatitis E virus, complete genome.
+10808986 7176 0
+0 NC_001436 [NC_001436] Human T-lymphotropic virus 1, complete genome.
+10816162 8507 1
+0 NC_001437 [NC_001437] Japanese encephalitis virus, genome.
+10824669 10976 0
+0 NC_001449 [NC_001449] Venezuelan equine encephalitis virus, complete genome.
+10835645 11444 1
+0 NC_001454 [NC_001454] Human adenovirus F, complete genome.
+10847089 34214 3
+0 NC_001457 [NC_001457] Human papillomavirus type 4, complete genome.
+10881303 7353 2
+0 NC_001458 [NC_001458] Human papillomavirus type 63, complete genome.
+10888656 7348 1
+0 NC_001460 [NC_001460] Human adenovirus A, complete genome.
+10896004 34125 5
+0 NC_001472 [NC_001472] Human enterovirus B, complete genome.
+10930129 7389 0
+0 NC_001474 [NC_001474] Dengue virus 2, complete genome.
+10937518 10723 1
+0 NC_001475 [NC_001475] Dengue virus 3, complete genome.
+10948241 10707 0
+0 NC_001477 [NC_001477] Dengue virus 1, complete genome.
+10958948 10735 0
+0 NC_001479 [NC_001479] Encephalomyocarditis virus, complete genome.
+10969683 7835 1
+0 NC_001488 [NC_001488] Human T-lymphotropic virus 2, complete proviral genome.
+10977518 8952 2
+0 NC_001489 [NC_001489] Hepatitis A virus, complete genome.
+10986470 7478 1
+0 NC_001490 [NC_001490] Human rhinovirus 14, complete genome.
+10993948 7212 0
+0 NC_001498 [NC_001498] Measles virus, complete genome.
+11001160 15894 0
+0 NC_001512 [NC_001512] O'nyong-nyong virus, complete genome.
+11017054 11835 0
+0 NC_001526 [NC_001526] Human papillomavirus type 16, complete genome.
+11028889 7906 3
+0 NC_001531 [NC_001531] Human papillomoavirus type 5, complete genome.
+11036795 7746 5
+0 NC_001538 [NC_001538] BK polyomavirus, complete genome.
+11044541 5153 0
+0 NC_001542 [NC_001542] Rabies virus, complete genome.
+11049694 11932 0
+0 NC_001544 [NC_001544] Ross River virus, complete genome.
+11061626 11657 20
+0 NC_001545 [NC_001545] Rubella virus, complete genome.
+11073283 9762 2
+0 NC_001547 [NC_001547] Sindbis virus, complete genome.
+11083045 11703 1
+0 NC_001560 [NC_001560] Vesicular stomatitis Indiana virus, complete genome.
+11094748 11161 0
+0 NC_001563 [NC_001563] West Nile virus lineage 2, complete genome.
+11105909 10962 0
+0 NC_001576 [NC_001576] Human papillomavirus type 10 genomic DNA.
+11116871 7919 2
+0 NC_001583 [NC_001583] Human papillomavirus type 26, complete genome.
+11124790 7855 2
+0 NC_001586 [NC_001586] Human papillomavirus type 32, complete genome.
+11132645 7961 1
+0 NC_001587 [NC_001587] Human papillomavirus type 34, complete genome.
+11140606 7723 1
+0 NC_001591 [NC_001591] Human papillomavirus type 49, complete genome.
+11148329 7560 1
+0 NC_001593 [NC_001593] Human papillomavirus type 53, complete genome.
+11155889 7856 3
+0 NC_001595 [NC_001595] Human papillomavirus type 7 genomic DNA.
+11163745 8027 3
+0 NC_001596 [NC_001596] Human papillomavirus type 9, complete genome.
+11171772 7434 2
+0 NC_001608 [NC_001608] Marburg marburgvirus isolate Marburg virus/H.sapiens-tc/KEN/1980/Mt. Elgon-Musoke, complete genome.
+11179206 19111 0
+0 NC_001611 [NC_001611] Variola virus, complete genome.
+11198317 185578 28
+0 NC_001612 [NC_001612] Human enterovirus A, complete genome.
+11383895 7413 0
+0 NC_001617 [NC_001617] Human rhinovirus 89, complete genome.
+11391308 7152 0
+0 NC_001653 [NC_001653] Hepatitis delta virus, complete genome.
+11398460 1682 0
+0 NC_001664 [NC_001664] Human betaherpesvirus 6A, variant A DNA, complete virion genome, isolate U1102.
+11400142 159378 30
+0 NC_001672 [NC_001672] Tick-borne encephalitis virus, complete genome.
+11559520 11141 1
+0 NC_001676 [NC_001676] Human papillomavirus 54, complete genome.
+11570661 7759 2
+0 NC_001690 [NC_001690] Human papillomavirus type 48, complete genome.
+11578420 7100 0
+0 NC_001691 [NC_001691] Human papillomavirus type 50, complete genome.
+11585520 7184 0
+0 NC_001693 [NC_001693] Human papillomavirus type 60, complete genome.
+11592704 7313 1
+0 NC_001694 [NC_001694] Human papillomavirus - 61, complete genome.
+11600017 7989 2
+0 NC_001699 [NC_001699] JC polyomavirus, complete genome.
+11608006 5130 0
+0 NC_001710 [NC_001710] GB virus C/Hepatitis G virus, complete genome.
+11613136 9392 1
+0 NC_001716 [NC_001716] Human herpesvirus 7, complete genome.
+11622528 153080 13
+0 NC_001722 [NC_001722] Human immunodeficiency virus 2, complete genome.
+11775608 10359 0
+0 NC_001729 [NC_001729] Adeno-associated virus - 3, complete genome.
+11785967 4726 1
+0 NC_001731 [NC_001731] Molluscum contagiosum virus subtype 1, complete genome.
+11790693 190289 120
+0 NC_001781 [NC_001781] Human orthopneumovirus, complete genome.
+11980982 15225 6
+0 NC_001786 [NC_001786] Barmah Forest virus, complete genome.
+11996207 11488 3
+0 NC_001796 [NC_001796] Human parainfluenza virus 3, complete genome.
+12007695 15462 3
+0 NC_001798 [NC_001798] Human herpesvirus 2 strain HG52, complete genome.
+12023157 154675 114
+0 NC_001802 [NC_001802] Human immunodeficiency virus 1, complete genome.
+12177832 9181 1
+0 NC_001803 [NC_001803] Respiratory syncytial virus, complete genome.
+12187013 15191 2
+0 NC_001806 [NC_001806] Human herpesvirus 1 strain 17, complete genome.
+12202204 152222 71
+0 NC_001809 [NC_001809] Louping ill virus, complete genome.
+12354426 10871 0
+0 NC_001829 [NC_001829] Adeno-associated virus - 4, complete genome.
+12365297 4767 0
+0 NC_001897 [NC_001897] Human parechovirus, genome.
+12370064 7348 1
+0 NC_001906 [NC_001906] Hendra virus, complete genome.
+12377412 18234 2
+0 NC_001918 [NC_001918] Aichi virus, complete genome.
+12395646 8251 2
+0 NC_001925 [NC_001925] Bunyamwera virus L segment, complete sequence.
+12403897 6875 0
+0 NC_001926 [NC_001926] Bunyamwera virus M segment, complete sequence.
+12410772 4458 0
+0 NC_001927 [NC_001927] Bunyamwera virus segment S, complete sequence.
+12415230 961 0
+0 NC_001943 [NC_001943] Human astrovirus, complete genome.
+12416191 6813 1
+0 NC_001959 [NC_001959] Norovirus GI, complete genome.
+12423004 7654 1
+0 NC_002016 [NC_002016] Influenza A virus (A/Puerto Rico/8/1934(H1N1)) segment 7, complete sequence.
+12430658 1027 0
+0 NC_002017 [NC_002017] Influenza A virus (A/Puerto Rico/8/1934(H1N1)) segment 4, complete sequence.
+12431685 1778 0
+0 NC_002018 [NC_002018] Influenza A virus (A/Puerto Rico/8/1934(H1N1)) segment 6, complete sequence.
+12433463 1413 0
+0 NC_002019 [NC_002019] Influenza A virus (A/Puerto Rico/8/1934(H1N1)) segment 5, complete sequence.
+12434876 1565 0
+0 NC_002020 [NC_002020] Influenza A virus (A/Puerto Rico/8/1934(H1N1)) segment 8, complete sequence.
+12436441 890 0
+0 NC_002021 [NC_002021] Influenza A virus (A/Puerto Rico/8/1934(H1N1)) segment 2, complete sequence.
+12437331 2341 0
+0 NC_002022 [NC_002022] Influenza A virus (A/Puerto Rico/8/1934(H1N1)) segment 3, complete sequence.
+12439672 2233 0
+0 NC_002023 [NC_002023] Influenza A virus (A/Puerto Rico/8/1934(H1N1)) segment 1, complete sequence.
+12441905 2341 0
+0 NC_002031 [NC_002031] Yellow fever virus, complete genome.
+12444246 10862 1
+0 NC_002058 [NC_002058] Poliovirus, complete genome.
+12455108 7440 0
+0 NC_002076 [NC_002076] Torque teno virus 1, complete genome.
+12462548 3852 1
+0 NC_002195 [NC_002195] Torque teno mini virus 9, complete genome.
+12466400 2915 3
+0 NC_002200 [NC_002200] Mumps virus, complete genome.
+12469315 15384 1
+0 NC_002204 [NC_002204] Influenza B virus RNA 1, complete sequence.
+12484699 2368 0
+0 NC_002205 [NC_002205] Influenza B virus (B/Lee/1940) segment 2, complete sequence.
+12487067 2313 0
+0 NC_002206 [NC_002206] Influenza B virus (B/Lee/1940) segment 3, complete sequence.
+12489380 2204 1
+0 NC_002207 [NC_002207] Influenza B virus (B/Lee/1940) segment 4, complete sequence.
+12491584 1882 0
+0 NC_002208 [NC_002208] Influenza B virus (B/Lee/1940) segment 5, complete sequence.
+12493466 1841 0
+0 NC_002209 [NC_002209] Influenza B virus (B/Lee/1940) segment 6, complete sequence.
+12495307 1557 0
+0 NC_002210 [NC_002210] Influenza B virus (B/Lee/1940) segment 7, complete sequence.
+12496864 1191 0
+0 NC_002211 [NC_002211] Influenza B virus (B/Lee/1940) segment 8, complete sequence.
+12498055 1096 1
+0 NC_002549 [NC_002549] Zaire ebolavirus isolate Ebola virus/H.sapiens-tc/COD/1976/Yambuku-Mayinga, complete genome.
+12499151 18959 1
+0 NC_002640 [NC_002640] Dengue virus 4, complete genome.
+12518110 10649 0
+0 NC_002642 [NC_002642] Yaba-like disease virus, complete genome.
+12528759 144575 33
+0 NC_002645 [NC_002645] Human coronavirus 229E, complete genome.
+12673334 27317 2
+0 NC_002728 [NC_002728] Nipah virus, complete genome.
+12700651 18246 1
+0 NC_003215 [NC_003215] Semliki forest virus, complete genome.
+12718897 11442 1
+0 NC_003243 [NC_003243] Australian bat lyssavirus, complete genome.
+12730339 11822 0
+0 NC_003266 [NC_003266] Human adenovirus E, complete genome.
+12742161 35994 6
+0 NC_003310 [NC_003310] Monkeypox virus Zaire-96-I-16, complete genome.
+12778155 196858 34
+0 NC_003417 [NC_003417] Mayaro virus, complete genome.
+12975013 11411 2
+0 NC_003443 [NC_003443] Human rubulavirus 2, complete genome.
+12986424 15646 2
+0 NC_003461 [NC_003461] Human parainfluenza virus 1, complete genome.
+13002070 15600 4
+0 NC_003609 [NC_003609] Honeysuckle yellow vein mosaic virus, complete genome.
+13017670 2757 0
+0 NC_003635 [NC_003635] Modoc virus, complete genome.
+13020427 10600 0
+0 NC_003663 [NC_003663] Cowpox virus, complete genome.
+13031027 224499 35
+0 NC_003675 [NC_003675] Rio Bravo virus, genome.
+13255526 10140 0
+0 NC_003687 [NC_003687] Powassan virus, complete genome.
+13265666 10839 0
+0 NC_003690 [NC_003690] Langat virus, complete genome.
+13276505 10943 0
+0 NC_003899 [NC_003899] Eastern equine encephalitis virus, complete genome.
+13287448 11675 2
+0 NC_003908 [NC_003908] Western equine encephalomyelitis virus, complete genome.
+13299123 11484 0
+0 NC_003977 [NC_003977] Hepatitis B virus (strain ayw) genome.
+13310607 3182 0
+0 NC_003988 [NC_003988] Simian enterovirus A, complete genome.
+13313789 7374 2
+0 NC_004102 [NC_004102] Hepatitis C virus genotype 1, complete genome.
+13321163 9646 1
+0 NC_004104 [NC_004104] Human papillomavirus type 90, complete genome.
+13330809 8033 1
+0 NC_004108 [NC_004108] La Crosse virus segment L, complete genome.
+13338842 6980 1
+0 NC_004109 [NC_004109] La Crosse virus segment M, complete genome.
+13345822 4527 0
+0 NC_004110 [NC_004110] La Crosse virus segment S, complete genome.
+13350349 984 0
+0 NC_004157 [NC_004157] Dugbe virus segment S, complete sequence.
+13351333 1716 0
+0 NC_004158 [NC_004158] Dugbe virus segment M, complete sequence.
+13353049 4888 1
+0 NC_004159 [NC_004159] Dugbe virus segment L, complete sequence.
+13357937 12255 0
+0 NC_004161 [NC_004161] Reston ebolavirus isolate Reston virus/M.fascicularis-tc/USA/1989/Philippines89-Pennsylvania, complete genome.
+13370192 18891 3
+0 NC_004162 [NC_004162] Chikungunya virus, complete genome.
+13389083 11826 2
+0 NC_004180 [NC_004180] Colorado tick fever virus segment 9, complete sequence.
+13400909 1884 0
+0 NC_004181 [NC_004181] Colorado tick fever virus segment 1, complete sequence.
+13402793 4350 0
+0 NC_004182 [NC_004182] Colorado tick fever virus segment 2, complete sequence.
+13407143 3909 0
+0 NC_004183 [NC_004183] Colorado tick fever virus segment 3, complete sequence.
+13411052 3586 0
+0 NC_004184 [NC_004184] Colorado tick fever virus segment 4, complete sequence.
+13414638 3157 0
+0 NC_004185 [NC_004185] Colorado tick fever virus segment 5, complete sequence.
+13417795 2432 0
+0 NC_004186 [NC_004186] Colorado tick fever virus segment 6, complete sequence.
+13420227 2141 0
+0 NC_004187 [NC_004187] Colorado tick fever virus segment 7, complete sequence.
+13422368 2133 0
+0 NC_004188 [NC_004188] Colorado tick fever virus segment 8, complete sequence.
+13424501 2029 0
+0 NC_004189 [NC_004189] Colorado tick fever virus segment 10, complete sequence.
+13426530 1880 0
+0 NC_004190 [NC_004190] Colorado tick fever virus segment 12, complete sequence.
+13428410 675 0
+0 NC_004191 [NC_004191] Colorado tick fever virus segment 11, complete sequence.
+13429085 998 0
+0 NC_004198 [NC_004198] Banna virus segment 12, complete sequence.
+13430083 862 0
+0 NC_004200 [NC_004200] Banna virus segment 11, complete sequence.
+13430945 867 0
+0 NC_004201 [NC_004201] Banna virus strain JKT-6423 segment 10, complete sequence.
+13431812 977 0
+0 NC_004202 [NC_004202] Banna virus segment 9, complete sequence.
+13432789 1101 0
+0 NC_004203 [NC_004203] Banna virus segment 8, complete sequence.
+13433890 1119 0
+0 NC_004204 [NC_004204] Banna virus segment 7, complete sequence.
+13435009 1136 0
+0 NC_004211 [NC_004211] Banna virus strain JKT-6423 segment 1, complete sequence.
+13436145 3747 0
+0 NC_004217 [NC_004217] Banna virus strain JKT-6423 segment 2, complete sequence.
+13439892 3048 0
+0 NC_004218 [NC_004218] Banna virus strain JKT-6423 segment 3, complete sequence.
+13442940 2400 0
+0 NC_004219 [NC_004219] Banna virus strain JKT-6423 segment 4, complete sequence.
+13445340 2038 0
+0 NC_004220 [NC_004220] Banna virus strain JKT-6423 segment 5, complete sequence.
+13447378 1716 0
+0 NC_004221 [NC_004221] Banna virus strain JKT-6423 segment 6, complete sequence.
+13449094 1671 0
+0 NC_004291 [NC_004291] Lymphocytic choriomeningitis virus segment L, complete sequence.
+13450765 6680 0
+0 NC_004294 [NC_004294] Lymphocytic choriomeningitis virus segment S, complete sequence.
+13457445 3376 0
+0 NC_004295 [NC_004295] Human erythrovirus V9, complete genome.
+13460821 5028 0
+0 NC_004296 [NC_004296] Lassa virus segment S, complete sequence.
+13465849 3402 0
+0 NC_004297 [NC_004297] Lassa virus segment L, complete sequence.
+13469251 7279 0
+0 NC_004500 [NC_004500] Human papillomavirus type 92, complete genome.
+13476530 7461 2
+0 NC_004718 [NC_004718] SARS coronavirus, complete genome.
+13483991 29751 1
+0 NC_004812 [NC_004812] Macacine herpesvirus 1, complete genome.
+13513742 156789 127
+0 NC_004905 [NC_004905] Influenza A virus (A/Hong Kong/1073/99(H9N2)) segment 5, complete sequence.
+13670531 1557 0
+0 NC_004906 [NC_004906] Influenza A virus (A/Hong Kong/1073/99(H9N2)) segment 8, complete sequence.
+13672088 890 0
+0 NC_004907 [NC_004907] Influenza A virus (A/Hong Kong/1073/99(H9N2)) segment 7, complete sequence.
+13672978 1025 0
+0 NC_004908 [NC_004908] Influenza A virus ha gene for Hemagglutinin, genomic RNA, strain A/Hong Kong/1073/99(H9N2).
+13674003 1714 0
+0 NC_004909 [NC_004909] Influenza A virus na gene for neuraminidase, genomic RNA, strain A/Hong Kong/1073/99(H9N2).
+13675717 1418 0
+0 NC_004910 [NC_004910] Influenza A virus pb2 gene for polymerase Pb2, genomic RNA, strain A/Hong Kong/1073/99(H9N2).
+13677135 2341 0
+0 NC_004911 [NC_004911] Influenza A virus pb1 gene for polymerase Pb1, genomic RNA, strain A/Hong Kong/1073/99(H9N2).
+13679476 2328 0
+0 NC_004912 [NC_004912] Influenza A virus pa gene for polymerase PA, genomic RNA, strain A/Hong Kong/1073/99(H9N2).
+13681804 2225 0
+0 NC_005062 [NC_005062] Omsk hemorrhagic fever virus, complete genome.
+13684029 10787 0
+0 NC_005077 [NC_005077] Guanarito virus segment S, complete genome.
+13694816 3343 0
+0 NC_005078 [NC_005078] Machupo virus segment S, complete genome.
+13698159 3439 0
+0 NC_005079 [NC_005079] Machupo virus segment L, complete genome.
+13701598 7196 0
+0 NC_005080 [NC_005080] Junin virus segment L, complete genome.
+13708794 7114 1
+0 NC_005081 [NC_005081] Junin virus segment S, complete genome.
+13715908 3411 0
+0 NC_005082 [NC_005082] Guanarito virus segment L, complete genome.
+13719319 7081 0
+0 NC_005134 [NC_005134] Human papillomavirus type 96, complete genome.
+13726400 7438 1
+0 NC_005179 [NC_005179] Yaba monkey tumor virus, complete genome.
+13733838 134721 21
+0 NC_005214 [NC_005214] Uukuniemi virus segment L, complete sequence.
+13868559 6423 0
+0 NC_005215 [NC_005215] Sin Nombre virus segment M, complete genome.
+13874982 3696 0
+0 NC_005216 [NC_005216] Sin Nombre virus segment S, complete sequence.
+13878678 2059 2
+0 NC_005217 [NC_005217] Sin Nombre virus map viral genome L segment.
+13880737 6562 0
+0 NC_005218 [NC_005218] Hantaan virus, complete genome.
+13887299 1696 0
+0 NC_005219 [NC_005219] Hantaan virus, complete genome.
+13888995 3616 0
+0 NC_005220 [NC_005220] Uukuniemi virus chromosome segment M, complete genome.
+13892611 3229 0
+0 NC_005221 [NC_005221] Uukuniemi virus, complete genome.
+13895840 1720 0
+0 NC_005222 [NC_005222] Hantaan virus segment L, complete genome.
+13897560 6533 0
+0 NC_005223 [NC_005223] Puumala virus segment M, complete sequence.
+13904093 3682 1
+0 NC_005224 [NC_005224] Puumala virus segment S, complete sequence.
+13907775 1830 0
+0 NC_005225 [NC_005225] Puumala virus segment L, complete genome.
+13909605 6550 1
+0 NC_005226 [NC_005226] Tula virus segment L, complete sequence.
+13916155 6541 0
+0 NC_005227 [NC_005227] Tula virus segment S, complete genome.
+13922696 1831 0
+0 NC_005228 [NC_005228] Tula virus segment M, complete sequence.
+13924527 3694 2
+0 NC_005236 [NC_005236] Seoul virus strain 80-39 segment S, complete sequence.
+13928221 1769 0
+0 NC_005237 [NC_005237] Seoul virus segment M, complete sequence.
+13929990 3651 1
+0 NC_005238 [NC_005238] Seoul virus strain Seoul 80-39 clone 1.
+13933641 6530 1
+0 NC_005300 [NC_005300] Crimean-Congo hemorrhagic fever virus segment M, complete sequence.
+13940171 5366 0
+0 NC_005301 [NC_005301] Crimean-Congo hemorrhagic fever virus segment L, complete sequence.
+13945537 12108 0
+0 NC_005302 [NC_005302] Crimean-Congo hemorrhagic fever virus segment S, complete sequence.
+13957645 1672 0
+0 NC_005336 [NC_005336] Orf virus, complete genome.
+13959317 139962 52
+0 NC_005775 [NC_005775] Oropouche virus segment M, complete sequence.
+14099279 4385 0
+0 NC_005776 [NC_005776] Oropouche virus segment L, complete genome.
+14103664 6846 0
+0 NC_005777 [NC_005777] Oropouche virus segment S, complete genome.
+14110510 754 0
+0 NC_005831 [NC_005831] Human Coronavirus NL63, complete genome.
+14111264 27553 6
+0 NC_006152 [NC_006152] Adeno-associated virus 5, complete genome.
+14138817 4642 5
+0 NC_006269 [NC_006269] Sapovirus Hu/Dresden/pJG-Sap01/DE, complete genome.
+14143459 7429 0
+0 NC_006273 [NC_006273] Human herpesvirus 5 strain Merlin, complete genome.
+14150888 235646 63
+0 NC_006306 [NC_006306] Influenza C virus (C/Ann Arbor/1/50) segment 7, complete sequence.
+14386534 935 0
+0 NC_006307 [NC_006307] Influenza C virus (C/Ann Arbor/1/50) PB2 gene for polymerase 2, complete cds.
+14387469 2365 0
+0 NC_006308 [NC_006308] Influenza C virus (C/Ann Arbor/1/50) PB1 gene for polymerase 1, complete cds.
+14389834 2363 0
+0 NC_006309 [NC_006309] Influenza C virus (C/Ann Arbor/1/50) P3 gene for polymerase 3, complete cds.
+14392197 2183 0
+0 NC_006310 [NC_006310] Influenza C virus (C/Ann Arbor/1/50) HEF gene for hemagglutinin-esterase-fusion, complete cds.
+14394380 2073 0
+0 NC_006311 [NC_006311] Influenza C virus (C/Ann Arbor/1/50) segment 5, complete sequence.
+14396453 1807 0
+0 NC_006312 [NC_006312] Influenza C virus (C/Ann Arbor/1/50) M1, CM2 genes for matrix protein, CM2 protein, complete cds.
+14398260 1180 0
+0 NC_006313 [NC_006313] Sabia virus segment L, complete genome.
+14399440 7133 0
+0 NC_006317 [NC_006317] Sabia virus, complete genome.
+14406573 3366 0
+0 NC_006318 [NC_006318] Toscana virus segment S, complete sequence.
+14409939 1869 1
+0 NC_006319 [NC_006319] Toscana virus segment L, complete sequence.
+14411808 6404 0
+0 NC_006320 [NC_006320] Toscana virus segment M, complete sequence.
+14418212 4215 0
+0 NC_006429 [NC_006429] Mokola virus, complete genome.
+14422427 11940 0
+0 NC_006432 [NC_006432] Sudan ebolavirus isolate Sudan virus/H.sapiens-tc/UGA/2000/Gulu-808892, complete genome.
+14434367 18875 1
+0 NC_006433 [NC_006433] Hantavirus Z10 chromosome S segment, complete genome.
+14453242 1701 0
+0 NC_006435 [NC_006435] Hantavirus Z10 chromosome L, complete genome.
+14454943 6533 1
+0 NC_006437 [NC_006437] Hantavirus Z10 segment M, complete genome.
+14461476 3616 0
+0 NC_006439 [NC_006439] Cali mammarenavirus segment L, complete sequence.
+14465092 6997 0
+0 NC_006447 [NC_006447] Pichinde mammarenavirus segment S, complete sequence.
+14472089 3419 0
+0 NC_006551 [NC_006551] Usutu virus, complete cds.
+14475508 11066 1
+0 NC_006554 [NC_006554] Sapovirus C12 strain C12.
+14486574 7476 1
+0 NC_006560 [NC_006560] Cercopithecine herpesvirus 2, complete genome.
+14494050 150715 155
+0 NC_006577 [NC_006577] Human coronavirus HKU1, complete genome.
+14644765 29926 4
+0 NC_006998 [NC_006998] Vaccinia virus, complete genome.
+14674691 194711 23
+0 NC_007013 [NC_007013] Small anellovirus 1, complete genome.
+14869402 2249 0
+0 NC_007014 [NC_007014] Small anellovirus 2, complete genome.
+14871651 2635 1
+0 NC_007018 [NC_007018] Human parvovirus 4 G1, complete genome.
+14874286 5268 1
+0 NC_007026 [NC_007026] Human picobirnavirus RNA segment 1, complete sequence.
+14879554 2525 0
+0 NC_007027 [NC_007027] Human picobirnavirus RNA segment 2, complete sequence.
+14882079 1745 0
+0 NC_007357 [NC_007357] Influenza A virus (A/Goose/Guangdong/1/96(H5N1)) polymerase (PB2) gene, complete cds.
+14883824 2341 0
+0 NC_007358 [NC_007358] Influenza A virus (A/goose/Guangdong/1/1996(H5N1)) polymerase (PB1) and PB1-F2 protein (PB1-F2) genes, complete cds.
+14886165 2341 0
+0 NC_007359 [NC_007359] Influenza A virus (A/goose/Guangdong/1/1996(H5N1)) polymerase (PA) and PA-X protein (PA-X) genes, complete cds.
+14888506 2233 0
+0 NC_007360 [NC_007360] Influenza A virus (A/Goose/Guangdong/1/96(H5N1)) nucleocapsid protein (NP) gene, complete cds.
+14890739 1565 0
+0 NC_007361 [NC_007361] Influenza A virus (A/Goose/Guangdong/1/96(H5N1)) neuraminidase (NA) gene, complete cds.
+14892304 1458 0
+0 NC_007362 [NC_007362] Influenza A virus (A/goose/Guangdong/1/1996(H5N1)) hemagglutinin (HA) gene, complete cds.
+14893762 1760 0
+0 NC_007363 [NC_007363] Influenza A virus (A/goose/Guangdong/1/1996(H5N1)) segment 7, complete sequence.
+14895522 1027 0
+0 NC_007364 [NC_007364] Influenza A virus (A/goose/Guangdong/1/1996(H5N1)) segment 8, complete sequence.
+14896549 865 0
+0 NC_007366 [NC_007366] Influenza A virus (A/New York/392/2004(H3N2)) segment 4, complete sequence.
+14897414 1762 0
+0 NC_007367 [NC_007367] Influenza A virus (A/New York/392/2004(H3N2)) segment 7, complete sequence.
+14899176 1027 0
+0 NC_007368 [NC_007368] Influenza A virus (A/New York/392/2004(H3N2)) segment 6, complete sequence.
+14900203 1467 0
+0 NC_007369 [NC_007369] Influenza A virus (A/New York/392/2004(H3N2)) segment 5, complete sequence.
+14901670 1566 0
+0 NC_007370 [NC_007370] Influenza A virus (A/New York/392/2004(H3N2)) segment 8, complete sequence.
+14903236 890 0
+0 NC_007371 [NC_007371] Influenza A virus (A/New York/392/2004(H3N2)) segment 3, complete sequence.
+14904126 2233 0
+0 NC_007372 [NC_007372] Influenza A virus (A/New York/392/2004(H3N2)) segment 2, complete sequence.
+14906359 2341 1
+0 NC_007373 [NC_007373] Influenza A virus (A/New York/392/2004(H3N2)) segment 1, complete sequence.
+14908700 2341 0
+0 NC_007374 [NC_007374] Influenza A virus (A/Korea/426/1968(H2N2)) segment 4, complete sequence.
+14911041 1773 0
+0 NC_007375 [NC_007375] Influenza A virus (A/Korea/426/1968(H2N2)) segment 2, complete sequence.
+14912814 2341 1
+0 NC_007376 [NC_007376] Influenza A virus (A/Korea/426/1968(H2N2)) segment 3, complete sequence.
+14915155 2233 0
+0 NC_007377 [NC_007377] Influenza A virus (A/Korea/426/1968(H2N2)) segment 7, complete sequence.
+14917388 1027 0
+0 NC_007378 [NC_007378] Influenza A virus (A/Korea/426/1968(H2N2)) segment 1, complete sequence.
+14918415 2341 0
+0 NC_007380 [NC_007380] Influenza A virus (A/Korea/426/1968(H2N2)) segment 8, complete sequence.
+14920756 838 0
+0 NC_007381 [NC_007381] Influenza A virus (A/Korea/426/1968(H2N2)) segment 5, complete sequence.
+14921594 1497 0
+0 NC_007382 [NC_007382] Influenza A virus (A/Korea/426/1968(H2N2)) segment 6, complete sequence.
+14923091 1410 0
+0 NC_007543 [NC_007543] Rotavirus C segment 6, complete sequence.
+14924501 1350 1
+0 NC_007544 [NC_007544] Rotavirus C segment 7, complete sequence.
+14925851 1270 1
+0 NC_007545 [NC_007545] Rotavirus C segment 9, complete sequence.
+14927121 1037 0
+0 NC_007546 [NC_007546] Rotavirus C segment 2, complete sequence.
+14928158 2736 0
+0 NC_007547 [NC_007547] Rotavirus C segment 1, complete sequence.
+14930894 3309 1
+0 NC_007548 [NC_007548] Adult diarrheal rotavirus strain J19, complete genome.
+14934203 3538 0
+0 NC_007549 [NC_007549] Adult diarrheal rotavirus strain J19, complete genome.
+14937741 2969 0
+0 NC_007550 [NC_007550] Adult diarrheal rotavirus strain J19, complete genome.
+14940710 2512 0
+0 NC_007551 [NC_007551] Adult diarrheal rotavirus strain J19, complete genome.
+14943222 2204 0
+0 NC_007552 [NC_007552] Adult diarrheal rotavirus strain J19, complete genome.
+14945426 1307 0
+0 NC_007553 [NC_007553] Adult diarrheal rotavirus strain J19, complete genome.
+14946733 1287 0
+0 NC_007554 [NC_007554] Adult diarrheal rotavirus strain J19, complete genome.
+14948020 1004 0
+0 NC_007555 [NC_007555] Adult diarrheal rotavirus strain J19, complete genome.
+14949024 932 0
+0 NC_007556 [NC_007556] Adult diarrheal rotavirus strain J19, complete genome.
+14949956 820 0
+0 NC_007557 [NC_007557] Adult diarrheal rotavirus strain J19, complete genome.
+14950776 739 0
+0 NC_007558 [NC_007558] Adult diarrheal rotavirus strain J19, complete genome.
+14951515 649 0
+0 NC_007569 [NC_007569] Rotavirus C segment 10, complete sequence.
+14952164 730 0
+0 NC_007570 [NC_007570] Rotavirus C segment 5, complete sequence.
+14952894 1353 0
+0 NC_007571 [NC_007571] Rotavirus C segment 8, complete sequence.
+14954247 1063 0
+0 NC_007572 [NC_007572] Rotavirus C segment 3, complete sequence.
+14955310 2283 0
+0 NC_007573 [NC_007573] Rotavirus C segment 11, complete sequence.
+14957593 613 1
+0 NC_007574 [NC_007574] Rotavirus C segment 4, complete sequence.
+14958206 2166 0
+0 NC_007580 [NC_007580] St. Louis encephalitis virus, complete genome.
+14960372 10940 1
+0 NC_007605 [NC_007605] Human gammaherpesvirus 4, complete genome.
+14971312 171823 27
+0 NC_007653 [NC_007653] Papiine herpesvirus 2, complete genome.
+15143135 156487 158
+0 NC_007803 [NC_007803] Beilong virus, complete genome.
+15299622 19212 0
+0 NC_008188 [NC_008188] Human papillomavirus type 103, complete genome.
+15318834 7263 1
+0 NC_008189 [NC_008189] Human papillomavirus type 101, complete genome.
+15326097 7259 1
+0 NC_008793 [NC_008793] Honeysuckle yellow vein mosaic virus-[Kagoshima], complete genome.
+15333356 2762 0
+0 NC_009026 [NC_009026] Bussuquara virus, complete genome.
+15336118 10815 0
+0 NC_009028 [NC_009028] Ilheus virus, complete genome.
+15346933 10755 0
+0 NC_009029 [NC_009029] Kokobera virus, complete genome.
+15357688 10874 0
+0 NC_009225 [NC_009225] Torque teno midi virus 1, complete genome.
+15368562 3245 3
+0 NC_009238 [NC_009238] KI polyomavirus Stockholm 60, complete genome.
+15371807 5040 0
+0 NC_009333 [NC_009333] Human herpesvirus 8, complete genome.
+15376847 137969 7
+0 NC_009334 [NC_009334] Human herpesvirus 4, complete genome.
+15514816 172764 31
+0 NC_009448 [NC_009448] Saffold virus, complete genome.
+15687580 8115 1
+0 NC_009527 [NC_009527] European bat lyssavirus 1, complete genome.
+15695695 11966 0
+0 NC_009528 [NC_009528] European bat lyssavirus 2 isolate RV1333, complete genome.
+15707661 11930 1
+0 NC_009539 [NC_009539] WU Polyomavirus, complete genome.
+15719591 5229 1
+0 NC_009605 [NC_009605] Tomato leaf curl Sinaloa virus DNA B, complete sequence.
+15724820 2562 0
+0 NC_009606 [NC_009606] Tomato leaf curl Sinaloa virus DNA A, complete sequence.
+15727382 2611 0
+0 NC_009824 [NC_009824] Hepatitis C virus genotype 3, genome.
+15729993 9456 1
+0 NC_009825 [NC_009825] Hepatitis C virus genotype 4, genome.
+15739449 9355 3
+0 NC_009826 [NC_009826] Hepatitis C virus genotype 5, genome.
+15748804 9343 0
+0 NC_009827 [NC_009827] Hepatitis C virus genotype 6, complete genome.
+15758147 9628 1
+0 NC_009942 [NC_009942] West Nile virus lineage 1, complete genome.
+15767775 11029 0
+0 NC_009996 [NC_009996] Human rhinovirus C, complete genome.
+15778804 7099 0
+0 NC_010277 [NC_010277] Merkel cell polyomavirus isolate R17b, complete genome.
+15785903 5387 0
+0 NC_010329 [NC_010329] Human papillomavirus type 88, complete genome.
+15791290 7326 0
+0 NC_010562 [NC_010562] Chapare virus segment S, complete sequence.
+15798616 3357 0
+0 NC_010563 [NC_010563] Chapare virus segment L, complete sequence.
+15801973 7107 0
+0 NC_010624 [NC_010624] Sapovirus Mc10, complete genome.
+15809080 7458 0
+0 NC_010810 [NC_010810] Human TMEV-like cardiovirus, complete genome.
+15816538 7961 0
+0 NC_010820 [NC_010820] Simian foamy virus 3, complete genome.
+15824499 13111 3
+0 NC_010956 [NC_010956] Human adenovirus D, complete genome.
+15837610 35083 7
+0 NC_011202 [NC_011202] Human adenovirus B2, complete genome.
+15872693 34794 7
+0 NC_011203 [NC_011203] Human adenovirus B1, complete genome.
+15907487 35343 4
+0 NC_011400 [NC_011400] Astrovirus MLB1, complete genome.
+15942830 6171 1
+0 NC_011500 [NC_011500] Rotavirus A segment 5, complete genome.
+15949001 1614 0
+0 NC_011501 [NC_011501] Rotavirus A segment 7, complete genome.
+15950615 1105 0
+0 NC_011502 [NC_011502] Rotavirus A segment 8, complete genome.
+15951720 1059 0
+0 NC_011503 [NC_011503] Rotavirus A segment 9, complete genome.
+15952779 1062 0
+0 NC_011504 [NC_011504] Rotavirus A segment 10, complete genome.
+15953841 751 0
+0 NC_011505 [NC_011505] Rotavirus A segment 11, complete genome.
+15954592 667 0
+0 NC_011506 [NC_011506] Rotavirus A segment 2, complete genome.
+15955259 2693 1
+0 NC_011507 [NC_011507] Rotavirus A segment 1, complete genome.
+15957952 3302 0
+0 NC_011508 [NC_011508] Rotavirus A segment 3, complete genome.
+15961254 2591 0
+0 NC_011509 [NC_011509] Rotavirus A segment 6, complete genome.
+15963845 1356 0
+0 NC_011510 [NC_011510] Rotavirus A segment 4, complete genome.
+15965201 2362 0
+0 NC_011800 [NC_011800] Human T-lymphotropic virus 4, complete genome.
+15967563 8791 1
+0 NC_012042 [NC_012042] Human bocavirus 2c PK isolate PK-5510, complete genome.
+15976354 5196 3
+0 NC_012213 [NC_012213] Human papillomavirus type 108, complete genome.
+15981550 7149 0
+0 NC_012485 [NC_012485] Human papillomavirus type 109, complete genome.
+15988699 7346 2
+0 NC_012486 [NC_012486] Human papillomavirus type 112, complete genome.
+15996045 7227 0
+0 NC_012532 [NC_012532] Zika virus isolate ZIKV/Monkey/Uganda/MR766/1947, complete genome.
+16003272 10794 0
+0 NC_012564 [NC_012564] Human bocavirus 3, complete genome.
+16014066 5242 0
+0 NC_012729 [NC_012729] Human bocavirus 4 NI strain HBoV4-NI-385, complete genome.
+16019308 5104 0
+0 NC_012735 [NC_012735] Wesselsbron virus, complete genome.
+16024412 10814 0
+0 NC_012776 [NC_012776] Lujo virus segment S, complete genome.
+16035226 3189 0
+0 NC_012777 [NC_012777] Lujo virus segment L, complete genome.
+16038415 7163 1
+0 NC_012783 [NC_012783] Cercopithecine herpesvirus 5 strain 2715, complete genome.
+16045578 226205 30
+0 NC_012798 [NC_012798] Human cosavirus E1, complete genome.
+16271783 6580 1
+0 NC_012800 [NC_012800] Cosavirus A strain HCoSV-A1 polyprotein gene, complete cds.
+16278363 7632 1
+0 NC_012801 [NC_012801] Human cosavirus B1, complete genome.
+16285995 7205 2
+0 NC_012802 [NC_012802] Human cosavirus D1, complete genome.
+16293200 7215 0
+0 NC_012957 [NC_012957] Salivirus NG-J1, complete genome.
+16300415 7982 0
+0 NC_012959 [NC_012959] Human adenovirus 54, complete genome.
+16308397 34920 6
+0 NC_012986 [NC_012986] Salivirus A isolate 02394-01, complete genome.
+16343317 7989 2
+0 NC_013035 [NC_013035] Human papillomavirus 116, complete genome.
+16351306 7184 0
+0 NC_013060 [NC_013060] Astrovirus VA1, complete genome.
+16358490 6586 1
+0 NC_013443 [NC_013443] HMO Astrovirus A, complete genome.
+16365076 6534 0
+0 NC_014068 [NC_014068] Torque teno mini virus 8, complete genome.
+16371610 2910 0
+0 NC_014073 [NC_014073] Torque teno virus 28, complete genome.
+16374520 3629 2
+0 NC_014074 [NC_014074] Torque teno virus 27, complete genome.
+16378149 3729 2
+0 NC_014075 [NC_014075] Torque teno virus 12, complete genome.
+16381878 3759 2
+0 NC_014076 [NC_014076] Torque teno virus 10, complete genome.
+16385637 3770 2
+0 NC_014078 [NC_014078] Torque teno virus 19, complete genome.
+16389407 3808 8
+0 NC_014080 [NC_014080] Torque teno virus 7, complete genome.
+16393215 3736 2
+0 NC_014081 [NC_014081] Torque teno virus 3, complete genome.
+16396951 3748 2
+0 NC_014082 [NC_014082] Torque teno mini virus 7, complete genome.
+16400699 2952 2
+0 NC_014083 [NC_014083] Torque teno virus 25, complete genome.
+16403651 3763 1
+0 NC_014084 [NC_014084] Torque teno virus 8, complete genome.
+16407414 3790 1
+0 NC_014086 [NC_014086] Torque teno mini virus 2, complete genome.
+16411204 2765 4
+0 NC_014088 [NC_014088] Torque teno mini virus 3, complete genome.
+16413969 2897 1
+0 NC_014089 [NC_014089] Torque teno mini virus 5, complete genome.
+16416866 2908 1
+0 NC_014091 [NC_014091] Torque teno virus 16, complete genome.
+16419774 3818 2
+0 NC_014093 [NC_014093] Torque teno midi virus 2, complete genome.
+16423592 3253 2
+0 NC_014094 [NC_014094] Torque teno virus 6, complete genome.
+16426845 3705 1
+0 NC_014095 [NC_014095] Torque teno mini virus 6, complete genome.
+16430550 2897 0
+0 NC_014096 [NC_014096] Torque teno virus 15, complete genome.
+16433447 3787 2
+0 NC_014097 [NC_014097] Torque teno mini virus 1, complete genome.
+16437234 2856 0
+0 NC_014185 [NC_014185] Human papillomavirus type 121, complete genome.
+16440090 7342 1
+0 NC_014361 [NC_014361] Trichodysplasia spinulosa-associated polyomavirus, complete genome.
+16447432 5232 0
+0 NC_014372 [NC_014372] Tai Forest ebolavirus isolate Tai Forest virus/H.sapiens-tc/CIV/1994/Pauleoula-CI, complete genome.
+16452664 18935 2
+0 NC_014373 [NC_014373] Bundibugyo ebolavirus isolate Bundibugyo virus/H.sapiens-tc/UGA/2007/Butalya-811250, complete genome.
+16471599 18940 2
+0 NC_014395 [NC_014395] Rift Valley fever virus segment S, complete genome.
+16490539 1690 1
+0 NC_014396 [NC_014396] Rift Valley fever virus segment M, complete genome.
+16492229 3885 0
+0 NC_014397 [NC_014397] Rift Valley fever virus segment L, complete genome.
+16496114 6404 0
+0 NC_014406 [NC_014406] Human polyomavirus 6, complete genome.
+16502518 4926 0
+0 NC_014407 [NC_014407] Human polyomavirus 7, complete genome.
+16507444 4952 0
+0 NC_014469 [NC_014469] Gammapapillomavirus HPV127, complete genome.
+16512396 7181 0
+0 NC_014522 [NC_014522] Great Island virus segment 1, complete genome.
+16519577 3897 0
+0 NC_014523 [NC_014523] Great Island virus segment 2, complete genome.
+16523474 2794 0
+0 NC_014524 [NC_014524] Great Island virus segment 3, complete genome.
+16526268 1936 0
+0 NC_014525 [NC_014525] Great Island virus segment 4, complete genome.
+16528204 1731 0
+0 NC_014526 [NC_014526] Great Island virus segment 5, complete genome.
+16529935 1722 0
+0 NC_014527 [NC_014527] Great Island virus segment 6, complete genome.
+16531657 1666 0
+0 NC_014528 [NC_014528] Great Island virus segment 7, complete genome.
+16533323 1181 0
+0 NC_014529 [NC_014529] UNVERIFIED: Great Island virus isolate CanAr 42 segment 8, complete sequence.
+16534504 1172 1
+0 NC_014530 [NC_014530] Great Island virus segment 9, complete genome.
+16535676 1056 0
+0 NC_014531 [NC_014531] Great Island virus segment 10, complete genome.
+16536732 703 0
+0 NC_014952 [NC_014952] Human papillomavirus type 128, complete genome.
+16537435 7259 0
+0 NC_014953 [NC_014953] Human papillomavirus type 129, complete genome.
+16544694 7219 1
+0 NC_014954 [NC_014954] Human papillomavirus type 131, complete genome.
+16551913 7182 0
+0 NC_014955 [NC_014955] Human papillomavirus type 132, complete genome.
+16559095 7125 0
+0 NC_014956 [NC_014956] Human papillomavirus type 134, complete genome.
+16566220 7309 0
+0 NC_014967 [NC_014967] Honeysuckle ringspot virus, complete genome.
+16573529 3956 0
+0 NC_015150 [NC_015150] Human polyomavirus 9, complete genome.
+16577485 5026 0
+0 NC_015373 [NC_015373] Candiru virus segment M, complete genome.
+16582511 4326 1
+0 NC_015374 [NC_015374] Candiru virus segment L, complete genome.
+16586837 6327 0
+0 NC_015375 [NC_015375] Candiru virus segment S, complete genome.
+16593164 1842 6
+0 NC_015411 [NC_015411] Sandfly Sicilian Turkey virus segment M, complete genome.
+16595006 4403 0
+0 NC_015412 [NC_015412] Sandfly Sicilian Turkey virus segment L, complete genome.
+16599409 6439 0
+0 NC_015413 [NC_015413] Sandfly Sicilian Turkey virus segment S, complete genome.
+16605848 1761 0
+0 NC_015783 [NC_015783] Torque teno virus, complete genome.
+16607609 3725 3
+0 NC_016155 [NC_016155] Astrovirus MLB2, complete genome.
+16611334 6119 0
+0 NC_016157 [NC_016157] Human papillomavirus type 126, complete genome.
+16617453 7326 0
+0 NC_017091 [NC_017091] Gyrovirus GyV3, complete genome.
+16624779 2359 1
+0 NC_017993 [NC_017993] Human papillomavirus type 135, complete genome.
+16627138 7293 2
+0 NC_017994 [NC_017994] Human papillomavirus type 136, complete genome.
+16634431 7319 1
+0 NC_017995 [NC_017995] Human papillomavirus type 137, complete genome.
+16641750 7236 1
+0 NC_017996 [NC_017996] Human papillomavirus type 140, complete genome.
+16648986 7341 1
+0 NC_017997 [NC_017997] Human papillomavirus type 144, complete genome.
+16656327 7271 0
+0 NC_018102 [NC_018102] MW polyomavirus, complete genome.
+16663598 4927 0
+0 NC_018136 [NC_018136] SFTS virus HB29 segment L, complete genome.
+16668525 6368 0
+0 NC_018137 [NC_018137] SFTS virus HB29 segment S, complete genome.
+16674893 1744 1
+0 NC_018138 [NC_018138] SFTS virus HB29 segment M, complete genome.
+16676637 3378 0
+0 NC_018401 [NC_018401] Gyrovirus 4, complete genome.
+16680015 2034 0
+0 NC_018705 [NC_018705] Ntaya virus, complete cds.
+16682049 10943 1
+0 NC_019023 [NC_019023] Human papillomavirus type 166 isolate KC9, complete genome.
+16692992 7212 0
+0 NC_019026 [NC_019026] Astrovirus VA3 isolate VA3/human/Vellore/28054/2005, complete genome.
+16700204 6581 0
+0 NC_019027 [NC_019027] Astrovirus VA4 isolate VA4/human/Nepal/s5363, complete genome.
+16706785 6518 0
+0 NC_019028 [NC_019028] Astrovirus MLB3 isolate MLB3/human/Vellore/26564/2004, complete genome.
+16713303 6124 0
+0 NC_019843 [NC_019843] Middle East respiratory syndrome coronavirus, complete genome.
+16719427 30119 1
+0 NC_020106 [NC_020106] STL polyomavirus strain MA138, complete genome.
+16749546 4776 0
+0 NC_020439 [NC_020439] Melaka orthoreovirus segment L1, complete sequence.
+16754322 3896 0
+0 NC_020440 [NC_020440] Melaka orthoreovirus segment L3, complete sequence.
+16758218 3954 0
+0 NC_020441 [NC_020441] Melaka orthoreovirus segment M1, complete sequence.
+16762172 2295 0
+0 NC_020442 [NC_020442] Melaka orthoreovirus segment M2, complete sequence.
+16764467 2145 0
+0 NC_020443 [NC_020443] Melaka orthoreovirus segment M3, complete sequence.
+16766612 1984 0
+0 NC_020444 [NC_020444] Melaka orthoreovirus segment S2, complete sequence.
+16768596 1322 0
+0 NC_020445 [NC_020445] Melaka orthoreovirus segment S3, complete sequence.
+16769918 1192 0
+0 NC_020446 [NC_020446] Melaka orthoreovirus segment S4, complete sequence.
+16771110 1184 0
+0 NC_020447 [NC_020447] Melaka orthoreovirus segment L2, complete sequence.
+16772294 3833 0
+0 NC_020448 [NC_020448] Melaka orthoreovirus segment S1, complete sequence.
+16776127 1605 0
+0 NC_020471 [NC_020471] Andean potato mild mosaic virus isolate Hu, complete genome.
+16777732 6226 2
+0 NC_020487 [NC_020487] Titi monkey adenovirus ECC-2011, complete genome.
+16783958 36838 10
+0 NC_020498 [NC_020498] TTV-like mini virus isolate TTMV_LY1, complete genome.
+16820796 2912 1
+0 NC_020805 [NC_020805] Chandipura virus isolate CIN 0451, complete genome.
+16823708 11120 1
+0 NC_020806 [NC_020806] Isfahan virus N gene, P gene, M gene, G gene and L gene, genomic RNA.
+16834828 11088 0
+0 NC_020807 [NC_020807] Lagos bat virus isolate 0406SEN, complete genome.
+16845916 12016 0
+0 NC_020810 [NC_020810] Duvenhage virus isolate 86132SA, complete genome.
+16857932 11976 1
+0 NC_020890 [NC_020890] Human polyomavirus 12 strain hu1403, complete genome.
+16869908 5033 1
+0 NC_021483 [NC_021483] Human papillomavirus type 154 isolate PV77, complete genome.
+16874941 7286 0
+0 NC_021541 [NC_021541] Human rotavirus B strain Bang373 RNA dependent RNA polymerase (VP1) mRNA, complete cds.
+16882227 3511 0
+0 NC_021542 [NC_021542] Human rotavirus B strain Bang373 outer capsid protein (VP7) gene, complete cds.
+16885738 814 0
+0 NC_021543 [NC_021543] Human rotavirus B strain Bang373 outer capsid protein (VP4) gene, complete cds.
+16886552 2306 0
+0 NC_021544 [NC_021544] Human rotavirus B strain Bang373 inner capsid protein (VP6) gene, complete cds.
+16888858 1269 0
+0 NC_021545 [NC_021545] Human rotavirus B strain Bang373 inner capsid protein (VP2) gene, complete cds.
+16890127 2847 0
+0 NC_021546 [NC_021546] Human rotavirus B strain Bang373 nonstructural protein 1-1 (NSP1-1), nonstructural protein 1-2 (NSP1-2), and nonstructural protein 1-3 (NSP1-3) genes, complete cds.
+16892974 1276 0
+0 NC_021547 [NC_021547] Human rotavirus B strain Bang373 nonstructural protein (NSP3) gene, complete cds.
+16894250 1179 0
+0 NC_021548 [NC_021548] Human rotavirus B strain Bang373 nonstructural protein (NSP2) gene, complete cds.
+16895429 1007 0
+0 NC_021549 [NC_021549] Human rotavirus B strain Bang373 nonstructural protein (NSP5) gene, complete cds.
+16896436 631 0
+0 NC_021550 [NC_021550] Human rotavirus B strain Bang373 nonstructural protein (NSP4) gene, complete cds.
+16897067 751 0
+0 NC_021551 [NC_021551] Human rotavirus B strain Bang373 VP3 (VP3) mRNA, complete cds.
+16897818 2341 0
+0 NC_021568 [NC_021568] Human cyclovirus VS5700009, complete genome.
+16900159 1832 0
+0 NC_021928 [NC_021928] Human parainfluenza virus 4a viral cRNA, complete genome, strain: M-25.
+16901991 17052 1
+0 NC_022089 [NC_022089] Parvovirus NIH-CQV putative 15-kDa protein, putative replication associated protein (rep), and putative capsid protein (cap) genes, complete cds.
+16919043 3780 0
+0 NC_022095 [NC_022095] Human papillomavirus type 179 complete genome, isolate SIBX16.
+16922823 7228 1
+0 NC_022518 [NC_022518] Human endogenous retrovirus K113 complete genome.
+16930051 9472 3
+0 NC_022788 [NC_022788] Gyrovirus Tu243, complete genome.
+16939523 2020 0
+0 NC_022789 [NC_022789] Gyrovirus Tu789, complete genome.
+16941543 2282 0
+0 NC_022892 [NC_022892] Human papillomavirus type 167 isolate KC10, complete genome.
+16943825 7228 0
+0 NC_023874 [NC_023874] Human associated cyclovirus 10 strain 7078A, complete genome.
+16951053 1790 0
+0 NC_023888 [NC_023888] Circo-like virus-Brazil hs1, complete genome.
+16952843 2526 2
+0 NC_023891 [NC_023891] Human papillomavirus type 178, complete genome.
+16955369 7314 1
+0 NC_023984 [NC_023984] Human cosavirus isolate Cosavirus_Amsterdam_1994, complete genome.
+16962683 7802 0
+0 NC_024070 [NC_024070] Rosavirus 2 strain GA7403, complete genome.
+16970485 8931 1
+0 NC_024118 [NC_024118] New Jersey polyomavirus-2013 isolate NJ-PyV-2013, complete genome.
+16979416 5108 1
+0 NC_024472 [NC_024472] Human astrovirus BF34, complete genome.
+16984524 6577 0
+0 NC_024494 [NC_024494] Heartland virus isolate Patient1 segment M, complete sequence.
+16991101 3427 0
+0 NC_024495 [NC_024495] Heartland virus isolate Patient1 segment L, complete sequence.
+16994528 6368 0
+0 NC_024496 [NC_024496] Heartland virus isolate Patient1 segment S, complete sequence.
+17000896 1772 0
+0 NC_024691 [NC_024691] MSSI2.225 virus complete sequence.
+17002668 2259 0
+0 NC_024694 [NC_024694] Human circovirus VS6600022, complete genome.
+17004927 2836 1
+0 NC_024781 [NC_024781] Marburg marburgvirus isolate Ravn virus/H.sapiens-tc/KEN/1987/Kitum Cave-810040, complete genome.
+17007763 19114 1
+0 NC_024888 [NC_024888] Bufavirus-3 genes for NS1, putative VP1, hypothetical protein, VP2, complete cds, strain: BTN-63.
+17026877 4733 1
+0 NC_025114 [NC_025114] Salivirus FHB, complete genome.
+17031610 7998 3
+0 NC_025255 [NC_025255] Maraba virus from Brazil, complete genome.
+17039608 11135 1
+0 NC_025343 [NC_025343] Sosuga virus isolate 2012, complete genome.
+17050743 15480 1
+0 NC_025347 [NC_025347] Avian paramyxovirus 7 strain APMV-7/dove/Tennessee/4/75, complete genome.
+17066223 15480 1
+0 NC_025408 [NC_025408] Lyssavirus Ozernoe, complete genome.
+17081703 11980 0
+0 NC_025726 [NC_025726] Torque teno mini virus ALA22, complete genome.
+17093683 2914 1
+0 NC_025727 [NC_025727] Torque teno mini virus ALH8, complete genome.
+17096597 2855 1
+0 NC_025961 [NC_025961] Cosavirus JMY-2014 isolate Cosa-CHN, complete genome.
+17099452 7213 0
+0 NC_026252 [NC_026252] Human smacovirus 1 isolate France/12/2008/3454, complete genome.
+17106665 2460 0
+0 NC_026422 [NC_026422] Influenza A virus (A/Shanghai/02/2013(H7N9)) segment 1 polymerase PB2 (PB2) gene, complete cds.
+17109125 2280 0
+0 NC_026423 [NC_026423] Influenza A virus (A/Shanghai/02/2013(H7N9)) segment 2 polymerase PB1 (PB1) and PB1-F2 protein (PB1-F2) genes, complete cds.
+17111405 2297 0
+0 NC_026424 [NC_026424] Influenza A virus (A/Shanghai/02/2013(H7N9)) segment 3 polymerase PA (PA) and PA-X protein (PA-X) genes, complete cds.
+17113702 2176 0
+0 NC_026425 [NC_026425] Influenza A virus (A/Shanghai/02/2013(H7N9)) segment 4 hemagglutinin (HA) gene, complete cds.
+17115878 1708 0
+0 NC_026426 [NC_026426] Influenza A virus (A/Shanghai/02/2013(H7N9)) segment 5 nucleocapsid protein (NP) gene, complete cds.
+17117586 1506 0
+0 NC_026427 [NC_026427] Influenza A virus (A/Shanghai/02/2013(H7N9)) segment 7 matrix protein 2 (M2) and matrix protein 1 (M1) genes, complete cds.
+17119092 985 0
+0 NC_026428 [NC_026428] Influenza A virus (A/Shanghai/02/2013(H7N9)) segment 8 nuclear export protein (NEP) and nonstructural protein 1 (NS1) genes, complete cds.
+17120077 841 0
+0 NC_026429 [NC_026429] Influenza A virus (A/Shanghai/02/2013(H7N9)) segment 6 neuraminidase (NA) gene, complete cds.
+17120918 1398 1
+0 NC_026431 [NC_026431] Influenza A virus (A/California/07/2009(H1N1)) segment 7 matrix protein 2 (M2) and matrix protein 1 (M1) genes, complete cds.
+17122316 982 0
+0 NC_026432 [NC_026432] Influenza A virus (A/California/07/2009(H1N1)) segment 8 nuclear export protein (NEP) and nonstructural protein 1 (NS1) genes, complete cds.
+17123298 863 0
+0 NC_026433 [NC_026433] Influenza A virus (A/California/07/2009(H1N1)) segment 4 hemagglutinin (HA) gene, complete cds.
+17124161 1701 2
+0 NC_026434 [NC_026434] Influenza A virus (A/California/07/2009(H1N1)) segment 6 neuraminidase (NA) gene, complete cds.
+17125862 1410 0
+0 NC_026435 [NC_026435] Influenza A virus (A/California/07/2009(H1N1)) segment 2 polymerase PB1 (PB1) gene, complete cds; and nonfunctional PB1-F2 protein (PB1-F2) gene, complete sequence.
+17127272 2274 0
+0 NC_026436 [NC_026436] Influenza A virus (A/California/07/2009(H1N1)) segment 5 nucleocapsid protein (NP) gene, complete cds.
+17129546 1497 1
+0 NC_026437 [NC_026437] Influenza A virus (A/California/07/2009(H1N1)) segment 3 polymerase PA (PA) gene, complete cds.
+17131043 2151 1
+0 NC_026438 [NC_026438] Influenza A virus (A/California/07/2009(H1N1)) segment 1 polymerase PB2 (PB2) gene, complete cds.
+17133194 2280 0
+0 NC_026817 [NC_026817] Human genital-associated circular DNA virus-1 isolate 349, complete genome.
+17135474 2235 0
+0 NC_026818 [NC_026818] Gemycircularvirus SL1, complete genome.
+17137709 2199 1
+0 NC_026946 [NC_026946] Human papillomavirus KC5, complete genome.
+17139908 7143 0
+0 NC_027026 [NC_027026] Sapovirus Hu/Nagoya/NGY-1/2012/JPN genomic RNA, complete genome.
+17147051 7521 1
+0 NC_027528 [NC_027528] Human papillomavirus type 201 isolate HPV201, complete genome.
+17154572 7291 1
+0 NC_027779 [NC_027779] Human papillomavirus isolate SE379, complete genome.
+17161863 7320 2
+0 NC_027998 [NC_027998] Human pegivirus 2 isolate UC0125.US polyprotein gene, complete cds.
+17169183 9867 0
+0 NC_028125 [NC_028125] Human papillomavirus type 163 isolate KC3, complete genome.
+17179050 7233 0
+0 NC_028459 [NC_028459] Human plasma-associated gemycircularvirus isolate DB1, complete genome.
+17186283 2272 1
+0 NC_029054 [NC_029054] Potiskum virus strain IBAN 10069 polyprotein gene, complete cds.
+17188555 10173 0
+0 NC_029606 [NC_029606] Lake Sarah-associated circular molecule 4 isolate LSaCM-4-LSSO-2013, complete sequence.
+17198728 838 0
+0 NC_029646 [NC_029646] Norovirus GII nonstructural polyprotein (ORF1), VP1 (ORF2), and VP2 (ORF3) genes, complete cds.
+17199566 7518 0
+0 NC_029647 [NC_029647] Norovirus GIV nonstructural polyprotein (ORF1), VP1 (ORF2), and VP2 (ORF3) genes, complete cds.
+17207084 7527 0
+0 NC_030297 [NC_030297] Torque teno mini virus 18 isolate 222, complete genome.
+17214611 2803 1
+0 NC_030447 [NC_030447] Gemycircularvirus HV-GcV1, complete genome.
+17217414 2264 0
+0 NC_030448 [NC_030448] Gemycircularvirus HV-GcV2, complete genome.
+17219678 2262 0
+0 NC_030449 [NC_030449] Unidentified circular ssDNA virus, complete genome.
+17221940 2951 0
+0 NC_030454 [NC_030454] Human enterovirus strain V13-0285, partial genome.
+17224891 7317 4
+0 NC_030791 [NC_030791] Hepatitis C virus genotype 7, complete genome.
+17232208 9443 13
+0 NC_030922 [NC_030922] Mamastrovirus 1 genomic RNA, complete genome, isolate: V1347.
+17241651 6673 2
+0 NC_032480 [NC_032480] Husavirus sp. isolate 16370_59, complete genome.
+17248324 8856 5
+0 NC_032682 [NC_032682] Indian encephalitis associated cyclovirus isolate IECSF08, complete genome.
+17257180 1723 0
+0 NC_033721 [NC_033721] Meaban virus from France polyprotein gene, complete cds.
+17258903 10266 0
+0 NC_033723 [NC_033723] Gadgets Gully virus from Australia polyprotein gene, complete cds.
+17269169 10251 0
+0 NC_033724 [NC_033724] Kadam virus from Uganda polyprotein gene, complete cds.
+17279420 10215 0
+0 NC_033726 [NC_033726] Saumarez Reef virus from Australia polyprotein gene, complete cds.
+17289635 10269 0
+0 NC_033781 [NC_033781] Human papillomavirus type 156 isolate GC01, complete genome.
+17299904 7329 0
+0 NC_033830 [NC_033830] Munguba virus segment L, complete sequence.
+17307233 6466 0
+0 NC_033831 [NC_033831] Munguba virus segment S, complete sequence.
+17313699 1806 0
+0 NC_033847 [NC_033847] Munguba virus segment M, complete sequence.
+17315505 4651 0
+0 NC_034253 [NC_034253] LI polyomavirus isolate LIPyV, complete genome.
+17320156 5269 0
+0 NC_034254 [NC_034254] Dhori virus isolate Dhori/1313/61 segment 3, complete sequence.
+17325425 1972 0
+0 NC_034255 [NC_034255] Dhori virus isolate Dhori/1313/61 segment 4, complete sequence.
+17327397 1606 0
+0 NC_034256 [NC_034256] Dhori virus isolate Dhori/1313/61 segment 6, complete sequence.
+17329003 961 0
+0 NC_034261 [NC_034261] Dhori virus isolate Dhori/1313/61 segment 1, complete sequence.
+17329964 2375 0
+0 NC_034262 [NC_034262] Dhori virus isolate Dhori/1313/61 segment 5, complete sequence.
+17332339 1478 0
+0 NC_034263 [NC_034263] Dhori virus isolate Dhori/1313/61 segment 2, complete sequence.
+17333817 2224 0
+0 NC_034385 [NC_034385] Human cosavirus F strain PK5006 polyprotein gene, complete cds.
+17336041 6656 0
+0 NC_034443 [NC_034443] Le Dantec virus nucleoprotein, phosphoprotein, matrix, glycoprotein, hypothetical protein, and polymerase genes, complete cds.
+17342697 11450 1
+0 NC_034444 [NC_034444] Hom-1 vesivirus, complete genome.
+17354147 8399 0
+0 NC_034479 [NC_034479] Bwamba virus strain M459 segment L polymerase gene, complete cds.
+17362546 6934 1
+0 NC_034480 [NC_034480] Bwamba virus strain M459 segment S nucleoprotein and nonstructural protein NSs genes, complete cds.
+17369480 1096 1
+0 NC_034486 [NC_034486] Guaroa virus strain BeH22063 segment S, complete sequence.
+17370576 955 0
+0 NC_034487 [NC_034487] Guaroa virus strain BeH22063 segment L, complete sequence.
+17371531 6824 1
+0 NC_034490 [NC_034490] Bwamba virus strain M459 segment M glycoprotein precursor gene, complete cds.
+17378355 4557 2
+0 NC_034497 [NC_034497] Madrid virus strain BT4075 RNA-dependent RNA polymerase gene, complete cds.
+17382912 6872 0
+0 NC_034498 [NC_034498] Madrid virus strain BT4075 nucleocapsid protein and nonstructural protein genes, complete cds.
+17389784 1090 0
+0 NC_034505 [NC_034505] Madrid virus strain BT4075 polyprotein gene, complete cds.
+17390874 4642 0
+0 NC_034506 [NC_034506] Guaroa virus strain BeH22063 segment M, complete sequence.
+17395516 4486 0
+0 NC_034616 [NC_034616] Human papillomavirus type 85 isolate 114B, complete genome.
+17400002 7812 7
+0 NC_035211 [NC_035211] Human fecal virus Jorvi4, complete genome.
+17407814 2343 0
+0 NC_035212 [NC_035212] Human fecal virus Jorvi2, complete genome.
+17410157 3925 4
+0 NC_035213 [NC_035213] Human fecal virus Jorvi3, complete genome.
+17414082 1942 0
+0 NC_035469 [NC_035469] NY_014 poxvirus strain 2013, complete genome.
+17416024 200223 39
+0 NC_035474 [NC_035474] Human feces smacovirus 3 isolate P21, complete genome.
+17616247 2560 1
+0 NC_035475 [NC_035475] Hudisavirus sp. isolate P22, complete genome.
+17618807 2585 2
+0 NC_035758 [NC_035758] Bastrovirus 7, complete genome.
+17621392 6339 0
+0 NC_035889 [NC_035889] Zika virus isolate ZIKV/H. sapiens/Brazil/Natal/2015, complete genome.
+17627731 10808 0
+0 NC_036584 [NC_036584] Unidentified human coronavirus isolate FT1407-6/2014 spike glycprotein gene, complete cds.
+17638539 4068 1
+0 NC_036877 [NC_036877] Cyclovirus PK5006, complete genome.
+17642607 1723 0
+0 NC_038235 [NC_038235] Human respiratory syncytial virus nonstructural protein 1, nonstructural protein 2, nucleocapsid protein, phosphoprotein, matrix protein, small hydrophobic protein, glycoprotein, fusion glycoprotein, 22K/M2 protein and L protein mRNA, complete cds.
+17644330 15222 1
+0 NC_038236 [NC_038236] Vesicular stomatitis Indiana virus strain 98COE, complete genome.
+17659552 11162 1
+0 NC_038282 [NC_038282] Ekpoma virus 1 isolate EKV-1, partial genome.
+17670714 12659 0
+0 NC_038283 [NC_038283] Ekpoma virus 2 isolate EKV-2, partial genome.
+17683373 12674 1
+0 NC_038294 [NC_038294] Betacoronavirus England 1, complete genome.
+17696047 30111 1
+0 NC_038307 [NC_038307] Coxsackievirus B3 mRNA, complete genome.
+17726158 7399 0
+0 NC_038311 [NC_038311] Human rhinovirus 1 strain ATCC VR-1559, complete genome.
+17733557 7137 3
+0 NC_038312 [NC_038312] Human rhinovirus 3, complete genome.
+17740694 7208 0
+0 NC_038319 [NC_038319] polyprotein [echovirus 22 EV22, Harris, Genomic RNA Complete, 7339 nt].
+17747902 7339 0
+0 NC_038337 [NC_038337] Torque teno virus 9 clone BM1C-18 ORF2 (ORF2) gene, complete cds; and nonfunctional ORF1 (ORF1) gene, complete sequence.
+17755241 3064 2
+0 NC_038345 [NC_038345] Torque teno mini virus 10 isolate LIL-y1 ORF2, ORF1, ORF3, and ORF4 genes, complete cds.
+17758305 2887 2
+0 NC_038346 [NC_038346] Torque teno mini virus 11 isolate LIL-y2 ORF2, ORF1, and ORF3 genes, complete cds.
+17761192 2871 0
+0 NC_038347 [NC_038347] Torque teno mini virus 12 isolate LIL-y3 ORF2, ORF1, ORF3, and ORF4 genes, complete cds.
+17764063 2912 1
+0 NC_038350 [NC_038350] Torque teno midi virus 3 isolate 2PoSMA ORF2 and ORF1 genes, complete cds.
+17766975 2002 2
+0 NC_038351 [NC_038351] Torque teno midi virus 4 isolate 6PoSMA ORF2, ORF1, and ORF3 genes, complete cds.
+17768977 2454 0
+0 NC_038352 [NC_038352] Torque teno midi virus 5 DNA, complete genome, isolate: MDJHem2.
+17771431 3208 5
+0 NC_038353 [NC_038353] Torque teno midi virus 6 DNA, complete genome, isolate: MDJHem3-1.
+17774639 3198 4
+0 NC_038354 [NC_038354] Torque teno midi virus 7 DNA, complete genome, isolate: MDJHem3-2.
+17777837 3197 2
+0 NC_038355 [NC_038355] Torque teno midi virus 8 DNA, complete genome, isolate: MDJN1.
+17781034 3223 4
+0 NC_038356 [NC_038356] Torque teno midi virus 9 DNA, complete genome, isolate: MDJN2.
+17784257 3187 3
+0 NC_038357 [NC_038357] Torque teno midi virus 10 DNA, complete genome, isolate: MDJN14.
+17787444 3175 3
+0 NC_038358 [NC_038358] Torque teno midi virus 11 DNA, complete genome, isolate: MDJN47.
+17790619 3198 4
+0 NC_038359 [NC_038359] Torque teno midi virus 12 DNA, complete genome, isolate: MDJN51.
+17793817 3187 7
+0 NC_038360 [NC_038360] Torque teno midi virus 13 DNA, complete genome, isolate: MDJN69.
+17797004 3230 4
+0 NC_038361 [NC_038361] Torque teno midi virus 14 DNA, complete genome, isolate: MDJN97.
+17800234 3223 5
+0 NC_038392 [NC_038392] Human stool-associated circular virus NG13, complete genome.
+17803457 1699 0
+0 NC_038412 [NC_038412] Cyclovirus PK5510, complete genome.
+17805156 1759 0
+0 NC_038413 [NC_038413] Cyclovirus PK5222, complete genome.
+17806915 1740 1
+0 NC_038414 [NC_038414] Cyclovirus TN25, complete genome.
+17808655 1867 0
+0 NC_038415 [NC_038415] Cyclovirus PK5034, complete genome.
+17810522 1780 0
+0 NC_038416 [NC_038416] Cyclovirus NG12, complete genome.
+17812302 1794 0
+0 NC_038417 [NC_038417] Cyclovirus NG14, complete genome.
+17814096 1795 0
+0 NC_038418 [NC_038418] Cyclovirus SL-108277, complete genome.
+17815891 1710 1
+0 NC_038436 [NC_038436] Human hepegivirus isolate AK-790 polyprotein gene, complete cds.
+17817601 9538 0
+0 NC_038496 [NC_038496] Gemycircularvirus C1c capsid protein (Cap) gene, complete cds.
+17827139 2109 1
+0 NC_038497 [NC_038497] Human gemycircularvirus GeTz1, complete genome.
+17829248 2202 0
+0 NC_038522 [NC_038522] Human papillomavirus type 161 isolate KC1, complete genome.
+17831450 7238 0
+0 NC_038523 [NC_038523] Human papillomavirus type 172, complete genome.
+17838688 7203 3
+0 NC_038524 [NC_038524] Human papillomavirus type 175 isolate SE87, complete genome.
+17845891 7226 2
+0 NC_038525 [NC_038525] Human papillomavirus type 204 isolate A342, complete genome.
+17853117 7227 1
+0 NC_038594 [NC_038594] Lebombo virus isolate SAAR 3896 segment 1, complete sequence.
+17860344 3936 0
+0 NC_038595 [NC_038595] Lebombo virus isolate SAAR 3896 segment 3, complete sequence.
+17864280 2976 0
+0 NC_038596 [NC_038596] Lebombo virus isolate SAAR 3896 segment 4, complete sequence.
+17867256 1971 0
+0 NC_038597 [NC_038597] Lebombo virus isolate SAAR 3896 segment 6, complete sequence.
+17869227 1601 0
+0 NC_038598 [NC_038598] Lebombo virus isolate SAAR 3896 segment 8, complete sequence.
+17870828 1108 0
+0 NC_038599 [NC_038599] Lebombo virus isolate SAAR 3896 segment 7, complete sequence.
+17871936 1166 0
+0 NC_038600 [NC_038600] Lebombo virus isolate SAAR 3896 segment 2, complete sequence.
+17873102 3017 1
+0 NC_038601 [NC_038601] Lebombo virus isolate SAAR 3896 segment 5, complete sequence.
+17876119 1736 0
+0 NC_038602 [NC_038602] Lebombo virus isolate SAAR 3896 segment 10, complete sequence.
+17877855 739 0
+0 NC_038603 [NC_038603] Lebombo virus isolate SAAR 3896 segment 9, complete sequence.
+17878594 997 1
+0 NC_038604 [NC_038604] Orungo virus isolate UGMP 359 segment 1, complete sequence.
+17879591 3942 0
+0 NC_038605 [NC_038605] Orungo virus isolate UGMP 359 segment 2, complete sequence.
+17883533 2933 0
+0 NC_038606 [NC_038606] Orungo virus isolate UGMP 359 segment 4, complete sequence.
+17886466 1957 0
+0 NC_038607 [NC_038607] Orungo virus isolate UGMP 359 segment 7, complete sequence.
+17888423 1166 0
+0 NC_038608 [NC_038608] Orungo virus isolate UGMP 359 segment 8, complete sequence.
+17889589 1089 0
+0 NC_038609 [NC_038609] Orungo virus isolate UGMP 359 segment 6, complete sequence.
+17890678 1605 0
+0 NC_038610 [NC_038610] Orungo virus isolate UGMP 359 segment 3, complete sequence.
+17892283 2781 0
+0 NC_038611 [NC_038611] Orungo virus isolate UGMP 359 segment 5, complete sequence.
+17895064 1735 0
+0 NC_038612 [NC_038612] Orungo virus isolate UGMP 359 segment 9, complete sequence.
+17896799 925 0
+0 NC_038613 [NC_038613] Orungo virus isolate UGMP 359 segment 10, complete sequence.
+17897724 761 0
+0 NC_038726 [NC_038726] Catu virus strain BeH 151 nucleocapsid protein gene, complete cds.
+17898485 807 0
+0 NC_038727 [NC_038727] Catu virus strain BeH 151 polyprotein gene, complete cds.
+17899292 4420 0
+0 NC_038728 [NC_038728] Catu virus strain BeH 151 RNA-dependent RNA polymerase gene, complete cds.
+17903712 6797 0
+0 NC_038878 [NC_038878] Human rhinovirus NAT001 polyprotein gene, complete cds.
+17910509 6944 0
+0 NC_038889 [NC_038889] Human papillomavirus type 30 genomic DNA.
+17917453 7852 2
+0 NC_038914 [NC_038914] Human papillomavirus type 184 complete genome, isolate SIBX17.
+17925305 7324 1
+0 NC_039024 [NC_039024] Central cimpanzee simian foamy virus isolate BAD327, complete genome.
+17932629 13220 0
+0 NC_039025 [NC_039025] Eastern chimpanzee simian foamy virus clone pHSRV13, complete genome.
+17945849 11954 2
+0 NC_039050 [NC_039050] Cutavirus strain BR-337 NS1, putative VP1, hypothetical protein, VP2, and hypothetical protein genes, complete cds.
+17957803 4456 4
+0 NC_039061 [NC_039061] Human associated huchismacovirus 1 isolate Oregon/6/2011/GottageGrove/5A1, complete genome.
+17962259 2460 0
+0 NC_039062 [NC_039062] Human associated huchismacovirus 2 isolate France/8/2008/2444, complete genome.
+17964719 2471 0
+0 NC_039063 [NC_039063] Human associated huchismacovirus 3 isolate France/1/2009/3664, complete genome.
+17967190 2459 0
+0 NC_039070 [NC_039070] Human feces smacovirus 2 strain SmaCV2, complete genome.
+17969649 2601 0
+0 NC_039086 [NC_039086] Human papillomavirus type 187 isolate ACS447, complete genome.
+17972250 7268 0
+0 NC_039089 [NC_039089] Human papillomavirus type 71 DNA, complete genome.
+17979518 8017 4
+0 NC_039191 [NC_039191] Punta Toro virus strain Adames M protein gene, complete cds.
+17987535 4348 1
+0 NC_039192 [NC_039192] Punta Toro virus strain Adames L protein gene, complete cds.
+17991883 6407 0
+0 NC_039193 [NC_039193] Punta Toro virus strain Adames N protein and NS protein genes, complete cds.
+17998290 1863 1
+0 NC_039199 [NC_039199] Human metapneumovirus isolate 00-1, complete genome.
+18000153 13350 4
+0 NC_039215 [NC_039215] Cyclovirus VN isolate hcf2, complete genome.
+18013503 1856 0
+0 NC_039218 [NC_039218] Kyasanur forest disease virus polyprotein gene, complete cds.
+18015359 10376 1
+0 S47716 [S47716] Seoul virus 80-39 glycoprotein precusor gene, complete cds.
+18025735 3651 1
+0 V01149 [V01149] Human poliovirus 1 Mahoney, complete genome.
+18029386 7440 0
+0 X00925 [X00925] Poliovirus type 3 leon 12 a1b sequence (P3/Leon 12 a1b).
+18036826 7432 0
+0 X04370 [X04370] Human herpesvirus 3 (strain Dumas) complete genome.
+18044258 124884 11
+0 X05015 [X05015] Human papillomavirus type 18 E6, E7, E1, E2, E4, E5, L1 & L2 genes.
+18169142 7857 1
+0 X05690 [X05690] Coxsackievirus B4 complete genome.
+18176999 7395 0
+0 X53794 [X53794] Toscana virus sRNA for NS and N protein.
+18184394 1869 1
+0 X54482 [X54482] Simian foamy virus type 1 complete genome.
+18186263 12972 0
+0 X55964 [X55964] Human papilloma virus type 2a complete DNA.
+18199235 7860 2
+0 X55965 [X55965] Human papillomavirus type 57 complete DNA.
+18207095 7861 3
+0 X56492 [X56492] Seoul virus 80-39 L gene for RNA-dependent RNA polymerase, genomic RNA.
+18214956 6530 1
+0 X67706 [X67706] Coxsackievirus B5 complete genome.
+18221486 7402 0
+0 X70829 [X70829] Human papillomavirus type 65 complete genome.
+18228888 7308 2
+0 X73487 [X73487] Adenovirus type 12 DNA, complete genome.
+18236196 34125 5
+0 X74462 [X74462] Human papillomavirus type 3 genomic DNA.
+18270321 7820 5
+0 X74466 [X74466] Human papillomavirus type 12 genomic DNA.
+18278141 7673 1
+0 X74467 [X74467] Human papillomavirus type 14D genomic DNA.
+18285814 7439 3
+0 X74468 [X74468] Human papillomavirus type 15 genomic DNA.
+18293253 7412 1
+0 X74469 [X74469] Human papillomavirus type 17 genomic DNA.
+18300665 7427 1
+0 X74470 [X74470] Human papillomavirus type 19 genomic DNA.
+18308092 7685 3
+0 X74471 [X74471] Human papillomavirus type 25 genomic DNA.
+18315777 7713 2
+0 X74473 [X74473] Human papillomavirus type 27 genomic DNA.
+18323490 7823 2
+0 X74478 [X74478] Human papillomavirus type 40 genomic DNA.
+18331313 7909 4
+0 X74479 [X74479] Human papillomavirus type 45 genomic DNA.
+18339222 7858 3
+0 X74481 [X74481] Human papillomavirus type 52 genomic DNA.
+18347080 7942 2
+0 X74483 [X74483] Human papillomavirus type 56 genomic DNA.
+18355022 7844 5
+0 X77708 [X77708] Echovirus type 12, prototype Travis complete RNA genome.
+18362866 7501 1
+0 X77858 [X77858] Human papilloma virus type 59, complete viral genome.
+18370367 7896 3
+0 X84981 [X84981] Echovirus 9 (strain Hill), complete genome.
+18378263 7420 0
+0 X86557 [X86557] Lordsdale virus complete genome.
+18385683 7555 0
+0 X89628 [X89628] Toscana virus M segment, genomic RNA, strain toscana.
+18393238 4215 0
+0 X92886 [X92886] Echovirus 9 (strain Barty), complete genome.
+18397453 7451 0
+0 Y07725 [Y07725] Human foamy virus proviral DNA, complete genome HFV.
+18404904 13242 2
+0 Y13051 [Y13051] Human T-cell lymphotropic virus type 2 (african isolate) DNA, complete genome.
+18418146 8960 2
+0 Z12132 [Z12132] Marburg virus - Musoke, Kenya, 1980 genes for vp35, vp40, vp30, vp24, glycoprotein, nucleoprotein, polymerase.
+18427106 19104 0
