@@ -1,1 +1,3 @@
-resources/
+resources/hg38/Homo*
+resources/hg38/shapeit/Phasing_reference/*
+resources/hg38/shapeit/shapeit_maps/*
