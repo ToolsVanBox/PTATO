@@ -26,9 +26,6 @@ Includes QC and SNV, INDEL, SV and CNV filtration.
 1. [Install Nextflow](https://www.nextflow.io/docs/latest/getstarted.html#installation)
 2. [Install Singularity](https://sylabs.io/guides/3.5/admin-guide/)
 3. [Pull/Clone PTATO](#pull-or-clone)
-4. [Get & configure resources](docs/resources.md)
-5. [Configure nextflow](docs/nextflow.md)
-6. [Configure processes](docs/processes.md)
 
 ## Pull or Clone 
 ```
