@@ -45,7 +45,7 @@ process intersectAll {
     host=\$(hostname)
     echo \${host}
     names=''
-    regex=".+\\.([A-Z]+).merged.bed"
+    regex=".+\\.([A-Z]+).groupby.bed"
     for feature in ${b1} ${b2}; do
       if [[ \$feature =~ \$regex ]]; then
         name="\${BASH_REMATCH[1]}"

@@ -1,3 +1,6 @@
+# This script is used to calculate sample-specific PTA probability cutoffs
+# The final cutoffs are determined based on two complementary methods: the linked read (walker) cutoff and the cosine similarity cutoff
+
 library(VariantAnnotation)
 library(MutationalPatterns)
 
@@ -10,19 +13,20 @@ prec_cutoff = args[4]
 out_table_fname = args[5]
 
 library( ref_genome, character.only = TRUE )
+genome <- gsub(ref_genome, pattern = ".*\\.", replacement = "") # assuming the ref_genome is BSgenome object (eg BSgenome.Hsapiens.UCSC.hg38)
 
-ptato_vcf <- readVcf( ptato_vcf_fname )
-walker_vcf <- readVcf( walker_vcf_fname )
+ptato_vcf <- readVcf( ptato_vcf_fname, genome = genome)
+walker_vcf <- readVcf( walker_vcf_fname, genome = genome)
 
 ptato_gr <- granges(ptato_vcf)
 ptato_gr_df <- as.data.frame(ptato_gr)
+# For some variants, not all RF features can be determined. Therefore, PTATO calculates three PTAprobs for each variants: 1 =  RF with all features, 2 = RF without allelic imbalance and 3 = RF without repliseq and allelic imbalance. If PTAprob 1 cannot be determined, PTAprob 2 will be used (and PTAprob 3 if 2 can also not be determined)
 PTAprob1 <- as.numeric(geno(ptato_vcf)$PTAprob[,,1])
 PTAprob2 <- as.numeric(geno(ptato_vcf)$PTAprob[,,2])
 PTAprob3 <- as.numeric(geno(ptato_vcf)$PTAprob[,,3])
 PTAprob <- PTAprob1
-PTAprob[which(PTAprob == 0)] <- PTAprob2[which(PTAprob == 0)]
-PTAprob[which(PTAprob == 0)] <- PTAprob3[which(PTAprob == 0)]
-
+PTAprob[which(PTAprob == 0 | is.na(PTAprob))] <- PTAprob2[which(PTAprob == 0 | is.na(PTAprob))]
+PTAprob[which(PTAprob == 0 | is.na(PTAprob))] <- PTAprob3[which(PTAprob == 0 | is.na(PTAprob))]
 ptato_gr_df$PTAprob <- PTAprob
 
 walker_gr <- granges(walker_vcf)
@@ -35,6 +39,9 @@ merged_df_scores <- na.omit(merged_df[,c("seqnames","start","PTAprob","WS")])
 true_ws <- 1000
 false_ws <- 1
 
+# the linked read (walker) analysis determined a small set of true and false positive variants
+# a range of PTAprob cutoff values is made, and for each cutoff the number of included and excluded linked-read based true and false positives is calculated (with precision, recall, specificity and accuracy)
+# the cutoff with the smallest difference between precision and recall is taken as the final linked-read (walker) cutoff
 myresult <- matrix(ncol=10)[-1,]
 for (p in seq(0,1,0.01)) {
   TP <- nrow(merged_df_scores[merged_df_scores$WS >= true_ws & merged_df_scores$PTAprob <= p,])
@@ -58,7 +65,7 @@ if (nrow(merged_df) == 0) {
   maxf1 <- myresult[which(myresult$p == min(myresult[which(myresult$F1 == max(na.omit(myresult$F1))),]$p)),]
   myresult2 <- myresult[which( abs(myresult$recall-myresult$precision) > 0 ),]
   prec_rec <- myresult2[which(abs(myresult2$recall-myresult2$precision) == min(na.omit(abs(myresult2$recall-myresult2$precision)))),]
-
+  # the prec-recall can be the same at multiple cutoffs, therefore take the mean of these cutoffs
   PTAprob_cutoff_walker <- mean(prec_rec$PTAprob_cutoff)
   if ( length(grep("indels.ptato",ptato_vcf_fname)) > 0 ) {
     PTAprob_cutoff <- c(as.numeric(PTAprob_cutoff_walker),'NA')
@@ -72,8 +79,10 @@ if (nrow(merged_df) == 0) {
       seqlevels(ptato_vcf) <- gsub("chr", "", seqlevels(ptato_vcf))
     }
 
+    # the chroms in the ptato_gr should be the same as the chroms in the ref_genome
     ptato_vcf <- ptato_vcf[which(seqnames(ptato_vcf) %in% chroms),]
     ptato_gr <- rowRanges(ptato_vcf)
+    seqlevels(ptato_gr) <- seqlevels(ptato_gr)[seqlevels(ptato_gr) %in% chroms]
     PTAprob1 <- as.numeric(geno(ptato_vcf)$PTAprob[,,1])
     PTAprob2 <- as.numeric(geno(ptato_vcf)$PTAprob[,,2])
     PTAprob3 <- as.numeric(geno(ptato_vcf)$PTAprob[,,3])
@@ -85,11 +94,8 @@ if (nrow(merged_df) == 0) {
     # Makes a list with two mutation matrices. Each matrix contains the mutation profiles at different PTAprobsCutoffs. One matrix contains the mutations passing the filter (eg PTAprob of variant <= Cutoff), the other contains the mutations failing the filter (eg PTAprob of variant > Cutoff)
     # Additionally, the original PTAprobCutoff as determined by PTATO is also included in the list
     calc_cosim_mutmat <- function(gr, cutoffs =  seq(0.1, 0.8, 0.025)){
-      GenomeInfoDb::genome(gr) <- 'hg38'
-      seqlevels(gr) <- chroms
       grl_cosim <- list()
       grl_removed <- list()
-
       for(cutoff in cutoffs){
         #print(cutoff)
         grl_cosim[[as.character(cutoff)]] <- gr[which(gr$PTAprob <= cutoff)]
@@ -103,18 +109,23 @@ if (nrow(merged_df) == 0) {
 
     mut_mat_cosim <- calc_cosim_mutmat(gr = ptato_gr)
 
+    # Calculate the cosine similarities between all the mutation profiles (of the mutations < than that specific cutoff) at each different cutoff
     cos_sim_matrix <- cos_sim_matrix(mut_mat_cosim[["PASS"]], mut_mat_cosim[["PASS"]])
 
-    ### CLustering (code from MutationalPatterns)
-    hc.sample <- hclust(dist(cos_sim_matrix[7:nrow(cos_sim_matrix),
-                                            7:ncol(cos_sim_matrix)]), method = "complete")
+    # Cluster the mutation profiles of each different cutoff (code from MutationalPatterns)
+    # The first profiles are excluded, because they contain too few variants
+    hc.sample <- hclust(dist(cos_sim_matrix[8:nrow(cos_sim_matrix),
+                                            8:ncol(cos_sim_matrix)]), method = "complete")
 
-    # This function can be used to get the samples in two clusters
-    sub_grp <- cutree(hc.sample, k = 2)
-    PTAprob_cutoff_cluster <- max(names(sub_grp[sub_grp == 1]))
+    # Divide the cosine similarity matrix in four clusters (1 = true pos (low number, low PTAprobs), 2 = mostly true pos, 3 = mix of true+false pos, 4 = false pos, high PTAprobs)
+    sub_grp <- cutree(hc.sample, k = 4)
+    # The mean value of the third cluster (containing a mix of true and false positives) is taken as the Cosine Similarity cutoff
+    PTAprob_cutoff_cluster <- mean(as.numeric(names(sub_grp[sub_grp == 3])))
 
-    if ( prec_rec$precision < prec_cutoff ) {
-      PTAprob_cutoff_conf <- c("NA",PTAprob_cutoff_cluster)
+    # Calculate the final PTAprob cutoff.
+    # If the precision-recall of the linked-read (walker) cutoff is too low (< prec_cutoff, which is normally 0.5), only the Cosine Similarity cutoff is taken as the final cutoff. Else the mean of the linked-read and cosine similarity cutoff is taken as the final PTAprob cutoff
+    if ( mean(prec_rec$precision) < prec_cutoff ) {
+      PTAprob_cutoff_conf <- c(PTAprob_cutoff_walker,PTAprob_cutoff_cluster)
       PTAprob_cutoff <- PTAprob_cutoff_cluster
     } else {
       PTAprob_cutoff_conf <- as.numeric(c(PTAprob_cutoff_walker,PTAprob_cutoff_cluster))
