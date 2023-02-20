@@ -20,7 +20,7 @@ include { get_somatic_vcfs } from './short_variants/get_somatic_vcfs.nf' params(
 include { get_context_beds } from './short_variants/get_context_beds.nf' params(params)
 include { closest_feature } from './short_variants/get_features_beds.nf' params(params)
 include { intersect_feature } from './short_variants/get_features_beds.nf' params(params)
-include { merge_features } from './short_variants/get_features_beds.nf' params(params)
+include { groupby_features } from './short_variants/get_features_beds.nf' params(params)
 
 include { SplitVcfs } from '../NextflowModules/GATK/4.2.6.1/SplitVcfs.nf' params(params)
 include { bgzip } from '../NextflowModules/htslib/1.15/bgzip.nf' params(params)
@@ -113,8 +113,8 @@ workflow short_variants {
       } else {
         input_feature_beds = intersect_feature.out.groupTuple( by: [0,1] )
       }
-      merge_features( context_beds, input_feature_beds )
-      features_beds = merge_features.out
+      groupby_features( context_beds, input_feature_beds )
+      features_beds = groupby_features.out
     }
 
     SplitVcfs( somatic_vcfs )
