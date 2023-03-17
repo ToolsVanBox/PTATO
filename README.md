@@ -64,6 +64,11 @@ Download the following SHAPEIT resource files:
 - http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/
 - https://github.com/odelaneau/shapeit4/blob/master/maps/genetic_maps.b38.tar.gz
 
+Unzip the genetic_maps.b38.tar.gz by using the following command
+```
+tar -zxf genetic_maps.b38.tar.gz
+```
+
 And put them in this folder, respectively:
 - `[PTATO_dir]/resources/hg38/shapeit/Phasing_reference/`
 - `[PTATO_dir]/resources/hg38/shapeit/shapeit_maps/`
