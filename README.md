@@ -43,19 +43,16 @@ Most required resource files (for the hg38 reference genome) are already include
 Please download the reference genome fasta file. Must have the following files:
 - *.dict
 - *.fasta
+- *.fasta.fai
+
+Recommended files are, otherwise they will be created by the pipeline:
 - *.fasta.amb
 - *.fasta.ann
 - *.fasta.bwt
 - *.fasta.dict
-- *.fasta.fai
 - *.fasta.gridsscache
-- *.fasta.img
 - *.fasta.pac
 - *.fasta.sa
-- *.full.len
-- *.genomesize.txt
-- *.len
-- *.len.genome
 
 And put them in this folder `[PTATO_dir]/resources/hg38/`
 
