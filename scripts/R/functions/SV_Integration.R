@@ -25,7 +25,7 @@ Integrate_RD_BAF <- function(BAF, RD,
       # LOH regions only have "loss" at the BAF-level, but not at the ReadDepth (eg no overlap between LOH and loss regions)
       merged_CNVs <- BAF_seg[-subjectHits(overlap_RD_BAF),"QUAL"]
     }
-    
+
     # If merged_CNVs is empty, then return an empty GRanges object.
     if (!length(merged_CNVs)){
       merged_CNVs2 <- GRanges()
@@ -87,14 +87,14 @@ Merge_CNVs <- function(BAF, RD,
   SVs_CTX <- Filter_Unbalanced_Translocations(CNVs = CNVs, SVs = SVs)
   SVs_CTX_Filtered <- SVs_CTX[which(rowRanges(SVs_CTX)$FILTER == "PASS"),]
   SVs_CTX_Filtered <- SVs_CTX_Filtered[as.vector(seqnames(rowRanges(SVs_CTX_Filtered))) %in% c(1:22, "X", "Y")]
-  
-  # Filter breakends of large CNVs if they do not overlap with the readcounts/BAF determined CNVs 
+
+  # Filter breakends of large CNVs if they do not overlap with the readcounts/BAF determined CNVs
   SVs_Filtered <- Filter_Breakends_LargeCNVs(SVs = SVs_CTX_Filtered, CNVs = CNV_output)
   SVs_Filtered <- SVs_Filtered[which(rowRanges(SVs_Filtered)$FILTER == "PASS"),]
-  
+
   print(summary(factor( VariantAnnotation::fixed(SVs_Filtered)$FILTER)))
   print(summary(factor(info(SVs_Filtered)$SVTYPE)))
-  
+
   if(Output_dir != ""){
     print("# Writing output files")
     writeVcf(SVs_CTX_Filtered, filename = paste(Output_dir, ".integrated.svs.filtered.vcf", sep = ""))
@@ -116,7 +116,9 @@ Filter_Unbalanced_Translocations <- function(CNVs, SVs){
   Translocations <- rowRanges(SVs[info(SVs)$SVTYPE == "CTX"])
 
   NearestNeighbour <- distanceToNearest(Translocations)
-  Translocations$Dist <- NA
+  if (length(Translocations) > 0 ) {
+    Translocations$Dist <- NA
+  }
   Translocations$Dist[queryHits(NearestNeighbour)] <- mcols(NearestNeighbour)$distance
   # Assume that co-breakends of balanced translocations are within 1000000bp of eachother
   Unbalanced_Translocations <- SVs[names(Translocations)[which(Translocations$Dist > 1000000)], ]
@@ -156,7 +158,7 @@ Filter_Breakends_LargeCNVs <- function(CNVs, SVs){
       Breakends_overlapping_CNVs <- names(CNV_Breakends_10mb[queryHits(olap_CNVs)])
       # Breakends overlapping with CNVs will not be filtered
       Filtered_Breakends <- CNV_Breakends_10mb[-which(names(CNV_Breakends_10mb) %in% Breakends_overlapping_CNVs),]
-    } 
+    }
     else {
       # If there are no CNV-breakends overlapping with CNVs, all CNV-breakends will be filtered
       Filtered_Breakends <- CNV_Breakends_10mb
@@ -165,6 +167,6 @@ Filter_Breakends_LargeCNVs <- function(CNVs, SVs){
     VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER != "" & rowRanges(SVs)$FILTER != "PASS")] <- paste(VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER != "" & rowRanges(SVs)$FILTER != "PASS")], "NO_RD_SUPPORT", sep = ";")
     VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER == "PASS")] <- "NO_RD_SUPPORT"
     VariantAnnotation::fixed(SVs)$FILTER[which(unlist(info(SVs)$EVENT) %in% Filtered_Events & rowRanges(SVs)$FILTER == "")] <- "NO_RD_SUPPORT"
-  } 
+  }
   return(SVs)
 }
