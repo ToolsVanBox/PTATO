@@ -1,4 +1,5 @@
 # PTATO
+
 The PTA Analysis TOolbox (PTATO) is a comprehensive pipeline designed to filter somatic single base substitutions (SBS), small insertions and deletions (indels) and structural variants (SVs) from PTA-based single-cell whole genome sequencing (WGS) data. More information about the pipeline can be found in the [manuscript](https://www.biorxiv.org/content/10.1101/2023.02.15.528636v1). *Please cite the manuscript if you use PTATO.*
 
 ## Dependencies
@@ -18,7 +19,6 @@ PTATO is implemented in Nextflow and required installation of the following depe
 - [scales](https://scales.r-lib.org/)
 - [StructuralVariantAnnotation](https://www.bioconductor.org/packages/release/bioc/html/StructuralVariantAnnotation.html)
 - [VariantAnnotation](https://bioconductor.org/packages/release/bioc/html/VariantAnnotation.html)
-
 ## Installing & Setup
 
 1. [Install Nextflow](https://www.nextflow.io/docs/latest/getstarted.html#installation)
@@ -67,8 +67,6 @@ Download the following SHAPEIT resource files:
 And put them in this folder, respectively:
 - `[PTATO_dir]/resources/hg38/shapeit/Phasing_reference/`
 - `[PTATO_dir]/resources/hg38/shapeit/shapeit_maps/`
-
-
 
 ## Running the workflow
 To run the PTATO workflow, the following steps have to be performed:
@@ -144,6 +142,7 @@ The `run.config` needs to be adjusted for each new PTATO run. The `process.confi
 The run.config contains the paths to the input files and therefore needs to be adapted for each PTATO run. 
 
 The first three lines of the config file should contain the paths to the other three config files, as follows:
+
 ```
 includeConfig "${projectDir}/configs/process.config"
 includeConfig "${projectDir}/configs/nextflow.config"
@@ -246,6 +245,7 @@ params {
   input_vcfs_dir = '/path/to/vcfs_dir/'
   bams_dir = '/path/to/bams_dir/'
   // END TESTING
+
 ```
 - Under header "bulk_names" you have to specify the name of the individual/donor/patient and the sample_id of the germline control sample. Mutations in this control sample are used to determine which variants are germline or somatic. Mutations in the control sample are excluded from the somatic variants. Multiple control samples can be specified by adding an additional row:
 ```
@@ -300,4 +300,3 @@ Also see the references in the [manuscript](https://www.biorxiv.org/content/10.1
 - Currently only tested for the hg38 reference genome. Can in principle be run for other reference genomes as well, as long as the required input files are available (eg ShapeIt maps etc.)
 - Currently only tested for slurm
 - More documentation and code how to analyze/interpret PTATO output files will be added
-
