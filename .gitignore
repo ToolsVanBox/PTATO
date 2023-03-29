@@ -6,3 +6,5 @@ resources/hg38/gripss/gridss_pon_breakpoint.bedpe
 resources/hg38/cobalt/COBALT_PTA_Normalized_Full.txt
 resources/hg38/cobalt/COBALT_PTA_Normalized_Full_OLD.txt
 
+demo/input
+demo/run

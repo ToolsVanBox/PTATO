@@ -13,7 +13,7 @@ library(VariantAnnotation)
 library(copynumber)
 source(paste(sourcedir,"/functions/Filter_COBALT.R",sep=""), chdir = T)
 source(paste(sourcedir,"/functions/df_to_bedpe.R",sep=""), chdir = T)
-options(scipen = 999) 
+options(scipen = 999)
 
 # Get arguments
 args = commandArgs(trailingOnly=TRUE)
