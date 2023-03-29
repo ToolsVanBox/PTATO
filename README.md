@@ -5,7 +5,7 @@ The PTA Analysis TOolbox (PTATO) is a comprehensive pipeline designed to filter 
 ## Dependencies
 PTATO is implemented in Nextflow and required installation of the following dependencies:
 - [Nextflow](https://www.nextflow.io/docs/latest/getstarted.html#installation)
-- [Singularity](https://sylabs.io/guides/3.5/admin-guide/)
+- [Apptainer](https://apptainer.org/)
 - [R/4.1.2](https://cran.r-project.org/index.html)
 
 #### R libraries
