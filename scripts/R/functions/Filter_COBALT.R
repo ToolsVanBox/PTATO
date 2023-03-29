@@ -5,6 +5,7 @@
 .NormalizeCobalt <- function(COBALT_sample, COBALT_PON, Chromosomes, sample_colum = 4, PON_mean_column = 15){
 
   Autosomes <- as.numeric(names(Chromosomes))[!is.na( as.numeric(names(Chromosomes)))]
+  Autosomes <- as.numeric(names(Chromosomes)[names(Chromosomes) %in% COBALT_sample[COBALT_sample$tumorReadCount != -1,"chromosome"]])
 
   # First normalize to the same total number of counts as the pon file (autosomes only)
   normalization_factor <- sum(COBALT_sample[which(COBALT_sample$chromosome %in% Autosomes),sample_colum]) / sum(COBALT_PON[which(COBALT_PON$chromosome %in% Autosomes),PON_mean_column])
