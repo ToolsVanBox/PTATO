@@ -39,6 +39,22 @@ Most required resource files (for the hg38 reference genome) are already include
 - `[PTATO_dir]/resources/hg38/smurf/Mutational_blacklists/Fetal_15x_raw_variants_hg38.tar.gz`
 - `[PTATO_dir]/resources/hg38/smurf/Mutational_blacklists/MSC_healthyBM_raw_variants_hg38.tar.gz`
 
+## Singularity/Docker image available
+```
+# pull image from Docker bootstrap with singularity
+singularity pull ptato_1.2.0.sif docker://vanboxtelbioinformatics/ ptato:1.2.0
+
+# Singularity exec 
+singularity exec ptato_1.2.0.sif /ptato/nextflow/nextflow run \
+PTATO/ptato.nf \
+-c configs/run_template.config \
+-profile slurm -resume
+
+# Or run from bash script
+./start_pipeline_singularity.sh configs/run_template.config
+```
+
+
 #### Reference genome
 Please download the reference genome fasta file. Must have the following files:
 - *.dict
