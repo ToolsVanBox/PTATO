@@ -42,7 +42,7 @@ Most required resource files (for the hg38 reference genome) are already include
 ## Singularity/Docker image available
 ```
 # pull image from Docker bootstrap with singularity
-singularity pull ptato_1.2.0.sif docker://vanboxtelbioinformatics/ ptato:1.2.0
+singularity pull ptato_1.2.0.sif docker://vanboxtelbioinformatics/ptato:1.2.0
 
 # Singularity exec 
 singularity exec ptato_1.2.0.sif /ptato/nextflow/nextflow run \
