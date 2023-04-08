@@ -19,6 +19,25 @@ PTATO is implemented in Nextflow and required installation of the following depe
 - [scales](https://scales.r-lib.org/)
 - [StructuralVariantAnnotation](https://www.bioconductor.org/packages/release/bioc/html/StructuralVariantAnnotation.html)
 - [VariantAnnotation](https://bioconductor.org/packages/release/bioc/html/VariantAnnotation.html)
+
+## Easy Installation (Linux) (recommended)
+Download Singularity image SIF (~4gb) Required
+[singularity/Apptainer](https://apptainer.org/docs/admin/main/index.html) v1.1.3
+```
+# 1. Pull singularity image from Docker bootstrap
+singularity pull ptato_1.2.0.sif docker://vanboxtelbioinformatics/ptato:1.2.0
+
+# 2. Clone PTATO repository 
+git clone git@github.com:ToolsVanBox/PTATO.git
+
+# 3. Run with singularity exec
+singularity exec ptato_1.2.0.sif /ptato/nextflow/nextflow run \
+[PTATO_dir]/ptato.nf \
+-c [PTATO_dir]configs/run_template.config \
+-profile slurm -resume
+
+```
+
 ## Installing & Setup
 
 1. [Install Nextflow](https://www.nextflow.io/docs/latest/getstarted.html#installation)
@@ -26,6 +45,7 @@ PTATO is implemented in Nextflow and required installation of the following depe
 3. Install R and the required R libraries
 4. [Pull/Clone PTATO](#pull-or-clone)
 5. Download and extract the required resource files
+
 
 ## Pull or Clone 
 ```
@@ -38,22 +58,6 @@ Most required resource files (for the hg38 reference genome) are already include
 - `[PTATO_dir]/resources/hg38/cobalt/COBALT_PTA_Normalized_Full.tar.gz`
 - `[PTATO_dir]/resources/hg38/smurf/Mutational_blacklists/Fetal_15x_raw_variants_hg38.tar.gz`
 - `[PTATO_dir]/resources/hg38/smurf/Mutational_blacklists/MSC_healthyBM_raw_variants_hg38.tar.gz`
-
-## Singularity/Docker image available
-```
-# pull image from Docker bootstrap with singularity
-singularity pull ptato_1.2.0.sif docker://vanboxtelbioinformatics/ptato:1.2.0
-
-# Singularity exec 
-singularity exec ptato_1.2.0.sif /ptato/nextflow/nextflow run \
-PTATO/ptato.nf \
--c configs/run_template.config \
--profile slurm -resume
-
-# Or run from bash script
-./start_pipeline_singularity.sh configs/run_template.config
-```
-
 
 #### Reference genome
 Please download the reference genome fasta file. Must have the following files:
