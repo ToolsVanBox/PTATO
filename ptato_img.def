@@ -1,0 +1,39 @@
+# singularity definition file
+
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+   ln -snf /usr/share/zoneinfo/$CONTAINER_TIMEZONE /etc/localtime && echo $CONTAINER_TIMEZONE > /etc/timezone
+
+%post
+   apt-get -y update && apt-get install -y python3 \
+   make \
+   wget \
+   curl \
+   openjdk-11-jdk \
+   git \
+   build-essential \
+   libssl-dev \
+   uuid-dev \
+   libgpgme11-dev \
+   squashfs-tools \
+   libseccomp-dev \
+   openjdk-11-jdk \
+   tabix \
+   libncurses-dev libbz2-dev liblzma-dev r-base r-base-core r-recommended r-base-dev \
+   r-cran-rgl r-cran-rjags r-cran-snow r-cran-ggplot2 r-cran-igraph \
+   r-cran-lme4 r-cran-rjava r-cran-devtools r-cran-roxygen2 r-cran-rjava \
+   libxml2-dev libcairo2-dev libsqlite3-dev libmariadbd-dev \
+   libpq-dev libssh2-1-dev unixodbc-dev libcurl4-openssl-dev libssl-dev coinor-libcbc-dev coinor-libclp-dev libglpk-dev
+   apt-get install -y software-properties-common
+   Rscript -e 'install.packages("BiocManager")'
+   Rscript -e 'install.packages("randomForest")'
+   Rscript -e 'BiocManager::install(c("BSgenome", "copynumber", "MutationalPatterns", "StructuralVariantAnnotation", "VariantAnnotation", "BSgenome.Hsapiens.UCSC.hg38"))'
+   add-apt-repository -y ppa:apptainer/ppa
+   apt update
+   apt install -y apptainer
+   git clone https://github.com/nextflow-io/nextflow
+   cd nextflow && make compile && make pack && make install
+   chmod 777 /nextflow/nextflow
+   echo $PWD
