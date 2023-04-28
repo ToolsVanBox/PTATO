@@ -174,7 +174,7 @@ def extractFeaturesBedFromDir( features_bed_dir ) {
     .ifEmpty { error "No .bed files found in ${features_bed_dir}." }
     .map { features_bed_path ->
         features_bed_file = features_bed_path
-        features_sample_id = features_bed_path.getName().toString().replaceAll(/(.features)*(.merged)*.bed$/, '')
+        features_sample_id = features_bed_path.getName().toString().replaceAll(/(.features)*(.groupby)*.bed$/, '')
         features_donor_id =  features_bed_path.getParent().getName()
         [features_donor_id, features_sample_id, features_bed_file]
     }
