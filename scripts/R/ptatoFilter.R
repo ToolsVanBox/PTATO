@@ -16,8 +16,8 @@ PTAprob1 <- as.numeric(geno(ptato_vcf)$PTAprob[,,1])
 PTAprob2 <- as.numeric(geno(ptato_vcf)$PTAprob[,,2])
 PTAprob3 <- as.numeric(geno(ptato_vcf)$PTAprob[,,3])
 PTAprob <- PTAprob1
-PTAprob[which(PTAprob == 0)] <- PTAprob2[which(PTAprob == 0)]
-PTAprob[which(PTAprob == 0)] <- PTAprob3[which(PTAprob == 0)]
+PTAprob[which(PTAprob == 0 | is.na(PTAprob))] <- PTAprob2[which(PTAprob == 0 | is.na(PTAprob))]
+PTAprob[which(PTAprob == 0 | is.na(PTAprob))] <- PTAprob3[which(PTAprob == 0 | is.na(PTAprob))]
 
 ptato_gr_df$PTAprob <- PTAprob
 
@@ -27,6 +27,9 @@ walker_gr_df$WS <- as.numeric(geno(walker_vcf)$WS)
 
 PTAprob_cutoff_values <- read.table(ptaprob_cutoff_fname)
 PTAprob_cutoff <- as.numeric(PTAprob_cutoff_values[1])
+if (is.na(PTAprob_cutoff)) {
+  PTAprob_cutoff <- 0.5
+}
 PTAprob_cutoff_conf <- paste(as.numeric(PTAprob_cutoff_values[2]),'-',as.numeric(PTAprob_cutoff_values[3]))
 
 low_ws_rownames <- rownames(walker_gr_df[which(walker_gr_df$WS < 1),])

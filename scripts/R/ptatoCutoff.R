@@ -60,82 +60,90 @@ myresult <- as.data.frame(myresult)
 write.table( myresult, out_table_fname, quote=F, col.names=T, row.names=F)
 
 if (nrow(merged_df) == 0) {
-  cat("NA", "NA")
+  PTAprob_cutoff_walker <- "NA"
+  prec_rec <- data.frame( "precision" = 0 )
 } else {
   maxf1 <- myresult[which(myresult$p == min(myresult[which(myresult$F1 == max(na.omit(myresult$F1))),]$p)),]
   if (nrow(maxf1) == 0) {
-    cat("NA", "NA")
+    PTAprob_cutoff_walker <- "NA"
+    prec_rec <- data.frame( "precision" = 0 )
   } else {
     myresult2 <- myresult[which( abs(myresult$recall-myresult$precision) > 0 ),]
     prec_rec <- myresult2[which(abs(myresult2$recall-myresult2$precision) == min(na.omit(abs(myresult2$recall-myresult2$precision)))),]
     # the prec-recall can be the same at multiple cutoffs, therefore take the mean of these cutoffs
     PTAprob_cutoff_walker <- mean(prec_rec$PTAprob_cutoff)
-    if ( length(grep("indels.ptato",ptato_vcf_fname)) > 0 ) {
-      PTAprob_cutoff <- c(as.numeric(PTAprob_cutoff_walker),'NA')
-      cat( PTAprob_cutoff_walker, PTAprob_cutoff )
-    } else {
-      chroms <- seqlevels(SeqinfoForBSGenome(genome = ref_genome))
-      if ( grepl('chr', chroms[1], ignore.case = T) & !grepl('chr', as.character(seqnames(ptato_vcf)[1]), ignore.case = T) ) {
-        seqlevels(ptato_vcf) <- paste0("chr", seqlevels(ptato_vcf))
-      }
-      if ( !grepl('chr', chroms[1], ignore.case = T) & grepl('chr', as.character(seqnames(ptato_vcf)[1]), ignore.case = T) ) {
-        seqlevels(ptato_vcf) <- gsub("chr", "", seqlevels(ptato_vcf))
-      }
-
-      # the chroms in the ptato_gr should be the same as the chroms in the ref_genome
-      ptato_vcf <- ptato_vcf[which(seqnames(ptato_vcf) %in% chroms),]
-      ptato_gr <- rowRanges(ptato_vcf)
-      seqlevels(ptato_gr) <- seqlevels(ptato_gr)[seqlevels(ptato_gr) %in% chroms]
-      PTAprob1 <- as.numeric(geno(ptato_vcf)$PTAprob[,,1])
-      PTAprob2 <- as.numeric(geno(ptato_vcf)$PTAprob[,,2])
-      PTAprob3 <- as.numeric(geno(ptato_vcf)$PTAprob[,,3])
-      PTAprob <- PTAprob1
-      PTAprob[which(PTAprob == 0 | is.na(PTAprob))] <- PTAprob2[which(PTAprob == 0 | is.na(PTAprob))]
-      PTAprob[which(PTAprob == 0 | is.na(PTAprob))] <- PTAprob3[which(PTAprob == 0 | is.na(PTAprob))]
-      ptato_gr$PTAprob <- PTAprob
-
-      # Makes a list with two mutation matrices. Each matrix contains the mutation profiles at different PTAprobsCutoffs. One matrix contains the mutations passing the filter (eg PTAprob of variant <= Cutoff), the other contains the mutations failing the filter (eg PTAprob of variant > Cutoff)
-      # Additionally, the original PTAprobCutoff as determined by PTATO is also included in the list
-      calc_cosim_mutmat <- function(gr, cutoffs =  seq(0.1, 0.8, 0.025)){
-        grl_cosim <- list()
-        grl_removed <- list()
-        for(cutoff in cutoffs){
-          #print(cutoff)
-          grl_cosim[[as.character(cutoff)]] <- gr[which(gr$PTAprob <= cutoff)]
-          grl_removed[[as.character(cutoff)]] <- gr[which(gr$PTAprob > cutoff)]
-        }
-        mut_mat <- mut_matrix(vcf_list = grl_cosim, ref_genome = ref_genome)
-        mut_mat_removed <- mut_matrix(vcf_list = grl_removed, ref_genome = ref_genome)
-        mut_mat_sample <- list(PASS = mut_mat, FAIL = mut_mat_removed, PTAprobsCutoff = unique(gr$PTAprobCutoff))
-        return(mut_mat_sample)
-      }
-
-      mut_mat_cosim <- calc_cosim_mutmat(gr = ptato_gr)
-
-      # Calculate the cosine similarities between all the mutation profiles (of the mutations < than that specific cutoff) at each different cutoff
-      cos_sim_matrix <- cos_sim_matrix(mut_mat_cosim[["PASS"]], mut_mat_cosim[["PASS"]])
-
-      # Cluster the mutation profiles of each different cutoff (code from MutationalPatterns)
-      # The first profiles are excluded, because they contain too few variants
-      hc.sample <- hclust(dist(cos_sim_matrix[8:nrow(cos_sim_matrix),
-                                              8:ncol(cos_sim_matrix)]), method = "complete")
-
-      # Divide the cosine similarity matrix in four clusters (1 = true pos (low number, low PTAprobs), 2 = mostly true pos, 3 = mix of true+false pos, 4 = false pos, high PTAprobs)
-      sub_grp <- cutree(hc.sample, k = 4)
-      # The mean value of the third cluster (containing a mix of true and false positives) is taken as the Cosine Similarity cutoff
-      PTAprob_cutoff_cluster <- mean(as.numeric(names(sub_grp[sub_grp == 3])))
-
-      # Calculate the final PTAprob cutoff.
-      # If the precision-recall of the linked-read (walker) cutoff is too low (< prec_cutoff, which is normally 0.5), only the Cosine Similarity cutoff is taken as the final cutoff. Else the mean of the linked-read and cosine similarity cutoff is taken as the final PTAprob cutoff
-      if ( mean(prec_rec$precision) < prec_cutoff ) {
-        PTAprob_cutoff_conf <- c(PTAprob_cutoff_walker,PTAprob_cutoff_cluster)
-        PTAprob_cutoff <- PTAprob_cutoff_cluster
-      } else {
-        PTAprob_cutoff_conf <- as.numeric(c(PTAprob_cutoff_walker,PTAprob_cutoff_cluster))
-        PTAprob_cutoff <- mean(PTAprob_cutoff_conf)
-      }
-
-      cat( PTAprob_cutoff, PTAprob_cutoff_conf )
-    }
   }
+}
+if ( length(grep("indels.ptato",ptato_vcf_fname)) > 0 ) {
+  PTAprob_cutoff <- c(as.numeric(PTAprob_cutoff_walker),'NA')
+  cat( PTAprob_cutoff_walker, PTAprob_cutoff )
+} else {
+  chroms <- seqlevels(SeqinfoForBSGenome(genome = ref_genome))
+  if ( grepl('chr', chroms[1], ignore.case = T) & !grepl('chr', as.character(seqnames(ptato_vcf)[1]), ignore.case = T) ) {
+    seqlevels(ptato_vcf) <- paste0("chr", seqlevels(ptato_vcf))
+  }
+  if ( !grepl('chr', chroms[1], ignore.case = T) & grepl('chr', as.character(seqnames(ptato_vcf)[1]), ignore.case = T) ) {
+    seqlevels(ptato_vcf) <- gsub("chr", "", seqlevels(ptato_vcf))
+  }
+
+  # the chroms in the ptato_gr should be the same as the chroms in the ref_genome
+  ptato_vcf <- ptato_vcf[which(seqnames(ptato_vcf) %in% chroms),]
+  ptato_gr <- rowRanges(ptato_vcf)
+  seqlevels(ptato_gr) <- seqlevels(ptato_gr)[seqlevels(ptato_gr) %in% chroms]
+  PTAprob1 <- as.numeric(geno(ptato_vcf)$PTAprob[,,1])
+  PTAprob2 <- as.numeric(geno(ptato_vcf)$PTAprob[,,2])
+  PTAprob3 <- as.numeric(geno(ptato_vcf)$PTAprob[,,3])
+  PTAprob <- PTAprob1
+  PTAprob[which(PTAprob == 0 | is.na(PTAprob))] <- PTAprob2[which(PTAprob == 0 | is.na(PTAprob))]
+  PTAprob[which(PTAprob == 0 | is.na(PTAprob))] <- PTAprob3[which(PTAprob == 0 | is.na(PTAprob))]
+  ptato_gr$PTAprob <- PTAprob
+
+  # Makes a list with two mutation matrices. Each matrix contains the mutation profiles at different PTAprobsCutoffs. One matrix contains the mutations passing the filter (eg PTAprob of variant <= Cutoff), the other contains the mutations failing the filter (eg PTAprob of variant > Cutoff)
+  # Additionally, the original PTAprobCutoff as determined by PTATO is also included in the list
+  calc_cosim_mutmat <- function(gr, cutoffs =  seq(0.1, 0.8, 0.025)){
+    grl_cosim <- list()
+    grl_removed <- list()
+    for(cutoff in cutoffs){
+      #print(cutoff)
+      grl_cosim[[as.character(cutoff)]] <- gr[which(gr$PTAprob <= cutoff)]
+      grl_removed[[as.character(cutoff)]] <- gr[which(gr$PTAprob > cutoff)]
+    }
+    mut_mat <- mut_matrix(vcf_list = grl_cosim, ref_genome = ref_genome)
+    mut_mat_removed <- mut_matrix(vcf_list = grl_removed, ref_genome = ref_genome)
+    mut_mat_sample <- list(PASS = mut_mat, FAIL = mut_mat_removed, PTAprobsCutoff = unique(gr$PTAprobCutoff))
+    return(mut_mat_sample)
+  }
+
+  mut_mat_cosim <- calc_cosim_mutmat(gr = ptato_gr)
+
+  # Calculate the cosine similarities between all the mutation profiles (of the mutations < than that specific cutoff) at each different cutoff
+  cos_sim_matrix <- cos_sim_matrix(mut_mat_cosim[["PASS"]], mut_mat_cosim[["PASS"]])
+
+  # The first profiles are excluded, because they contain too few variants
+  cos_sim_matrix_sub <- cos_sim_matrix[8:nrow(cos_sim_matrix),8:ncol(cos_sim_matrix)]
+  na_rows <- which(rowSums(cos_sim_matrix_sub,na.rm = T) == 0)
+  if ( length(na_rows) > 0) {
+   cos_sim_matrix_sub <- cos_sim_matrix_sub[-na_rows,-na_rows]
+  }
+
+  # Cluster the mutation profiles of each different cutoff (code from MutationalPatterns)
+
+  hc.sample <- hclust(dist(cos_sim_matrix_sub), method = "complete")
+
+  # Divide the cosine similarity matrix in four clusters (1 = true pos (low number, low PTAprobs), 2 = mostly true pos, 3 = mix of true+false pos, 4 = false pos, high PTAprobs)
+  sub_grp <- cutree(hc.sample, k = 4)
+  # The mean value of the third cluster (containing a mix of true and false positives) is taken as the Cosine Similarity cutoff
+  PTAprob_cutoff_cluster <- mean(as.numeric(names(sub_grp[sub_grp == 3])))
+
+  # Calculate the final PTAprob cutoff.
+  # If the precision-recall of the linked-read (walker) cutoff is too low (< prec_cutoff, which is normally 0.5), only the Cosine Similarity cutoff is taken as the final cutoff. Else the mean of the linked-read and cosine similarity cutoff is taken as the final PTAprob cutoff
+  if ( mean(prec_rec$precision) < prec_cutoff ) {
+    PTAprob_cutoff_conf <- c(PTAprob_cutoff_walker,PTAprob_cutoff_cluster)
+    PTAprob_cutoff <- PTAprob_cutoff_cluster
+  } else {
+    PTAprob_cutoff_conf <- as.numeric(c(PTAprob_cutoff_walker,PTAprob_cutoff_cluster))
+    PTAprob_cutoff <- mean(PTAprob_cutoff_conf)
+  }
+
+  cat( PTAprob_cutoff, PTAprob_cutoff_conf )
 }
