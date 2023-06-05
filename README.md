@@ -1,4 +1,6 @@
 # PTATO
+[![DOI](https://zenodo.org/badge/485723666.svg)](https://zenodo.org/badge/latestdoi/485723666)
+
 
 The PTA Analysis TOolbox (PTATO) is a comprehensive pipeline designed to filter somatic single base substitutions (SBS), small insertions and deletions (indels) and structural variants (SVs) from PTA-based single-cell whole genome sequencing (WGS) data. More information about the pipeline can be found in the [manuscript](https://www.biorxiv.org/content/10.1101/2023.02.15.528636v1). *Please cite the manuscript if you use PTATO.*
 
