@@ -2,6 +2,8 @@
 [![DOI](https://zenodo.org/badge/485723666.svg)](https://zenodo.org/badge/latestdoi/485723666)
 
 
+[![DOI](https://zenodo.org/badge/485723666.svg)](https://zenodo.org/badge/latestdoi/485723666)
+
 The PTA Analysis TOolbox (PTATO) is a comprehensive pipeline designed to filter somatic single base substitutions (SBS), small insertions and deletions (indels) and structural variants (SVs) from PTA-based single-cell whole genome sequencing (WGS) data. More information about the pipeline can be found in the [manuscript](https://www.biorxiv.org/content/10.1101/2023.02.15.528636v1). *Please cite the manuscript if you use PTATO.*
 
 ## Dependencies
@@ -53,6 +55,10 @@ singularity exec ptato_1.2.0.sif /ptato/nextflow/nextflow run \
 ```
 git clone git@github.com:ToolsVanBox/PTATO.git
 ```
+
+## Demo dataset
+
+A test dataset containing all required input files (e.g. BAM, VCF and config files) to run PTATO is available for [download here](https://surfdrive.surf.nl/files/index.php/s/l3FX6eLnTtuVK1g). This demo dataset contains bulk whole genome sequencing (WGS) data of a clonal cell line and a PTA dataset from a single cell derived from this clone. The bulk WGS data can be used as germline control sample.
 
 ## Resources
 Most required resource files (for the hg38 reference genome) are already included in the PTATO repository. Only the reference genome and the SHAPEIT resources need to be downloaded seperately. First extract the following resources files:
