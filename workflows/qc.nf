@@ -3,7 +3,8 @@ nextflow.enable.dsl=2
 
 include {
   extractWGSMetricsFromDir;
-  extractAlignmentSummaryMetricsFromDir
+  extractAlignmentSummaryMetricsFromDir;
+  extractCallableLociBedFromDir
 } from '../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
 include { CollectWGSMetrics } from '../NextflowModules/GATK/4.2.6.1/CollectWGSMetrics.nf' params(params)
