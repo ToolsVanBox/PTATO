@@ -29,13 +29,13 @@ workflow {
     input_raw_vcfs = run_donor_ids.combine( extractInputVcfFromDir( params.input_vcfs_dir ), by: [0] )
     input_raw_bams = run_donor_ids.combine( extractBamsFromDir( params.bams_dir ), by: [0] )
 
-    get_gzipped_vcfs( input_raw_vcfs )
-    input_vcfs = get_gzipped_vcfs.out
-
     get_indexed_bams( input_raw_bams )
     input_bams = get_indexed_bams.out.groupTuple( by: [0] )
 
     if ( params.run.snvs || params.run.indels || params.run.svs || params.run.cnvs ) {
+
+      get_gzipped_vcfs( input_raw_vcfs )
+      input_vcfs = get_gzipped_vcfs.out
 
       get_germline_vcfs( input_vcfs )
       germline_vcfs = get_germline_vcfs.out
