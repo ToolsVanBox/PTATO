@@ -133,7 +133,10 @@ workflow short_variants {
 
     if( params.run.snvs ) {
       snvs( ab_tables, features_beds, somatic_snv_vcfs, walker_vcfs )
-      snvs_ptato_vcfs = snvs.out
+      snvs_combined_ptato_vcfs = snvs.out
+      snvs_ptato_vcfs = snvs_combined_ptato_vcfs.map{ donor_id, sample_id, ptato_vcfs, ptato_tbi , ptato_filtered_vcfs, ptato_filtered_tbi ->
+          [ donor_id, sample_id, ptato_vcfs, ptato_tbi ]
+      }
     } else {
       snvs_ptato_vcfs = Channel.empty()
     }
@@ -150,6 +153,8 @@ workflow short_variants {
 
     merge_ptato_vcfs( ptato_intersect_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
 
+    emit:
+      snvs_combined_ptato_vcfs
 }
 
 workflow short_variants_train {

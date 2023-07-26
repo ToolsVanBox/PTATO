@@ -23,8 +23,11 @@ workflow snvs {
 
     filter_ptato_vcfs( ptato_vcfs, walker_vcfs )
     ptato_filtered_vcfs = filter_ptato_vcfs.out
+
+    ptato_combined_vcfs = ptato_vcfs.combine( ptato_filtered_vcfs, by: [0,1])
+
   emit:
-    ptato_vcfs
+    ptato_combined_vcfs
 }
 
 workflow snvs_train{
