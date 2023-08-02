@@ -263,6 +263,23 @@ def extractPtatoVcfFromDir( ptato_vcfs_dir ) {
     }
 }
 
+def extractCombinedPtatoVcfFromDir( ptato_vcfs_dir ){
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  ptato_vcfs_dir = ptato_vcfs_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
+  Channel
+    .fromPath(ptato_vcfs_dir, type:'file')
+    .ifEmpty { error "No .vcf(.gz) files found in ${ptato_vcfs_dir}." }
+    .map { ptato_vcf_path ->
+        ptato_vcf_file = ptato_vcf_path
+        ptato_tbi_file = ptato_vcf_path+".tbi"
+        sample_id = ptato_vcf_path.getName().toString().replaceAll(/.snvs.ptato.vcf(.gz)*$/, '')
+        donor_id =  ptato_vcf_path.getParent().getName()
+        ptato_filt_vcf_file = ptato_vcf_file.getParent() / sample_id / sample_id+".snvs.ptato.filtered.vcf.gz"
+        ptato_filt_tbi_file = ptato_filt_vcf_file+".tbi"
+        [donor_id, sample_id, ptato_vcf_file, ptato_tbi_file, ptato_filt_vcf_file, ptato_filt_tbi_file]
+    }
+}
+
 def extractWGSMetricsFromDir( wgs_metrics_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
   wgs_metrics_dir = wgs_metrics_dir.tokenize().collect{"$it/*/*.wgs_metrics*"}
@@ -288,6 +305,20 @@ def extractAlignmentSummaryMetricsFromDir( alignment_summary_metrics_dir ) {
         alignment_summary_metrics_sample_id = alignment_summary_metrics_path.getName().toString().replaceAll(/(.multiple_metrics)*.alignment_summary_metrics.*$/, '')
         alignment_summary_metrics_donor_id =  alignment_summary_metrics_path.getParent().getName()
         [alignment_summary_metrics_donor_id, alignment_summary_metrics_sample_id, alignment_summary_metrics_file]
+    }
+}
+
+def extractAutosomalCallableLociFromDir( callableloci_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  callableloci_dir = callableloci_dir.tokenize().collect{"$it/*/*.callableloci.autosomal.txt"}
+  Channel
+    .fromPath(callableloci_dir, type:'file')
+    .ifEmpty { error "No .callableloci.bed files found in ${callableloci_dir}." }
+    .map { callableloci_path ->
+        autosomalcallableloci_file = callableloci_path
+        autosomalcallableloci_sample_id = callableloci_path.getName().toString().replaceAll(/.callableloci.autosomal.txt$/, '')
+        autosomalcallableloci_donor_id =  callableloci_path.getParent().getName()
+        [autosomalcallableloci_donor_id, autosomalcallableloci_sample_id, autosomalcallableloci_file]
     }
 }
 
