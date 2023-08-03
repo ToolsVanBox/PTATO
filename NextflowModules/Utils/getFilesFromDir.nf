@@ -263,6 +263,22 @@ def extractPtatoVcfFromDir( ptato_vcfs_dir ) {
     }
 }
 
+// You are adding here 
+def extractPtatoTableFromDir( ptato_vcfs_dir ) {
+  // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+  ptato_vcfs_dir = ptato_vcfs_dir.tokenize().collect{"$it/*/*/*.txt"}
+  Channel
+    .fromPath(ptato_vcfs_dir, type:'file')
+    .ifEmpty { error "No .txt files found in ${ptato_vcfs_dir}." }
+    .map { ptato_vcf_path ->
+        ptato_table_file = ptato_vcf_path
+        ptato_sample_id = ptato_vcf_path.getName().toString().replaceAll(/(.ptatotable)*.txt*$/, '')
+        ptato_donor_id =  ptato_vcf_path.getParent().getParent().getName()
+        [ptato_donor_id, ptato_sample_id, ptato_table_file]
+    }
+}
+// You are adding here 
+
 def extractCombinedPtatoVcfFromDir( ptato_vcfs_dir ){
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
   ptato_vcfs_dir = ptato_vcfs_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}

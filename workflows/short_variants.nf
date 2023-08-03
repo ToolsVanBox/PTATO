@@ -12,6 +12,7 @@ include {
   extractFeaturesBedFromDir;
   extractPtaVcfFromDir;
   extractNoptaVcfFromDir;
+  extractPtatoTableFromDir
 } from '../NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
 include { get_ab_tables } from './short_variants/get_ab_tables.nf' params(params)
@@ -153,8 +154,12 @@ workflow short_variants {
 
     merge_ptato_vcfs( ptato_intersect_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
 
+    ptato_tables = extractPtatoTableFromDir( "${params.out_dir}/snvs/" ) 
+    postqc_combined_input = snvs_combined_ptato_vcfs.combine(
+      walker_vcfs, by: [0,1] ).combine(
+        ptato_tables, by: [0,1] )
     emit:
-      snvs_combined_ptato_vcfs
+      postqc_combined_input
 }
 
 workflow short_variants_train {
