@@ -4,7 +4,7 @@ process postQCreport {
   shell = ['/bin/bash', '-euo', 'pipefail']
 
   input:
-    tuple( val(donor_id), val(sample_ids), path(ptato_vcf), path(ptato_tbi), path(ptato_filt_vcf), path(ptato_filt_tbi), path(walker_vcf), path(walker_tbi), path(ptato_table), path(autosomal_callable_files) )
+    tuple( val(donor_id), val(sample_ids), path(ptato_vcf), path(ptato_tbi), path(ptato_filt_vcf), path(ptato_filt_tbi), path(ptato_table), path(walker_vcf), path(walker_tbi), path(autosomal_callable_files) )
 
   output:
     tuple( val(donor_id), val(sample_ids), path("${donor_id}.postqcreport.pdf"), path("${donor_id}.postqcreport.txt"), emit: postqc_report_pdf )
