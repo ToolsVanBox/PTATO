@@ -63,10 +63,10 @@ workflow post_ptato_qc {
     callableloci_files
   main:
     // Rename the sample_id in order to combine them and select necessary values 
-    postqc_combined_input = postqc_combined_input.map{ donor_id, sample_id, ptato_vcf, ptato_tbi, ptato_filt_vcf, ptato_filt_tbi, walker_vcf, walker_tbi, ptato_table -> 
+    postqc_combined_input = postqc_combined_input.map{ donor_id, sample_id, ptato_vcf, ptato_tbi, ptato_filt_vcf, ptato_filt_tbi, ptato_table, walker_vcf, walker_tbi -> 
       // This might be a tricky part of the postQC
       sample_id = sample_id.replaceAll(/.*_/, '')
-      [ donor_id, sample_id, ptato_vcf, ptato_tbi, ptato_filt_vcf, ptato_filt_tbi, walker_vcf, walker_tbi, ptato_table ]
+      [ donor_id, sample_id, ptato_vcf, ptato_tbi, ptato_filt_vcf, ptato_filt_tbi, ptato_table, walker_vcf, walker_tbi ]
     }
     callableloci_files = callableloci_files.map{ donor_id, sample_id, callableloci_bed, callableloci_txt, autosomal_callable_files -> 
       [ donor_id, sample_id, autosomal_callable_files ]
@@ -76,7 +76,7 @@ workflow post_ptato_qc {
     input_PostPTATO_qc = postqc_combined_input
         .combine( callableloci_files, by: [0,1] )
         .groupTuple( by: [0] )
-    
+
     postQCreport( input_PostPTATO_qc )
     postQC_report = postQCreport.out
       .map{ donor_id, sample_id, postqc_report_pdf, postqc_report_txt -> 

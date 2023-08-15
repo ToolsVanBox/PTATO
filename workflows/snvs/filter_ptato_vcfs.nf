@@ -22,6 +22,11 @@ workflow filter_ptato_vcfs {
        .join( ptato_vcfs, by: [0,1] )
        .join( walker_vcfs, by: [0,1] )
 
+    ptato_table = ptatoCutoff.out
+    .map{ donor_id, sample_id, ptato_table, ptaprob_cutoff ->
+       [ donor_id, sample_id, ptato_table ]
+     }
+
     ptatoFilter( input_ptato_filter )
     bgzip( ptatoFilter.out )
 
@@ -35,6 +40,7 @@ workflow filter_ptato_vcfs {
         vcf_tbi = vcf_tbi.copyTo("${params.out_dir}/snvs/${donor_id}/${sample_id}/${tbi_name}")
         [ donor_id, sample_id, vcf_gz, vcf_tbi ]
       }
+      ptato_filtered_vcfs_tables = ptato_filtered_vcfs.join( ptato_table, by: [0,1])
   emit:
-    ptato_filtered_vcfs
+    ptato_filtered_vcfs_tables
 }

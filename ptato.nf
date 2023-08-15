@@ -66,8 +66,8 @@ workflow {
           ptato_tables = extractPtatoTableFromDir(params.optional.postqc.ptato_vcfs_dir ) 
 
           postqc_combined_input = ptato_combined_vcfs.combine(
-            walker_vcfs, by: [0,1] ).combine(
-            ptato_tables, by: [0,1] )
+            ptato_tables, by: [0,1] ).combine(
+            walker_vcfs, by: [0,1] )
 
           if ( params.run.snvs || params.run.indels ) {
             short_variants( input_vcfs, input_bams, germline_vcfs )
