@@ -29,7 +29,6 @@ include { tabix } from '../NextflowModules/htslib/1.15/tabix.nf' params(params)
 
 include { intersect_ptato_vcfs } from './short_variants/intersect_ptato_vcfs.nf' params(params)
 include { merge_ptato_vcfs } from './short_variants/merge_ptato_vcfs.nf' params(params)
-include { extractPtatoTable } from './short_variants/extractPtatoTable.nf' params(params)
 
 
 include {
@@ -156,13 +155,6 @@ workflow short_variants {
 
     merge_ptato_vcfs( ptato_intersect_vcfs, snvs_ptato_vcfs, indels_ptato_vcfs )
     
-    //if ( Channel.fromPath("${params.out_dir}/snvs/".collect{"$it/*/*/*.txt"} ), checkIfExists:true ) {
-    //if ( merge_ptato_vcfs.out.view() ){
-    //ptato_tables = extractPtatoTableFromDir( "${params.out_dir}/snvs/" ) 
-    //}
-    //extractPtatoTable( merge_ptato_vcfs.out )
-    //ptato_tables = extractPtatoTable.out 
-
     postqc_combined_input = snvs_combined_ptato_vcfs.combine(
       walker_vcfs, by: [0,1] )//.combine(
         //ptato_tables, by: [0,1] )
