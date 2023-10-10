@@ -62,7 +62,7 @@ AB_somatic <- function( somatic_mut ) {
 
   ad_somatic = geno(vcf_somatic)$AD[,samplename][[1]]
   vardf <- data.frame("a0" = ad_somatic[1], "a1" = ad_somatic[2], "total_ad" = sum(ad_somatic), "allele" = NA, "vaf" = ad_somatic[2]/sum(ad_somatic), "start" = var_start, "end" = var_end)
-  if (vardf$vaf == 0 | nrow(mydf) <= 10) {
+  if (vardf$vaf == 0 | nrow(mydf) <= 10 | is.nan(vardf$vaf) ) {
     message("Mutation not in this sample, or not enough surrounding variants")
     return(0)
   }
