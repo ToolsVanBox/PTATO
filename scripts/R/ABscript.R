@@ -32,7 +32,7 @@ if ( length(somatic_vcf_chr) == 0 ) {
   ab_table <- list()
   for ( i in c(1:length(somatic_vcf_chr))) {
     ab_table_tmp <- AB_somatic( somatic_vcf_chr[i,] )
-    if ( length(ab_table_tmp) == 0 ) {
+    if ( length(ab_table_tmp) <= 1 ) {
       ab_table_tmp <- create_empty_ab_table()
     #} else if ( ab_table_tmp == 0 ) {
     #  ab_table_tmp <- create_empty_ab_table()
