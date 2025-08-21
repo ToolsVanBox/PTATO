@@ -3,7 +3,10 @@ process SnpSift {
   label 'SnpSift'
   label 'SnpSift_4_3_1t__1'
   shell = ['/bin/bash', '-euo', 'pipefail']
-  container = 'docker://davelabhub/snpsift:4.3.1t--1'
+  //container = 'docker://davelabhub/snpsift:4.3.1t--1'
+  container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+    'docker://davelabhub/snpsift:4.3.1t--1':
+    'biocontainers/snpsift:4.3.1t--py36_0' }"
 
   input:
     tuple( val(donor_id), val(sample_id), path(vcf_gz), path(tbi), val(normal_sample_ids) )

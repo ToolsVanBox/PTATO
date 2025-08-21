@@ -3,8 +3,11 @@ process smurf {
   label 'SMuRF'
   label 'SMuRF_3_0_2'
   shell = ['/bin/bash', '-euo', 'pipefail']
-  container = 'docker://vanboxtelbioinformatics/smurf:3.0.2'
-
+  //container = 'docker://vanboxtelbioinformatics/smurf:3.0.2'
+  container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'docker://vanboxtelbioinformatics/smurf:3.0.2':
+        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/smurf@sha256:7db74359db85390f702bf049e937a0fef747f6928222ef4f26f7222504708c5a' }"
+  
   input:
     tuple( val(donor_id), val(germline_sample_id), path(germline_vcf), path( germline_tbi), val(bam_sample_ids), val(bam_files), val(bai_files), val(bulk_names) )
 

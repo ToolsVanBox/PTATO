@@ -4,9 +4,11 @@ process CallableLoci {
   label 'GATK_3_8_1'
   label 'GATK_3_8_1_CallableLoci'
   clusterOptions = workflow.profile == "sge" ? "-l h_vmem=${params.mem}" : ""
-  // container = 'docker://broadinstitute/gatk3:3.8-1'
-  container = 'quay.io/biocontainers/gatk:3.8--hdfd78af_11'
   shell = ['/bin/bash', '-euo', 'pipefail']
+  //container = 'quay.io/biocontainers/gatk:3.8--hdfd78af_11'
+  container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'quay.io/biocontainers/gatk:3.8--hdfd78af_11':
+        'biocontainers/gatk:3.8--hdfd78af_11' }"
 
   input:
     tuple( val(donor_id), val(sample_id), path(bam), path(bai) )

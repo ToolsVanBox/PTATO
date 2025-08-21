@@ -3,9 +3,12 @@ process gridss {
   tag {"gridss ${normal_sample_id} ${tumor_sample_id}"}
   label 'gridss'
   label 'gridss_2_13_2'
-  container = 'docker://gridss/gridss:2.13.2'
   shell = ['/bin/bash', '-euo', 'pipefail']
-
+  //container = 'docker://gridss/gridss:2.13.2'
+  container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'docker://gridss/gridss:2.13.2':
+        'biocontainers/gridss:2.13.2--h270b39a_0' }"
+        
   input:
     tuple( val(donor_id), val(normal_sample_id), path(normal_bam), path(normal_bai), val(tumor_sample_id), path(tumor_bam), path(tumor_bai) )
 

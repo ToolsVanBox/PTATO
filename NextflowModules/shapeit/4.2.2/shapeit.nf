@@ -3,8 +3,11 @@ process shapeit {
   label 'shapeit'
   label 'shapeit_4_2_2'
   shell = ['/bin/bash', '-euo', 'pipefail']
-  container = 'quay.io/biocontainers/shapeit4:4.2.2--h24bf969_1'
-
+  //container = 'quay.io/biocontainers/shapeit4:4.2.2--h24bf969_1'
+  container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+      'quay.io/biocontainers/shapeit4:4.2.2--h24bf969_1':
+      'biocontainers/shapeit4:4.2.2--h24bf969_1' }"
+      
   input:
     tuple( val(donor_id), val(sample_id), path(vcf_gz), path(tbi), val(chrom) )
 

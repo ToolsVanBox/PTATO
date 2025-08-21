@@ -4,6 +4,9 @@ process walker {
   label 'walker_2_2_0'
   shell = ['/bin/bash', '-euo', 'pipefail']
   container = 'docker://vanboxtelbioinformatics/walker:2.2.0'
+  container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'docker://vanboxtelbioinformatics/walker:2.2.0':
+        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/walker@sha256:21b524c98bf879d0e7f5ae26c37b70f67f23c8179538994f2661a164e04d1151' }"
 
   input:
     tuple( val(donor_id), val(germline_sample_id), path(germline_vcf), path( germline_tbi), val(bam_sample_ids), val(bam_files), val(bai_files), val(sample_id), path(somatic_vcf), path(somatic_tbi) )
