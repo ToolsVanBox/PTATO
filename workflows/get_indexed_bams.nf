@@ -20,7 +20,13 @@ workflow get_indexed_bams {
 
     GetSampleName( indexed_bams )
     indexed_bams = GetSampleName.out
-
+    
+    out_bams = indexed_bams.combine( input_bams, by: [0,1] )
+	.map{donor_id, sample_id, work_bam, work_bai, input_bam, input_bai ->
+	    [donor_id, sample_id, input_bam, input_bai ]
+	}
+	
+    
   emit:
-    indexed_bams
+    out_bams
 }

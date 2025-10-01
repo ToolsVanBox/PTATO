@@ -18,6 +18,9 @@ workflow svs {
     bams
     germline_vcfs
     filtered_cnv_files
+    genome_fasta
+    genome_fai
+    genome_dict
   main:
     bulk_names = Channel.from( params.bulk_names ).combine(Channel.from("Normal"))
 
@@ -62,10 +65,10 @@ workflow svs {
             [ donor_id, normal_sample_id, tumor_sample_id, vcf, tbi]
           }
       } else {
-        get_gridss_vcfs( normal_bams, tumor_bams )
+        get_gridss_vcfs( normal_bams, tumor_bams, genome_fasta, genome_fai, genome_dict  )
         gridss_unfiltered_vcfs = get_gridss_vcfs.out
       }
-      get_gripss_vcfs( gridss_unfiltered_vcfs )
+      get_gripss_vcfs( gridss_unfiltered_vcfs, genome_fasta, genome_fai, genome_dict )
       gripss_somatic_filtered_vcfs = get_gripss_vcfs.out
     }
 

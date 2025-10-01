@@ -8,6 +8,9 @@ workflow get_gridss_vcfs {
   take:
     normal_bams
     tumor_bams
+    genome_fasta
+    genome_fai
+    genome_dict
   main:
     input_gridss = normal_bams
       .combine( tumor_bams, by: [0] )
@@ -23,7 +26,7 @@ workflow get_gridss_vcfs {
           [ donor_id, normal_sample_id, tumor_sample_id, vcf, tbi]
         }
     } else {
-      gridss( input_gridss )
+      gridss( input_gridss, genome_fasta, genome_fai, genome_dict )
       gridss_driver_vcfs = gridss.out
         .map{
           donor_id, normal_sample_id, tumor_sample_id, gridss_driver_vcf, gridss_driver_tbi, gridss_driver_bam ->
@@ -36,7 +39,10 @@ workflow get_gridss_vcfs {
           [ donor_id, normal_sample_id, tumor_sample_id, gridss_driver_vcf, gridss_driver_tbi ]
         }
     }
-    AnnotateInsertedSequence( gridss_driver_vcfs )
+    def viralreference = file( params.gridss.viralreference, checkIfExists: true )
+    def viralfai = file( params.gridss.viralfai, checkIfExists: true )
+
+    AnnotateInsertedSequence( gridss_driver_vcfs, viralreference, viralfai )
     gridss_unfiltered_vcfs = AnnotateInsertedSequence.out
       .map{
         donor_id, normal_sample_id, tumor_sample_id, gridss_unfiltered_vcf, gridss_unfiltered_tbi ->

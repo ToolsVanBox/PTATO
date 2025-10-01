@@ -20,10 +20,16 @@ workflow get_germline_vcfs {
       germline_vcfs = get_gzipped_vcfs.out
     } else {
       input_snpsift = input_vcfs.join( bulk_names, by: [0] )
+      
+      input_snpsift.view()
 
       SnpSift( input_snpsift )
       bgzip( SnpSift.out )
       tabix( bgzip.out )
+      
+      bgzip.out.view()
+      tabix.out.view()
+      
       germline_vcfs = tabix.out
         .map{ donor_id, sample_id, vcf_gz, vcf_tbi ->
           vcf_name = vcf_gz.getName()

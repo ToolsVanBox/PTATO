@@ -32,6 +32,7 @@ process SnpSift {
       isHET_ARRAY+=(\${isHET})
       VAF_ARRAY+=(\$VAF)
     done
+    
     isHET_STRING=\${isHET_ARRAY[@]}
     isHet=\${isHET_STRING// / & }
     VAF_STRING=\${VAF_ARRAY[@]}

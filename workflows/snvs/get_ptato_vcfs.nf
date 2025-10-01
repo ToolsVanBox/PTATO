@@ -16,8 +16,9 @@ workflow get_ptato_vcfs {
     } else {
 
       input_test_snv_rf = somatic_vcfs.combine( rf_tables, by: [0,1] )
-
-      test_snv_rf( input_test_snv_rf )
+      def rf_rds = file( params.snvs.rf_rds, checkIfExists: true )
+      
+      test_snv_rf( input_test_snv_rf, rf_rds )
 
       bgzip( test_snv_rf.out )
       tabix( bgzip.out )

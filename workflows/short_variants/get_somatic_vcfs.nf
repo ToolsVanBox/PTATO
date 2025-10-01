@@ -12,7 +12,8 @@ workflow get_somatic_vcfs {
       .join( input_bams, by: [0] )
       .join( Channel.from( params.bulk_names ).groupTuple( by: [0] ) )
 
-    smurf( input_SMuRF )
+    def config = file( params.smurf.config, checkIfExists: true )
+    smurf( input_SMuRF, config )
 
     bgzip( smurf.out
       .transpose()

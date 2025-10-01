@@ -10,6 +10,8 @@ process shapeit {
       
   input:
     tuple( val(donor_id), val(sample_id), path(vcf_gz), path(tbi), val(chrom) )
+    path( references )
+    path( map_files )
 
   output:
     tuple( val(donor_id), val(sample_id), val(chrom), path("${sample_id}.${chrom}.phased.vcf.gz"), emit: phased_vcf)
@@ -18,15 +20,15 @@ process shapeit {
     """
     host=\$(hostname)
     echo \${host}
-
+    
     shapeit4 \
     --input ${vcf_gz} \
     --region ${chrom} \
     --output ${sample_id}.${chrom}.phased.vcf.gz \
-    --map ${params.shapeit.maps}/chr${chrom}.b38.gmap.gz \
+    --map chr${chrom}.b38.gmap.gz \
     --thread ${task.cpus} \
     --sequencing \
-    --reference ${params.shapeit.reference}/CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chrom}.filtered.shapeit2-duohmm-phased.vcf.gz \
+    --reference CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chrom}.filtered.shapeit2-duohmm-phased.vcf.gz \
     ${params.shapeit.optional}
     """
 }

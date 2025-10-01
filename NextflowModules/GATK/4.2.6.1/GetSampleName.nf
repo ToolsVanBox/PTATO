@@ -23,5 +23,12 @@ process GetSampleName {
     -I ${bam} \
     -O /dev/stdout
     ${params.getsamplename.optional}
+    
+#    cp -L ${bam} blaat && rm ${bam} && mv blaat ${bam}
+#    cp -L ${bai} blaat && rm ${bam} && mv blaat ${bam}
+    
+
     """
+    
+    
 }

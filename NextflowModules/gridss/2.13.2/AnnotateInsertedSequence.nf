@@ -7,11 +7,13 @@ process AnnotateInsertedSequence {
   //container = 'docker://gridss/gridss:2.13.2'
   container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'docker://gridss/gridss:2.13.2':
-        'biocontainers/gridss:2.13.2--h270b39a_0' }"
+        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/gridss:2.13.2@sha256:3a0b53fb9c37891cf6429b24ca70fd77454fd3103966469b3c5124b55997453d' }"
+//        'biocontainers/gridss:2.13.2--h270b39a_0' }"
 
   input:
     tuple( val(donor_id), val(normal_sample_id), val(tumor_sample_id), path(gridss_driver_vcf), path(gridss_driver_tbi) )
-
+    path( viralreference )
+    path( viral_fai )
   output:
     tuple( val(donor_id), val(normal_sample_id), val(tumor_sample_id), path("${tumor_sample_id}.gridss.unfiltered.vcf.gz"), path("${tumor_sample_id}.gridss.unfiltered.vcf.gz.tbi"), emit: gridss_unfiltered_vcf )
 
@@ -24,7 +26,7 @@ process AnnotateInsertedSequence {
 		-Dsamjdk.use_async_io_write_tribble=true \
 		-Dsamjdk.buffer_size=4194304 \
 		-cp /opt/gridss/gridss-2.13.2-gridss-jar-with-dependencies.jar gridss.AnnotateInsertedSequence \
-		REFERENCE_SEQUENCE=${params.gridss.viralreference} \
+		REFERENCE_SEQUENCE=${viralreference} \
 		INPUT=${gridss_driver_vcf} \
 		OUTPUT=${tumor_sample_id}.gridss.unfiltered.vcf.gz \
 		ALIGNMENT=APPEND WORKER_THREADS=${task.cpus}

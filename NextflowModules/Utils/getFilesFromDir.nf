@@ -57,6 +57,24 @@ def extractInputVcfFromDir( input_dir ) {
       }
 }
 
+def extractInputVcfFromCloudDir( input_dir, input_donor_id ) {
+    // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+    input_dir = input_dir.tokenize().collect{"$it/*.{vcf,vcf.gz}"}
+    Channel
+      .fromPath(input_dir, type:'file')
+      .ifEmpty { error "No .vcf(.gz) files found in ${input_dir}." }
+      .map { input_vcf_path ->
+          input_vcf_file = input_vcf_path
+          input_tbi_file = input_vcf_path+".tbi"
+          input_sample_id = input_vcf_path.getName().toString().replaceAll(/.vcf(.gz)*$/, '')
+          if ( file(input_tbi_file).exists() ) {
+            [input_donor_id, input_sample_id, input_vcf_file, input_tbi_file]
+          } else {
+            [input_donor_id, input_sample_id, input_vcf_file]
+          }
+      }
+}
+
 def extractGermlineVcfFromDir( germline_vcfs_dir ) {
     // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
     germline_vcfs_dir = germline_vcfs_dir.tokenize().collect{"$it/*/*.{vcf,vcf.gz}"}
@@ -118,6 +136,42 @@ def extractBamsFromDir( bams_dir ) {
           }
       }
 }
+
+def extractBamsFromCloudDir( bams_dir, bam_donor_id  ) {
+    // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+    bams_dir = bams_dir.tokenize().collect{"$it/*.bam"}
+    Channel
+      .fromPath(bams_dir, type:'file')
+      .ifEmpty { error "No bam files found in ${bams_dir}." }
+      .map { bam_path ->
+          bam_file = bam_path
+          bai_file = bam_path.toString().replace('.bam','.bai')
+          bam_sample_id = bam_path.getName().toString().replaceAll(/(_dedup)*.bam$/, '').split('\\.')[0]
+          if ( file(bai_file).exists() ) {
+            [bam_donor_id, bam_sample_id, bam_file, bai_file]
+          } else {
+            bai_file = bam_path+".bai"
+            if ( file(bai_file).exists() ) {
+              [bam_donor_id, bam_sample_id, bam_file, bai_file]
+            } else {
+              [bam_donor_id, bam_sample_id, bam_file]
+            }
+          }
+      }
+}
+
+def extractBaisFromCloudBatchDir( bais_dir, bai_donor_id  ) {
+    // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab
+    bais_dir = bais_dir.tokenize().collect{"$it/*.bai"}
+    Channel
+      .fromPath(bais_dir, type:'file')
+      .ifEmpty { error "No bai files found in ${bais_dir}." }
+      .map { bai_path ->
+          bai_sample_id = bai_path.getName().toString().replaceAll(/(_dedup)*.bai$/, '').split('\\.')[0]
+          [bai_donor_id, bai_sample_id]
+      }
+}
+
 
 def extractWalkerVcfFromDir( walker_dir ) {
   // Original code from: https://github.com/SciLifeLab/Sarek - MIT License - Copyright (c) 2016 SciLifeLab

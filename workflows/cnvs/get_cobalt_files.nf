@@ -4,10 +4,16 @@ workflow get_cobalt_files {
   take:
     normal_bams
     tumor_bams
+    genome_fasta
+    genome_fai
+    genome_dict
   main:
     input_cobalt = normal_bams
       .combine( tumor_bams, by: [0] )
-    CountBamLinesApplication( input_cobalt )
+
+    def gc_profile = file( params.cobalt.gc_profile, checkIfExists: true )
+      
+    CountBamLinesApplication( input_cobalt, genome_fasta, genome_fai, genome_dict, gc_profile )
 
     cobalt_ratio_tsvs = CountBamLinesApplication.out
       .transpose()

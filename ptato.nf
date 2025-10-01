@@ -25,6 +25,9 @@ include {
   extractWalkerVcfFromDir;
   extractCombinedPtatoVcfFromDir; 
   extractPtatoTableFromDir
+  extractInputVcfFromCloudDir;
+  extractBamsFromCloudDir;
+  extractBaisFromCloudBatchDir;
 } from './NextflowModules/Utils/getFilesFromDir.nf' params(params)
 
 workflow {
@@ -36,16 +39,56 @@ workflow {
       }
       .unique()
 
-    input_raw_vcfs = run_donor_ids.combine( extractInputVcfFromDir( params.input_vcfs_dir ), by: [0] )
-    input_raw_bams = run_donor_ids.combine( extractBamsFromDir( params.bams_dir ), by: [0] )
+    def donor_id = params.bulk_names[0][0]
+    
+//    input_raw_vcfs = run_donor_ids.combine( extractInputVcfFromDir( params.input_vcfs_dir ), by: [0] )
+//    input_raw_bams = run_donor_ids.combine( extractBamsFromDir( params.bams_dir ), by: [0] )
+    
+    Channel.fromPath( params.input_samplesheet ).
+        splitCsv( header:true )
+        .branch { row ->
+            ch_bam: row.file_type == "bam"
+                    return tuple( row.donor_id, row.sample_id, row.file, row.file_index )
+            ch_vcf: row.file_type == "vcf"
+                    return tuple( row.donor_id, row.sample_id, row.file, row.file_index )
+           
+        }
+        .set { inputs }
 
+    
+    input_raw_vcfs = run_donor_ids.combine( inputs.ch_vcf, by: [0] )
+    input_raw_bams = run_donor_ids.combine( inputs.ch_bam, by: [0] )
+
+    input_raw_vcfs.view()
+    
+    input_raw_bams.view()
+
+//    input_raw_bams = run_donor_ids.combine( extractBamsFromCloudDir( params.bams_dir, donor_id ), by: [0] )
+//    input_bais = run_donor_ids.combine( extractBaisFromCloudBatchDir( "${params.input_vcfs_dir}/../../../bams/", donor_id ), by: [0] )
+    
+//    input_raw_bams = input_bais.combine(input_raw_bams, by: [0,1]).view()
+    
     get_indexed_bams( input_raw_bams )
     input_bams = get_indexed_bams.out.groupTuple( by: [0] )
 
+    // Define variables
+    def fasta = file( params.genome_fasta, checkIfExists: true )
+    def fai = file( params.genome_fai, checkIfExists: true )
+    def dict = file( params.genome_dict, checkIfExists: true )
+    
+    ch_fasta = Channel.value( fasta )
+      .map{ genome_fasta -> [ [ id:'fasta' ], genome_fasta ] }
+      
+    ch_fai = Channel.value( fai )
+      .map{ genome_fai -> [ [ id:'fai' ], genome_fai ] }
+    
+    ch_dict = Channel.value( dict )
+      .map( genome_dict -> [ [ id:'dict'], genome_dict ] )
+      
     if ( params.run.QC || params.run.postqc) {
-      RunCallableLoci( input_bams )
+      RunCallableLoci( input_bams, ch_fasta, ch_fai, ch_dict )
       if ( params.run.QC) {
-        qc( input_bams )
+        qc( input_bams, ch_fasta, ch_fai, ch_dict )
       }
     }
 
@@ -80,16 +123,16 @@ workflow {
         post_ptato_qc( postqc_combined_input, RunCallableLoci.out )
       } else {
         if ( params.run.snvs || params.run.indels ) {
-          short_variants( input_vcfs, input_bams, germline_vcfs )
+         short_variants( input_vcfs, input_bams, germline_vcfs )
         }
       }
 
       if ( params.run.svs || params.run.cnvs ) {
-        cnvs( input_bams, germline_vcfs )
+        cnvs( input_bams, germline_vcfs, ch_fasta, ch_fai, ch_dict )
         filtered_cnv_files = cnvs.out
 
         if ( params.run.svs ) {
-          svs( input_bams, germline_vcfs, filtered_cnv_files )
+          svs( input_bams, germline_vcfs, filtered_cnv_files, ch_fasta, ch_fai, ch_dict )
         }
       }
     }

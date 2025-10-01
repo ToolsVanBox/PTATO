@@ -11,19 +11,23 @@ process CallableLoci {
         'biocontainers/gatk:3.8--hdfd78af_11' }"
 
   input:
-    tuple( val(donor_id), val(sample_id), path(bam), path(bai) )
-
+    tuple val(donor_id), val(sample_id), path(bam), path(bai) 
+    tuple val(fasta_meta), path(genome_fasta)
+    tuple val(fai_meta), path(genome_fai)
+    tuple val(dict_meta), path(genome_dict)
+    
   output:
     tuple( val(donor_id), val(sample_id), path("${sample_id}.callableloci.bed"), path("${sample_id}.callableloci.txt"), emit: callableloci_files )
 
   script:
     """
+
     java -Djava.io.tmpdir=\$TMPDIR \
     -Xmx${task.memory.toGiga()-4}g -jar \
     /usr/local/opt/gatk-3.8/GenomeAnalysisTK.jar \
     -T CallableLoci \
     -I ${bam} \
-    -R ${params.genome_fasta} \
+    -R ${genome_fasta} \
     -o ${sample_id}.callableloci.bed \
     --summary ${sample_id}.callableloci.txt \
     ${params.callableloci.optional}

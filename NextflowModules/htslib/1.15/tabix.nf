@@ -9,15 +9,16 @@ process tabix {
         'biocontainers/htslib:1.15--h9753748_0' }"
   input:
     tuple( val(donor_id), val(sample_id), path(vcf_gz) )
-
   output:
-    tuple( val(donor_id), val(sample_id), path( vcf_gz ), path("${vcf_gz}.tbi"), emit: tbi )
+    tuple( val(donor_id), val(sample_id), path( "${vcf_gz}" ), path("${vcf_gz}.tbi"), emit: tbi )
 
   script:
     """
     host=\$(hostname)
     echo \${host}
-
+    
     tabix ${params.tabix.optional} ${vcf_gz}
+    
+    cp -L ${vcf_gz} blaat && rm ${vcf_gz} && mv blaat ${vcf_gz}
     """
 }

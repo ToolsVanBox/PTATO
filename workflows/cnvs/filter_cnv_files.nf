@@ -17,12 +17,17 @@ workflow filter_cnv_files {
     normal_bams
     tumor_bams
   main:
+    def centromeres = file( params.svs.centromeres, checkIfExists: true )
+    def cytoband = file( params.svs.cytoband, checkIfExists: true )
+    def cobalt_pon = file( params.cobalt.pon, checkIfExists: true )
+
     if ( params.optional.cnvs.cobalt_filtered_readcounts_dir ) {
       cobalt_filtered_readcounts_files = extractCobaltFilteredReadCounts( params.optional.cnvs.cobalt_filtered_readcounts_dir )
       cobalt_filtered_readcounts_segment_files = extractCobaltFilteredReadCountsSegments( params.optional.cnvs.cobalt_filtered_readcounts_dir )
       cobalt_filtered_readcounts_files = cobalt_filtered_readcounts_files.concat( cobalt_filtered_readcounts_segment_files )
     } else {
-      FilterCobalt( cobalt_ratio_tsv_files )
+
+      FilterCobalt( cobalt_ratio_tsv_files, centromeres, cytoband, cobalt_pon )
       cobalt_filtered_readcounts_files = FilterCobalt.out
         .transpose()
         .map{
@@ -49,7 +54,7 @@ workflow filter_cnv_files {
           [ donor_id, normal_sample_id, tumor_sample_id, germline_vcf, germline_tbi ]
         }
 
-      FilterBAF( input_baf_filter_files )
+      FilterBAF( input_baf_filter_files, centromeres, cytoband )
       baf_filtered_files = FilterBAF.out
         .transpose()
         .map{

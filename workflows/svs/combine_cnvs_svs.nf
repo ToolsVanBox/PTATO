@@ -38,8 +38,9 @@ workflow combine_cnvs_svs {
       input_gripss_filter_files = gripss_somatic_filtered_vcfs
         .combine( baf_filtered_files, by: [0,1,2] )
         .combine( cobalt_filtered_readcounts_1kb_files, by: [0,1,2] )
+      def gripss_pon = file( params.gripss.pon, checkIfExists: true )
 
-      FilterGripss( input_gripss_filter_files )
+      FilterGripss( input_gripss_filter_files, gripss_pon )
       filter_gripss_files = FilterGripss.out
         .transpose()
         .map{

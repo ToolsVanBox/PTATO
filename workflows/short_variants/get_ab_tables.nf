@@ -16,11 +16,13 @@ workflow get_ab_tables {
     chroms_file = file(params.shapeit.chroms)
     chroms = chroms_file.readLines()
     input_germline_vcfs_chroms = input_germline_vcfs.combine( chroms )
-
+    def chr_maps = Channel.value( file("${params.shapeit.maps}/*gmap.gz") )
+    def chr_ref = Channel.value( file("${params.shapeit.reference}/*") )
     if ( params.optional.short_variants.phased_vcfs_dir ) {
       phased_vcfs = extractPhasedVcfGzFromDir( params.optional.short_variants.phased_vcfs_dir )
     } else {
-      shapeit( input_germline_vcfs_chroms )
+      shapeit( input_germline_vcfs_chroms, chr_ref, chr_maps )
+      //, shapeit_references )
       tabix( shapeit.out
         .map{ donor_id, sample_id, chrom, phased_vcf ->
           [ donor_id, sample_id, phased_vcf ]

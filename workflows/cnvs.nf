@@ -15,6 +15,9 @@ workflow cnvs {
   take:
     bams
     germline_vcfs
+    genome_fasta
+    genome_fai
+    genome_dict
   main:
     bulk_names = Channel.from( params.bulk_names ).combine(Channel.from("Normal"))
 
@@ -37,7 +40,7 @@ workflow cnvs {
     if ( params.optional.cnvs.cobalt_ratio_tsv_dir ) {
       cobalt_ratio_tsv_files = extractCobaltRatioTsvFromDir( params.optional.cnvs.cobalt_ratio_tsv_dir )
     } else {
-      get_cobalt_files( normal_bams, tumor_bams )
+      get_cobalt_files( normal_bams, tumor_bams, genome_fasta, genome_fai, genome_dict )
       cobalt_ratio_tsv_files = get_cobalt_files.out
     }
   //

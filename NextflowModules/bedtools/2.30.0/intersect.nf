@@ -36,7 +36,7 @@ process intersectAll {
   container = 'quay.io/biocontainers/bedtools:2.30.0--h468198e_3'
 
   input:
-    tuple( val(donor_id), val(sample_id), path(bed), val(closest_feature_beds), val(intersect_feature_beds) )
+    tuple( val(donor_id), val(sample_id), path(bed), path(closest_feature_beds), path(intersect_feature_beds) )
 
   output:
     tuple( val(donor_id), val(sample_id), path("${sample_id}.features.bed"), emit: features_bed)

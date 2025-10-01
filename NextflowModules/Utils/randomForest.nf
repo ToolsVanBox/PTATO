@@ -4,7 +4,7 @@ process train_snv_rf {
   shell = ['/bin/bash', '-euo', 'pipefail']
   container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?  
         'docker://vanboxtelbioinformatics/ptato_r:1.3.3':
-        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/ptato_rsha256:01608f437f46324b7ef4c6ae3ce9fe06da8d160ab6d46a44b04342e979f13be6' }"
+        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/ptato_r@sha256:c2396d1d9c217123444f4fed846fba38bb5dade14833b244a33bb9806577b059' }"
 
   input:
     tuple( val(label_1), path(rf_table_1), val(label_2), path(rf_table_2) )
@@ -29,7 +29,7 @@ process train_indel_rf {
   shell = ['/bin/bash', '-euo', 'pipefail']
   container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?  
         'docker://vanboxtelbioinformatics/ptato_r:1.3.3':
-        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/ptato_rsha256:01608f437f46324b7ef4c6ae3ce9fe06da8d160ab6d46a44b04342e979f13be6' }"
+        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/ptato_r@sha256:c2396d1d9c217123444f4fed846fba38bb5dade14833b244a33bb9806577b059' }"
 
   input:
     tuple( val(label_1), path(rf_table_1), val(label_2), path(rf_table_2) )
@@ -54,11 +54,11 @@ process test_snv_rf {
   shell = ['/bin/bash', '-euo', 'pipefail']
   container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?  
         'docker://vanboxtelbioinformatics/ptato_r:1.3.3':
-        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/ptato_rsha256:01608f437f46324b7ef4c6ae3ce9fe06da8d160ab6d46a44b04342e979f13be6' }"
+        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/ptato_r@sha256:c2396d1d9c217123444f4fed846fba38bb5dade14833b244a33bb9806577b059' }"
 
   input:
     tuple( val(donor_id), val(sample_id), path(somatic_vcf), path(somatic_tbi), path(rf_table) )
-
+    path( rf_rds )
   output:
     tuple( val(donor_id), val(sample_id), path("${sample_id}.snvs.ptato.vcf"), emit: ptato_vcf )
 
@@ -67,7 +67,7 @@ process test_snv_rf {
     host=\$(hostname)
     echo \${host}
 
-    R --slave --file=/scripts/R/test_randomforest.R --args ${params.snvs.rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.snvs.ptato.vcf
+    R --slave --file=/scripts/R/test_randomforest.R --args ${rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.snvs.ptato.vcf
     """
 }
 
@@ -77,11 +77,11 @@ process test_indel_rf {
   shell = ['/bin/bash', '-euo', 'pipefail']
   container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?  
         'docker://vanboxtelbioinformatics/ptato_r:1.3.3':
-        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/ptato_rsha256:01608f437f46324b7ef4c6ae3ce9fe06da8d160ab6d46a44b04342e979f13be6' }"
+        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/ptato_r@sha256:c2396d1d9c217123444f4fed846fba38bb5dade14833b244a33bb9806577b059' }"
 
   input:
     tuple( val(donor_id), val(sample_id), path(somatic_vcf), path(somatic_tbi), path(rf_table) )
-
+    path( rf_rds )
   output:
     tuple( val(donor_id), val(sample_id), path("${sample_id}.indels.ptato.vcf"), emit: ptato_vcf )
 
@@ -90,6 +90,6 @@ process test_indel_rf {
     host=\$(hostname)
     echo \${host}
 
-    R --slave --file=/scripts/R/test_randomforest.R --args ${params.indels.rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.indels.ptato.vcf
+    R --slave --file=/scripts/R/test_randomforest.R --args ${rf_rds} ${rf_table} ${somatic_vcf} ${sample_id}.indels.ptato.vcf
     """
 }

@@ -4,8 +4,16 @@ include { GripssHardFilterApplicationKt } from '../../NextflowModules/gridss-pur
 workflow get_gripss_vcfs {
   take:
     gridss_unfiltered_vcfs
+    genome_fasta
+    genome_fai
+    genome_dict
   main:
-    GripssApplicationKt( gridss_unfiltered_vcfs )
+  
+    def breakpoint_hotspot = file( params.gripss.breakpoint_hotspot, checkIfExists: true )
+    def breakend_pod = file( params.gripss.breakend_pod, checkIfExists: true )
+    def breakpoint_pon = file( params.gripss.breakpoint_pon, checkIfExists: true )
+
+    GripssApplicationKt( gridss_unfiltered_vcfs, genome_fasta, genome_fai, genome_dict, breakpoint_hotspot, breakend_pod, breakpoint_pon )
     gripss_somatic_vcfs = GripssApplicationKt.out
     .map{
       donor_id, normal_sample_id, tumor_sample_id, gripss_somatic_vcf, gripss_somatic_tbi->
