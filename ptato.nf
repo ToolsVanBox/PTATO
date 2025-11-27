@@ -59,9 +59,9 @@ workflow {
     input_raw_vcfs = run_donor_ids.combine( inputs.ch_vcf, by: [0] )
     input_raw_bams = run_donor_ids.combine( inputs.ch_bam, by: [0] )
 
-    input_raw_vcfs.view()
+//    input_raw_vcfs.view()
     
-    input_raw_bams.view()
+//    input_raw_bams.view()
 
 //    input_raw_bams = run_donor_ids.combine( extractBamsFromCloudDir( params.bams_dir, donor_id ), by: [0] )
 //    input_bais = run_donor_ids.combine( extractBaisFromCloudBatchDir( "${params.input_vcfs_dir}/../../../bams/", donor_id ), by: [0] )

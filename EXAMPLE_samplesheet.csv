@@ -1,0 +1,4 @@
+donor_id,sample_id,file,file_index,file_type
+PVA9,PVA9GTDBBC73,gs://pip-pmc-vanboxtel/processed/Novogene/X204SC25040338-Z01-F007_PVA9/bams/PVA9GTDBBC73.bwamem2.samtools.gatk4spark.dedup.bam,gs://pip-pmc-vanboxtel/processed/Novogene/X204SC25040338-Z01-F007_PVA9/bams/PVA9GTDBBC73.bwamem2.samtools.gatk4spark.dedup.bam.bai,bam
+PVA9,PVA9GBDBMS79,gs://pip-pmc-vanboxtel/processed/Novogene/X204SC25040338-Z01-F007_PVA9/bams/PVA9GBDBMS79.bwamem2.samtools.gatk4spark.dedup.bam,gs://pip-pmc-vanboxtel/processed/Novogene/X204SC25040338-Z01-F007_PVA9/bams/PVA9GBDBMS79.bwamem2.samtools.gatk4spark.dedup.bam.bai,bam
+PVA9,PVA9_1.vep,gs://pip-pmc-vanboxtel/processed/Novogene/X204SC25040338-Z01-F007_PVA9/vcf_batches/batch1/vcf/germline/gatk4haplotypecaller/PVA9_1.vep.vcf.gz,gs://pip-pmc-vanboxtel/processed/Novogene/X204SC25040338-Z01-F007_PVA9/vcf_batches/batch1/vcf/germline/gatk4haplotypecaller/PVA9_1.vep.vcf.gz.tbi,vcf

@@ -39,10 +39,16 @@ workflow get_gridss_vcfs {
           [ donor_id, normal_sample_id, tumor_sample_id, gridss_driver_vcf, gridss_driver_tbi ]
         }
     }
-    def viralreference = file( params.gridss.viralreference, checkIfExists: true )
-    def viralfai = file( params.gridss.viralfai, checkIfExists: true )
+//    def viralreference = file( params.gridss.viralreference, checkIfExists: true )
+//    def viralfai = file( params.gridss.viralfai, checkIfExists: true )
+    def repeatmaskerbed = file( params.gridss.gridss_repeatmaskerbed, checkIfExists: true )
+    
+    viralreference = Channel.value( file("${params.gridss.viralreference}/*") )
+          .map{ viralreference_index -> [ [ id:'index' ], viralreference_index ] }
 
-    AnnotateInsertedSequence( gridss_driver_vcfs, viralreference, viralfai )
+//    GRIDSS_ANNOTATEINSERTEDSEQUENCE_GERMLINE( ch_gridss_driver_vcfs, ch_viralreference_index, repeatmaskerbed )
+
+    AnnotateInsertedSequence( gridss_driver_vcfs, viralreference, repeatmaskerbed )
     gridss_unfiltered_vcfs = AnnotateInsertedSequence.out
       .map{
         donor_id, normal_sample_id, tumor_sample_id, gridss_unfiltered_vcf, gridss_unfiltered_tbi ->
