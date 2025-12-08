@@ -25,7 +25,7 @@ workflow qc {
       alignment_summary_metrics_files = extractAlignmentSummaryMetricsFromDir( params.optional.qc.alignment_summary_metrics_dir )
     } else {
       input_casm = bams.transpose()
-      input_casm.view()
+//      input_casm.view()
       CollectAlignmentSummaryMetrics( input_casm, genome_fasta, genome_fai, genome_dict )
       alignment_summary_metrics_files = CollectAlignmentSummaryMetrics.out
         .map{ donor_id, sample_id, alignment_summary_metrics_file ->

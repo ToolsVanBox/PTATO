@@ -17,7 +17,10 @@ process smurf {
     tuple( val(donor_id), val(germline_sample_id), path(germline_vcf), path( germline_tbi), val(bam_sample_ids), path(bam_files), path(bai_files), val(bulk_names) )
     path( config )
   output:
-    tuple( val(donor_id), path("${germline_sample_id}.SMuRF.vcf"), path("${germline_sample_id}.SMuRF.filtered.vcf"), path("${germline_sample_id}.SMuRF.vafplot.pdf"), path("${germline_sample_id}_*.SMuRF.filtered.vcf"), emit: somatic_vcfs_dir )
+    tuple val(donor_id), path("*SMuRF.vcf"), emit: smurf_vcf
+    tuple val(donor_id), path("${germline_sample_id}.SMuRF.filtered.vcf"), emit: smurf_filtered_vcf
+    tuple val(donor_id), path("${germline_sample_id}_*.SMuRF.filtered.vcf"), emit: smurf_filtered_single_vcf
+//    tuple( val(donor_id), path("${germline_sample_id}.SMuRF.vcf"), path("${germline_sample_id}.SMuRF.filtered.vcf"), path("${germline_sample_id}.SMuRF.vafplot.pdf"), path("${germline_sample_id}_*.SMuRF.filtered.vcf"), emit: somatic_vcfs_dir )
 
   script:
     b = bam_files ? ' -b ' + bam_files.join(' -b ') : ''
