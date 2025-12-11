@@ -18,7 +18,9 @@ process CountBamLinesApplication {
     tuple( val(dict_meta), path( genome_dict ) )
     path( gc_profile )
   output:
-    tuple( val(donor_id), val(normal_sample_id), val(tumor_sample_id), path("${tumor_sample_id}/*"), path("${tumor_sample_id}/${tumor_sample_id}.cobalt.ratio.tsv"), emit: cobalt_files )
+//    tuple( val(donor_id), val(normal_sample_id), val(tumor_sample_id), path("${tumor_sample_id}/*"), path("${tumor_sample_id}/${tumor_sample_id}.cobalt.ratio.tsv"), emit: cobalt_files )
+    tuple val(donor_id), val(normal_sample_id), val(tumor_sample_id), path("${tumor_sample_id}/*"), emit: cobalt_files 
+    tuple val(donor_id), val(normal_sample_id), val(tumor_sample_id), path("${tumor_sample_id}/${tumor_sample_id}.cobalt.ratio.tsv"), emit: cobalt_ratio_file
 
   script:
     """

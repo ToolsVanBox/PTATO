@@ -33,7 +33,10 @@ process groupbyAll {
   label 'bedtoolsGroupbyAll'
   label 'bedtools_2_30_0_groupbyAll'
   shell = ['/bin/bash', '-euo', 'pipefail']
-  container = 'quay.io/biocontainers/bedtools:2.30.0--h468198e_3'
+//  container = 'quay.io/biocontainers/bedtools:2.30.0--h468198e_3'
+  container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'quay.io/biocontainers/bedtools:2.30.0--h468198e_3':
+        'biocontainers/bedtools:2.30.0--h468198e_3' }"
 
   input:
     tuple( val(donor_id), val(sample_id), path(bed))

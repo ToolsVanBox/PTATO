@@ -33,7 +33,9 @@ process intersectAll {
   label 'bedtoolsIntersectAll'
   label 'bedtools_2_30_0_intersectAll'
   shell = ['/bin/bash', '-euo', 'pipefail']
-  container = 'quay.io/biocontainers/bedtools:2.30.0--h468198e_3'
+  container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'quay.io/biocontainers/bedtools:2.30.0--h468198e_3':
+        'biocontainers/bedtools:2.30.0--h468198e_3' }"
 
   input:
     tuple( val(donor_id), val(sample_id), path(bed), path(closest_feature_beds), path(intersect_feature_beds) )
@@ -72,7 +74,9 @@ process intersectExcludeIndelList {
   label 'bedtoolsIntersectExcludeIndelList'
   label 'bedtools_2_30_0_intersectExcludeIndelList'
   shell = ['/bin/bash', '-euo', 'pipefail']
-  container = 'quay.io/biocontainers/bedtools:2.30.0--h468198e_3'
+  container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'quay.io/biocontainers/bedtools:2.30.0--h468198e_3':
+        'biocontainers/bedtools:2.30.0--h468198e_3' }"
 
   input:
     tuple( val(donor_id), val(sample_id), path(vcf), path(tbi), path(excludeindellist) )
@@ -99,7 +103,9 @@ process intersectPTATO {
   label 'bedtoolsIntersectPTATO'
   label 'bedtools_2_30_0_intersectPTATO'
   shell = ['/bin/bash', '-euo', 'pipefail']
-  container = 'quay.io/biocontainers/bedtools:2.30.0--h468198e_3'
+  container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'quay.io/biocontainers/bedtools:2.30.0--h468198e_3':
+        'biocontainers/bedtools:2.30.0--h468198e_3' }"
 
   input:
     tuple( val(donor_id), val(sample_id), path(input_vcf), path(input_tbi), val(ptato_snvs_sample_ids), path(ptato_snvs_vcfs), path(ptato_snvs_tbis), val(ptato_indels_sample_ids), path(ptato_indels_vcfs), path(ptato_indels_tbis) )
