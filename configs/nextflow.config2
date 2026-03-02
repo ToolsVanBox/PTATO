@@ -1,0 +1,107 @@
+executor {
+    $sge {
+      queueSize = 1000
+      pollInterval = '30sec'
+      queueStatInterval = '5min'
+    }
+    $slurm {
+      queueSize = 1000
+      pollInterval = '30sec'
+      queueStatInterval = '5min'
+    }
+}
+
+profiles {
+  sge {
+    process.executor = 'sge'
+    process.queue = 'all.q'
+    process.clusterOptions = ''
+  }
+
+  slurm {
+    process.executor = 'slurm'
+    process.queue = 'cpu'
+    process.clusterOptions = "--constraint=avx2"
+  }
+
+  hpc {
+    process.executor = 'slurm'
+    process.queue = 'cpu'
+
+    singularity.enabled = true
+    singularity.autoMounts = true
+    singularity.runOptions = '-B /hpc -B $TMPDIR:$TMPDIR'
+    singularity.cacheDir = '/hpc/local/Rocky8/pmc_vanboxtel/singularity_cache'
+    
+    params.resource_dir = "/hpc/pmc_vanboxtel/resources/PTATO"
+
+  }
+  gcp {
+ 
+    docker.enabled = true
+    docker.autoMounts = true
+    docker.registry      = 'quay.io'
+    process {
+    	containerOptions = '-e TMPDIR=/tmp'
+    }
+    
+    params.resource_dir = 'gs://pmc-box-pip-resources/resources/PTATO'
+
+    process.executor = 'google-batch'
+    
+    executor.queueSize = 50
+    executor.retry.delay = '10s'
+//    executor.submitRateLimit = '1/0.5s'
+    
+    execute.pollInterval = '60sec'
+    executor.jobName = {
+        def safeName = task.name
+                    .replaceAll(/[^a-zA-Z0-9-]/, "-") 
+                    .take(30)
+                    .toLowerCase()
+        def safeTag = task.tag
+                    .replaceAll(/[^a-zA-Z0-9-]/, "-") 
+                    .take(12)
+                    .toLowerCase()
+    def safeHash = task.hash.take(8)
+    def runUuid = workflow.id.take(8)
+    return "ptato-${safeTag}-${safeName}-${safeHash}-${runUuid}"
+    }   
+     
+    google.region  = 'europe-west4'
+    google.project = 'pmc-gcp-box-d-pip-kwf'
+    google.location = 'europe-west4'
+
+    google.batch.autoRetryExitCodes = [104, 9, 50001, 50002, 50003, 50004, 50005, 50006]
+    google.batch.maxSpotAttempts = 10
+ 
+    google.batch.spot = true
+    google.batch.usePrivateAddress = true
+    google.batch.network =  'projects/pmc-vpc-res-private-20gx/global/networks/shared-vpc-res-priv-dev'
+    google.batch.subnetwork = 'projects/pmc-vpc-res-private-20gx/regions/europe-west4/subnetworks/subnet-res-priv-dev'
+    google.batch.serviceAccountEmail = 'sa-nextflow-runner@pmc-gcp-box-d-pip-kwf.iam.gserviceaccount.com'
+ 
+  }
+}
+
+report {
+  overwrite = true
+  enabled = true
+  file = "$params.out_dir/log/nextflow_report.html"
+}
+
+trace {
+  overwrite = true
+  enabled = true
+  file = "$params.out_dir/log/nextflow_trace.txt"
+  fields = 'task_id,hash,native_id,process,tag,name,status,exit,module,container,cpus,time,disk,memory,attempt,submit,start,complete,duration,realtime,queue,%cpu,%mem,rss,vmem,peak_rss,peak_vmem,rchar,wchar,syscr,syscw,read_bytes,write_bytes,vol_ctxt,inv_ctxt'
+}
+
+timeline {
+  overwrite = true
+  enabled = true
+  file = "$params.out_dir/log/nextflow_timeline.html"
+
+}
+
+cleanup = false

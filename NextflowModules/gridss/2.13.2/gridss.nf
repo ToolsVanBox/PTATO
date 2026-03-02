@@ -7,7 +7,9 @@ process gridss {
   //container = 'docker://gridss/gridss:2.13.2'
   container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'docker://gridss/gridss:2.13.2':
-        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/gridss:2.13.2@sha256:3a0b53fb9c37891cf6429b24ca70fd77454fd3103966469b3c5124b55997453d' }"
+        params.artifact_registry_path + '/gridss:2.13.2' }"
+
+//        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/gridss:2.13.2@sha256:3a0b53fb9c37891cf6429b24ca70fd77454fd3103966469b3c5124b55997453d' }"
 //        'biocontainers/gridss:2.13.2--h270b39a_0' }"
         
   input:

@@ -8,7 +8,9 @@ process GetSampleName {
   //container = 'docker://broadinstitute/gatk:4.2.6.1'
   container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'docker://broadinstitute/gatk:4.2.6.1':
-        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/gatk4@sha256:f986665e53f97b2726d96a8fb78234afb8a2897582818660b7b84b65a973f5d2' }"
+        params.artifact_registry_path + '/gatk4:4.4.0.0--py36hdfd78af_0' }"
+
+//        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/gatk4@sha256:f986665e53f97b2726d96a8fb78234afb8a2897582818660b7b84b65a973f5d2' }"
            
   input:
     tuple( val(donor_id), val(sample_id), path(bam), path(bai) )

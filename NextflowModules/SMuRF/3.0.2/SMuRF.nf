@@ -10,7 +10,8 @@ process smurf {
     
   container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'docker://vanboxtelbioinformatics/smurf:3.0.4':
-        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/smurf@sha256:c1a0437a29792cf5ab7fda7c18efefe5bdee9dcc4e5cb77b56950c6ae54ca793' }"
+        params.artifact_registry_path + '/smurf:3.0.5' }"
+//        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/smurf@sha256:c1a0437a29792cf5ab7fda7c18efefe5bdee9dcc4e5cb77b56950c6ae54ca793' }"
 //        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/smurf@sha256:bbc5bd7d50ed3ebe3ed3a38c8cf89970b244628fe2f0950ea7cbbb27846594ea' }"
   
   input:

@@ -6,7 +6,8 @@ process walker {
   container = 'docker://vanboxtelbioinformatics/walker:2.2.0'
   container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'docker://vanboxtelbioinformatics/walker:2.2.0':
-        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/walker@sha256:002846d2e74e64295da3424f6fe851573e903d887f51c73f06bf54da33c08308' }"
+        params.artifact_registry_path + '/walker:2.2.1' }"
+//        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/walker@sha256:002846d2e74e64295da3424f6fe851573e903d887f51c73f06bf54da33c08308' }"
 //        'europe-west4-docker.pkg.dev/pmc-gcp-box-d-pip-development/pipeline-containers/walker@sha256:21b524c98bf879d0e7f5ae26c37b70f67f23c8179538994f2661a164e04d1151' }"
 
   input:
