@@ -1,4 +1,4 @@
-include { ESVEE } from '../moduleNextflowModuless/esvee/main.nf' params(params)
+include { ESVEE } from '../NextflowModules/esvee/main.nf' params(params)
 
 workflow get_esvee_vcfs {
     take:
