@@ -12,6 +12,8 @@ include { get_gridss_vcfs } from './svs/get_gridss_vcfs.nf' params(params)
 include { get_gripss_vcfs } from './svs/get_gripss_vcfs.nf' params(params)
 include { combine_cnvs_svs } from './svs/combine_cnvs_svs.nf' params(params)
 
+include { get_esvee_vcfs } from './svs/get_esvee_vcfs.nf' params(params)
+
 
 workflow svs {
   take:
@@ -66,6 +68,7 @@ workflow svs {
           }
       } else {
         get_gridss_vcfs( normal_bams, tumor_bams, genome_fasta, genome_fai, genome_dict  )
+        get_esvee_vcfs( normal_bams, tumor_bams, genome_fasta, genome_fai, genome_dict )
         gridss_unfiltered_vcfs = get_gridss_vcfs.out
       }
       get_gripss_vcfs( gridss_unfiltered_vcfs, genome_fasta, genome_fai, genome_dict )
